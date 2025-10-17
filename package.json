@@ -1,0 +1,11 @@
+{
+  "name": "news-uk-ai",
+  "private": true,
+  "type": "module",
+  "scripts": { "generate": "node scripts/generate.js" },
+  "dependencies": {
+    "openai": "^4.67.0",
+    "rss-parser": "^3.13.0",
+    "sanitize-html": "^2.13.0"
+  }
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>Today’s 2-Minute UK AI Brief</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A clean 2-minute UK AI news brief with sources, updated daily." />
+  <meta property="og:title" content="Today’s 2-Minute UK AI Brief" />
+  <meta property="og:description" content="Concise, source-linked daily summary focused on AI in the UK." />
+  <meta property="og:type" content="article" />
+  <style>
+    :root{--max:760px;--gap:16px;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;}
+    *{box-sizing:border-box}
+    body{margin:0;background:#0b0c10;color:#e5e7eb;display:flex;min-height:100svh;flex-direction:column}
+    main{max-width:var(--max);margin:auto;padding:32px}
+    .card{background:#111827;border:1px solid #1f2937;border-radius:16px;padding:24px;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+    h1{margin:.2rem 0 1rem;font-size:1.75rem}
+    h2{margin:1.25rem 0 .5rem;font-size:1.15rem}
+    ul{padding-left:1.2rem}
+    ul li{margin:.35rem 0}
+    a{color:#93c5fd;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .meta{opacity:.8;margin-top:12px;font-size:.9rem}
+    .sources a{display:inline-block;margin:.2rem 12px .2rem 0}
+    .tag{font-size:.75rem;padding:.2rem .5rem;border:1px solid #374151;border-radius:9999px;margin-right:8px;opacity:.9;display:inline-block}
+    .header{display:flex;align-items:baseline;gap:.75rem;flex-wrap:wrap}
+    .brand{font-weight:600;opacity:.9;font-size:.95rem}
+    .hr{height:1px;background:#1f2937;margin:1rem 0}
+    footer{opacity:.7;font-size:.85rem;margin-top:24px}
+    .tags-top{margin-top:.5rem}
+    nav{background:#111827;border-bottom:1px solid #1f2937;padding:0.75rem 1.5rem;text-align:center}
+    nav a{margin:0 1rem;font-weight:500}
+  </style>
+</head>
+<body>
+  <!-- 🔗 Navigation bar -->
+  <nav>
+    <a href="/">Home</a>
+    <a href="/archive.html">Archive</a>
+  </nav>
+
+  <main>
+    <article class="card" itemscope itemtype="https://schema.org/Article">
+      <header class="header">
+        <h1 itemprop="headline">Today’s 2-Minute UK AI Brief</h1>
+        <span class="brand">• focused on policy, research & industry</span>
+      </header>
+
+      <div class="meta">
+        Updated on <time itemprop="dateModified" datetime="{{ISO_DATE}}">{{HUMAN_DATE}}</time>
+      </div>
+
+      <div class="meta tags-top">
+        Tags: {{TAGS}}
+      </div>
+
+      <div class="hr"></div>
+
+      <p><strong>TL;DR:</strong> <span itemprop="description">{{ONE_LINER}}</span></p>
+
+      <h2>Why it matters</h2>
+      <ul>
+        {{WHY_IT_MATTERS_LIST}}
+      </ul>
+
+      <h2>Explainer</h2>
+      <div itemprop="articleBody">{{EXPLAINER_HTML}}</div>
+
+      <h2>Sources</h2>
+      <div class="sources" itemprop="mainEntityOfPage">
+        {{SOURCES_LINKS}}
+      </div>
+
+      <footer>
+        <div class="hr"></div>
+        <p>
+          This is an independently generated summary using publicly available RSS headlines/snippets and an LLM.
+          Facts are limited to linked sources. <a href="mailto:yourname@example.com?subject=UK%20AI%20Brief%20feedback">Report an issue</a>.
+        </p>
+      </footer>
+    </article>
+  </main>
+
+  <script>
+    // Guard: ensure external links are safe
+    document.querySelectorAll('a[target=\"_blank\"]').forEach(a=>{
+      a.rel = 'noopener noreferrer';
+    });
+  </script>
+</body>
+</html>
