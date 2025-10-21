@@ -1,6 +1,11 @@
 // scripts/generate.js
-// Generates public/index.html: a single daily-updated page summarising UK AI news,
-// with freshness filter (last 24h preferred) and a seen-items cache.
+// Generates:
+// - public/index.html (today's brief)
+// - public/archive/YYYY-MM-DD.html (dated snapshot)
+// - public/archive/index.html (archive listing)
+// - public/about.html (static explanation page)
+//
+// Also keeps a seen-items cache to avoid repeats and prefers fresh UK-centric items.
 
 import fs from "fs/promises";
 import path from "path";
@@ -19,26 +24,47 @@ const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
 
 const rss = new RSSParser({
   timeout: 15000,
-  headers: { "user-agent": "uk-ai-brief/1.1" },
+  headers: { "user-agent": "uk-ai-brief/1.2" },
 });
 
-// UK-centric feeds that publish summaries (safe for short-context summarising)
+// UK-centric feeds (balanced mix of gov/regulators/research + general tech)
 const FEEDS = [
+  // UK government & regulators
+  "https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology.atom",
+  "https://www.ncsc.gov.uk/api/1/services/v1/news-rss-feed.xml",
+  "https://ico.org.uk/rss/news/",
+  "https://www.gov.uk/government/organisations/competition-and-markets-authority.atom",
+  "https://www.ofcom.org.uk/about-ofcom/latest/rss",
+
+  // Research & funding
   "https://www.ukri.org/news/feed/",
+  "https://www.turing.ac.uk/rss.xml",
+
+  // UK/tech press with AI coverage
   "https://feeds.bbci.co.uk/news/technology/rss.xml",
-  // Reuters sometimes DNS-fails in your environment—keep but it's optional:
+  "https://www.theregister.com/headlines.atom",
+  "https://techcrunch.com/tag/ai/feed/",
+
+  // International catch-alls (keep UK angle in prompt; can be filtered by freshness)
   "https://feeds.reuters.com/reuters/technologyNews?format=xml",
 ];
 
-// Freshness and selection
-const FRESH_HOURS_PRIMARY = 24;  // try to stick to last 24h
-const FRESH_HOURS_FALLBACKS = [36, 48]; // widen window only if we lack items
-const MAX_ITEMS = 4;              // cap sources we feed to the model
-const MIN_DISTINCT_HOSTS = 2;     // prefer at least two different publishers
+// Freshness & selection
+const FRESH_HOURS_PRIMARY = 24;
+const FRESH_HOURS_FALLBACKS = [36, 48];
+const MAX_ITEMS = 6;              // up from 4
+const MIN_DISTINCT_HOSTS = 3;
 
-// Seen cache file (to avoid repeating yesterday’s link/topic)
-const STATE_DIR = path.join(process.cwd(), "data");
+// State & output
+const ROOT = process.cwd();
+const STATE_DIR = path.join(ROOT, "data");
 const STATE_PATH = path.join(STATE_DIR, "seen.json");
+const TPL_DIR = path.join(ROOT, "templates");
+const OUT_DIR = path.join(ROOT, "public");
+const INDEX_TEMPLATE = path.join(TPL_DIR, "index.template.html");
+const INDEX_OUT = path.join(OUT_DIR, "index.html");
+const ARCHIVE_DIR = path.join(OUT_DIR, "archive");
+const ABOUT_OUT = path.join(OUT_DIR, "about.html");
 
 // --- Helpers -----------------------------------------------------------------
 
@@ -46,10 +72,18 @@ function truncate(text = "", n = 600) {
   return text.length > n ? text.slice(0, n) + "…" : text;
 }
 
-function isoDateLondonToday() {
+function todayYMD() {
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${dd}`;
+}
+
+function isoAndHumanDate() {
   const now = new Date();
   return {
-    iso: now.toISOString(), // keep ISO in UTC for schema consumers
+    iso: now.toISOString(),
     human: now.toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" }),
   };
 }
@@ -59,16 +93,12 @@ function htmlEscape(s = "") {
 }
 
 function safeHostname(url) {
-  try {
-    return new URL(url).hostname.replace(/^www\./, "");
-  } catch {
-    return "";
-  }
+  try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return ""; }
 }
 
 function scoreUK(it) {
   const h = `${it.source} ${it.title} ${it.snippet}`.toLowerCase();
-  return /(^|\W)(uk|u\.k\.|united kingdom|britain|british|london|cma|ico|ncsc|dsit|ukri|ofcom|gov\.uk|govuk)(\W|$)/i.test(h) ? 1 : 0;
+  return /(^|\W)(uk|u\.k\.|united kingdom|britain|british|london|cma|ico|ncsc|dsit|ukri|ofcom|gov\.uk|govuk|turing institute)(\W|$)/i.test(h) ? 1 : 0;
 }
 
 function normalizeTitle(s = "") {
@@ -78,8 +108,7 @@ function normalizeTitle(s = "") {
 function isFresh(dateObj, maxHours) {
   if (!dateObj || isNaN(dateObj.getTime())) return false;
   const ageMs = Date.now() - dateObj.getTime();
-  const maxMs = maxHours * 60 * 60 * 1000;
-  return ageMs >= 0 && ageMs <= maxMs;
+  return ageMs >= 0 && ageMs <= maxHours * 3600 * 1000;
 }
 
 async function loadSeen() {
@@ -105,7 +134,7 @@ async function saveSeen(seen) {
   await fs.writeFile(STATE_PATH, JSON.stringify(payload, null, 2), "utf8");
 }
 
-// Pull up to MAX_ITEMS respecting freshness and “seen” cache.
+// Pull up to MAX_ITEMS respecting freshness and "seen".
 async function collectItemsWithFreshness(feeds, seen, maxHours) {
   const items = [];
 
@@ -116,14 +145,10 @@ async function collectItemsWithFreshness(feeds, seen, maxHours) {
         const link = it.link || it.guid;
         if (!link) continue;
 
-        // Try to parse date; rss-parser exposes isoDate when present
         const dateStr = it.isoDate || it.pubDate || it.pubdate || null;
         const publishedAt = dateStr ? new Date(dateStr) : null;
-
-        // Respect freshness window
         if (maxHours && !isFresh(publishedAt, maxHours)) continue;
 
-        // Skip repeats: link or very similar title
         const titleNorm = normalizeTitle(it.title || "");
         if (seen.links.has(link) || (titleNorm && seen.titles.has(titleNorm))) continue;
 
@@ -150,7 +175,7 @@ async function collectItemsWithFreshness(feeds, seen, maxHours) {
     }
   }
 
-  // Prefer UK-signals, then newer first
+  // Prefer UK signals, then newest first
   unique.sort((a, b) => {
     const ukDelta = scoreUK(b) - scoreUK(a);
     if (ukDelta !== 0) return ukDelta;
@@ -159,14 +184,13 @@ async function collectItemsWithFreshness(feeds, seen, maxHours) {
     return bt - at;
   });
 
-  // Balance distinct hosts if possible
+  // Spread across hosts to increase diversity
   const byHost = new Map();
   for (const it of unique) {
     if (!byHost.has(it.source)) byHost.set(it.source, []);
     byHost.get(it.source).push(it);
   }
   const picks = [];
-  // round-robin across hosts to try for diversity
   while (picks.length < MAX_ITEMS) {
     let added = false;
     for (const arr of byHost.values()) {
@@ -182,45 +206,49 @@ async function collectItemsWithFreshness(feeds, seen, maxHours) {
 }
 
 function buildPrompt(items) {
-  const sourcesBlock = items
-    .map(
-      (it, i) =>
-        `(${i + 1}) [${it.source}] ${it.title}\nURL: ${it.link}\nSnippet: ${truncate(it.snippet, 600)}`
-    )
-    .join("\n\n");
+  const sourcesBlock = items.map((it, i) =>
+    `(${i + 1}) [${it.source}] ${it.title}\nURL: ${it.link}\nSnippet: ${truncate(it.snippet, 600)}`
+  ).join("\n\n");
 
   return `You are a cautious news summariser.
 
 CONTEXT:
-We publish a daily 2-minute brief focused on **AI within the UK** — policy, regulators, public sector guidance, research funding, UK-based companies, and UK economic impact.
+We publish a daily 2-minute brief focused on **AI within the UK** — regulators (CMA, ICO, Ofcom, NCSC), DSIT/government, UKRI/universities, UK-headquartered firms, and UK implications of global AI news.
 
 INPUT SOURCES (RSS titles + snippets only):
 ${sourcesBlock}
 
 YOUR TASK:
 - Produce a concise, neutral daily brief **with a UK angle**.
-- Prefer content where the entity/event is UK-based (regulators like CMA, ICO, NCSC; government/DSIT; UKRI; universities; UK-headquartered firms), or where global AI news has clear UK implications.
 - Output sections in this exact format:
-1) ONE_SENTENCE: <a single, factual 1-sentence summary framed around the UK angle>
+1) ONE_SENTENCE: <a single factual sentence framed around the UK angle>
 2) WHY_IT_MATTERS:
-   - <bullet 1, concrete UK relevance>
+   - <bullet 1 with concrete UK relevance>
    - <bullet 2>
    - <bullet 3>
-3) EXPLAINER (200–300 words, plain English; cite the UK context if present)
+3) EXPLAINER (200–300 words, plain English; refer to UK if present)
 4) TAGS: comma-separated lowercase tags (3–5), e.g., "uk-policy, cma, research-funding"
 
 RULES:
 - Use ONLY facts supported by the provided snippets/titles; do not speculate.
-- Use concrete figures and named UK bodies when present; avoid generic claims.
-- If sources conflict, acknowledge uncertainty briefly.
+- Acknowledge uncertainty if sources conflict.
 - No quotes longer than 20 words.
 - No images.
 - End with nothing else.`;
 }
 
+// Robust parser even if model deviates
 function parseModelOutput(text) {
-  const oneMatch = text.match(/ONE_SENTENCE:\s*(.+)/i);
-  const oneLiner = (oneMatch && oneMatch[1] ? oneMatch[1] : "").trim();
+  const oneMatch = text.match(/ONE[_\s-]*SENTENCE:\s*(.+)/i);
+  let oneLiner = (oneMatch && oneMatch[1] ? oneMatch[1] : "").trim();
+  if (!oneLiner) {
+    // Fallback: first non-empty line that isn't a header
+    oneLiner = (text.split("\n").map(s => s.trim()).find(s => s && !/^(\d\)|why|explainer|tags|tl;dr)/i.test(s)) || "").trim();
+  }
+  // Normalise TL;DR style
+  if (/^tl;?dr[:\s-]/i.test(oneLiner)) {
+    oneLiner = oneLiner.replace(/^tl;?dr[:\s-]\s*/i, "");
+  }
 
   const bullets = Array.from(text.matchAll(/^\s*-\s+(.+)$/gmi))
     .map((m) => m[1].trim())
@@ -243,7 +271,6 @@ function toHtmlList(bullets) {
 }
 
 function toSourcesLinks(items) {
-  // Deduplicate by hostname + title pair
   const seen = new Set();
   const unique = [];
   for (const it of items) {
@@ -253,8 +280,7 @@ function toSourcesLinks(items) {
       unique.push(it);
     }
   }
-  // Limit to 3 and label by hostname
-  return unique.slice(0, 3).map(it => {
+  return unique.slice(0, 4).map(it => {
     const label = it.source || "source";
     const title = htmlEscape(truncate(it.title, 100));
     const href = htmlEscape(it.link);
@@ -262,16 +288,58 @@ function toSourcesLinks(items) {
   }).join(" ");
 }
 
+function renderAboutPage() {
+  const { human } = isoAndHumanDate();
+  return `<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>About · Today’s 2-Minute UK AI Brief</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body{font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;margin:0;background:#0b0c10;color:#e5e7eb}
+    main{max-width:760px;margin:48px auto;padding:0 16px}
+    a{color:#93c5fd}
+    h1{font-size:1.6rem;margin:0 0 12px}
+    p{margin:0 0 12px}
+    ul{padding-left:20px}
+    nav{margin-bottom:16px}
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="/">← Back to today</a> · <a href="/archive/">Archive</a></nav>
+    <h1>About this page</h1>
+    <p>This site publishes a concise, UK-focused daily brief on AI. It aggregates public RSS feeds (e.g., DSIT, NCSC, ICO, CMA, Ofcom, UKRI, BBC, The Register, Reuters) and asks an AI model to draft a short summary strictly from the feed titles/snippets.</p>
+    <ul>
+      <li><strong>Update cadence:</strong> daily (typically morning UK time).</li>
+      <li><strong>Scope:</strong> UK policy, regulators, public sector guidance, research funding, UK companies; plus global AI news with clear UK implications.</li>
+      <li><strong>Limitations:</strong> We avoid speculation and keep to information present in sources. If items conflict, we note uncertainty.</li>
+      <li><strong>Attribution:</strong> Source links appear on the page; click to read originals.</li>
+      <li><strong>Privacy:</strong> No tracking; static HTML.</li>
+    </ul>
+    <p style="opacity:.7">Last generated: ${human}</p>
+  </main>
+</body>
+</html>`;
+}
+
+async function writeFileAtomic(filePath, content) {
+  await fs.mkdir(path.dirname(filePath), { recursive: true });
+  const tmp = filePath + ".tmp";
+  await fs.writeFile(tmp, content, "utf8");
+  await fs.rename(tmp, filePath);
+}
+
 // --- Main --------------------------------------------------------------------
 
 async function main() {
   const seen = await loadSeen();
 
-  // Try 24h; widen only if needed
+  // Collect items with freshness, widening if needed
   let items = await collectItemsWithFreshness(FEEDS, seen, FRESH_HOURS_PRIMARY);
   let freshnessUsed = FRESH_HOURS_PRIMARY;
 
-  // Ensure at least MIN_DISTINCT_HOSTS if possible
   const distinct = new Set(items.map(i => i.source));
   if (items.length < 3 || distinct.size < MIN_DISTINCT_HOSTS) {
     for (const h of FRESH_HOURS_FALLBACKS) {
@@ -289,10 +357,9 @@ async function main() {
     throw new Error("No fresh sources found. Try expanding feeds or widening the window.");
   }
 
-  // Cap to MAX_ITEMS
   items = items.slice(0, MAX_ITEMS);
 
-  // Build prompt and call model
+  // Build prompt & call model
   const prompt = buildPrompt(items);
   const resp = await openai.chat.completions.create({
     model: "gpt-4o-mini",
@@ -308,40 +375,35 @@ async function main() {
 
   const { oneLiner, bullets, explainer, tags } = parseModelOutput(raw);
 
-  // Sanitize explainer (allow minimal formatting if model adds any)
-  // Also, if we widened beyond 24h, append a subtle note.
+  // Sanitize explainer & append note if window > 24h
   let explainerText = explainer;
   if (freshnessUsed > FRESH_HOURS_PRIMARY) {
     explainerText += `\n\n_(Note: One or more sources may be older than ${FRESH_HOURS_PRIMARY} hours due to limited fresh coverage.)_`;
   }
-
   const explainerHtml = sanitizeHtml(explainerText, {
     allowedTags: ["p", "em", "strong", "ul", "ol", "li", "a", "br"],
     allowedAttributes: { a: ["href", "title", "target", "rel"] },
     allowedSchemes: ["http", "https", "mailto"],
   });
 
-  const templatePath = path.join(process.cwd(), "templates", "index.template.html");
-  const outPath = path.join(process.cwd(), "public", "index.html");
-  const tpl = await fs.readFile(templatePath, "utf8");
+  const tpl = await fs.readFile(INDEX_TEMPLATE, "utf8");
+  const { iso, human } = isoAndHumanDate();
 
-  const { iso, human } = isoDateLondonToday();
+  // Normalised TL;DR line
+  const TLDR = `TL;DR — ${htmlEscape(oneLiner)}`;
+
   const html = tpl
     .replace("{{ISO_DATE}}", iso)
     .replace("{{HUMAN_DATE}}", human)
-    .replace("{{ONE_LINER}}", htmlEscape(oneLiner))
+    .replace("{{ONE_LINER}}", TLDR)
     .replace("{{WHY_IT_MATTERS_LIST}}", toHtmlList(bullets))
     .replace("{{EXPLAINER_HTML}}", explainerHtml)
     .replace("{{SOURCES_LINKS}}", toSourcesLinks(items))
-    .replace(
-      "{{TAGS}}",
-      tags.map((t) => `<span class="tag">${htmlEscape(t)}</span>`).join(" ")
-    );
+    .replace("{{TAGS}}", tags.map((t) => `<span class="tag">${htmlEscape(t)}</span>`).join(" "));
 
-  await fs.mkdir(path.dirname(outPath), { recursive: true });
-  await fs.writeFile(outPath, html, "utf8");
+  await writeFileAtomic(INDEX_OUT, html);
 
-  // Update seen cache with what we actually used today
+  // Update seen cache
   for (const it of items) {
     seen.links.add(it.link);
     const t = normalizeTitle(it.title || "");
@@ -349,7 +411,50 @@ async function main() {
   }
   await saveSeen(seen);
 
-  console.log(`Generated public/index.html (freshness: <=${freshnessUsed}h, hosts: ${Array.from(new Set(items.map(i=>i.source))).join(", ")})`);
+  // --- Archive: save dated copy & rebuild archive index ----------------------
+  const ymd = todayYMD();
+  const dailyPath = path.join(ARCHIVE_DIR, `${ymd}.html`);
+  await writeFileAtomic(dailyPath, html);
+
+  // Rebuild archive index (simple list, newest first)
+  const files = await fs.readdir(ARCHIVE_DIR).catch(() => []);
+  const dated = files.filter(f => /^\d{4}-\d{2}-\d{2}\.html$/.test(f)).sort().reverse();
+
+  const archiveIndex = `<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>Archive · Today’s 2-Minute UK AI Brief</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body{font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;margin:0;background:#0b0c10;color:#e5e7eb}
+    main{max-width:760px;margin:48px auto;padding:0 16px}
+    a{color:#93c5fd}
+    h1{font-size:1.6rem;margin:0 0 12px}
+    ul{padding-left:20px}
+    nav{margin-bottom:16px}
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="/">← Back to today</a> · <a href="/about.html">About</a></nav>
+    <h1>Archive</h1>
+    <ul>
+      ${dated.map(f => {
+        const label = f.replace(".html",""); // YYYY-MM-DD
+        return `<li><a href="/archive/${f}">${label}</a></li>`;
+      }).join("\n")}
+    </ul>
+  </main>
+</body>
+</html>`;
+  await writeFileAtomic(path.join(ARCHIVE_DIR, "index.html"), archiveIndex);
+
+  // --- About page ------------------------------------------------------------
+  const aboutHtml = renderAboutPage();
+  await writeFileAtomic(ABOUT_OUT, aboutHtml);
+
+  console.log(`Generated index + archive (${ymd}) + about (freshness <=${freshnessUsed}h; hosts: ${Array.from(new Set(items.map(i=>i.source))).join(", ")})`);
 }
 
 main().catch((err) => {

@@ -4,59 +4,127 @@
   <meta charset="utf-8" />
   <title>Today’s 2-Minute UK AI Brief</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="A clean 2-minute UK AI news brief with sources, updated daily." />
+  <meta name="description" content="A concise, UK-focused daily brief on AI — updated once a day with links to original sources." />
   <meta property="og:title" content="Today’s 2-Minute UK AI Brief" />
-  <meta property="og:description" content="Concise, source-linked daily summary focused on AI in the UK." />
-  <meta property="og:type" content="article" />
+  <meta property="og:description" content="A clean, UK-centric AI news summary with sources, updated daily." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="dark light" />
   <style>
-    :root{--max:760px;--gap:16px;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;}
+    :root{
+      --bg:#0b0c10;
+      --fg:#e5e7eb;
+      --muted:#a0a6b0;
+      --card:#111218;
+      --link:#93c5fd;
+      --accent:#60a5fa;
+      --border:#1f2430;
+      --tag-bg:#111827;
+      --tag-fg:#cbd5e1;
+      --max:760px;
+      --gap:16px;
+    }
     *{box-sizing:border-box}
-    body{margin:0;background:#0b0c10;color:#e5e7eb;display:flex;min-height:100svh;flex-direction:column}
-    main{max-width:var(--max);margin:auto;padding:32px}
-    .card{background:#111827;border:1px solid #1f2937;border-radius:16px;padding:24px;box-shadow:0 6px 24px rgba(0,0,0,.25)}
-    h1{margin:.2rem 0 1rem;font-size:1.75rem}
-    h2{margin:1.25rem 0 .5rem;font-size:1.15rem}
-    ul{padding-left:1.2rem}
-    ul li{margin:.35rem 0}
-    a{color:#93c5fd;text-decoration:none}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    main{max-width:var(--max); margin:48px auto; padding:0 var(--gap)}
+    a{color:var(--link); text-decoration:none}
     a:hover{text-decoration:underline}
-    .meta{opacity:.8;margin-top:12px;font-size:.9rem}
-    .sources a{display:inline-block;margin:.2rem 12px .2rem 0}
-    .tag{font-size:.75rem;padding:.2rem .5rem;border:1px solid #374151;border-radius:9999px;margin-right:8px;opacity:.9;display:inline-block}
-    .header{display:flex;align-items:baseline;gap:.75rem;flex-wrap:wrap}
-    .brand{font-weight:600;opacity:.9;font-size:.95rem}
-    .hr{height:1px;background:#1f2937;margin:1rem 0}
-    footer{opacity:.7;font-size:.85rem;margin-top:24px}
-    .tags-top{margin-top:.5rem}
-    nav{background:#111827;border-bottom:1px solid #1f2937;padding:0.75rem 1.5rem;text-align:center}
-    nav a{margin:0 1rem;font-weight:500}
+
+    nav.top{
+      display:flex; gap:12px; align-items:center; margin-bottom:12px; font-size:.95rem;
+    }
+    nav.top a{opacity:.9}
+    nav.top .dot{opacity:.5}
+
+    header h1{font-size:1.8rem; margin:6px 0 4px}
+    .date{margin:0 0 18px; color:var(--muted); font-size:.95rem}
+    .date[title]{cursor:help}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      margin:16px 0 22px;
+    }
+
+    .tldr{
+      font-size:1.05rem;
+      background:linear-gradient(0deg, rgba(96,165,250,.08), rgba(96,165,250,.08));
+      border-left:3px solid var(--accent);
+      padding:12px 12px 12px 14px;
+      border-radius:10px;
+      margin:8px 0 18px;
+    }
+
+    h2{
+      font-size:1.1rem;
+      letter-spacing:.2px;
+      margin:18px 0 10px;
+    }
+
+    ul{margin:0; padding-left:22px}
+    li{margin:6px 0}
+
+    .explainer p{margin:0 0 10px}
+    .explainer a{word-break:break-word}
+
+    .sources{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .sources a{color:var(--link); margin-right:10px}
+
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      display:inline-block;
+      background:var(--tag-bg);
+      color:var(--tag-fg);
+      border:1px solid var(--border);
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.85rem;
+      letter-spacing:.2px;
+    }
+
+    footer{
+      max-width:var(--max);
+      margin:24px auto 48px;
+      padding:0 var(--gap);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    .foot-line{border-top:1px solid var(--border); margin:16px 0; opacity:.7}
+
+    @media (max-width:520px){
+      header h1{font-size:1.5rem}
+    }
   </style>
 </head>
 <body>
-  <!-- 🔗 Navigation bar -->
-  <nav>
-    <a href="/">Home</a>
-    <a href="/archive.html">Archive</a>
-  </nav>
-
   <main>
-    <article class="card" itemscope itemtype="https://schema.org/Article">
-      <header class="header">
-        <h1 itemprop="headline">Today’s 2-Minute UK AI Brief</h1>
-        <span class="brand">• focused on policy, research & industry</span>
-      </header>
+    <nav class="top" aria-label="Site">
+      <a href="/archive/">Archive</a>
+      <span class="dot">·</span>
+      <a href="/about.html">About</a>
+    </nav>
 
-      <div class="meta">
-        Updated on <time itemprop="dateModified" datetime="{{ISO_DATE}}">{{HUMAN_DATE}}</time>
-      </div>
+    <header>
+      <h1>Today’s 2-Minute UK AI Brief</h1>
+      <p class="date" title="{{ISO_DATE}}">{{HUMAN_DATE}}</p>
+    </header>
 
-      <div class="meta tags-top">
-        Tags: {{TAGS}}
-      </div>
-
-      <div class="hr"></div>
-
-      <p><strong>TL;DR:</strong> <span itemprop="description">{{ONE_LINER}}</span></p>
+    <section class="card">
+      <p class="tldr">{{ONE_LINER}}</p>
 
       <h2>Why it matters</h2>
       <ul>
@@ -64,28 +132,21 @@
       </ul>
 
       <h2>Explainer</h2>
-      <div itemprop="articleBody">{{EXPLAINER_HTML}}</div>
-
-      <h2>Sources</h2>
-      <div class="sources" itemprop="mainEntityOfPage">
-        {{SOURCES_LINKS}}
+      <div class="explainer">
+        {{EXPLAINER_HTML}}
       </div>
 
-      <footer>
-        <div class="hr"></div>
-        <p>
-          This is an independently generated summary using publicly available RSS headlines/snippets and an LLM.
-          Facts are limited to linked sources. <a href="mailto:yourname@example.com?subject=UK%20AI%20Brief%20feedback">Report an issue</a>.
-        </p>
-      </footer>
-    </article>
+      <p class="sources">Sources: {{SOURCES_LINKS}}</p>
+
+      <div class="tags" aria-label="Tags">
+        {{TAGS}}
+      </div>
+    </section>
   </main>
 
-  <script>
-    // Guard: ensure external links are safe
-    document.querySelectorAll('a[target=\"_blank\"]').forEach(a=>{
-      a.rel = 'noopener noreferrer';
-    });
-  </script>
+  <footer>
+    <div class="foot-line"></div>
+    <p>UK-focused, neutral summaries from public RSS feeds. No tracking. Static HTML.</p>
+  </footer>
 </body>
 </html>
