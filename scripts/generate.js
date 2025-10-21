@@ -5,19 +5,41 @@
 // - public/archive/index.html (archive listing)
 // - public/about.html (static explanation page)
 //
-// Also keeps a seen-items cache to avoid repeats and prefers fresh UK-centric items.
+// Keeps a seen-items cache to avoid repeats and prefers fresh UK-centric items.
+// Adds IPv4-first DNS, disables keep-alive to prevent lingering sockets, and
+// timestamps all logs. Exits cleanly when done.
 
 import fs from "fs/promises";
 import path from "path";
+import http from "http";
+import https from "https";
+import dns from "dns";
 import RSSParser from "rss-parser";
 import sanitizeHtml from "sanitize-html";
 import OpenAI from "openai";
+
+// --- Runtime hardening & logging --------------------------------------------
+
+// Prefer IPv4 for DNS (reduces ENOTFOUND on some hosts)
+dns.setDefaultResultOrder?.("ipv4first");
+
+// Disable global keep-alive so sockets don't hold the event loop open
+http.globalAgent.keepAlive = false;
+https.globalAgent.keepAlive = false;
+
+// Agent used by rss-parser (no keep-alive; IPv4)
+const httpsNoKeepAliveV4 = new https.Agent({ keepAlive: false, family: 4 });
+
+function ts() { return new Date().toISOString(); }
+const log = (...args) => console.log(`[${ts()}]`, ...args);
+const logWarn = (...args) => console.warn(`[${ts()}]`, ...args);
+const logError = (...args) => console.error(`[${ts()}]`, ...args);
 
 // --- Config ------------------------------------------------------------------
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 if (!OPENAI_API_KEY) {
-  console.error("Missing OPENAI_API_KEY (export it or set in CI secrets)");
+  logError("Missing OPENAI_API_KEY (export it or set in CI secrets)");
   process.exit(1);
 }
 const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
@@ -25,6 +47,7 @@ const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
 const rss = new RSSParser({
   timeout: 15000,
   headers: { "user-agent": "uk-ai-brief/1.2" },
+  requestOptions: { agent: httpsNoKeepAliveV4 },
 });
 
 // UK-centric feeds (balanced mix of gov/regulators/research + general tech)
@@ -32,27 +55,27 @@ const FEEDS = [
   // UK government & regulators
   "https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology.atom",
   "https://www.ncsc.gov.uk/api/1/services/v1/news-rss-feed.xml",
-  "https://ico.org.uk/rss/news/",
+  // (ICO/Ofcom legacy feeds removed due to 404s)
   "https://www.gov.uk/government/organisations/competition-and-markets-authority.atom",
-  "https://www.ofcom.org.uk/about-ofcom/latest/rss",
 
   // Research & funding
   "https://www.ukri.org/news/feed/",
-  "https://www.turing.ac.uk/rss.xml",
+  // (Turing RSS blocked w/403; omit)
+  // "https://www.turing.ac.uk/rss.xml",
 
   // UK/tech press with AI coverage
   "https://feeds.bbci.co.uk/news/technology/rss.xml",
   "https://www.theregister.com/headlines.atom",
-  "https://techcrunch.com/tag/ai/feed/",
-
-  // International catch-alls (keep UK angle in prompt; can be filtered by freshness)
+  "https://news.sky.com/feeds/rss/technology.xml",
+  "https://www.theguardian.com/uk/technology/rss",
+  // International catch-all (DNS can be flaky but useful)
   "https://feeds.reuters.com/reuters/technologyNews?format=xml",
 ];
 
 // Freshness & selection
 const FRESH_HOURS_PRIMARY = 24;
 const FRESH_HOURS_FALLBACKS = [36, 48];
-const MAX_ITEMS = 6;              // up from 4
+const MAX_ITEMS = 6;
 const MIN_DISTINCT_HOSTS = 3;
 
 // State & output
@@ -161,7 +184,7 @@ async function collectItemsWithFreshness(feeds, seen, maxHours) {
         });
       }
     } catch (e) {
-      console.warn("RSS error:", url, e.message);
+      logWarn("RSS error:", url, e.message);
     }
   }
 
@@ -310,7 +333,7 @@ function renderAboutPage() {
   <main>
     <nav><a href="/">← Back to today</a> · <a href="/archive/">Archive</a></nav>
     <h1>About this page</h1>
-    <p>This site publishes a concise, UK-focused daily brief on AI. It aggregates public RSS feeds (e.g., DSIT, NCSC, ICO, CMA, Ofcom, UKRI, BBC, The Register, Reuters) and asks an AI model to draft a short summary strictly from the feed titles/snippets.</p>
+    <p>This site publishes a concise, UK-focused daily brief on AI. It aggregates public RSS feeds (e.g., DSIT, NCSC, ICO, CMA, UKRI, BBC, The Register, Reuters) and asks an AI model to draft a short summary strictly from the feed titles/snippets.</p>
     <ul>
       <li><strong>Update cadence:</strong> daily (typically morning UK time).</li>
       <li><strong>Scope:</strong> UK policy, regulators, public sector guidance, research funding, UK companies; plus global AI news with clear UK implications.</li>
@@ -334,6 +357,8 @@ async function writeFileAtomic(filePath, content) {
 // --- Main --------------------------------------------------------------------
 
 async function main() {
+  log("Start generate");
+
   const seen = await loadSeen();
 
   // Collect items with freshness, widening if needed
@@ -361,6 +386,7 @@ async function main() {
 
   // Build prompt & call model
   const prompt = buildPrompt(items);
+  log("Calling OpenAI with", items.length, "items");
   const resp = await openai.chat.completions.create({
     model: "gpt-4o-mini",
     temperature: 0.4,
@@ -389,9 +415,7 @@ async function main() {
   const tpl = await fs.readFile(INDEX_TEMPLATE, "utf8");
   const { iso, human } = isoAndHumanDate();
 
-  // Normalised TL;DR line
   const TLDR = `TL;DR — ${htmlEscape(oneLiner)}`;
-
   const html = tpl
     .replace("{{ISO_DATE}}", iso)
     .replace("{{HUMAN_DATE}}", human)
@@ -411,12 +435,11 @@ async function main() {
   }
   await saveSeen(seen);
 
-  // --- Archive: save dated copy & rebuild archive index ----------------------
+  // Archive + index
   const ymd = todayYMD();
   const dailyPath = path.join(ARCHIVE_DIR, `${ymd}.html`);
   await writeFileAtomic(dailyPath, html);
 
-  // Rebuild archive index (simple list, newest first)
   const files = await fs.readdir(ARCHIVE_DIR).catch(() => []);
   const dated = files.filter(f => /^\d{4}-\d{2}-\d{2}\.html$/.test(f)).sort().reverse();
 
@@ -450,14 +473,22 @@ async function main() {
 </html>`;
   await writeFileAtomic(path.join(ARCHIVE_DIR, "index.html"), archiveIndex);
 
-  // --- About page ------------------------------------------------------------
+  // About
   const aboutHtml = renderAboutPage();
   await writeFileAtomic(ABOUT_OUT, aboutHtml);
 
-  console.log(`Generated index + archive (${ymd}) + about (freshness <=${freshnessUsed}h; hosts: ${Array.from(new Set(items.map(i=>i.source))).join(", ")})`);
+  log(
+    `Generated index + archive (${ymd}) + about (freshness <=${freshnessUsed}h; hosts: ${Array.from(new Set(items.map(i=>i.source))).join(", ")})`
+  );
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+// Clean exit to avoid lingering handles
+main()
+  .then(() => {
+    log("Done; exiting cleanly.");
+    process.exit(0);
+  })
+  .catch((err) => {
+    logError(err);
+    process.exit(1);
+  });
