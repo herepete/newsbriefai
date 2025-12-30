@@ -1,0 +1,14 @@
+{
+  "generated_at": "2025-12-30T12:05:08.664724Z",
+  "weights": {
+    "run_success": 12.0,
+    "tab_completion": 12.0,
+    "rss_errors": 10.0,
+    "freshness_penalty": 6.0,
+    "ai_strict_rate": 25.0,
+    "off_topic_penalty": 15.0,
+    "duplication_penalty": 10.0,
+    "host_diversity": 10.0
+  },
+  "rows": []
+}

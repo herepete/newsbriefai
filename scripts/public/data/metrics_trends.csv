@@ -1,0 +1,1 @@
+date,score,score_7d,score_30d,runSuccess,tabsTotal,thinTabs,thinTabs_7d,noUpdateTabs,noUpdateTabs_7d,rssErrors,rssErrors_7d,pickedTotal,aiStrictCount,aiStrictRate,aiStrictRate_7d,offTopicCount,offTopicRate,dupCount,dupRate,hostCount,freshnessPenaltyNorm,pts_run,pts_tabs,pts_rss,pts_freshness,pts_ai_strict,pts_off_topic,pts_dup,pts_hosts

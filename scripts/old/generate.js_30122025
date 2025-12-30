@@ -1,20 +1,21 @@
 // scripts/generate.js
-// Full generator (ESM) with metrics patch integrated.
-// Outputs:
-// - public/index.html
-// - public/archive/YYYY-MM-DD.html
-// - public/archive/index.html
-// - public/about.html
-// - public/changelog.html (from data/changelog.json)
-// - public/data/tabs.json
-// - public/data/metrics/metrics-YYYY-MM-DD.json + public/data/metrics-latest.json (via MetricsCollector)
+// Generates:
+// - public/index.html (today's brief with tabs; defaults to UK tab)
+// - public/archive/YYYY-MM-DD.html (dated snapshot)
+// - public/archive/index.html (archive listing)
+// - public/about.html (static explanation page)
+// - public/changelog.html (static change history page from data/changelog.json)
+// - public/data/tabs.json (structured outputs for future use)
 //
-// Notes:
-// - Uses primary + secondary feed pools
-// - Widen freshness window only when needed (24h -> 36h -> 48h)
-// - Cross-tab de-dupe (priority: Security → Ethics → Global → UK → Business → Work)
-// - JSON structured logs
-// - MetricsCollector API wiring FIXED: recordTabSummary now receives picked[] items
+// Keeps per-tab seen-items caches to avoid repeats.
+// Uses primary + secondary feed pools (secondary used only if needed).
+// If secondary feeds are used, the page shows a small note.
+// Also de-dupes stories across tabs (priority order: Security → Ethics → Global → UK → Business → Work).
+//
+// Runtime hardening:
+// - IPv4-first DNS
+// - disables keep-alive to prevent lingering sockets
+// - structured logging to generate.log
 
 import fs from "fs/promises";
 import path from "path";
@@ -24,12 +25,6 @@ import dns from "dns";
 import RSSParser from "rss-parser";
 import sanitizeHtml from "sanitize-html";
 import OpenAI from "openai";
-import { fileURLToPath } from "url";
-import { createRequire } from "module";
-
-// ---- MetricsCollector (CommonJS .cjs) ---------------------------------------
-const require = createRequire(import.meta.url);
-const { MetricsCollector } = require("./metricsCollector.cjs");
 
 // --- Runtime hardening & logging --------------------------------------------
 
@@ -72,7 +67,7 @@ const rss = new RSSParser({
   requestOptions: { agent: httpsNoKeepAliveV4 },
 });
 
-// Freshness & selection
+// Freshness & selection (kept from your approach)
 const FRESH_HOURS_PRIMARY = 24;
 const FRESH_HOURS_FALLBACKS = [36, 48];
 const MAX_ITEMS = 6;
@@ -82,10 +77,8 @@ const MIN_DISTINCT_HOSTS = 3;
 const SITE_TITLE = "Today’s 2-Minute AI Brief";
 const ONE_LINER_PREFIX = "In brief — ";
 
-// Paths (repo-root safe, independent of cwd)
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const ROOT = path.resolve(__dirname, ".."); // repo root (one level above /scripts)
+// State & output paths
+const ROOT = process.cwd();
 const STATE_DIR = path.join(ROOT, "data");
 const TPL_DIR = path.join(ROOT, "templates");
 const OUT_DIR = path.join(ROOT, "public");
@@ -98,7 +91,7 @@ const CHANGELOG_OUT = path.join(OUT_DIR, "changelog.html");
 const DATA_OUT_DIR = path.join(OUT_DIR, "data");
 const TABS_JSON_OUT = path.join(DATA_OUT_DIR, "tabs.json");
 
-// Seen caches
+// Seen caches (keep existing seen.json for UK)
 const SEEN_PATHS = {
   uk: path.join(STATE_DIR, "seen.json"),
   business: path.join(STATE_DIR, "seen.business.json"),
@@ -112,7 +105,9 @@ const SEEN_PATHS = {
 const CHANGELOG_JSON = path.join(STATE_DIR, "changelog.json");
 
 // --- Feed groups -------------------------------------------------------------
+// Primary feeds are “high signal”. Secondary feeds are used only if needed.
 
+// UK (Primary = UK public sector/regulators + UK AI-ish blogs; Secondary = broad UK tech)
 const FEEDS_UK_PRIMARY = [
   "https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology.atom",
   "https://www.gov.uk/government/organisations/competition-and-markets-authority.atom",
@@ -128,6 +123,7 @@ const FEEDS_UK_SECONDARY = [
   "https://www.theguardian.com/uk/technology/rss",
 ];
 
+// AI & Business
 const FEEDS_BUSINESS_PRIMARY = [
   "https://www.zdnet.com/topic/artificial-intelligence/rss.xml",
   "https://www.infoworld.com/category/artificial-intelligence/index.rss",
@@ -140,7 +136,9 @@ const FEEDS_BUSINESS_SECONDARY = [
   "https://www.engadget.com/rss.xml",
 ];
 
+// AI & Work
 const FEEDS_WORK_PRIMARY = [
+  // NOTE: Workspace Updates sometimes triggers http link parsing issues; keep it in secondary.
   "https://www.theverge.com/rss/index.xml",
   "https://www.engadget.com/rss.xml",
 ];
@@ -151,6 +149,7 @@ const FEEDS_WORK_SECONDARY = [
   "https://www.theguardian.com/technology/rss",
 ];
 
+// Global AI (Primary = arXiv + major tech press; Secondary = broader tech press)
 const FEEDS_GLOBAL_PRIMARY = [
   "https://export.arxiv.org/rss/cs.AI",
   "https://export.arxiv.org/rss/cs.LG",
@@ -164,6 +163,7 @@ const FEEDS_GLOBAL_SECONDARY = [
   "https://www.theguardian.com/technology/rss",
 ];
 
+// AI Security
 const FEEDS_SECURITY_PRIMARY = [
   "https://www.ncsc.gov.uk/api/1/services/v1/news-rss-feed.xml",
   "https://www.ncsc.gov.uk/api/1/services/v1/all-rss-feed.xml",
@@ -175,6 +175,7 @@ const FEEDS_SECURITY_SECONDARY = [
   "https://feeds.bbci.co.uk/news/technology/rss.xml",
 ];
 
+// Ethics & Policy
 const FEEDS_ETHICS_PRIMARY = [
   "https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology.atom",
   "https://www.gov.uk/government/organisations/competition-and-markets-authority.atom",
@@ -186,7 +187,9 @@ const FEEDS_ETHICS_SECONDARY = [
   "https://www.technologyreview.com/feed/",
 ];
 
+// Tab metadata (UI + prompt intent)
 const TABS = [
+  // Priority order for cross-tab de-dupe
   { key: "security", label: "AI Security", primary: FEEDS_SECURITY_PRIMARY, secondary: FEEDS_SECURITY_SECONDARY },
   { key: "ethics", label: "Ethics & Policy", primary: FEEDS_ETHICS_PRIMARY, secondary: FEEDS_ETHICS_SECONDARY },
   { key: "global", label: "Global AI", primary: FEEDS_GLOBAL_PRIMARY, secondary: FEEDS_GLOBAL_SECONDARY },
@@ -255,27 +258,11 @@ function ageHours(dateObj) {
   return Math.round(((Date.now() - dateObj.getTime()) / 3600000) * 10) / 10;
 }
 
-// AI Loose / Strict + Off-topic (already present in your logs)
-const AI_LOOSE_RE =
-  /(ai|artificial intelligence|machine learning|ml|llm|large language|chatgpt|openai|anthropic|gemini|copilot|deepmind|model|inference|fine[-\s]?tune|prompt|agentic|agents|safety|alignment|hallucinat|dataset|training|neural|generative|diffusion)/i;
-
-const AI_STRICT_RE =
-  /(artificial intelligence|\bai\b|machine learning|\bml\b|\bllm\b|large language model|openai|chatgpt|gpt-?4|gpt-?5|anthropic|claude|gemini|copilot|deepmind|llama|mistral|transformer|diffusion|inference|fine[-\s]?tuning|prompt injection|agentic|ai safety|alignment|arxiv)/i;
-
-const OFFTOPIC_RE =
-  /(gift guide|gift|deal|discount|sale|percent off|best (of|for)|review|tested|hands-on|buy now|price drop|shopping|to keep you toasty|which .* should you buy|top \d+|smartphone|laptop|headphones|video game|gaming)/i;
-
-function aiLoose(it) {
-  const h = `${it.source} ${it.title} ${it.snippet}`.toLowerCase();
-  return AI_LOOSE_RE.test(h);
-}
-function aiStrict(it) {
-  const h = `${it.source} ${it.title} ${it.snippet}`.toLowerCase();
-  return AI_STRICT_RE.test(h);
-}
-function offTopic(it) {
-  const h = `${it.source} ${it.title} ${it.snippet}`.toLowerCase();
-  return OFFTOPIC_RE.test(h);
+// A “loose but useful” AI relevance check.
+// Used only when a tab is otherwise empty — it can be relaxed.
+function isAIish(item) {
+  const h = `${item.source} ${item.title} ${item.snippet}`.toLowerCase();
+  return /(ai|artificial intelligence|machine learning|ml|llm|large language|chatgpt|openai|anthropic|gemini|copilot|deepmind|model|inference|fine[-\s]?tune|prompt|agentic|agents|safety|alignment|hallucinat|dataset|training|neural|generative|diffusion)/i.test(h);
 }
 
 // Scoring nudges (light touch)
@@ -346,7 +333,7 @@ async function writeFileAtomic(filePath, content) {
   await fs.rename(tmp, filePath);
 }
 
-// Feed error aggregation
+// Feed error aggregation for end-of-run summary
 const FEED_ERROR_COUNTS = new Map(); // url -> {count, lastMessage}
 function noteFeedError(url, message) {
   const cur = FEED_ERROR_COUNTS.get(url) || { count: 0, lastMessage: "" };
@@ -355,48 +342,8 @@ function noteFeedError(url, message) {
   FEED_ERROR_COUNTS.set(url, cur);
 }
 
-function makeCrossTabKey(item) {
-  try {
-    const u = new URL(item.link);
-    const host = u.hostname.replace(/^www\./, "");
-    const pathPart = (u.pathname || "").replace(/\/+$/, "");
-    return `${host}${pathPart}`.toLowerCase();
-  } catch {
-    return `title:${normalizeKey(item.title)}`;
-  }
-}
-
-function sanitizeExplainer(explainerText) {
-  return sanitizeHtml(explainerText, {
-    allowedTags: ["p", "em", "strong", "ul", "ol", "li", "a", "br"],
-    allowedAttributes: { a: ["href", "title", "target", "rel"] },
-    allowedSchemes: ["http", "https", "mailto"],
-  });
-}
-
-function spreadAcrossHosts(items, maxItems) {
-  const byHost = new Map();
-  for (const it of items) {
-    if (!byHost.has(it.source)) byHost.set(it.source, []);
-    byHost.get(it.source).push(it);
-  }
-  const picks = [];
-  while (picks.length < maxItems) {
-    let added = false;
-    for (const arr of byHost.values()) {
-      if (arr.length && picks.length < maxItems) {
-        picks.push(arr.shift());
-        added = true;
-      }
-    }
-    if (!added) break;
-  }
-  return picks;
-}
-
-// --- Candidate collection ----------------------------------------------------
-
-async function collectCandidates({ feeds, seen, maxHours, tabKey, metrics }) {
+// Pull items from feeds (with seen + freshness); returns raw candidates (not yet picked)
+async function collectCandidates({ feeds, seen, maxHours, tabKey }) {
   const candidates = [];
   const scoreFn = scoreForTab(tabKey);
 
@@ -420,19 +367,21 @@ async function collectCandidates({ feeds, seen, maxHours, tabKey, metrics }) {
           .replace(/\s+/g, " ")
           .trim();
 
-        const item = { title, link, source, snippet, publishedAt };
+        const item = {
+          title,
+          link,
+          source,
+          snippet,
+          publishedAt,
+        };
         item._score = scoreFn ? scoreFn(item) : 0;
-        item._aiLoose = aiLoose(item);
-        item._aiStrict = aiStrict(item);
-        item._offTopic = offTopic(item);
-
+        item._aiish = isAIish(item);
         candidates.push(item);
       }
     } catch (e) {
       const msg = e?.message || String(e);
       jlog("warn", "rss_error", { tab: tabKey, url, message: msg });
       noteFeedError(url, msg);
-      metrics?.recordRssError?.(); // important: count for scoring
     }
   }
 
@@ -458,45 +407,44 @@ async function collectCandidates({ feeds, seen, maxHours, tabKey, metrics }) {
   return unique;
 }
 
-function meetsMinimum(items) {
-  const distinct = new Set((items || []).map(i => i.source));
-  return (items || []).length >= 3 && distinct.size >= Math.min(MIN_DISTINCT_HOSTS, (items || []).length);
-}
-
-function buildFallbackPanel(tabKey, reason) {
-  return {
-    tabKey,
-    items: [],
-    freshnessUsed: null,
-    usedSecondary: false,
-    relaxedAI: false,
-    oneLiner: `${TAB_DESC[tabKey]?.split("—")[0]?.trim() || "This tab"} has no update today.`,
-    bullets: [
-      "Coverage may be thin within the current freshness window.",
-      "We’ll retry with broader sources on the next run.",
-      "Use the source links on other tabs for nearby context.",
-    ],
-    explainerHtml: sanitizeExplainer(
-      `No suitable items were found for this tab in the current run.\n\n_(Reason: ${reason})_`
-    ),
-    tags: ["no-update"],
-    noteText: "",
-    failed: true,
-  };
-}
-
-function pickItems({ candidates, avoidKeys, requireStrictAI }) {
-  const filtered = [];
-  for (const it of candidates) {
-    const key = makeCrossTabKey(it);
-    const dupe = avoidKeys.has(key) || avoidKeys.has(`title:${normalizeKey(it.title)}`);
-    if (dupe) continue;
-
-    if (requireStrictAI && !it._aiStrict) continue;
-
-    filtered.push(it);
+function spreadAcrossHosts(items, maxItems) {
+  const byHost = new Map();
+  for (const it of items) {
+    if (!byHost.has(it.source)) byHost.set(it.source, []);
+    byHost.get(it.source).push(it);
   }
-  return spreadAcrossHosts(filtered, MAX_ITEMS);
+  const picks = [];
+  while (picks.length < maxItems) {
+    let added = false;
+    for (const arr of byHost.values()) {
+      if (arr.length && picks.length < maxItems) {
+        picks.push(arr.shift());
+        added = true;
+      }
+    }
+    if (!added) break;
+  }
+  return picks;
+}
+
+function makeCrossTabKey(item) {
+  // Prefer link host+path; otherwise title
+  try {
+    const u = new URL(item.link);
+    const host = u.hostname.replace(/^www\./, "");
+    const pathPart = (u.pathname || "").replace(/\/+$/, "");
+    return `${host}${pathPart}`.toLowerCase();
+  } catch {
+    return `title:${normalizeKey(item.title)}`;
+  }
+}
+
+function sanitizeExplainer(explainerText) {
+  return sanitizeHtml(explainerText, {
+    allowedTags: ["p", "em", "strong", "ul", "ol", "li", "a", "br"],
+    allowedAttributes: { a: ["href", "title", "target", "rel"] },
+    allowedSchemes: ["http", "https", "mailto"],
+  });
 }
 
 // --- Prompts -----------------------------------------------------------------
@@ -544,14 +492,19 @@ RULES:
 - End with nothing else.`;
 }
 
+// Robust parser even if model deviates
 function parseModelOutput(text) {
   const oneMatch = text.match(/ONE[_\s-]*SENTENCE:\s*(.+)/i);
   let oneLiner = (oneMatch && oneMatch[1] ? oneMatch[1] : "").trim();
   if (!oneLiner) {
     oneLiner = (text.split("\n").map(s => s.trim()).find(s => s && !/^(\d\)|why|explainer|tags|tl;dr|in brief)/i.test(s)) || "").trim();
   }
-  if (/^tl;?dr[:\s-]/i.test(oneLiner)) oneLiner = oneLiner.replace(/^tl;?dr[:\s-]\s*/i, "");
-  if (/^in brief[:\s-]/i.test(oneLiner)) oneLiner = oneLiner.replace(/^in brief[:\s-]\s*/i, "");
+  if (/^tl;?dr[:\s-]/i.test(oneLiner)) {
+    oneLiner = oneLiner.replace(/^tl;?dr[:\s-]\s*/i, "");
+  }
+  if (/^in brief[:\s-]/i.test(oneLiner)) {
+    oneLiner = oneLiner.replace(/^in brief[:\s-]\s*/i, "");
+  }
 
   const bullets = Array.from(text.matchAll(/^\s*-\s+(.+)$/gmi))
     .map((m) => m[1].trim())
@@ -591,7 +544,7 @@ function toSourcesLinks(items) {
   }).join(" ");
 }
 
-// --- Tabs UI -----------------------------------------------------------------
+// --- Tabs UI (Option 1: description under tabs) ------------------------------
 
 function tabsNavHtml() {
   return `
@@ -648,6 +601,7 @@ function tabsAssetsHtml() {
     var descEl = document.getElementById('tabDesc');
     if(descEl) descEl.textContent = TAB_DESC[next] || "";
 
+    // optional note line per panel
     var noteEl = document.getElementById('tabNote');
     var panel = document.querySelector('.brief-panel[data-tab="'+next+'"]');
     var note = panel ? panel.getAttribute('data-note') : "";
@@ -668,6 +622,7 @@ function tabsAssetsHtml() {
     setTab(btn.getAttribute('data-tab'));
   });
 
+  // Always start on UK AI
   setTab('uk');
 })();
 </script>
@@ -789,33 +744,89 @@ async function renderChangelogPage() {
 </html>`;
 }
 
-// --- Tab generation ----------------------------------------------------------
+// --- Selection strategy ------------------------------------------------------
+//
+// Order per your preference:
+// A) If insufficient items, try SECONDARY feeds (same freshness window)
+// B) If still insufficient, widen time window (36/48), again trying primary then primary+secondary.
+//
+// Also:
+// - Cross-tab de-dupe: skip stories already used by higher priority tabs.
+// - “AI-ish” filter: applied first, but relaxed automatically if it would cause “no update”.
 
-async function generateOneTab({ tabKey, tabLabel, primaryFeeds, secondaryFeeds, avoidKeys, metrics }) {
+function meetsMinimum(items) {
+  const distinct = new Set((items || []).map(i => i.source));
+  return (items || []).length >= 3 && distinct.size >= Math.min(MIN_DISTINCT_HOSTS, (items || []).length);
+}
+
+function buildFallbackPanel(tabKey, reason) {
+  return {
+    tabKey,
+    items: [],
+    freshnessUsed: null,
+    usedSecondary: false,
+    relaxedAI: false,
+    oneLiner: `${TAB_DESC[tabKey]?.split("—")[0]?.trim() || "This tab"} has no update today.`,
+    bullets: [
+      "Coverage may be thin within the current freshness window.",
+      "We’ll retry with broader sources on the next run.",
+      "Use the source links on other tabs for nearby context.",
+    ],
+    explainerHtml: sanitizeExplainer(
+      `No suitable items were found for this tab in the current run.\n\n_(Reason: ${reason})_`
+    ),
+    tags: ["no-update"],
+    noteText: "",
+    failed: true,
+  };
+}
+
+// Pick items from candidates with: (optional) AI-ish requirement, cross-tab de-dupe, host spread.
+function pickItems({ candidates, avoidKeys, requireAI }) {
+  const filtered = [];
+  for (const it of candidates) {
+    const key = makeCrossTabKey(it);
+    const dupe = avoidKeys.has(key) || avoidKeys.has(`title:${normalizeKey(it.title)}`);
+    if (dupe) continue;
+
+    if (requireAI && !it._aiish) continue;
+
+    filtered.push(it);
+  }
+
+  // Spread across hosts
+  const picks = spreadAcrossHosts(filtered, MAX_ITEMS);
+
+  return picks;
+}
+
+async function generateOneTab({ tabKey, primaryFeeds, secondaryFeeds, avoidKeys }) {
   const seenPath = SEEN_PATHS[tabKey];
   const seen = await loadSeenFrom(seenPath);
 
   const planSteps = [];
+  // 24h: primary, then primary+secondary
   planSteps.push({ hours: FRESH_HOURS_PRIMARY, feeds: primaryFeeds, usedSecondary: false });
   planSteps.push({ hours: FRESH_HOURS_PRIMARY, feeds: [...primaryFeeds, ...secondaryFeeds], usedSecondary: true });
+  // 36/48: primary, then primary+secondary
   for (const h of FRESH_HOURS_FALLBACKS) {
     planSteps.push({ hours: h, feeds: primaryFeeds, usedSecondary: false });
     planSteps.push({ hours: h, feeds: [...primaryFeeds, ...secondaryFeeds], usedSecondary: true });
   }
 
-  let best = [];
-  let bestMeta = { freshnessUsed: FRESH_HOURS_PRIMARY, usedSecondary: false, relaxedAI: false };
+  let best = null;
+  let bestMeta = null;
 
   for (const step of planSteps) {
-    const candidates = await collectCandidates({ feeds: step.feeds, seen, maxHours: step.hours, tabKey, metrics });
+    const candidates = await collectCandidates({ feeds: step.feeds, seen, maxHours: step.hours, tabKey });
 
-    // Attempt 1: require strict AI
-    let picks = pickItems({ candidates, avoidKeys, requireStrictAI: true });
+    // Attempt 1: require AI-ish
+    let picks = pickItems({ candidates, avoidKeys, requireAI: true });
     let relaxedAI = false;
 
-    // If too strict, relax to best available (but keep note)
+    // If AI-ish is too strict, relax to “best available”
     if (picks.length < 3) {
-      const relaxed = pickItems({ candidates, avoidKeys, requireStrictAI: false });
+      const relaxed = pickItems({ candidates, avoidKeys, requireAI: false });
       if (relaxed.length > picks.length) {
         picks = relaxed;
         relaxedAI = true;
@@ -824,11 +835,12 @@ async function generateOneTab({ tabKey, tabLabel, primaryFeeds, secondaryFeeds, 
 
     const meta = { freshnessUsed: step.hours, usedSecondary: step.usedSecondary, relaxedAI };
 
-    if (picks.length > best.length) {
+    if (!best || (picks.length > (best.length || 0))) {
       best = picks;
       bestMeta = meta;
     }
 
+    // If we meet the minimum, stop early
     if (meetsMinimum(picks)) {
       best = picks;
       bestMeta = meta;
@@ -836,30 +848,31 @@ async function generateOneTab({ tabKey, tabLabel, primaryFeeds, secondaryFeeds, 
     }
   }
 
-  // Selection log
+  const picks = best || [];
+  const meta = bestMeta || { freshnessUsed: FRESH_HOURS_PRIMARY, usedSecondary: false, relaxedAI: false };
+
+  // Log selection detail
   jlog("info", "tab_selection", {
     tab: tabKey,
-    freshnessUsed: bestMeta.freshnessUsed,
-    usedSecondary: bestMeta.usedSecondary,
-    relaxedAI: bestMeta.relaxedAI,
-    picked: best.map(it => ({
+    freshnessUsed: meta.freshnessUsed,
+    usedSecondary: meta.usedSecondary,
+    relaxedAI: meta.relaxedAI,
+    picked: picks.map(it => ({
       source: it.source,
       title: it.title,
       age_hours: ageHours(it.publishedAt),
       score: it._score || 0,
-      aiLoose: !!it._aiLoose,
-      aiStrict: !!it._aiStrict,
-      offTopic: !!it._offTopic,
+      aiish: !!it._aiish,
     })),
   });
 
-  if (best.length === 0) {
-    throw new Error(`[${tabKey}] No suitable items found in freshness windows.`);
+  if (picks.length === 0) {
+    throw new Error(`[${tabKey}] No fresh sources found. Try expanding feeds or widening the window.`);
   }
 
-  // Call model
-  const prompt = buildPromptForTab(tabKey, best);
-  log(`[${tabKey}] Calling OpenAI with`, best.length, "items");
+  // Build prompt & call model
+  const prompt = buildPromptForTab(tabKey, picks);
+  log(`[${tabKey}] Calling OpenAI with`, picks.length, "items");
 
   const resp = await openai.chat.completions.create({
     model: "gpt-4o-mini",
@@ -880,19 +893,19 @@ async function generateOneTab({ tabKey, tabLabel, primaryFeeds, secondaryFeeds, 
   const { oneLiner, bullets, explainer, tags } = parseModelOutput(raw);
 
   let explainerText = explainer;
-  if (bestMeta.freshnessUsed > FRESH_HOURS_PRIMARY) {
+  if (meta.freshnessUsed > FRESH_HOURS_PRIMARY) {
     explainerText += `\n\n_(Note: Some sources may be older than ${FRESH_HOURS_PRIMARY} hours due to limited fresh coverage.)_`;
   }
 
   const noteBits = [];
-  if (bestMeta.usedSecondary) noteBits.push("Wider sources used today due to limited fresh coverage.");
-  if (bestMeta.relaxedAI) noteBits.push("Some items may be only loosely AI-related due to limited matching items.");
+  if (meta.usedSecondary) noteBits.push("Wider sources used today due to limited fresh coverage.");
+  if (meta.relaxedAI) noteBits.push("Some items may be only loosely AI-related due to limited matching items.");
   const noteText = noteBits.length ? noteBits.join(" ") : "";
 
   const explainerHtml = sanitizeExplainer(explainerText);
 
   // Update seen cache
-  for (const it of best) {
+  for (const it of picks) {
     seen.links.add(it.link);
     const t = normalizeTitle(it.title || "");
     if (t) seen.titles.add(t);
@@ -901,11 +914,10 @@ async function generateOneTab({ tabKey, tabLabel, primaryFeeds, secondaryFeeds, 
 
   return {
     tabKey,
-    label: tabLabel,
-    items: best,
-    freshnessUsed: bestMeta.freshnessUsed,
-    usedSecondary: bestMeta.usedSecondary,
-    relaxedAI: bestMeta.relaxedAI,
+    items: picks,
+    freshnessUsed: meta.freshnessUsed,
+    usedSecondary: meta.usedSecondary,
+    relaxedAI: meta.relaxedAI,
     oneLiner,
     bullets,
     explainerHtml,
@@ -923,111 +935,86 @@ async function main() {
   log("Start generate");
   jlog("info", "run_start", { ymd, log_level: LOG_LEVEL, model_output_logging: MODEL_OUTPUT_LOGGING });
 
-  // Metrics collector (writes to public/data/metrics/*)
-  const metrics = new MetricsCollector({ repoRoot: ROOT });
-  metrics.startRun({ ymd, generator: "scripts/generate.js" });
+  // Ensure output dirs exist
+  await fs.mkdir(OUT_DIR, { recursive: true });
+  await fs.mkdir(ARCHIVE_DIR, { recursive: true });
+  await fs.mkdir(DATA_OUT_DIR, { recursive: true });
 
-  try {
-    // Ensure output dirs exist
-    await fs.mkdir(OUT_DIR, { recursive: true });
-    await fs.mkdir(ARCHIVE_DIR, { recursive: true });
-    await fs.mkdir(DATA_OUT_DIR, { recursive: true });
+  // Load template
+  const tpl = await fs.readFile(INDEX_TEMPLATE, "utf8");
+  const supportsTabs =
+    tpl.includes("{{TABS_NAV}}") &&
+    tpl.includes("{{TAB_PANELS}}") &&
+    tpl.includes("{{TABS_ASSETS}}");
 
-    const tpl = await fs.readFile(INDEX_TEMPLATE, "utf8");
-    const supportsTabs =
-      tpl.includes("{{TABS_NAV}}") &&
-      tpl.includes("{{TAB_PANELS}}") &&
-      tpl.includes("{{TABS_ASSETS}}");
+  if (!supportsTabs) {
+    throw new Error("index.template.html must include {{TABS_NAV}}, {{TAB_PANELS}}, {{TABS_ASSETS}} placeholders.");
+  }
 
-    if (!supportsTabs) {
-      throw new Error("index.template.html must include {{TABS_NAV}}, {{TAB_PANELS}}, {{TABS_ASSETS}} placeholders.");
-    }
+  // Cross-tab de-dupe set (priority order = TABS array order)
+  const avoidKeys = new Set();
 
-    const avoidKeys = new Set();
-    const results = [];
-
-    for (const tab of TABS) {
-      try {
-        const res = await generateOneTab({
-          tabKey: tab.key,
-          tabLabel: tab.label,
-          primaryFeeds: tab.primary,
-          secondaryFeeds: tab.secondary,
-          avoidKeys,
-          metrics,
-        });
-
-        for (const it of res.items) {
-          avoidKeys.add(makeCrossTabKey(it));
-          avoidKeys.add(`title:${normalizeKey(it.title)}`);
-        }
-
-        results.push(res);
-      } catch (err) {
-        const msg = err?.message || String(err);
-        log(`[${tab.key}] Tab failed; using fallback panel:`, msg);
-        jlog("warn", "tab_failed", { tab: tab.key, message: msg });
-        results.push(buildFallbackPanel(tab.key, msg));
-      } finally {
-        // ---------------- PATCHED METRICS WIRING ----------------
-        // Pass picked[] items (not just counts), so collector can compute itemCount/hosts/aiStrict/offTopic/dup
-        const last = results[results.length - 1];
-
-        const picked = (last?.items || []).map(it => ({
-          source: it.source || "",
-          title: it.title || "",
-          link: it.link || it.url || "",
-          snippet: it.snippet || "",
-          aiStrict: typeof it._aiStrict === "boolean" ? it._aiStrict : undefined,
-          offTopic: typeof it._offTopic === "boolean" ? it._offTopic : undefined,
-        }));
-
-        const hosts = Array.from(new Set(picked.map(i => i.source).filter(Boolean)));
-
-        metrics.recordTabSummary(tab.key, {
-          label: tab.label,
-          failed: !!last?.failed,
-          usedSecondary: !!last?.usedSecondary,
-          relaxedAI: !!last?.relaxedAI,
-          freshnessUsed: Number.isFinite(last?.freshnessUsed) ? last.freshnessUsed : 0,
-          hosts,
-          picked, // <-- key fix
-        });
-        // ---------------------------------------------------------
-      }
-    }
-
-    const { iso, human } = isoAndHumanDate();
-
-    const panelsHtml = results.map(t => {
-      const sourcesLinks = toSourcesLinks(t.items);
-      const tagsHtml = (t.tags || []).map(tag => `<span class="tag">${htmlEscape(tag)}</span>`).join(" ");
-      return renderPanelHtml({
-        tabKey: t.tabKey,
-        oneLiner: t.oneLiner,
-        bullets: t.bullets,
-        explainerHtml: t.explainerHtml,
-        sourcesLinks,
-        tagsHtml,
-        noteText: t.noteText,
+  const results = [];
+  for (const tab of TABS) {
+    try {
+      const res = await generateOneTab({
+        tabKey: tab.key,
+        primaryFeeds: tab.primary,
+        secondaryFeeds: tab.secondary,
+        avoidKeys,
       });
-    }).join("\n\n");
 
-    const html = tpl
-      .replaceAll("Today’s 2-Minute UK AI Brief", SITE_TITLE)
-      .replace("{{ISO_DATE}}", iso)
-      .replace("{{HUMAN_DATE}}", human)
-      .replace("{{TABS_NAV}}", tabsNavHtml())
-      .replace("{{TAB_PANELS}}", panelsHtml)
-      .replace("{{TABS_ASSETS}}", tabsAssetsHtml());
+      // Add picked items into avoidKeys so later tabs don’t repeat the same stories
+      for (const it of res.items) {
+        avoidKeys.add(makeCrossTabKey(it));
+        avoidKeys.add(`title:${normalizeKey(it.title)}`);
+      }
 
-    await writeFileAtomic(INDEX_OUT, html);
-    await writeFileAtomic(path.join(ARCHIVE_DIR, `${ymd}.html`), html);
+      results.push(res);
+    } catch (err) {
+      const msg = err?.message || String(err);
+      log(`[${tab.key}] Tab failed; using fallback panel:`, msg);
+      jlog("warn", "tab_failed", { tab: tab.key, message: msg });
+      results.push(buildFallbackPanel(tab.key, msg));
+    }
+  }
 
-    const files = await fs.readdir(ARCHIVE_DIR).catch(() => []);
-    const dated = files.filter(f => /^\d{4}-\d{2}-\d{2}\.html$/.test(f)).sort().reverse();
+  const { iso, human } = isoAndHumanDate();
 
-    const archiveIndex = `<!doctype html>
+  // Build panels HTML (each is a .card so it matches current design)
+  const panelsHtml = results.map(t => {
+    const sourcesLinks = toSourcesLinks(t.items);
+    const tagsHtml = (t.tags || []).map(tag => `<span class="tag">${htmlEscape(tag)}</span>`).join(" ");
+    return renderPanelHtml({
+      tabKey: t.tabKey,
+      oneLiner: t.oneLiner,
+      bullets: t.bullets,
+      explainerHtml: t.explainerHtml,
+      sourcesLinks,
+      tagsHtml,
+      noteText: t.noteText,
+    });
+  }).join("\n\n");
+
+  // Final index html
+  const html = tpl
+    .replaceAll("Today’s 2-Minute UK AI Brief", SITE_TITLE) // helps if template still contains old title text
+    .replace("{{ISO_DATE}}", iso)
+    .replace("{{HUMAN_DATE}}", human)
+    .replace("{{TABS_NAV}}", tabsNavHtml())
+    .replace("{{TAB_PANELS}}", panelsHtml)
+    .replace("{{TABS_ASSETS}}", tabsAssetsHtml());
+
+  await writeFileAtomic(INDEX_OUT, html);
+
+  // Archive snapshot
+  await writeFileAtomic(path.join(ARCHIVE_DIR, `${ymd}.html`), html);
+
+  // Archive index
+  const files = await fs.readdir(ARCHIVE_DIR).catch(() => []);
+  const dated = files.filter(f => /^\d{4}-\d{2}-\d{2}\.html$/.test(f)).sort().reverse();
+
+  const archiveIndex = `<!doctype html>
 <html lang="en-GB">
 <head>
   <meta charset="utf-8" />
@@ -1055,73 +1042,60 @@ async function main() {
   </main>
 </body>
 </html>`;
-    await writeFileAtomic(path.join(ARCHIVE_DIR, "index.html"), archiveIndex);
+  await writeFileAtomic(path.join(ARCHIVE_DIR, "index.html"), archiveIndex);
 
-    await writeFileAtomic(ABOUT_OUT, renderAboutPage());
-    await writeFileAtomic(CHANGELOG_OUT, await renderChangelogPage());
+  // About + Changelog
+  await writeFileAtomic(ABOUT_OUT, renderAboutPage());
+  await writeFileAtomic(CHANGELOG_OUT, await renderChangelogPage());
 
-    const tabsJson = {
-      generated_at_iso: iso,
-      generated_at_human: human,
-      title: SITE_TITLE,
-      tabs: results.map(t => ({
-        key: t.tabKey,
-        label: (TABS.find(x => x.key === t.tabKey)?.label) || t.tabKey,
-        freshnessUsed: t.freshnessUsed,
-        usedSecondary: t.usedSecondary,
-        relaxedAI: t.relaxedAI,
-        failed: !!t.failed,
-        noteText: t.noteText || "",
-        oneLiner: t.oneLiner,
-        bullets: t.bullets,
-        tags: t.tags,
-        sources: (t.items || []).map(it => ({
-          title: it.title,
-          link: it.link,
-          source: it.source,
-          publishedAt: it.publishedAt ? (it.publishedAt.toISOString?.() || null) : null,
-          aiLoose: !!it._aiLoose,
-          aiStrict: !!it._aiStrict,
-          offTopic: !!it._offTopic,
-          score: it._score || 0,
-        })),
+  // Structured JSON (handy for debugging / future UI)
+  const tabsJson = {
+    generated_at_iso: iso,
+    generated_at_human: human,
+    title: SITE_TITLE,
+    tabs: results.map(t => ({
+      key: t.tabKey,
+      label: (TABS.find(x => x.key === t.tabKey)?.label) || t.tabKey,
+      freshnessUsed: t.freshnessUsed,
+      usedSecondary: t.usedSecondary,
+      relaxedAI: t.relaxedAI,
+      failed: !!t.failed,
+      noteText: t.noteText || "",
+      oneLiner: t.oneLiner,
+      bullets: t.bullets,
+      tags: t.tags,
+      sources: (t.items || []).map(it => ({
+        title: it.title,
+        link: it.link,
+        source: it.source,
+        publishedAt: it.publishedAt ? (it.publishedAt.toISOString?.() || null) : null,
+        aiish: !!it._aiish,
+        score: it._score || 0,
       })),
-    };
-    await writeFileAtomic(TABS_JSON_OUT, JSON.stringify(tabsJson, null, 2));
+    })),
+  };
+  await writeFileAtomic(TABS_JSON_OUT, JSON.stringify(tabsJson, null, 2));
 
-    // Run summaries
-    log(`Generated index + archive (${ymd}) + about + changelog`);
-    for (const t of results) {
-      const hosts = Array.from(new Set((t.items || []).map(i => i.source)));
-      log(
-        `[${t.tabKey}] freshness<=${t.freshnessUsed ?? "n/a"}h; hosts: ${hosts.length ? hosts.join(", ") : "none"}${t.failed ? " (FAILED)" : ""}`
-      );
-    }
-
-    if (FEED_ERROR_COUNTS.size) {
-      log("Feed errors summary:");
-      for (const [url, meta] of FEED_ERROR_COUNTS.entries()) {
-        log(` - ${url} (${meta.count}x) last: ${meta.lastMessage}`);
-      }
-    }
-
-    jlog("info", "run_end", { ymd });
-
-    // Write metrics at the end of a successful run
-    metrics.finalizeAndWrite({ runSuccess: true });
-
-  } catch (err) {
-    // Ensure metrics still get written even on failure
-    try {
-      metrics.finalizeAndWrite({ runSuccess: false });
-    } catch (e) {
-      log("Failed to write metrics on error:", e?.message || String(e));
-    }
-    throw err;
+  // End-of-run summaries
+  log(`Generated index + archive (${ymd}) + about + changelog`);
+  for (const t of results) {
+    const hosts = Array.from(new Set((t.items || []).map(i => i.source)));
+    log(
+      `[${t.tabKey}] freshness<=${t.freshnessUsed ?? "n/a"}h; hosts: ${hosts.length ? hosts.join(", ") : "none"}${t.failed ? " (FAILED)" : ""}`
+    );
   }
+
+  if (FEED_ERROR_COUNTS.size) {
+    log("Feed errors summary:");
+    for (const [url, meta] of FEED_ERROR_COUNTS.entries()) {
+      log(` - ${url} (${meta.count}x) last: ${meta.lastMessage}`);
+    }
+  }
+
+  jlog("info", "run_end", { ymd });
 }
 
-// Clean exit
+// Clean exit to avoid lingering handles
 main()
   .then(() => {
     log("Done; exiting cleanly.");
