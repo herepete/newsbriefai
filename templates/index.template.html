@@ -116,6 +116,8 @@
       <a href="/archive/">Archive</a>
       <span class="dot">·</span>
       <a href="/about.html">About</a>
+      <span class="dot">·</span>
+      <a href="/changelog.html">Changelog</a>
     </nav>
 
     <header>
@@ -123,30 +125,20 @@
       <p class="date" title="{{ISO_DATE}}">{{HUMAN_DATE}}</p>
     </header>
 
-    <section class="card">
-      <p class="tldr">{{ONE_LINER}}</p>
+    <!-- Tabs (nav + one-line description) -->
+    {{TABS_NAV}}
 
-      <h2>Why it matters</h2>
-      <ul>
-        {{WHY_IT_MATTERS_LIST}}
-      </ul>
-
-      <h2>Explainer</h2>
-      <div class="explainer">
-        {{EXPLAINER_HTML}}
-      </div>
-
-      <p class="sources">Sources: {{SOURCES_LINKS}}</p>
-
-      <div class="tags" aria-label="Tags">
-        {{TAGS}}
-      </div>
-    </section>
+    <!-- Tab panels (each panel is a .card so it matches the current look) -->
+    {{TAB_PANELS}}
   </main>
 
   <footer>
     <div class="foot-line"></div>
     <p>UK-focused, neutral summaries from public RSS feeds. No tracking. Static HTML.</p>
   </footer>
+
+  <!-- Tabs CSS/JS injected by generate.js -->
+  {{TABS_ASSETS}}
 </body>
 </html>
+
