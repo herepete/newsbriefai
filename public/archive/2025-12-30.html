@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>Today’s 2-Minute AI Brief</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A concise, UK-focused daily brief on AI — updated once a day with links to original sources." />
+  <meta property="og:title" content="Today’s 2-Minute AI Brief" />
+  <meta property="og:description" content="A clean, UK-centric AI news summary with sources, updated daily." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="dark light" />
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --fg:#e5e7eb;
+      --muted:#a0a6b0;
+      --card:#111218;
+      --link:#93c5fd;
+      --accent:#60a5fa;
+      --border:#1f2430;
+      --tag-bg:#111827;
+      --tag-fg:#cbd5e1;
+      --max:760px;
+      --gap:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    main{max-width:var(--max); margin:48px auto; padding:0 var(--gap)}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    nav.top{
+      display:flex; gap:12px; align-items:center; margin-bottom:12px; font-size:.95rem;
+    }
+    nav.top a{opacity:.9}
+    nav.top .dot{opacity:.5}
+
+    header h1{font-size:1.8rem; margin:6px 0 4px}
+    .date{margin:0 0 18px; color:var(--muted); font-size:.95rem}
+    .date[title]{cursor:help}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      margin:16px 0 22px;
+    }
+
+    .tldr{
+      font-size:1.05rem;
+      background:linear-gradient(0deg, rgba(96,165,250,.08), rgba(96,165,250,.08));
+      border-left:3px solid var(--accent);
+      padding:12px 12px 12px 14px;
+      border-radius:10px;
+      margin:8px 0 18px;
+    }
+
+    h2{
+      font-size:1.1rem;
+      letter-spacing:.2px;
+      margin:18px 0 10px;
+    }
+
+    ul{margin:0; padding-left:22px}
+    li{margin:6px 0}
+
+    .explainer p{margin:0 0 10px}
+    .explainer a{word-break:break-word}
+
+    .sources{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .sources a{color:var(--link); margin-right:10px}
+
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      display:inline-block;
+      background:var(--tag-bg);
+      color:var(--tag-fg);
+      border:1px solid var(--border);
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.85rem;
+      letter-spacing:.2px;
+    }
+
+    footer{
+      max-width:var(--max);
+      margin:24px auto 48px;
+      padding:0 var(--gap);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    .foot-line{border-top:1px solid var(--border); margin:16px 0; opacity:.7}
+
+    @media (max-width:520px){
+      header h1{font-size:1.5rem}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="top" aria-label="Site">
+      <a href="/archive/">Archive</a>
+      <span class="dot">·</span>
+      <a href="/about.html">About</a>
+      <span class="dot">·</span>
+      <a href="/changelog.html">Changelog</a>
+    </nav>
+
+    <header>
+      <h1>Today’s 2-Minute AI Brief</h1>
+      <p class="date" title="2025-12-30T06:30:57.581Z">30 December 2025</p>
+    </header>
+
+    <!-- Tabs (nav + one-line description) -->
+    <div class="tabs-wrap">
+  <div class="tabs" role="tablist" aria-label="Brief tabs">
+    <button class="tab is-active" role="tab" aria-selected="true" data-tab="uk">UK AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="business">AI &amp; Business</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="work">AI &amp; Work</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="global">Global AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="security">AI Security</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="ethics">Ethics &amp; Policy</button>
+  </div>
+  <p class="tab-desc" id="tabDesc">UK AI — A daily summary of AI news most relevant to the UK.</p>
+  <p class="tab-note" id="tabNote" hidden></p>
+</div>
+
+    <!-- Tab panels (each panel is a .card so it matches the current look) -->
+    <section class="brief-panel" data-tab="security" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — South Korea&#39;s KT Telecom has faced scrutiny after a security failure involving thousands of poorly secured femtocells, leading to customer fraud and communication snooping.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The breach highlights vulnerabilities in telecommunications infrastructure, potentially affecting millions of users.</li>
+<li>It raises concerns about the adequacy of security measures in consumer technology.</li>
+<li>Such incidents can undermine public trust in telecom providers and their ability to protect user data.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      South Korea's Ministry of Science and ICT has reported significant security issues with KT Telecom's deployment of femtocells, small cellular base stations designed to improve mobile coverage. The investigation revealed that these devices were equipped with a single security certificate stored in plaintext, making them susceptible to exploitation. This vulnerability has reportedly allowed malicious actors to engage in micropayments fraud and eavesdrop on customer communications for an extended period, potentially years. The incident underscores the critical need for robust security protocols in telecommunications, especially as reliance on mobile technology increases. With millions of users affected, the implications of such breaches extend beyond financial loss to include serious concerns about privacy and data protection. As telecom companies continue to innovate and expand their services, ensuring the security of their infrastructure must be a top priority to maintain consumer trust and safeguard against future attacks.
+    </div>
+
+    <p class="sources">Sources: <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/30/kt_telecom_femtocell_security_fail/" target="_blank" rel="noopener noreferrer" title="Korean telco failed at femtocell security, exposed customers to snooping and fraud">go.theregister.com</a> <a href="https://www.theguardian.com/technology/2025/dec/29/sam-altman-openai-job-search-ai-harms" target="_blank" rel="noopener noreferrer" title="‘This will be a stressful job’: Sam Altman offers $555k salary to fill most daunting role in AI">theguardian.com</a> <a href="https://www.bbc.com/news/articles/c8dydlmenvro?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer" title="China to crack down on AI firms to protect kids">bbc.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/29/wired_hack_subscriber_info_leaked/" target="_blank" rel="noopener noreferrer" title="Crims disconnect Wired subscribers from their privacy, publish deets online">go.theregister.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">kt telecom</span> <span class="tag">femtocell security</span> <span class="tag">customer fraud</span> <span class="tag">telecommunications</span> <span class="tag">data privacy</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="ethics" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — The UK’s largest accounting body, ACCA, will end remote exams due to rising concerns over AI-assisted cheating.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>ACCA&#39;s decision reflects growing worries about integrity in professional qualifications.</li>
+<li>This move could impact thousands of students who rely on online assessments.</li>
+<li>It highlights the ongoing challenges of regulating AI technologies in education.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The Association of Chartered Certified Accountants (ACCA) has announced that it will no longer permit remote exams for its students, effective March 2025, except in exceptional circumstances. This decision comes in response to an increase in cheating facilitated by AI technologies. The ACCA, which boasts nearly 260,000 members, aims to uphold the integrity of its qualifications by ensuring that assessments are conducted in person. This shift underscores a broader concern within educational and professional institutions about the implications of AI on academic honesty and the potential for misuse. As AI tools become more sophisticated, regulatory bodies are grappling with how to adapt their policies to maintain fairness and credibility in assessments. The ACCA's decision may set a precedent for other professional organizations facing similar challenges.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.theguardian.com/books/2025/dec/28/could-ai-relationships-actually-be-good-for-us" target="_blank" rel="noopener noreferrer" title="Could AI relationships actually be good for us?">theguardian.com</a> <a href="https://www.gov.uk/government/news/new-analysis-shows-britains-innovators-are-boosted-by-horizon" target="_blank" rel="noopener noreferrer" title="New analysis shows Britain’s innovators are boosted by Horizon">gov.uk</a> <a href="https://www.theguardian.com/games/2025/dec/29/arc-raiders-review-pure-multiplayer-pleasure" target="_blank" rel="noopener noreferrer" title="Arc Raiders review – pure multiplayer pleasure">theguardian.com</a> <a href="https://www.theguardian.com/business/2025/dec/29/uk-accounting-remote-exams-ai-cheating-acca" target="_blank" rel="noopener noreferrer" title="UK accounting body to halt remote exams amid AI cheating">theguardian.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">ai</span> <span class="tag">education</span> <span class="tag">ethics</span> <span class="tag">regulation</span> <span class="tag">cheating</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="global" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — OpenAI is searching for a new Head of Preparedness with a salary of $555,000 to oversee risks associated with rapidly advancing AI models.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The position highlights the increasing concerns about AI safety and oversight.</li>
+<li>High turnover in this role indicates the challenges of managing AI-related risks.</li>
+<li>The search reflects the rapid evolution of AI technology and its implications for society.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      OpenAI, a leading AI research organization, is actively seeking a new Head of Preparedness, offering a substantial salary of $555,000. This role is crucial as it focuses on managing the risks associated with the fast-paced advancements in AI technology. The need for such a position underscores the growing recognition of the potential dangers posed by AI systems, which can evolve quickly and unpredictably. Notably, the position has seen a high turnover rate, suggesting that the responsibilities may be particularly demanding and complex. As AI models become more sophisticated, the need for effective oversight and safety measures becomes increasingly critical to ensure that these technologies are developed and deployed responsibly. This search for leadership in AI safety reflects broader concerns within the tech community and society about the implications of powerful AI systems.
+    </div>
+
+    <p class="sources">Sources: <a href="https://arxiv.org/abs/2512.21419" target="_blank" rel="noopener noreferrer" title="Three-way conflict analysis based on alliance and conflict functions">arxiv.org</a> <a href="https://www.engadget.com/home/home-theater/lg-to-unveil-a-canvas-style-tv-at-ces-2026-010024691.html?src=rss" target="_blank" rel="noopener noreferrer" title="LG to unveil a canvas-style TV at CES 2026">engadget.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/29/openai_safety_chief/" target="_blank" rel="noopener noreferrer" title="Sam Altman is willing to pay somebody $555,000 a year to keep ChatGPT in line">go.theregister.com</a> <a href="https://www.theverge.com/gadgets/850705/beats-pixel-watch-apple-pencil-sales-deal" target="_blank" rel="noopener noreferrer" title="Beats’ new Powerbeats Fit earbuds are down to $180">theverge.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">openai</span> <span class="tag">ai safety</span> <span class="tag">leadership</span> <span class="tag">technology</span> <span class="tag">risk management</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="uk" data-note="Wider sources used today due to limited fresh coverage.">
+  <section class="card">
+    <p class="tldr">In brief — An AI tool is being implemented across 50 NHS organizations to help predict A&amp;E demand this winter, aiming to enhance patient care.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The AI initiative is part of the UK government&#39;s efforts to modernize the NHS.</li>
+<li>Improved predictions may lead to faster treatment times for patients during peak demand periods.</li>
+<li>This development highlights the increasing role of AI in healthcare management.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The UK government has announced the deployment of an AI tool in 50 NHS organizations to better predict demand in Accident &amp; Emergency (A&amp;E) departments this winter. This initiative is part of a broader strategy to enhance the efficiency and responsiveness of the NHS, especially during times of high patient influx, such as winter months when illnesses typically rise. By utilizing AI technology, the NHS aims to streamline operations, reduce bottlenecks, and ultimately provide quicker treatment for patients. The integration of AI into healthcare settings reflects a growing trend of leveraging technology to improve health services and patient outcomes, showcasing the potential benefits of AI in addressing real-world challenges within the public sector.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.gov.uk/government/news/faster-treatments-and-support-for-health-workers-as-ai-tackles-ae-bottlenecks" target="_blank" rel="noopener noreferrer" title="Faster treatments and support for health workers as AI tackles A&amp;E bottlenecks">gov.uk</a> <a href="https://www.theguardian.com/thefilter/2025/dec/28/best-running-watches-tested-uk" target="_blank" rel="noopener noreferrer" title="I ran 1,000km to test the best running watches in the UK – here are my favourites">theguardian.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/30/meta_acquires_manus/" target="_blank" rel="noopener noreferrer" title="Zuck buys Chinese AI company Manus that claims it deals in actions, not words">go.theregister.com</a> <a href="https://www.theguardian.com/media/2025/dec/28/from-that-bird-guy-to-bus-aunty-the-real-social-media-personalities-rising-above-ai-slop" target="_blank" rel="noopener noreferrer" title="From that bird guy to ‘bus aunty’: the real social media personalities rising above AI slop">theguardian.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">ai</span> <span class="tag">nhs</span> <span class="tag">healthcare</span> <span class="tag">uk</span> <span class="tag">technology</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="business" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — Venture capitalists are predicting strong enterprise AI adoption in 2026, emphasizing the importance of AI agents and budget allocations.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Increased enterprise AI adoption could lead to significant advancements in business efficiencies.</li>
+<li>Venture capital insights may guide organizations in their AI investment strategies.</li>
+<li>A focus on AI agents suggests a shift towards more autonomous business processes.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Venture capitalists are optimistic about the future of enterprise AI, forecasting robust adoption rates for the upcoming year. This optimism stems from a growing recognition of AI's potential to enhance business operations and drive efficiency. As companies increasingly allocate budgets towards AI technologies, they are likely to explore various applications, including AI agents that can automate tasks and improve decision-making processes. The insights shared by venture capitalists can serve as valuable guidance for organizations looking to invest in AI, helping them prioritize areas that may yield the highest returns on investment. This trend highlights a broader movement within the tech industry, where AI is becoming an integral part of business strategy, influencing everything from operational workflows to customer engagement.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.zdnet.com/article/chipolo-one-point-review/" target="_blank" rel="noopener noreferrer" title="Finally, Bluetooth trackers for Android users that function even better than AirTags (and they&#39;re on…">zdnet.com</a> <a href="https://www.engadget.com/home/how-to-watch-the-lg-ces-2026-press-conference-190159378.html?src=rss" target="_blank" rel="noopener noreferrer" title="How to watch the LG CES 2026 press conference">engadget.com</a> <a href="https://www.theverge.com/news/850793/epilogue-sn-operator-super-nintendo-snes-cartridge-slot-backup-emulator" target="_blank" rel="noopener noreferrer" title="Turn your PC into a Super Nintendo with Epilogue&amp;#8217;s new USB dock">theverge.com</a> <a href="https://techcrunch.com/2025/12/29/vcs-predict-strong-enterprise-ai-adoption-next-year-again/" target="_blank" rel="noopener noreferrer" title="VCs predict strong enterprise AI adoption next year — again">techcrunch.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">enterprise ai</span> <span class="tag">venture capital</span> <span class="tag">business strategy</span> <span class="tag">automation</span> <span class="tag">technology trends</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="work" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — Humanoid robots are gaining attention in the tech industry, despite ongoing challenges in their development and commercialization.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The rise of AI is rekindling interest in humanoid robotics, which could transform workplace automation.</li>
+<li>Major tech companies are exploring humanoid robots, indicating potential future applications in various sectors.</li>
+<li>Events like the Humanoids Summit highlight the growing community and investment in robotics technology.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The interest in humanoid robots has surged recently, driven by advancements in artificial intelligence. These robots aim to replicate human movements and perform tasks traditionally done by people, which could significantly enhance productivity in various industries. However, experts caution that the development of humanoid robots is complex and requires substantial investment, making them a risky venture for investors. The Humanoids Summit recently brought together over 2,000 participants, including top engineers from companies like Disney and Google, to discuss the future of this technology. While there is enthusiasm for the potential of humanoid robots, significant hurdles remain, including technical challenges and the need for practical applications that justify their costs. As the industry evolves, the integration of humanoid robots into workplaces could lead to new workflows and productivity tools, reshaping how tasks are performed.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.fastcompany.com/91467593/humanoid-robots-summit-uphill-battle?partner=rss&amp;amp;utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=rss+fastcompany&amp;amp;utm_content=rss" target="_blank" rel="noopener noreferrer" title="Humanoid robots are having a moment, but still face an uphill battle">fastcompany.com</a> <a href="https://www.engadget.com/big-tech/ces-2026-what-to-expect-from-techs-biggest-conference-in-january-120000369.html?src=rss" target="_blank" rel="noopener noreferrer" title="CES 2026: What to expect from tech’s biggest conference in January">engadget.com</a> <a href="https://www.theverge.com/tech/849742/how-to-tune-algorithms-recommendations-online-platforms" target="_blank" rel="noopener noreferrer" title="How to tweak your online platform algorithms">theverge.com</a> <a href="https://www.fastcompany.com/91464591/2025-apps-gemini-proton-perplexity-affinity?partner=rss&amp;amp;utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=rss+fastcompany&amp;amp;utm_content=rss" target="_blank" rel="noopener noreferrer" title="The 27 best new apps of 2025">fastcompany.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">humanoid robots</span> <span class="tag">ai</span> <span class="tag">productivity</span> <span class="tag">technology</span> <span class="tag">workplace</span>
+    </div>
+  </section>
+</section>
+  </main>
+
+  <footer>
+    <div class="foot-line"></div>
+    <p>UK-focused, neutral summaries from public RSS feeds. No tracking. Static HTML.</p>
+  </footer>
+
+  <!-- Tabs CSS/JS injected by generate.js -->
+  <style>
+  .tabs{display:flex;gap:14px;flex-wrap:wrap;margin:4px 0 6px}
+  .tab{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;padding:6px 2px;cursor:pointer}
+  .tab:hover{color:var(--fg)}
+  .tab.is-active{color:var(--fg);border-bottom:2px solid var(--fg)}
+  .tab-desc{margin:0 0 6px;color:var(--muted);font-size:.95rem;line-height:1.4}
+  .tab-note{margin:0 0 10px;color:var(--muted);font-size:.9rem;opacity:.85}
+</style>
+
+<script>
+(function(){
+  var TAB_DESC = {"uk":"UK AI — A daily summary of AI news most relevant to the UK.","business":"AI & Business — Adoption, governance, monetisation, and real-world deployments.","work":"AI & Work — Productivity tools, workflow changes, and practical workplace usage.","global":"Global AI — Models, research, major releases, and big platform shifts worldwide.","security":"AI Security — Misuse, attacks, safeguards, auditing, and defensive practices.","ethics":"Ethics & Policy — Regulation, governance, rights, safety debates, and oversight."};
+  function setTab(next){
+    var tabs = document.querySelectorAll('.tab');
+    var panels = document.querySelectorAll('.brief-panel');
+
+    tabs.forEach(function(t){
+      var active = t.getAttribute('data-tab') === next;
+      t.classList.toggle('is-active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    panels.forEach(function(p){
+      var match = p.getAttribute('data-tab') === next;
+      if(match){
+        p.removeAttribute('hidden');
+        p.setAttribute('aria-hidden','false');
+      }else{
+        p.setAttribute('hidden','');
+        p.setAttribute('aria-hidden','true');
+      }
+    });
+
+    var descEl = document.getElementById('tabDesc');
+    if(descEl) descEl.textContent = TAB_DESC[next] || "";
+
+    // optional note line per panel
+    var noteEl = document.getElementById('tabNote');
+    var panel = document.querySelector('.brief-panel[data-tab="'+next+'"]');
+    var note = panel ? panel.getAttribute('data-note') : "";
+    if(noteEl){
+      if(note){
+        noteEl.textContent = note;
+        noteEl.hidden = false;
+      }else{
+        noteEl.textContent = "";
+        noteEl.hidden = true;
+      }
+    }
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest ? e.target.closest('.tab') : null;
+    if(!btn) return;
+    setTab(btn.getAttribute('data-tab'));
+  });
+
+  // Always start on UK AI
+  setTab('uk');
+})();
+</script>
+</body>
+</html>
+

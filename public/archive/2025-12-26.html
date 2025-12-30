@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>Today’s 2-Minute AI Brief</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A concise, UK-focused daily brief on AI — updated once a day with links to original sources." />
+  <meta property="og:title" content="Today’s 2-Minute AI Brief" />
+  <meta property="og:description" content="A clean, UK-centric AI news summary with sources, updated daily." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="dark light" />
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --fg:#e5e7eb;
+      --muted:#a0a6b0;
+      --card:#111218;
+      --link:#93c5fd;
+      --accent:#60a5fa;
+      --border:#1f2430;
+      --tag-bg:#111827;
+      --tag-fg:#cbd5e1;
+      --max:760px;
+      --gap:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    main{max-width:var(--max); margin:48px auto; padding:0 var(--gap)}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    nav.top{
+      display:flex; gap:12px; align-items:center; margin-bottom:12px; font-size:.95rem;
+    }
+    nav.top a{opacity:.9}
+    nav.top .dot{opacity:.5}
+
+    header h1{font-size:1.8rem; margin:6px 0 4px}
+    .date{margin:0 0 18px; color:var(--muted); font-size:.95rem}
+    .date[title]{cursor:help}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      margin:16px 0 22px;
+    }
+
+    .tldr{
+      font-size:1.05rem;
+      background:linear-gradient(0deg, rgba(96,165,250,.08), rgba(96,165,250,.08));
+      border-left:3px solid var(--accent);
+      padding:12px 12px 12px 14px;
+      border-radius:10px;
+      margin:8px 0 18px;
+    }
+
+    h2{
+      font-size:1.1rem;
+      letter-spacing:.2px;
+      margin:18px 0 10px;
+    }
+
+    ul{margin:0; padding-left:22px}
+    li{margin:6px 0}
+
+    .explainer p{margin:0 0 10px}
+    .explainer a{word-break:break-word}
+
+    .sources{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .sources a{color:var(--link); margin-right:10px}
+
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      display:inline-block;
+      background:var(--tag-bg);
+      color:var(--tag-fg);
+      border:1px solid var(--border);
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.85rem;
+      letter-spacing:.2px;
+    }
+
+    footer{
+      max-width:var(--max);
+      margin:24px auto 48px;
+      padding:0 var(--gap);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    .foot-line{border-top:1px solid var(--border); margin:16px 0; opacity:.7}
+
+    @media (max-width:520px){
+      header h1{font-size:1.5rem}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="top" aria-label="Site">
+      <a href="/archive/">Archive</a>
+      <span class="dot">·</span>
+      <a href="/about.html">About</a>
+      <span class="dot">·</span>
+      <a href="/changelog.html">Changelog</a>
+    </nav>
+
+    <header>
+      <h1>Today’s 2-Minute AI Brief</h1>
+      <p class="date" title="2025-12-26T06:30:53.245Z">26 December 2025</p>
+    </header>
+
+    <!-- Tabs (nav + one-line description) -->
+    <div class="tabs-wrap">
+  <div class="tabs" role="tablist" aria-label="Brief tabs">
+    <button class="tab is-active" role="tab" aria-selected="true" data-tab="uk">UK AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="business">AI &amp; Business</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="work">AI &amp; Work</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="global">Global AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="security">AI Security</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="ethics">Ethics &amp; Policy</button>
+  </div>
+  <p class="tab-desc" id="tabDesc">UK AI — A daily summary of AI news most relevant to the UK.</p>
+  <p class="tab-note" id="tabNote" hidden></p>
+</div>
+
+    <!-- Tab panels (each panel is a .card so it matches the current look) -->
+    <section class="brief-panel" data-tab="security" data-note="Wider sources used today due to limited fresh coverage. Some items may be only loosely AI-related due to limited matching items." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — The US government has shut down a platform used by cybercriminals to hoard banking credentials, preventing significant financial theft.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The shutdown addresses a major security vulnerability affecting American bank accounts.</li>
+<li>It highlights ongoing efforts by authorities to combat cybercrime and protect consumer data.</li>
+<li>The action underscores the importance of robust cybersecurity measures in safeguarding personal and financial information.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Cybercriminals often use sophisticated platforms to collect and store sensitive information, such as banking credentials, which can lead to large-scale financial theft. The recent closure of a $14.6 million password-hoarding platform by US authorities is a significant step in the fight against such cybercrime. This operation not only disrupts the activities of these criminals but also serves as a warning to others engaged in similar illicit practices. With the increasing reliance on digital banking, it is crucial for both individuals and institutions to implement strong cybersecurity measures. This includes using complex passwords, enabling two-factor authentication, and being cautious of phishing attempts. The government's action is part of a broader strategy to enhance security and protect consumers from the risks associated with online financial transactions.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.theguardian.com/games/2025/dec/25/the-video-games-you-may-have-missed-in-2025" target="_blank" rel="noopener noreferrer" title="The video games you may have missed in 2025">theguardian.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/24/us_shutters_phishermens_146m_passwordhording/" target="_blank" rel="noopener noreferrer" title="US shuts down phisherfolk’s $14.6M password-hoarding platform">go.theregister.com</a> <a href="https://www.theguardian.com/games/2025/dec/24/i-plugged-in-zelda-and-everything-changed-developers-share-their-fondest-christmas-gaming-memories" target="_blank" rel="noopener noreferrer" title="‘I plugged in Zelda and everything changed’: developers share their fondest Christmas gaming memorie…">theguardian.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">cybersecurity</span> <span class="tag">phishing</span> <span class="tag">banking</span> <span class="tag">data protection</span> <span class="tag">cybercrime</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="ethics" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — A UK Labour MP criticized the US government&#39;s visa sanctions against British anti-disinformation campaigners, asserting it undermines free speech.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The sanctions target individuals involved in combating misinformation, raising concerns about freedom of expression.</li>
+<li>The incident highlights tensions between the US and UK regarding the regulation of speech and information.</li>
+<li>It reflects broader debates on the balance between national security and civil liberties in the context of disinformation.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The recent announcement by US Secretary of State Marco Rubio regarding visa-related sanctions against five Europeans, including two British campaigners, has sparked significant controversy. Chi Onwurah, a senior Labour MP and chair of the UK Parliament's technology select committee, has publicly criticized these sanctions, arguing that they threaten free speech. The individuals targeted, Imran Ahmed and Clare Melford, are known for their efforts to combat disinformation. This situation raises important questions about the role of governments in regulating speech and the potential chilling effects such sanctions may have on advocacy and activism. As misinformation continues to be a pressing issue globally, the balance between protecting national interests and upholding democratic values like free expression remains a contentious topic. The unfolding discourse may influence future policies on speech regulation and the treatment of activists across borders.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.technologyreview.com/2025/12/25/1130298/ai-wrapped-the-14-ai-terms-you-couldnt-avoid-in-2025/" target="_blank" rel="noopener noreferrer" title="AI Wrapped: The 14 AI terms you couldn’t avoid in 2025">technologyreview.com</a> <a href="https://www.theguardian.com/technology/2025/dec/24/undermines-free-speech-labour-mp-hits-back-at-us-government-over-visa-related-sanctions" target="_blank" rel="noopener noreferrer" title="‘Undermines free speech’: Labour MP hits back at US government over visa ban on UK campaigners">theguardian.com</a> <a href="https://www.theguardian.com/games/2025/dec/22/pushing-buttons-readers-games-of-the-year" target="_blank" rel="noopener noreferrer" title="The video games readers couldn’t switch off in 2025">theguardian.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">us-uk-relations</span> <span class="tag">free-speech</span> <span class="tag">disinformation</span> <span class="tag">sanctions</span> <span class="tag">ethics</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="global" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — Researchers have developed BitRL-Light, a framework that uses 1-bit quantized large language models for energy-efficient smart home lighting control.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The framework achieves significant energy savings, reducing consumption by 71.4 times compared to full-precision models.</li>
+<li>It utilizes Deep Q-Network reinforcement learning for real-time optimization on edge devices like Raspberry Pi.</li>
+<li>This innovation addresses both user comfort and energy efficiency in smart home systems.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The development of BitRL-Light represents a significant advancement in smart home technology, particularly in optimizing energy use for lighting systems. Traditional smart lighting solutions often struggle to balance user comfort with energy efficiency, leading to higher energy consumption. BitRL-Light tackles this challenge by integrating a 1-bit quantized large language model with reinforcement learning techniques. This approach allows the system to make real-time adjustments based on user preferences while dramatically reducing energy use. By deploying this technology on compact devices like Raspberry Pi, it becomes more accessible for everyday consumers, potentially transforming how households manage their energy consumption. The reduction in energy use is particularly important as residential energy demands continue to rise, making innovations like BitRL-Light crucial for sustainable living.
+    </div>
+
+    <p class="sources">Sources: <a href="https://arxiv.org/abs/2512.20623" target="_blank" rel="noopener noreferrer" title="BitRL-Light: 1-bit LLM Agents with Deep Reinforcement Learning for Energy-Efficient Smart Home Light…">arxiv.org</a> <a href="https://www.engadget.com/gaming/playstation/how-to-set-up-a-ps5-for-a-child-160039866.html?src=rss" target="_blank" rel="noopener noreferrer" title="How to set up a PS5 for a child">engadget.com</a> <a href="https://www.theverge.com/tech/849998/gemini-ai-stuffed-animal-commercial" target="_blank" rel="noopener noreferrer" title="I re-created Google&amp;#8217;s cute Gemini ad with my own kid&amp;#8217;s stuffie, and I wish I hadn&amp;#8217;…">theverge.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/25/humanoid_robots_investment_surge/" target="_blank" rel="noopener noreferrer" title="Humanoid robots are still novelty acts, but investment is surging to make them real tomorrow">go.theregister.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">smart home</span> <span class="tag">energy efficiency</span> <span class="tag">reinforcement learning</span> <span class="tag">ai models</span> <span class="tag">lighting optimization</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="uk" data-note="Wider sources used today due to limited fresh coverage.">
+  <section class="card">
+    <p class="tldr">In brief — Five UK social media campaigners advocating for tech regulation have been denied US visas by the Trump administration.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The visa denial highlights ongoing tensions between tech advocates and regulatory bodies.</li>
+<li>It raises concerns about freedom of movement for individuals involved in tech policy discussions.</li>
+<li>The incident may deter future activism related to technology regulation.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The recent decision by the Trump administration to deny visas to five UK social media campaigners underscores the contentious relationship between technology advocates and regulatory authorities. These individuals have been vocal in their calls for stricter regulations on tech companies, which they believe are necessary to protect user data and privacy. The denial of their visas not only restricts their ability to engage in international discussions about technology policy but also raises broader questions about the implications for free speech and activism. As the tech landscape continues to evolve, the ability of advocates to participate in global dialogues is crucial for shaping effective regulations. This incident may also serve as a warning to others who wish to engage in similar activism, potentially stifling important conversations about the future of technology governance.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.bbc.com/news/articles/cp39kngz008o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer" title="UK social media campaigners among five denied US visas">bbc.com</a> <a href="https://www.theguardian.com/technology/2025/dec/24/uk-small-businesses-sign-up-to-tiktok-shop" target="_blank" rel="noopener noreferrer" title="‘A gamechanger’: 200,000 UK small businesses sign up to TikTok Shop">theguardian.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/25/amd_strix_halo_nvidia_spark/" target="_blank" rel="noopener noreferrer" title="AMD Strix Halo vs Nvidia DGX Spark: Which AI workstation comes out on top?">go.theregister.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/24/salesforce_chatgpt/" target="_blank" rel="noopener noreferrer" title="Salesforce’s ChatGPT integration is really about stopping customers from leaking their own data">go.theregister.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">us visas</span> <span class="tag">tech regulation</span> <span class="tag">social media</span> <span class="tag">activism</span> <span class="tag">uk news</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="business" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — In 2025, Hollywood&#39;s adoption of generative AI technologies for film production faced criticism despite initial enthusiasm.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The entertainment industry has increasingly integrated AI into post-production processes.</li>
+<li>There are concerns about the effectiveness and ROI of generative AI in creative fields.</li>
+<li>Significant financial investments in AI by tech companies are being scrutinized for their returns.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      In recent years, Hollywood has embraced generative AI technologies, utilizing them for various post-production tasks, such as de-aging actors and enhancing visual effects. However, by 2025, the industry's reliance on these technologies has drawn criticism, as many feel that the results have not met expectations. While AI has the potential to streamline tedious processes, the effectiveness of generative AI in delivering quality creative outcomes remains in question. This skepticism is compounded by the broader tech industry’s substantial financial outlay on AI, estimated at around $1.5 trillion in 2025, which raises concerns about the sustainability and return on investment of such spending. As organizations navigate the complexities of AI adoption, the balance between leveraging technology and maintaining artistic integrity continues to be a critical discussion point.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.theverge.com/ai-artificial-intelligence/848119/hollywood-film-tv-ai-2025" target="_blank" rel="noopener noreferrer" title="Hollywood cozied up to AI in 2025 and had nothing good to show for it">theverge.com</a> <a href="https://www.engadget.com/entertainment/streaming/2025-christmas-day-nfl-games-how-to-watch-today-full-streaming-schedule-and-more-233022063.html?src=rss" target="_blank" rel="noopener noreferrer" title="2025 Christmas Day NFL games: How to watch today, full streaming schedule and more">engadget.com</a> <a href="https://techcrunch.com/2025/12/24/nvidia-acquires-ai-chip-challenger-groq-for-20b-report-says/" target="_blank" rel="noopener noreferrer" title="Nvidia to license AI chip challenger Groq’s tech and hire its CEO">techcrunch.com</a> <a href="https://www.zdnet.com/article/motorola-moto-g-2026-review/" target="_blank" rel="noopener noreferrer" title="Why I prefer this $200 Motorola phone over Samsung and Google&#39;s budget models">zdnet.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">ai</span> <span class="tag">hollywood</span> <span class="tag">generative ai</span> <span class="tag">investment</span> <span class="tag">technology</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="work" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — Alexandra Samuel shared unconventional AI usage tips that challenge traditional workflows and enhance productivity.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Innovative AI applications can lead to improved workplace efficiency.</li>
+<li>Unpredictable AI interactions may encourage creative problem-solving.</li>
+<li>Embracing unconventional strategies can help teams rethink their approaches.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      In a recent discussion, AI expert Alexandra Samuel emphasized the importance of using AI in unexpected ways to enhance workplace productivity. Instead of relying on standard AI functionalities, she advocates for pushing AI tools to be more unpredictable and bold. This approach can help users identify blind spots in their workflows and stimulate creative thinking. By experimenting with unconventional AI applications, teams may discover new methods to streamline processes and improve efficiency. Samuel's insights suggest that the future of work could greatly benefit from a mindset that embraces experimentation and challenges the status quo, encouraging employees to rethink their daily tasks and interactions with technology.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.fastcompany.com/91463205/5-surprising-ways-to-use-ai?partner=rss&amp;amp;utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=rss+fastcompany&amp;amp;utm_content=rss" target="_blank" rel="noopener noreferrer" title="5 surprising ways to use AI">fastcompany.com</a> <a href="https://www.engadget.com/gaming/nintendo/how-to-redeem-game-codes-on-the-nintendo-switch-2-130059847.html?src=rss" target="_blank" rel="noopener noreferrer" title="How to redeem game codes on the Nintendo Switch 2">engadget.com</a> <a href="https://www.theverge.com/gadgets/849637/anker-laptop-power-bank-xbox-series-x-deal-sale" target="_blank" rel="noopener noreferrer" title="Anker’s beefy Laptop Power Bank has returned to its Black Friday low">theverge.com</a> <a href="https://www.fastcompany.com/91463316/apple-google-digital-id-passport-tsa?partner=rss&amp;amp;utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=rss+fastcompany&amp;amp;utm_content=rss" target="_blank" rel="noopener noreferrer" title="Why Apple and Google want your ID">fastcompany.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">ai</span> <span class="tag">productivity</span> <span class="tag">workplace</span> <span class="tag">workflow</span> <span class="tag">innovation</span>
+    </div>
+  </section>
+</section>
+  </main>
+
+  <footer>
+    <div class="foot-line"></div>
+    <p>UK-focused, neutral summaries from public RSS feeds. No tracking. Static HTML.</p>
+  </footer>
+
+  <!-- Tabs CSS/JS injected by generate.js -->
+  <style>
+  .tabs{display:flex;gap:14px;flex-wrap:wrap;margin:4px 0 6px}
+  .tab{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;padding:6px 2px;cursor:pointer}
+  .tab:hover{color:var(--fg)}
+  .tab.is-active{color:var(--fg);border-bottom:2px solid var(--fg)}
+  .tab-desc{margin:0 0 6px;color:var(--muted);font-size:.95rem;line-height:1.4}
+  .tab-note{margin:0 0 10px;color:var(--muted);font-size:.9rem;opacity:.85}
+</style>
+
+<script>
+(function(){
+  var TAB_DESC = {"uk":"UK AI — A daily summary of AI news most relevant to the UK.","business":"AI & Business — Adoption, governance, monetisation, and real-world deployments.","work":"AI & Work — Productivity tools, workflow changes, and practical workplace usage.","global":"Global AI — Models, research, major releases, and big platform shifts worldwide.","security":"AI Security — Misuse, attacks, safeguards, auditing, and defensive practices.","ethics":"Ethics & Policy — Regulation, governance, rights, safety debates, and oversight."};
+  function setTab(next){
+    var tabs = document.querySelectorAll('.tab');
+    var panels = document.querySelectorAll('.brief-panel');
+
+    tabs.forEach(function(t){
+      var active = t.getAttribute('data-tab') === next;
+      t.classList.toggle('is-active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    panels.forEach(function(p){
+      var match = p.getAttribute('data-tab') === next;
+      if(match){
+        p.removeAttribute('hidden');
+        p.setAttribute('aria-hidden','false');
+      }else{
+        p.setAttribute('hidden','');
+        p.setAttribute('aria-hidden','true');
+      }
+    });
+
+    var descEl = document.getElementById('tabDesc');
+    if(descEl) descEl.textContent = TAB_DESC[next] || "";
+
+    // optional note line per panel
+    var noteEl = document.getElementById('tabNote');
+    var panel = document.querySelector('.brief-panel[data-tab="'+next+'"]');
+    var note = panel ? panel.getAttribute('data-note') : "";
+    if(noteEl){
+      if(note){
+        noteEl.textContent = note;
+        noteEl.hidden = false;
+      }else{
+        noteEl.textContent = "";
+        noteEl.hidden = true;
+      }
+    }
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest ? e.target.closest('.tab') : null;
+    if(!btn) return;
+    setTab(btn.getAttribute('data-tab'));
+  });
+
+  // Always start on UK AI
+  setTab('uk');
+})();
+</script>
+</body>
+</html>
+

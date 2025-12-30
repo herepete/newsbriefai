@@ -1,0 +1,439 @@
+{
+  "generated_at_iso": "2025-12-30T06:30:57.581Z",
+  "generated_at_human": "30 December 2025",
+  "title": "Today’s 2-Minute AI Brief",
+  "tabs": [
+    {
+      "key": "security",
+      "label": "AI Security",
+      "freshnessUsed": 24,
+      "usedSecondary": true,
+      "relaxedAI": false,
+      "failed": false,
+      "noteText": "Wider sources used today due to limited fresh coverage.",
+      "oneLiner": "South Korea's KT Telecom has faced scrutiny after a security failure involving thousands of poorly secured femtocells, leading to customer fraud and communication snooping.",
+      "bullets": [
+        "The breach highlights vulnerabilities in telecommunications infrastructure, potentially affecting millions of users.",
+        "It raises concerns about the adequacy of security measures in consumer technology.",
+        "Such incidents can undermine public trust in telecom providers and their ability to protect user data."
+      ],
+      "tags": [
+        "kt telecom",
+        "femtocell security",
+        "customer fraud",
+        "telecommunications",
+        "data privacy"
+      ],
+      "sources": [
+        {
+          "title": "Korean telco failed at femtocell security, exposed customers to snooping and fraud",
+          "link": "https://go.theregister.com/feed/www.theregister.com/2025/12/30/kt_telecom_femtocell_security_fail/",
+          "source": "go.theregister.com",
+          "publishedAt": "2025-12-30T03:34:46.000Z",
+          "aiish": true,
+          "score": 2
+        },
+        {
+          "title": "‘This will be a stressful job’: Sam Altman offers $555k salary to fill most daunting role in AI",
+          "link": "https://www.theguardian.com/technology/2025/dec/29/sam-altman-openai-job-search-ai-harms",
+          "source": "theguardian.com",
+          "publishedAt": "2025-12-29T14:44:58.000Z",
+          "aiish": true,
+          "score": 2
+        },
+        {
+          "title": "China to crack down on AI firms to protect kids",
+          "link": "https://www.bbc.com/news/articles/c8dydlmenvro?at_medium=RSS&at_campaign=rss",
+          "source": "bbc.com",
+          "publishedAt": "2025-12-30T02:32:33.000Z",
+          "aiish": true,
+          "score": 0
+        },
+        {
+          "title": "Crims disconnect Wired subscribers from their privacy, publish deets online",
+          "link": "https://go.theregister.com/feed/www.theregister.com/2025/12/29/wired_hack_subscriber_info_leaked/",
+          "source": "go.theregister.com",
+          "publishedAt": "2025-12-29T19:23:37.000Z",
+          "aiish": true,
+          "score": 0
+        },
+        {
+          "title": "SoftBank to acquire DigitalBridge for $4bn in move to deepen ties to AI",
+          "link": "https://www.theguardian.com/technology/2025/dec/29/softbank-digitalbridge-deal-artificial-intelligence",
+          "source": "theguardian.com",
+          "publishedAt": "2025-12-29T15:05:00.000Z",
+          "aiish": true,
+          "score": 0
+        },
+        {
+          "title": "Europe's cloud challenge: Building an Airbus for the digital age",
+          "link": "https://go.theregister.com/feed/www.theregister.com/2025/12/29/europes_cloud_challenge_building_an/",
+          "source": "go.theregister.com",
+          "publishedAt": "2025-12-29T09:23:07.000Z",
+          "aiish": true,
+          "score": 0
+        }
+      ]
+    },
+    {
+      "key": "ethics",
+      "label": "Ethics & Policy",
+      "freshnessUsed": 48,
+      "usedSecondary": false,
+      "relaxedAI": false,
+      "failed": false,
+      "noteText": "",
+      "oneLiner": "The UK’s largest accounting body, ACCA, will end remote exams due to rising concerns over AI-assisted cheating.",
+      "bullets": [
+        "ACCA's decision reflects growing worries about integrity in professional qualifications.",
+        "This move could impact thousands of students who rely on online assessments.",
+        "It highlights the ongoing challenges of regulating AI technologies in education."
+      ],
+      "tags": [
+        "ai",
+        "education",
+        "ethics",
+        "regulation",
+        "cheating"
+      ],
+      "sources": [
+        {
+          "title": "Could AI relationships actually be good for us?",
+          "link": "https://www.theguardian.com/books/2025/dec/28/could-ai-relationships-actually-be-good-for-us",
+          "source": "theguardian.com",
+          "publishedAt": "2025-12-28T12:00:06.000Z",
+          "aiish": true,
+          "score": 2
+        },
+        {
+          "title": "New analysis shows Britain’s innovators are boosted by Horizon",
+          "link": "https://www.gov.uk/government/news/new-analysis-shows-britains-innovators-are-boosted-by-horizon",
+          "source": "gov.uk",
+          "publishedAt": "2025-12-29T09:00:02.000Z",
+          "aiish": true,
+          "score": 0
+        },
+        {
+          "title": "Arc Raiders review – pure multiplayer pleasure",
+          "link": "https://www.theguardian.com/games/2025/dec/29/arc-raiders-review-pure-multiplayer-pleasure",
+          "source": "theguardian.com",
+          "publishedAt": "2025-12-29T10:00:33.000Z",
+          "aiish": true,
+          "score": 0
+        },
+        {
+          "title": "UK accounting body to halt remote exams amid AI cheating",
+          "link": "https://www.theguardian.com/business/2025/dec/29/uk-accounting-remote-exams-ai-cheating-acca",
+          "source": "theguardian.com",
+          "publishedAt": "2025-12-29T08:19:20.000Z",
+          "aiish": true,
+          "score": 0
+        },
+        {
+          "title": "Bernie Sanders criticizes AI as ‘the most consequential technology in humanity’",
+          "link": "https://www.theguardian.com/us-news/2025/dec/28/bernie-sanders-artificial-intelligence-ai-datacenters",
+          "source": "theguardian.com",
+          "publishedAt": "2025-12-28T19:00:07.000Z",
+          "aiish": true,
+          "score": 0
+        },
+        {
+          "title": "Louis Gerstner, man credited with turning around IBM, dies aged 83",
+          "link": "https://www.theguardian.com/technology/2025/dec/28/louis-gerstner-man-credited-with-turning-around-ibm-dies-aged-83",
+          "source": "theguardian.com",
+          "publishedAt": "2025-12-28T17:15:44.000Z",
+          "aiish": true,
+          "score": 0
+        }
+      ]
+    },
+    {
+      "key": "global",
+      "label": "Global AI",
+      "freshnessUsed": 24,
+      "usedSecondary": true,
+      "relaxedAI": false,
+      "failed": false,
+      "noteText": "Wider sources used today due to limited fresh coverage.",
+      "oneLiner": "OpenAI is searching for a new Head of Preparedness with a salary of $555,000 to oversee risks associated with rapidly advancing AI models.",
+      "bullets": [
+        "The position highlights the increasing concerns about AI safety and oversight.",
+        "High turnover in this role indicates the challenges of managing AI-related risks.",
+        "The search reflects the rapid evolution of AI technology and its implications for society."
+      ],
+      "tags": [
+        "openai",
+        "ai safety",
+        "leadership",
+        "technology",
+        "risk management"
+      ],
+      "sources": [
+        {
+          "title": "Three-way conflict analysis based on alliance and conflict functions",
+          "link": "https://arxiv.org/abs/2512.21419",
+          "source": "arxiv.org",
+          "publishedAt": "2025-12-30T05:00:00.000Z",
+          "aiish": true,
+          "score": 1
+        },
+        {
+          "title": "LG to unveil a canvas-style TV at CES 2026",
+          "link": "https://www.engadget.com/home/home-theater/lg-to-unveil-a-canvas-style-tv-at-ces-2026-010024691.html?src=rss",
+          "source": "engadget.com",
+          "publishedAt": "2025-12-30T01:00:24.000Z",
+          "aiish": true,
+          "score": 1
+        },
+        {
+          "title": "Sam Altman is willing to pay somebody $555,000 a year to keep ChatGPT in line",
+          "link": "https://go.theregister.com/feed/www.theregister.com/2025/12/29/openai_safety_chief/",
+          "source": "go.theregister.com",
+          "publishedAt": "2025-12-29T18:10:34.000Z",
+          "aiish": true,
+          "score": 1
+        },
+        {
+          "title": "Beats’ new Powerbeats Fit earbuds are down to $180",
+          "link": "https://www.theverge.com/gadgets/850705/beats-pixel-watch-apple-pencil-sales-deal",
+          "source": "theverge.com",
+          "publishedAt": "2025-12-29T15:53:03.000Z",
+          "aiish": true,
+          "score": 1
+        },
+        {
+          "title": "Feasible strategies in three-way conflict analysis with three-valued ratings",
+          "link": "https://arxiv.org/abs/2512.21420",
+          "source": "arxiv.org",
+          "publishedAt": "2025-12-30T05:00:00.000Z",
+          "aiish": true,
+          "score": 1
+        },
+        {
+          "title": "Apple AirTag four-packs are on sale for $65 right now",
+          "link": "https://www.engadget.com/deals/apple-airtag-four-packs-are-on-sale-for-65-right-now-202333053.html?src=rss",
+          "source": "engadget.com",
+          "publishedAt": "2025-12-29T20:47:52.000Z",
+          "aiish": true,
+          "score": 1
+        }
+      ]
+    },
+    {
+      "key": "uk",
+      "label": "UK AI",
+      "freshnessUsed": 48,
+      "usedSecondary": true,
+      "relaxedAI": false,
+      "failed": false,
+      "noteText": "Wider sources used today due to limited fresh coverage.",
+      "oneLiner": "An AI tool is being implemented across 50 NHS organizations to help predict A&E demand this winter, aiming to enhance patient care.",
+      "bullets": [
+        "The AI initiative is part of the UK government's efforts to modernize the NHS.",
+        "Improved predictions may lead to faster treatment times for patients during peak demand periods.",
+        "This development highlights the increasing role of AI in healthcare management."
+      ],
+      "tags": [
+        "ai",
+        "nhs",
+        "healthcare",
+        "uk",
+        "technology"
+      ],
+      "sources": [
+        {
+          "title": "Faster treatments and support for health workers as AI tackles A&E bottlenecks",
+          "link": "https://www.gov.uk/government/news/faster-treatments-and-support-for-health-workers-as-ai-tackles-ae-bottlenecks",
+          "source": "gov.uk",
+          "publishedAt": "2025-12-28T22:30:00.000Z",
+          "aiish": true,
+          "score": 2
+        },
+        {
+          "title": "I ran 1,000km to test the best running watches in the UK – here are my favourites",
+          "link": "https://www.theguardian.com/thefilter/2025/dec/28/best-running-watches-tested-uk",
+          "source": "theguardian.com",
+          "publishedAt": "2025-12-28T07:00:04.000Z",
+          "aiish": true,
+          "score": 2
+        },
+        {
+          "title": "Zuck buys Chinese AI company Manus that claims it deals in actions, not words",
+          "link": "https://go.theregister.com/feed/www.theregister.com/2025/12/30/meta_acquires_manus/",
+          "source": "go.theregister.com",
+          "publishedAt": "2025-12-30T00:41:00.000Z",
+          "aiish": true,
+          "score": 0
+        },
+        {
+          "title": "From that bird guy to ‘bus aunty’: the real social media personalities rising above AI slop",
+          "link": "https://www.theguardian.com/media/2025/dec/28/from-that-bird-guy-to-bus-aunty-the-real-social-media-personalities-rising-above-ai-slop",
+          "source": "theguardian.com",
+          "publishedAt": "2025-12-28T16:00:11.000Z",
+          "aiish": true,
+          "score": 0
+        },
+        {
+          "title": "Nvidia spends $5B on Intel bailout, instantly gets $2.5B richer",
+          "link": "https://go.theregister.com/feed/www.theregister.com/2025/12/29/nvidia_intel_5_billion/",
+          "source": "go.theregister.com",
+          "publishedAt": "2025-12-29T22:20:46.000Z",
+          "aiish": true,
+          "score": 0
+        },
+        {
+          "title": "Nvidia insists it isn’t Enron, but its AI deals are testing investor faith",
+          "link": "https://www.theguardian.com/technology/2025/dec/28/nvidia-insists-it-isnt-enron-but-its-ai-deals-are-testing-investor-faith",
+          "source": "theguardian.com",
+          "publishedAt": "2025-12-28T14:00:09.000Z",
+          "aiish": true,
+          "score": 0
+        }
+      ]
+    },
+    {
+      "key": "business",
+      "label": "AI & Business",
+      "freshnessUsed": 24,
+      "usedSecondary": true,
+      "relaxedAI": false,
+      "failed": false,
+      "noteText": "Wider sources used today due to limited fresh coverage.",
+      "oneLiner": "Venture capitalists are predicting strong enterprise AI adoption in 2026, emphasizing the importance of AI agents and budget allocations.",
+      "bullets": [
+        "Increased enterprise AI adoption could lead to significant advancements in business efficiencies.",
+        "Venture capital insights may guide organizations in their AI investment strategies.",
+        "A focus on AI agents suggests a shift towards more autonomous business processes."
+      ],
+      "tags": [
+        "enterprise ai",
+        "venture capital",
+        "business strategy",
+        "automation",
+        "technology trends"
+      ],
+      "sources": [
+        {
+          "title": "Finally, Bluetooth trackers for Android users that function even better than AirTags (and they're on sale)",
+          "link": "https://www.zdnet.com/article/chipolo-one-point-review/",
+          "source": "zdnet.com",
+          "publishedAt": "2025-12-30T02:00:39.000Z",
+          "aiish": true,
+          "score": 2
+        },
+        {
+          "title": "How to watch the LG CES 2026 press conference",
+          "link": "https://www.engadget.com/home/how-to-watch-the-lg-ces-2026-press-conference-190159378.html?src=rss",
+          "source": "engadget.com",
+          "publishedAt": "2025-12-29T19:01:59.000Z",
+          "aiish": true,
+          "score": 2
+        },
+        {
+          "title": "Turn your PC into a Super Nintendo with Epilogue&#8217;s new USB dock",
+          "link": "https://www.theverge.com/news/850793/epilogue-sn-operator-super-nintendo-snes-cartridge-slot-backup-emulator",
+          "source": "theverge.com",
+          "publishedAt": "2025-12-29T17:22:05.000Z",
+          "aiish": true,
+          "score": 2
+        },
+        {
+          "title": "VCs predict strong enterprise AI adoption next year — again",
+          "link": "https://techcrunch.com/2025/12/29/vcs-predict-strong-enterprise-ai-adoption-next-year-again/",
+          "source": "techcrunch.com",
+          "publishedAt": "2025-12-29T14:00:00.000Z",
+          "aiish": true,
+          "score": 2
+        },
+        {
+          "title": "The biggest tech surprises of the year: 5 products that truly impressed our editors",
+          "link": "https://www.zdnet.com/article/zdnet-breakthrough-awards-2025/",
+          "source": "zdnet.com",
+          "publishedAt": "2025-12-30T01:30:42.000Z",
+          "aiish": true,
+          "score": 2
+        },
+        {
+          "title": "Co-founder of CD Projekt Michał Kiciński has acquired GOG, the company's game storefront",
+          "link": "https://www.engadget.com/gaming/pc/co-founder-of-cd-projekt-micha%C5%82-kicinski-has-acquired-gog-the-companys-game-storefront-174853415.html?src=rss",
+          "source": "engadget.com",
+          "publishedAt": "2025-12-29T17:48:53.000Z",
+          "aiish": true,
+          "score": 2
+        }
+      ]
+    },
+    {
+      "key": "work",
+      "label": "AI & Work",
+      "freshnessUsed": 24,
+      "usedSecondary": true,
+      "relaxedAI": false,
+      "failed": false,
+      "noteText": "Wider sources used today due to limited fresh coverage.",
+      "oneLiner": "Humanoid robots are gaining attention in the tech industry, despite ongoing challenges in their development and commercialization.",
+      "bullets": [
+        "The rise of AI is rekindling interest in humanoid robotics, which could transform workplace automation.",
+        "Major tech companies are exploring humanoid robots, indicating potential future applications in various sectors.",
+        "Events like the Humanoids Summit highlight the growing community and investment in robotics technology."
+      ],
+      "tags": [
+        "humanoid robots",
+        "ai",
+        "productivity",
+        "technology",
+        "workplace"
+      ],
+      "sources": [
+        {
+          "title": "Humanoid robots are having a moment, but still face an uphill battle",
+          "link": "https://www.fastcompany.com/91467593/humanoid-robots-summit-uphill-battle?partner=rss&amp;utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=rss+fastcompany&amp;utm_content=rss",
+          "source": "fastcompany.com",
+          "publishedAt": "2025-12-29T19:38:36.000Z",
+          "aiish": true,
+          "score": 2
+        },
+        {
+          "title": "CES 2026: What to expect from tech’s biggest conference in January",
+          "link": "https://www.engadget.com/big-tech/ces-2026-what-to-expect-from-techs-biggest-conference-in-january-120000369.html?src=rss",
+          "source": "engadget.com",
+          "publishedAt": "2025-12-29T16:03:00.000Z",
+          "aiish": true,
+          "score": 2
+        },
+        {
+          "title": "How to tweak your online platform algorithms",
+          "link": "https://www.theverge.com/tech/849742/how-to-tune-algorithms-recommendations-online-platforms",
+          "source": "theverge.com",
+          "publishedAt": "2025-12-29T16:30:00.000Z",
+          "aiish": true,
+          "score": 0
+        },
+        {
+          "title": "The 27 best new apps of 2025",
+          "link": "https://www.fastcompany.com/91464591/2025-apps-gemini-proton-perplexity-affinity?partner=rss&amp;utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=rss+fastcompany&amp;utm_content=rss",
+          "source": "fastcompany.com",
+          "publishedAt": "2025-12-29T10:00:00.000Z",
+          "aiish": true,
+          "score": 2
+        },
+        {
+          "title": "Samsung plans to integrate Google Photos into its TVs",
+          "link": "https://www.engadget.com/home/samsung-plans-to-integrate-google-photos-into-its-tvs-132739713.html?src=rss",
+          "source": "engadget.com",
+          "publishedAt": "2025-12-29T13:27:39.000Z",
+          "aiish": true,
+          "score": 2
+        },
+        {
+          "title": "This experimental camera can focus on everything at once",
+          "link": "https://www.theverge.com/news/850689/camera-focal-lens-technology-research",
+          "source": "theverge.com",
+          "publishedAt": "2025-12-29T14:50:20.000Z",
+          "aiish": true,
+          "score": 0
+        }
+      ]
+    }
+  ]
+}

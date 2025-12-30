@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>Today’s 2-Minute UK AI Brief</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A concise, UK-focused daily brief on AI — updated once a day with links to original sources." />
+  <meta property="og:title" content="Today’s 2-Minute UK AI Brief" />
+  <meta property="og:description" content="A clean, UK-centric AI news summary with sources, updated daily." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="dark light" />
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --fg:#e5e7eb;
+      --muted:#a0a6b0;
+      --card:#111218;
+      --link:#93c5fd;
+      --accent:#60a5fa;
+      --border:#1f2430;
+      --tag-bg:#111827;
+      --tag-fg:#cbd5e1;
+      --max:760px;
+      --gap:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    main{max-width:var(--max); margin:48px auto; padding:0 var(--gap)}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    nav.top{
+      display:flex; gap:12px; align-items:center; margin-bottom:12px; font-size:.95rem;
+    }
+    nav.top a{opacity:.9}
+    nav.top .dot{opacity:.5}
+
+    header h1{font-size:1.8rem; margin:6px 0 4px}
+    .date{margin:0 0 18px; color:var(--muted); font-size:.95rem}
+    .date[title]{cursor:help}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      margin:16px 0 22px;
+    }
+
+    .tldr{
+      font-size:1.05rem;
+      background:linear-gradient(0deg, rgba(96,165,250,.08), rgba(96,165,250,.08));
+      border-left:3px solid var(--accent);
+      padding:12px 12px 12px 14px;
+      border-radius:10px;
+      margin:8px 0 18px;
+    }
+
+    h2{
+      font-size:1.1rem;
+      letter-spacing:.2px;
+      margin:18px 0 10px;
+    }
+
+    ul{margin:0; padding-left:22px}
+    li{margin:6px 0}
+
+    .explainer p{margin:0 0 10px}
+    .explainer a{word-break:break-word}
+
+    .sources{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .sources a{color:var(--link); margin-right:10px}
+
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      display:inline-block;
+      background:var(--tag-bg);
+      color:var(--tag-fg);
+      border:1px solid var(--border);
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.85rem;
+      letter-spacing:.2px;
+    }
+
+    footer{
+      max-width:var(--max);
+      margin:24px auto 48px;
+      padding:0 var(--gap);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    .foot-line{border-top:1px solid var(--border); margin:16px 0; opacity:.7}
+
+    @media (max-width:520px){
+      header h1{font-size:1.5rem}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="top" aria-label="Site">
+      <a href="/archive/">Archive</a>
+      <span class="dot">·</span>
+      <a href="/about.html">About</a>
+      <span class="dot">·</span>
+      <a href="/changelog.html">Changelog</a>
+    </nav>
+
+    <header>
+      <h1>Today’s 2-Minute UK AI Brief</h1>
+      <p class="date" title="2025-12-17T12:02:41.861Z">17 December 2025</p>
+    </header>
+
+    <!-- Tabs (nav + one-line description) -->
+    <div class="tabs-wrap">
+  <div class="tabs" role="tablist" aria-label="Brief tabs">
+    <button class="tab is-active" role="tab" aria-selected="true" data-tab="uk">UK AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="business">AI &amp; Business</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="work">AI &amp; Work</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="global">Global AI</button>
+  </div>
+  <p class="tab-desc" id="tabDesc">UK AI brief — A daily summary of AI news most relevant to the UK.</p>
+</div>
+
+    <!-- Tab panels (each panel is a .card so it matches the current look) -->
+    <section class="brief-panel" data-tab="uk">
+  <section class="card">
+    <p class="tldr">TL;DR — Former UK Chancellor George Osborne has joined OpenAI as managing director for countries based in London.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Osborne&#39;s appointment highlights the UK&#39;s growing influence in the global AI sector.</li>
+<li>OpenAI&#39;s presence in London may attract further investment and talent to the UK tech landscape.</li>
+<li>This move underscores the UK&#39;s commitment to fostering innovation in artificial intelligence.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      George Osborne, who previously served as the UK Chancellor, has taken on a significant role at OpenAI, a leading artificial intelligence research organization. His appointment as managing director for countries based in London signals a strategic effort by OpenAI to enhance its operations and partnerships in the UK. This could lead to increased collaboration between UK firms and OpenAI, potentially boosting the local tech ecosystem. The UK government has been keen on positioning the country as a hub for technology and innovation, and having a prominent figure like Osborne associated with OpenAI may further elevate the UK's profile in the global AI arena. As the UK continues to navigate its post-Brexit landscape, such developments are crucial for attracting investment and fostering a competitive environment for AI research and development.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.ukri.org/news/ukri-sets-out-how-it-will-invest-record-budget-allocation/" target="_blank" rel="noopener noreferrer" title="UKRI sets out how it will invest record budget allocation">ukri.org</a> <a href="https://www.gov.uk/guidance/operating-a-spaceport-rules-and-regulations" target="_blank" rel="noopener noreferrer" title="Operating a spaceport: rules and regulations">gov.uk</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/17/uk_government_phone_thefts/" target="_blank" rel="noopener noreferrer" title="UK.gov accused of Grinching Christmas by ignoring phone theft scourge">go.theregister.com</a> <a href="https://www.theguardian.com/technology/2025/dec/16/uk-us-tech-prosperity-deal-trump-europe" target="_blank" rel="noopener noreferrer" title="UK insists US tech deal not dead as Trump threatens penalties against European firms">theguardian.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">uk-ai</span> <span class="tag">openai</span> <span class="tag">george-osborne</span> <span class="tag">tech-industry</span> <span class="tag">innovation</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="business" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">TL;DR — Cisco has announced that its proprietary AI models are ready to enhance its product offerings, starting with its Duo Identity Intelligence service.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Cisco&#39;s move indicates a significant step in integrating AI into enterprise security solutions.</li>
+<li>The deployment of AI can improve the efficiency and effectiveness of identity management.</li>
+<li>This development reflects a broader trend of companies leveraging in-house AI capabilities for competitive advantage.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Cisco's decision to utilize its homegrown AI models marks a pivotal moment in the company's strategy to enhance its product portfolio, particularly in the realm of identity management. The introduction of AI into its Duo Identity Intelligence offering suggests that Cisco aims to provide more sophisticated and tailored solutions for managing identity issues within enterprise infrastructures. By harnessing its own AI capabilities, Cisco not only seeks to improve the quality of its services but also positions itself to compete more effectively in a market increasingly driven by AI advancements. This trend of companies developing and deploying their own AI technologies is becoming common, as businesses recognize the potential for improved operational efficiency and enhanced customer experiences. As organizations continue to adopt AI, the implications for job roles and industry practices may also evolve, reflecting the need for a skilled workforce capable of navigating this technological landscape.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.zdnet.com/article/best-lenovo-laptop/" target="_blank" rel="noopener noreferrer" title="The best Lenovo laptops of 2025: Expert tested and reviewed">zdnet.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/17/cisco_foundation_model_indentity_intelligence/" target="_blank" rel="noopener noreferrer" title="Cisco decides its homegrown AI model is ready to power its products">go.theregister.com</a> <a href="https://techcrunch.com/2025/12/16/how-luminars-doomed-volvo-deal-helped-drag-the-company-into-bankruptcy/" target="_blank" rel="noopener noreferrer" title="How Luminar’s doomed Volvo deal helped drag the company into bankruptcy">techcrunch.com</a> <a href="https://venturebeat.com/ai/zencoder-drops-zenflow-a-free-ai-orchestration-tool-that-pits-claude-against" target="_blank" rel="noopener noreferrer" title="Zencoder drops Zenflow, a free AI orchestration tool that pits Claude against OpenAI’s models to cat…">venturebeat.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">cisco</span> <span class="tag">ai</span> <span class="tag">identity management</span> <span class="tag">enterprise software</span> <span class="tag">technology adoption</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="work" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">TL;DR — Google is testing a new email-based productivity assistant for select users in North America.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The assistant aims to enhance productivity by integrating directly with users&#39; email.</li>
+<li>It reflects a growing trend of AI tools designed to streamline workplace tasks.</li>
+<li>This development may influence how users manage their communications and workflows.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Google's initiative to test an email-based productivity assistant represents a significant step in the integration of artificial intelligence into everyday work processes. By allowing users on specific plans to access this tool, Google aims to simplify how individuals manage their emails and tasks. The assistant is expected to help users prioritize emails, automate responses, and organize their inboxes more effectively. This move aligns with a broader trend in the tech industry, where companies are increasingly focusing on AI-driven solutions to enhance productivity and efficiency in the workplace. As more tools like this emerge, they could fundamentally change how employees interact with their digital environments, potentially leading to improved time management and reduced workload stress. However, the effectiveness of such tools will depend on user adoption and their ability to integrate seamlessly into existing workflows.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.engadget.com/computing/laptops/best-chromebooks-160054646.html?src=rss" target="_blank" rel="noopener noreferrer" title="The best Chromebook you can buy in 2026">engadget.com</a> <a href="https://www.fastcompany.com/91448518/how-cloudflare-the-most-important-internet-company-youve-never-heard-of-took-center-stage?partner=rss&amp;amp;utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=rss+fastcompany&amp;amp;utm_content=rss" target="_blank" rel="noopener noreferrer" title="How Cloudflare, ‘the most important internet company you’ve never heard of,’ took center stage">fastcompany.com</a> <a href="https://www.theverge.com/news/846034/arcade1up-basic-fun-dead-home-arcade" target="_blank" rel="noopener noreferrer" title="Arcade1Up isn&amp;#8217;t dead, maybe">theverge.com</a> <a href="https://techcrunch.com/2025/12/16/google-tests-an-email-based-productivity-assistant/" target="_blank" rel="noopener noreferrer" title="Google tests an email-based productivity assistant">techcrunch.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">google</span> <span class="tag">productivity</span> <span class="tag">ai</span> <span class="tag">email</span> <span class="tag">workplace</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="global" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">TL;DR — Zencoder has launched a new AI orchestration tool called Zenflow, designed to enhance software development by coordinating multiple AI agents.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Zenflow aims to transition software engineering from informal coding practices to more structured workflows.</li>
+<li>The tool pits AI models like Claude against OpenAI&#39;s models to identify coding errors more effectively.</li>
+<li>This release reflects ongoing innovation in AI applications for software development amidst broader industry changes.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Zencoder's introduction of Zenflow marks a significant shift in how software engineers can utilize AI in their workflows. Traditionally, software development has involved a more casual approach, often referred to as "vibe coding," where developers rely on intuition and informal practices. Zenflow seeks to provide a more disciplined framework by coordinating various AI agents throughout the coding process. This orchestration layer allows developers to plan, implement, test, and review code systematically, which could lead to higher quality software and fewer errors. The tool's ability to compare different AI models, such as Claude and those from OpenAI, is particularly noteworthy as it aims to improve the debugging process. As the tech industry continues to evolve, tools like Zenflow represent an important step towards integrating AI more deeply into software engineering practices, potentially changing the landscape of development work.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.technologyreview.com/2025/12/17/1129259/omar-yaghi-chemist-nobel-prize-crystals-water-air/" target="_blank" rel="noopener noreferrer" title="This Nobel Prize–winning chemist dreams of making water from thin air">technologyreview.com</a> <a href="https://venturebeat.com/ai/zencoder-drops-zenflow-a-free-ai-orchestration-tool-that-pits-claude-against" target="_blank" rel="noopener noreferrer" title="Zencoder drops Zenflow, a free AI orchestration tool that pits Claude against OpenAI’s models to cat…">venturebeat.com</a> <a href="https://www.technologyreview.com/2025/12/16/1125899/creating-psychological-safety-in-the-ai-era/" target="_blank" rel="noopener noreferrer" title="Creating psychological safety in the AI era">technologyreview.com</a> <a href="https://venturebeat.com/ai/zoom-says-it-aced-ais-hardest-exam-critics-say-it-copied-off-its-neighbors" target="_blank" rel="noopener noreferrer" title="Zoom says it aced AI’s hardest exam. Critics say it copied off its neighbors.">venturebeat.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">zencoder</span> <span class="tag">zenflow</span> <span class="tag">ai orchestration</span> <span class="tag">software development</span> <span class="tag">coding tools</span>
+    </div>
+  </section>
+</section>
+  </main>
+
+  <footer>
+    <div class="foot-line"></div>
+    <p>UK-focused, neutral summaries from public RSS feeds. No tracking. Static HTML.</p>
+  </footer>
+
+  <!-- Tabs CSS/JS injected by generate.js -->
+  <style>
+  .tabs{display:flex;gap:14px;flex-wrap:wrap;margin:4px 0 6px}
+  .tab{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;padding:6px 2px;cursor:pointer}
+  .tab:hover{color:var(--fg)}
+  .tab.is-active{color:var(--fg);border-bottom:2px solid var(--fg)}
+  .tab-desc{margin:0 0 10px;color:var(--muted);font-size:.95rem;line-height:1.4}
+</style>
+
+<script>
+(function(){
+  var TAB_DESC = {
+    uk: "UK AI brief — A daily summary of AI news most relevant to the UK.",
+    business: "AI & Business — How companies are actually using AI this week (adoption, ROI, governance).",
+    work: "AI & Work — Productivity tools gaining traction (workflows, copilots, practical use-cases).",
+    global: "Global AI — New models, research, regulation, and big platform shifts worldwide."
+  };
+
+  function setTab(next){
+    var tabs = document.querySelectorAll('.tab');
+    var panels = document.querySelectorAll('.brief-panel');
+
+    tabs.forEach(function(t){
+      var active = t.getAttribute('data-tab') === next;
+      t.classList.toggle('is-active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    panels.forEach(function(p){
+      var match = p.getAttribute('data-tab') === next;
+      if(match){
+        p.removeAttribute('hidden');
+        p.setAttribute('aria-hidden','false');
+      }else{
+        p.setAttribute('hidden','');
+        p.setAttribute('aria-hidden','true');
+      }
+    });
+
+    var el = document.getElementById('tabDesc');
+    if(el) el.textContent = TAB_DESC[next] || "";
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest ? e.target.closest('.tab') : null;
+    if(!btn) return;
+    setTab(btn.getAttribute('data-tab'));
+  });
+
+  // Always start on UK AI
+  setTab('uk');
+})();
+</script>
+</body>
+</html>

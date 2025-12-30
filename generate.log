@@ -1,0 +1,1804 @@
+
+> generate
+> node scripts/generate.js
+
+[2025-10-21T11:27:02.014Z] Start generate
+[2025-10-21T11:27:02.804Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-10-21T11:27:02.861Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-10-21T11:27:03.257Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-10-21T11:27:03.274Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-10-21T11:27:03.276Z] Calling OpenAI with 6 items
+[2025-10-21T11:27:11.983Z] Generated index + archive (2025-10-21) + about (freshness <=36h; hosts: gov.uk, go.theregister.com, theguardian.com)
+[2025-10-21T11:27:11.983Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-10-22T06:30:02.940Z] Start generate
+[2025-10-22T06:30:03.748Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-10-22T06:30:03.815Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-10-22T06:30:03.817Z] Calling OpenAI with 6 items
+[2025-10-22T06:30:08.946Z] Generated index + archive (2025-10-22) + about (freshness <=24h; hosts: gov.uk, go.theregister.com, theguardian.com, bbc.com)
+[2025-10-22T06:30:08.947Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-10-23T06:30:02.797Z] Start generate
+[2025-10-23T06:30:03.484Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-10-23T06:30:03.538Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-10-23T06:30:03.541Z] Calling OpenAI with 6 items
+[2025-10-23T06:30:10.927Z] Generated index + archive (2025-10-23) + about (freshness <=24h; hosts: go.theregister.com, bbc.com, gov.uk, theguardian.com)
+[2025-10-23T06:30:10.927Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-10-24T06:30:02.852Z] Start generate
+[2025-10-24T06:30:03.538Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-10-24T06:30:03.590Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-10-24T06:30:03.593Z] Calling OpenAI with 6 items
+[2025-10-24T06:30:08.592Z] Generated index + archive (2025-10-24) + about (freshness <=24h; hosts: bbc.com, gov.uk, theguardian.com, ukri.org, go.theregister.com)
+[2025-10-24T06:30:08.592Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-10-25T06:30:02.875Z] Start generate
+[2025-10-25T06:30:03.558Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-10-25T06:30:03.625Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-10-25T06:30:03.629Z] Calling OpenAI with 6 items
+[2025-10-25T06:30:10.175Z] Generated index + archive (2025-10-25) + about (freshness <=24h; hosts: gov.uk, go.theregister.com, ukri.org, theguardian.com, bbc.com)
+[2025-10-25T06:30:10.176Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-10-26T06:30:03.045Z] Start generate
+[2025-10-26T06:30:03.699Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-10-26T06:30:03.762Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-10-26T06:30:04.117Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-10-26T06:30:04.134Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-10-26T06:30:04.494Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-10-26T06:30:04.512Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-10-26T06:30:04.514Z] Calling OpenAI with 6 items
+[2025-10-26T06:30:09.651Z] Generated index + archive (2025-10-26) + about (freshness <=48h; hosts: theguardian.com, go.theregister.com, ukri.org, gov.uk, bbc.com)
+[2025-10-26T06:30:09.651Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-10-27T06:30:03.139Z] Start generate
+[2025-10-27T06:30:04.185Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-10-27T06:30:04.239Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-10-27T06:30:04.240Z] Calling OpenAI with 6 items
+[2025-10-27T06:30:11.399Z] Generated index + archive (2025-10-27) + about (freshness <=24h; hosts: go.theregister.com, theguardian.com, bbc.com)
+[2025-10-27T06:30:11.400Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-10-28T06:30:02.838Z] Start generate
+[2025-10-28T06:30:03.647Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-10-28T06:30:03.718Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-10-28T06:30:03.721Z] Calling OpenAI with 6 items
+[2025-10-28T06:30:12.216Z] Generated index + archive (2025-10-28) + about (freshness <=24h; hosts: go.theregister.com, gov.uk, bbc.com, theguardian.com)
+[2025-10-28T06:30:12.217Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-10-29T06:30:03.825Z] Start generate
+[2025-10-29T06:30:04.582Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-10-29T06:30:04.632Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-10-29T06:30:04.634Z] Calling OpenAI with 6 items
+[2025-10-29T06:30:12.591Z] Generated index + archive (2025-10-29) + about (freshness <=24h; hosts: gov.uk, theguardian.com, go.theregister.com, ukri.org, bbc.com)
+[2025-10-29T06:30:12.591Z] Done; exiting cleanly.
+npm notice
+npm notice New major version of npm available! 10.8.2 -> 11.6.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.2
+npm notice To update run: npm install -g npm@11.6.2
+npm notice
+
+> generate
+> node scripts/generate.js
+
+[2025-10-30T06:30:02.303Z] Start generate
+[2025-10-30T06:30:03.122Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-10-30T06:30:03.189Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-10-30T06:30:03.194Z] Calling OpenAI with 6 items
+[2025-10-30T06:30:10.489Z] Generated index + archive (2025-10-30) + about (freshness <=24h; hosts: gov.uk, theguardian.com, go.theregister.com, ukri.org, bbc.com)
+[2025-10-30T06:30:10.490Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-10-31T06:30:02.733Z] Start generate
+[2025-10-31T06:30:03.391Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-10-31T06:30:03.469Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-10-31T06:30:03.472Z] Calling OpenAI with 6 items
+[2025-10-31T06:30:09.226Z] Generated index + archive (2025-10-31) + about (freshness <=24h; hosts: ncsc.gov.uk, go.theregister.com, gov.uk, bbc.com, theguardian.com)
+[2025-10-31T06:30:09.226Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-01T06:30:02.704Z] Start generate
+[2025-11-01T06:30:03.426Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-01T06:30:03.477Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-01T06:30:03.479Z] Calling OpenAI with 6 items
+[2025-11-01T06:30:10.080Z] Generated index + archive (2025-11-01) + about (freshness <=24h; hosts: gov.uk, go.theregister.com, theguardian.com, bbc.com)
+[2025-11-01T06:30:10.081Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-02T06:30:02.617Z] Start generate
+[2025-11-02T06:30:03.296Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-02T06:30:03.362Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-02T06:30:03.364Z] Calling OpenAI with 3 items
+[2025-11-02T06:30:07.595Z] RateLimitError: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
+    at APIError.generate (file:///opt/bitnami/apache/htdocs/node_modules/openai/error.mjs:59:20)
+    at OpenAI.makeStatusError (file:///opt/bitnami/apache/htdocs/node_modules/openai/core.mjs:295:25)
+    at OpenAI.makeRequest (file:///opt/bitnami/apache/htdocs/node_modules/openai/core.mjs:339:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async main (file:///opt/bitnami/apache/htdocs/scripts/generate.js:390:16) {
+  status: 429,
+  headers: {
+    'alt-svc': 'h3=":443"; ma=86400',
+    'cf-cache-status': 'DYNAMIC',
+    'cf-ray': '998194d42d13cdb6-LHR',
+    connection: 'keep-alive',
+    'content-length': '337',
+    'content-type': 'application/json; charset=utf-8',
+    date: 'Sun, 02 Nov 2025 06:30:07 GMT',
+    server: 'cloudflare',
+    'set-cookie': '__cf_bm=YMQ5fvMKpAqD2mBLplp7x1BcRZPUcvHXhsqZuwDqtoY-1762065007-1.0.1.1-RUYxissLuO56KsWSh4LIUKZ61A.WLFyI82BszknEr4jkQLB.VBzU4EJoY4V7_p6khNOVjnv7ysev7A9pHuxchT3yyK.23g5m0tsF3UHSiFc; path=/; expires=Sun, 02-Nov-25 07:00:07 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None, _cfuvid=LO2wfTZP0i4MtrJA3vxSAFiyJO2B_Zy0qCbDvsCLiJc-1762065007592-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    vary: 'Origin',
+    'x-content-type-options': 'nosniff',
+    'x-envoy-upstream-service-time': '236',
+    'x-openai-proxy-wasm': 'v0.1',
+    'x-request-id': 'req_62a383ad859e4f78a2f56cedc117d829'
+  },
+  request_id: 'req_62a383ad859e4f78a2f56cedc117d829',
+  error: {
+    message: 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.',
+    type: 'insufficient_quota',
+    param: null,
+    code: 'insufficient_quota'
+  },
+  code: 'insufficient_quota',
+  param: null,
+  type: 'insufficient_quota'
+}
+
+> generate
+> node scripts/generate.js
+
+[2025-11-03T06:30:02.869Z] Start generate
+[2025-11-03T06:30:03.498Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-03T06:30:03.547Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-03T06:30:03.549Z] Calling OpenAI with 6 items
+[2025-11-03T06:30:06.832Z] RateLimitError: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
+    at APIError.generate (file:///opt/bitnami/apache/htdocs/node_modules/openai/error.mjs:59:20)
+    at OpenAI.makeStatusError (file:///opt/bitnami/apache/htdocs/node_modules/openai/core.mjs:295:25)
+    at OpenAI.makeRequest (file:///opt/bitnami/apache/htdocs/node_modules/openai/core.mjs:339:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async main (file:///opt/bitnami/apache/htdocs/scripts/generate.js:390:16) {
+  status: 429,
+  headers: {
+    'alt-svc': 'h3=":443"; ma=86400',
+    'cf-cache-status': 'DYNAMIC',
+    'cf-ray': '9989d22e29960033-LHR',
+    connection: 'keep-alive',
+    'content-length': '337',
+    'content-type': 'application/json; charset=utf-8',
+    date: 'Mon, 03 Nov 2025 06:30:06 GMT',
+    server: 'cloudflare',
+    'set-cookie': '__cf_bm=OGBTpYrA2DbVQNHxSTrk.oZfiWde3YTyS766u1N8F7w-1762151406-1.0.1.1-CnzOek2WyQQNFopspp8xuc1phfwUwNr1RbX3FEQKDu_xxx4FojVXMepCGrvxfzhP0OA8ABx3QWZffF2GkM_8wB_Y8Y8eoew137103H58ONI; path=/; expires=Mon, 03-Nov-25 07:00:06 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None, _cfuvid=XYXyXls_UO5cuz13a8yCgHUb45AQeSJdx5_mrHOq6_M-1762151406829-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    vary: 'Origin',
+    'x-content-type-options': 'nosniff',
+    'x-envoy-upstream-service-time': '327',
+    'x-openai-proxy-wasm': 'v0.1',
+    'x-request-id': 'req_c27efeb6a51143d68751ed69744b0b0d'
+  },
+  request_id: 'req_c27efeb6a51143d68751ed69744b0b0d',
+  error: {
+    message: 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.',
+    type: 'insufficient_quota',
+    param: null,
+    code: 'insufficient_quota'
+  },
+  code: 'insufficient_quota',
+  param: null,
+  type: 'insufficient_quota'
+}
+
+> generate
+> node scripts/generate.js
+
+[2025-11-04T06:30:02.559Z] Start generate
+[2025-11-04T06:30:03.781Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-04T06:30:03.834Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-04T06:30:03.836Z] Calling OpenAI with 6 items
+[2025-11-04T06:30:08.257Z] RateLimitError: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
+    at APIError.generate (file:///opt/bitnami/apache/htdocs/node_modules/openai/error.mjs:59:20)
+    at OpenAI.makeStatusError (file:///opt/bitnami/apache/htdocs/node_modules/openai/core.mjs:295:25)
+    at OpenAI.makeRequest (file:///opt/bitnami/apache/htdocs/node_modules/openai/core.mjs:339:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async main (file:///opt/bitnami/apache/htdocs/scripts/generate.js:390:16) {
+  status: 429,
+  headers: {
+    'alt-svc': 'h3=":443"; ma=86400',
+    'cf-cache-status': 'DYNAMIC',
+    'cf-ray': '99920f96cf8b97f8-MAN',
+    connection: 'keep-alive',
+    'content-length': '337',
+    'content-type': 'application/json; charset=utf-8',
+    date: 'Tue, 04 Nov 2025 06:30:08 GMT',
+    server: 'cloudflare',
+    'set-cookie': '__cf_bm=t6JJ14bap4gBFxTPYK7OKv8ICVUE9_LGG5jKJc6rZm4-1762237808-1.0.1.1-DH89J1vvDAzT0E0p6bUXQ5s71pvHiuoUEGaNx17Q.y__HDF0SCFZrJQoNIfGFINMYLS5GdvTUYAfkXPHbqYyHeglYxxI7Sj9CeXh34tR7tU; path=/; expires=Tue, 04-Nov-25 07:00:08 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None, _cfuvid=ip8nIZGIRsLGTKWPORk2LuL3p.QcR4pkTyKE.gHBvCg-1762237808250-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    vary: 'Origin',
+    'x-content-type-options': 'nosniff',
+    'x-envoy-upstream-service-time': '383',
+    'x-openai-proxy-wasm': 'v0.1',
+    'x-request-id': 'req_6e83839d66164666b97f080965a74d2b'
+  },
+  request_id: 'req_6e83839d66164666b97f080965a74d2b',
+  error: {
+    message: 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.',
+    type: 'insufficient_quota',
+    param: null,
+    code: 'insufficient_quota'
+  },
+  code: 'insufficient_quota',
+  param: null,
+  type: 'insufficient_quota'
+}
+
+> generate
+> node scripts/generate.js
+
+[2025-11-04T09:45:01.989Z] Start generate
+[2025-11-04T09:45:02.682Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-04T09:45:02.731Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-04T09:45:02.736Z] Calling OpenAI with 6 items
+[2025-11-04T09:45:09.707Z] Generated index + archive (2025-11-04) + about (freshness <=24h; hosts: go.theregister.com, gov.uk, theguardian.com, ukri.org, bbc.com)
+[2025-11-04T09:45:09.707Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-05T06:30:02.519Z] Start generate
+[2025-11-05T06:30:03.288Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-05T06:30:03.338Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-05T06:30:03.341Z] Calling OpenAI with 6 items
+[2025-11-05T06:30:10.917Z] Generated index + archive (2025-11-05) + about (freshness <=24h; hosts: go.theregister.com, gov.uk, theguardian.com, bbc.com)
+[2025-11-05T06:30:10.918Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-05T09:45:02.916Z] Start generate
+[2025-11-05T09:45:03.537Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-05T09:45:03.604Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-05T09:45:03.608Z] Calling OpenAI with 6 items
+[2025-11-05T09:45:14.172Z] Generated index + archive (2025-11-05) + about (freshness <=24h; hosts: go.theregister.com, theguardian.com, bbc.com)
+[2025-11-05T09:45:14.173Z] Done; exiting cleanly.
+npm notice
+npm notice New major version of npm available! 10.8.2 -> 11.6.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.2
+npm notice To update run: npm install -g npm@11.6.2
+npm notice
+
+> generate
+> node scripts/generate.js
+
+[2025-11-06T06:30:02.596Z] Start generate
+[2025-11-06T06:30:04.152Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-06T06:30:04.195Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-06T06:30:04.197Z] Calling OpenAI with 6 items
+[2025-11-06T06:30:11.145Z] Generated index + archive (2025-11-06) + about (freshness <=24h; hosts: ukri.org, gov.uk, go.theregister.com, bbc.com, theguardian.com)
+[2025-11-06T06:30:11.145Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-06T09:45:01.858Z] Start generate
+[2025-11-06T09:45:02.502Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-06T09:45:02.571Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-06T09:45:02.574Z] Calling OpenAI with 6 items
+[2025-11-06T09:45:08.578Z] Generated index + archive (2025-11-06) + about (freshness <=24h; hosts: go.theregister.com, gov.uk, ukri.org, theguardian.com, bbc.com)
+[2025-11-06T09:45:08.578Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-07T06:30:02.160Z] Start generate
+[2025-11-07T06:30:04.785Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-07T06:30:04.850Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-07T06:30:04.853Z] Calling OpenAI with 6 items
+[2025-11-07T06:30:12.312Z] Generated index + archive (2025-11-07) + about (freshness <=24h; hosts: go.theregister.com, bbc.com, gov.uk, theguardian.com)
+[2025-11-07T06:30:12.312Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-07T09:45:01.662Z] Start generate
+[2025-11-07T09:45:02.329Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-07T09:45:02.401Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-07T09:45:02.405Z] Calling OpenAI with 6 items
+[2025-11-07T09:45:08.901Z] Generated index + archive (2025-11-07) + about (freshness <=24h; hosts: go.theregister.com, gov.uk, theguardian.com, bbc.com)
+[2025-11-07T09:45:08.901Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-08T06:30:02.744Z] Start generate
+[2025-11-08T06:30:04.290Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-08T06:30:04.354Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-08T06:30:04.357Z] Calling OpenAI with 6 items
+[2025-11-08T06:30:13.575Z] Generated index + archive (2025-11-08) + about (freshness <=24h; hosts: theguardian.com, ukri.org, gov.uk, go.theregister.com, bbc.com)
+[2025-11-08T06:30:13.575Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-08T09:45:01.870Z] Start generate
+[2025-11-08T09:45:02.926Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-08T09:45:02.978Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-08T09:45:02.981Z] Calling OpenAI with 6 items
+[2025-11-08T09:45:10.667Z] Generated index + archive (2025-11-08) + about (freshness <=24h; hosts: theguardian.com, gov.uk, go.theregister.com, bbc.com)
+[2025-11-08T09:45:10.667Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-09T06:30:02.458Z] Start generate
+[2025-11-09T06:30:03.277Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-09T06:30:03.348Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-09T06:30:04.170Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-09T06:30:04.191Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-09T06:30:04.677Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-09T06:30:04.695Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-09T06:30:04.697Z] Calling OpenAI with 6 items
+[2025-11-09T06:30:11.784Z] Generated index + archive (2025-11-09) + about (freshness <=48h; hosts: theguardian.com, gov.uk, go.theregister.com, bbc.com)
+[2025-11-09T06:30:11.784Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-09T09:45:02.173Z] Start generate
+[2025-11-09T09:45:02.892Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-09T09:45:02.944Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-09T09:45:03.357Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-09T09:45:03.375Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-09T09:45:03.896Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-09T09:45:03.913Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-09T09:45:03.915Z] Calling OpenAI with 6 items
+[2025-11-09T09:45:13.168Z] Generated index + archive (2025-11-09) + about (freshness <=48h; hosts: go.theregister.com, theguardian.com, bbc.com)
+[2025-11-09T09:45:13.168Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-10T06:30:02.283Z] Start generate
+[2025-11-10T06:30:04.107Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-10T06:30:04.158Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-10T06:30:04.160Z] Calling OpenAI with 6 items
+[2025-11-10T06:30:11.425Z] Generated index + archive (2025-11-10) + about (freshness <=24h; hosts: theguardian.com, bbc.com, go.theregister.com)
+[2025-11-10T06:30:11.425Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-10T09:45:01.767Z] Start generate
+[2025-11-10T09:45:02.490Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-10T09:45:02.543Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-10T09:45:02.545Z] Calling OpenAI with 6 items
+[2025-11-10T09:45:08.897Z] Generated index + archive (2025-11-10) + about (freshness <=24h; hosts: go.theregister.com, bbc.com, theguardian.com)
+[2025-11-10T09:45:08.897Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-11T06:30:02.637Z] Start generate
+[2025-11-11T06:30:04.795Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-11T06:30:04.844Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-11T06:30:04.847Z] Calling OpenAI with 6 items
+[2025-11-11T06:30:11.213Z] Generated index + archive (2025-11-11) + about (freshness <=24h; hosts: gov.uk, bbc.com, go.theregister.com, theguardian.com)
+[2025-11-11T06:30:11.214Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-11T09:45:01.548Z] Start generate
+[2025-11-11T09:45:02.562Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-11T09:45:02.626Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-11T09:45:02.630Z] Calling OpenAI with 6 items
+[2025-11-11T09:45:12.405Z] Generated index + archive (2025-11-11) + about (freshness <=24h; hosts: gov.uk, go.theregister.com, bbc.com, theguardian.com)
+[2025-11-11T09:45:12.406Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-12T06:30:03.164Z] Start generate
+[2025-11-12T06:30:05.289Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-12T06:30:05.362Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-12T06:30:05.364Z] Calling OpenAI with 6 items
+[2025-11-12T06:30:13.531Z] Generated index + archive (2025-11-12) + about (freshness <=24h; hosts: bbc.com, gov.uk, go.theregister.com, ukri.org, theguardian.com)
+[2025-11-12T06:30:13.531Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-12T09:45:01.918Z] Start generate
+[2025-11-12T09:45:03.453Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-12T09:45:03.504Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-12T09:45:03.508Z] Calling OpenAI with 6 items
+[2025-11-12T09:45:15.551Z] Generated index + archive (2025-11-12) + about (freshness <=24h; hosts: go.theregister.com, ukri.org, theguardian.com, gov.uk, bbc.com)
+[2025-11-12T09:45:15.551Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-13T06:30:03.346Z] Start generate
+[2025-11-13T06:30:04.418Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-13T06:30:04.492Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-13T06:30:04.495Z] Calling OpenAI with 6 items
+[2025-11-13T06:30:10.962Z] Generated index + archive (2025-11-13) + about (freshness <=24h; hosts: gov.uk, go.theregister.com, theguardian.com, bbc.com)
+[2025-11-13T06:30:10.962Z] Done; exiting cleanly.
+npm notice
+npm notice New major version of npm available! 10.8.2 -> 11.6.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.2
+npm notice To update run: npm install -g npm@11.6.2
+npm notice
+
+> generate
+> node scripts/generate.js
+
+[2025-11-13T09:45:02.422Z] Start generate
+[2025-11-13T09:45:03.550Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-13T09:45:03.600Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-13T09:45:03.602Z] Calling OpenAI with 6 items
+[2025-11-13T09:45:10.443Z] Generated index + archive (2025-11-13) + about (freshness <=24h; hosts: gov.uk, theguardian.com, go.theregister.com, bbc.com)
+[2025-11-13T09:45:10.444Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-14T06:30:02.494Z] Start generate
+[2025-11-14T06:30:03.258Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-14T06:30:03.334Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-14T06:30:03.337Z] Calling OpenAI with 6 items
+[2025-11-14T06:30:10.732Z] Generated index + archive (2025-11-14) + about (freshness <=24h; hosts: ukri.org, go.theregister.com, gov.uk, theguardian.com, bbc.com)
+[2025-11-14T06:30:10.732Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-14T09:45:02.154Z] Start generate
+[2025-11-14T09:45:02.836Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-14T09:45:02.910Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-14T09:45:02.914Z] Calling OpenAI with 6 items
+[2025-11-14T09:45:10.863Z] Generated index + archive (2025-11-14) + about (freshness <=24h; hosts: go.theregister.com, gov.uk, theguardian.com)
+[2025-11-14T09:45:10.863Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-15T06:30:02.611Z] Start generate
+[2025-11-15T06:30:03.951Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-15T06:30:04.016Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-15T06:30:04.022Z] Calling OpenAI with 6 items
+[2025-11-15T06:30:10.756Z] Generated index + archive (2025-11-15) + about (freshness <=24h; hosts: gov.uk, ukri.org, go.theregister.com, theguardian.com, bbc.com)
+[2025-11-15T06:30:10.756Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-15T09:45:02.123Z] Start generate
+[2025-11-15T09:45:03.217Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-15T09:45:03.264Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-15T09:45:03.267Z] Calling OpenAI with 6 items
+[2025-11-15T09:45:09.944Z] Generated index + archive (2025-11-15) + about (freshness <=24h; hosts: theguardian.com, gov.uk, go.theregister.com, bbc.com)
+[2025-11-15T09:45:09.944Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-16T06:30:02.722Z] Start generate
+[2025-11-16T06:30:04.023Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-16T06:30:04.133Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-16T06:30:04.585Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-16T06:30:04.604Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-16T06:30:04.605Z] Calling OpenAI with 6 items
+[2025-11-16T06:30:12.346Z] Generated index + archive (2025-11-16) + about (freshness <=36h; hosts: theguardian.com, go.theregister.com, bbc.com)
+[2025-11-16T06:30:12.346Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-16T09:45:02.306Z] Start generate
+[2025-11-16T09:45:03.553Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-16T09:45:03.623Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-16T09:45:04.135Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-16T09:45:04.156Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-16T09:45:04.695Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-16T09:45:04.712Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-16T09:45:04.714Z] Calling OpenAI with 1 items
+[2025-11-16T09:45:13.047Z] Generated index + archive (2025-11-16) + about (freshness <=24h; hosts: theguardian.com)
+[2025-11-16T09:45:13.047Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-17T06:30:02.725Z] Start generate
+[2025-11-17T06:30:03.834Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-17T06:30:03.889Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-17T06:30:03.891Z] Calling OpenAI with 6 items
+[2025-11-17T06:30:13.866Z] Generated index + archive (2025-11-17) + about (freshness <=24h; hosts: go.theregister.com, bbc.com, theguardian.com)
+[2025-11-17T06:30:13.866Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-17T09:45:02.366Z] Start generate
+[2025-11-17T09:45:03.911Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-17T09:45:03.967Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-17T09:45:03.969Z] Calling OpenAI with 6 items
+[2025-11-17T09:45:11.857Z] Generated index + archive (2025-11-17) + about (freshness <=24h; hosts: theguardian.com, go.theregister.com, bbc.com)
+[2025-11-17T09:45:11.857Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-18T06:30:02.508Z] Start generate
+[2025-11-18T06:30:05.241Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-18T06:30:05.308Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-18T06:30:05.311Z] Calling OpenAI with 6 items
+[2025-11-18T06:30:14.403Z] Generated index + archive (2025-11-18) + about (freshness <=24h; hosts: gov.uk, bbc.com, ukri.org, go.theregister.com, ncsc.gov.uk, theguardian.com)
+[2025-11-18T06:30:14.404Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-19T06:30:02.986Z] Start generate
+[2025-11-19T06:30:04.230Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-19T06:30:04.308Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-19T06:30:04.314Z] Calling OpenAI with 6 items
+[2025-11-19T06:30:12.074Z] Generated index + archive (2025-11-19) + about (freshness <=24h; hosts: go.theregister.com, ukri.org, gov.uk, bbc.com, theguardian.com)
+[2025-11-19T06:30:12.074Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-20T06:30:03.567Z] Start generate
+[2025-11-20T06:30:04.898Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-20T06:30:04.964Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-20T06:30:04.968Z] Calling OpenAI with 6 items
+[2025-11-20T06:30:12.823Z] Generated index + archive (2025-11-20) + about (freshness <=24h; hosts: go.theregister.com, bbc.com, gov.uk, theguardian.com)
+[2025-11-20T06:30:12.823Z] Done; exiting cleanly.
+npm notice
+npm notice New major version of npm available! 10.8.2 -> 11.6.3
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.3
+npm notice To update run: npm install -g npm@11.6.3
+npm notice
+
+> generate
+> node scripts/generate.js
+
+[2025-11-21T06:30:02.714Z] Start generate
+[2025-11-21T06:30:03.646Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-21T06:30:03.697Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-21T06:30:03.699Z] Calling OpenAI with 6 items
+[2025-11-21T06:30:10.517Z] Generated index + archive (2025-11-21) + about (freshness <=24h; hosts: gov.uk, theguardian.com, bbc.com, go.theregister.com)
+[2025-11-21T06:30:10.517Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-21T15:03:01.748Z] Start generate
+[2025-11-21T15:03:02.435Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-21T15:03:02.480Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-21T15:03:02.483Z] Calling OpenAI with 6 items
+[2025-11-21T15:03:14.039Z] Generated index + archive (2025-11-21) + about (freshness <=24h; hosts: go.theregister.com, ukri.org, gov.uk, theguardian.com, bbc.com)
+[2025-11-21T15:03:14.040Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-22T06:30:02.408Z] Start generate
+[2025-11-22T06:30:03.799Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-22T06:30:03.872Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-22T06:30:03.874Z] Calling OpenAI with 6 items
+[2025-11-22T06:30:12.032Z] Generated index + archive (2025-11-22) + about (freshness <=24h; hosts: theguardian.com, gov.uk, go.theregister.com)
+[2025-11-22T06:30:12.033Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-23T06:30:02.563Z] Start generate
+[2025-11-23T06:30:05.181Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-23T06:30:05.233Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-23T06:30:05.660Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-23T06:30:05.680Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-23T06:30:06.164Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-23T06:30:06.182Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-23T06:30:06.183Z] Calling OpenAI with 5 items
+[2025-11-23T06:30:11.460Z] Generated index + archive (2025-11-23) + about (freshness <=24h; hosts: theguardian.com, go.theregister.com)
+[2025-11-23T06:30:11.460Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-24T06:30:02.674Z] Start generate
+[2025-11-24T06:30:04.229Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-24T06:30:04.276Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-24T06:30:04.977Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-24T06:30:04.994Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-24T06:30:05.592Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-24T06:30:05.617Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-24T06:30:05.618Z] Calling OpenAI with 6 items
+[2025-11-24T06:30:12.792Z] Generated index + archive (2025-11-24) + about (freshness <=24h; hosts: theguardian.com, go.theregister.com)
+[2025-11-24T06:30:12.793Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-25T06:30:02.355Z] Start generate
+[2025-11-25T06:30:03.097Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-25T06:30:03.150Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-25T06:30:03.153Z] Calling OpenAI with 6 items
+[2025-11-25T06:30:08.226Z] Generated index + archive (2025-11-25) + about (freshness <=24h; hosts: go.theregister.com, ukri.org, gov.uk, theguardian.com, bbc.com)
+[2025-11-25T06:30:08.226Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-26T06:30:02.765Z] Start generate
+[2025-11-26T06:30:04.240Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-26T06:30:04.292Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-26T06:30:04.294Z] Calling OpenAI with 6 items
+[2025-11-26T06:30:12.517Z] Generated index + archive (2025-11-26) + about (freshness <=24h; hosts: gov.uk, theguardian.com, bbc.com, go.theregister.com, ukri.org)
+[2025-11-26T06:30:12.517Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-27T06:30:02.797Z] Start generate
+[2025-11-27T06:30:03.568Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-27T06:30:03.636Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-27T06:30:03.639Z] Calling OpenAI with 6 items
+[2025-11-27T06:30:10.496Z] Generated index + archive (2025-11-27) + about (freshness <=24h; hosts: gov.uk, theguardian.com, go.theregister.com, bbc.com)
+[2025-11-27T06:30:10.496Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-28T06:30:03.137Z] Start generate
+[2025-11-28T06:30:03.834Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-28T06:30:03.880Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-28T06:30:03.882Z] Calling OpenAI with 6 items
+[2025-11-28T06:30:08.248Z] Generated index + archive (2025-11-28) + about (freshness <=24h; hosts: theguardian.com, gov.uk, ukri.org, go.theregister.com, bbc.com)
+[2025-11-28T06:30:08.248Z] Done; exiting cleanly.
+npm notice
+npm notice New major version of npm available! 10.8.2 -> 11.6.4
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.4
+npm notice To update run: npm install -g npm@11.6.4
+npm notice
+
+> generate
+> node scripts/generate.js
+
+[2025-11-29T06:30:02.678Z] Start generate
+[2025-11-29T06:30:03.843Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-29T06:30:03.913Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-29T06:30:03.916Z] Calling OpenAI with 6 items
+[2025-11-29T06:30:10.419Z] Generated index + archive (2025-11-29) + about (freshness <=24h; hosts: ukri.org, go.theregister.com, gov.uk, theguardian.com, bbc.com)
+[2025-11-29T06:30:10.419Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-11-30T06:30:02.619Z] Start generate
+[2025-11-30T06:30:03.408Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-30T06:30:03.453Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-30T06:30:04.376Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-30T06:30:04.394Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-30T06:30:04.808Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-11-30T06:30:04.828Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-11-30T06:30:04.829Z] Calling OpenAI with 6 items
+[2025-11-30T06:30:14.023Z] Generated index + archive (2025-11-30) + about (freshness <=48h; hosts: gov.uk, go.theregister.com, theguardian.com)
+[2025-11-30T06:30:14.023Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-01T06:30:02.318Z] Start generate
+[2025-12-01T06:30:03.057Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-01T06:30:03.167Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-01T06:30:03.903Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-01T06:30:03.987Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-01T06:30:04.420Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-01T06:30:04.449Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-01T06:30:04.450Z] Calling OpenAI with 6 items
+[2025-12-01T06:30:12.151Z] Generated index + archive (2025-12-01) + about (freshness <=24h; hosts: go.theregister.com, theguardian.com)
+[2025-12-01T06:30:12.151Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-02T06:30:02.411Z] Start generate
+[2025-12-02T06:30:03.420Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-02T06:30:03.464Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-02T06:30:03.467Z] Calling OpenAI with 6 items
+[2025-12-02T06:30:10.223Z] Generated index + archive (2025-12-02) + about (freshness <=24h; hosts: go.theregister.com, gov.uk, bbc.com, theguardian.com)
+[2025-12-02T06:30:10.223Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-03T06:30:02.589Z] Start generate
+[2025-12-03T06:30:03.271Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-03T06:30:03.322Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-03T06:30:03.326Z] Calling OpenAI with 6 items
+[2025-12-03T06:30:10.676Z] Generated index + archive (2025-12-03) + about (freshness <=24h; hosts: go.theregister.com, gov.uk, theguardian.com, bbc.com)
+[2025-12-03T06:30:10.676Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-04T06:30:02.538Z] Start generate
+[2025-12-04T06:30:03.230Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-04T06:30:03.283Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-04T06:30:03.286Z] Calling OpenAI with 6 items
+[2025-12-04T06:30:12.120Z] Generated index + archive (2025-12-04) + about (freshness <=24h; hosts: ukri.org, bbc.com, theguardian.com, ncsc.gov.uk, go.theregister.com, gov.uk)
+[2025-12-04T06:30:12.120Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-05T06:30:03.186Z] Start generate
+[2025-12-05T06:30:04.296Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-05T06:30:04.344Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-05T06:30:04.346Z] Calling OpenAI with 6 items
+[2025-12-05T06:30:11.742Z] Generated index + archive (2025-12-05) + about (freshness <=24h; hosts: gov.uk, bbc.com, go.theregister.com, theguardian.com)
+[2025-12-05T06:30:11.742Z] Done; exiting cleanly.
+npm notice
+npm notice New major version of npm available! 10.8.2 -> 11.6.4
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.4
+npm notice To update run: npm install -g npm@11.6.4
+npm notice
+
+> generate
+> node scripts/generate.js
+
+[2025-12-06T06:30:02.505Z] Start generate
+[2025-12-06T06:30:03.283Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-06T06:30:03.334Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-06T06:30:03.337Z] Calling OpenAI with 6 items
+[2025-12-06T06:30:08.718Z] Generated index + archive (2025-12-06) + about (freshness <=24h; hosts: ukri.org, go.theregister.com, theguardian.com, gov.uk, bbc.com)
+[2025-12-06T06:30:08.718Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-07T06:30:02.779Z] Start generate
+[2025-12-07T06:30:03.400Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-07T06:30:03.455Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-07T06:30:04.653Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-07T06:30:04.673Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-07T06:30:05.056Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-07T06:30:05.073Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-07T06:30:05.074Z] Calling OpenAI with 6 items
+[2025-12-07T06:30:11.937Z] Generated index + archive (2025-12-07) + about (freshness <=48h; hosts: theguardian.com, gov.uk, go.theregister.com, bbc.com)
+[2025-12-07T06:30:11.937Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-08T06:30:02.504Z] Start generate
+[2025-12-08T06:30:03.250Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-08T06:30:03.300Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-08T06:30:03.302Z] Calling OpenAI with 6 items
+[2025-12-08T06:30:08.343Z] Generated index + archive (2025-12-08) + about (freshness <=24h; hosts: theguardian.com, go.theregister.com, bbc.com)
+[2025-12-08T06:30:08.343Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-09T06:30:02.846Z] Start generate
+[2025-12-09T06:30:04.316Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-09T06:30:04.368Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-09T06:30:04.371Z] Calling OpenAI with 6 items
+[2025-12-09T06:30:12.882Z] Generated index + archive (2025-12-09) + about (freshness <=24h; hosts: go.theregister.com, gov.uk, ukri.org, bbc.com, theguardian.com)
+[2025-12-09T06:30:12.882Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-10T06:30:02.818Z] Start generate
+[2025-12-10T06:30:04.006Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-10T06:30:04.071Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-10T06:30:04.076Z] Calling OpenAI with 6 items
+[2025-12-10T06:30:11.052Z] Generated index + archive (2025-12-10) + about (freshness <=24h; hosts: bbc.com, gov.uk, go.theregister.com, ukri.org, theguardian.com)
+[2025-12-10T06:30:11.052Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-11T06:30:02.591Z] Start generate
+[2025-12-11T06:30:03.857Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-11T06:30:03.936Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-11T06:30:03.940Z] Calling OpenAI with 6 items
+[2025-12-11T06:30:13.227Z] Generated index + archive (2025-12-11) + about (freshness <=24h; hosts: gov.uk, go.theregister.com, bbc.com, theguardian.com, ncsc.gov.uk)
+[2025-12-11T06:30:13.228Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-12T06:30:03.764Z] Start generate
+[2025-12-12T06:30:04.487Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-12T06:30:04.556Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-12T06:30:04.560Z] Calling OpenAI with 6 items
+[2025-12-12T06:30:10.719Z] Generated index + archive (2025-12-12) + about (freshness <=24h; hosts: gov.uk, go.theregister.com, ukri.org, bbc.com, theguardian.com)
+[2025-12-12T06:30:10.720Z] Done; exiting cleanly.
+npm notice
+npm notice New major version of npm available! 10.8.2 -> 11.7.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.7.0
+npm notice To update run: npm install -g npm@11.7.0
+npm notice
+
+> generate
+> node scripts/generate.js
+
+[2025-12-13T06:30:02.380Z] Start generate
+[2025-12-13T06:30:03.787Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-13T06:30:03.899Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-13T06:30:03.901Z] Calling OpenAI with 6 items
+[2025-12-13T06:30:09.989Z] Generated index + archive (2025-12-13) + about (freshness <=24h; hosts: go.theregister.com, gov.uk, bbc.com, theguardian.com)
+[2025-12-13T06:30:09.989Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-14T06:30:02.790Z] Start generate
+[2025-12-14T06:30:03.963Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-14T06:30:04.016Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-14T06:30:04.655Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-14T06:30:04.674Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-14T06:30:05.072Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-14T06:30:05.091Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-14T06:30:05.092Z] Calling OpenAI with 6 items
+[2025-12-14T06:30:12.519Z] Generated index + archive (2025-12-14) + about (freshness <=48h; hosts: theguardian.com, go.theregister.com, bbc.com)
+[2025-12-14T06:30:12.519Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-15T06:30:02.519Z] Start generate
+[2025-12-15T06:30:04.007Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-15T06:30:04.085Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-15T06:30:04.087Z] Calling OpenAI with 6 items
+[2025-12-15T06:30:08.064Z] Generated index + archive (2025-12-15) + about (freshness <=24h; hosts: gov.uk, go.theregister.com, theguardian.com)
+[2025-12-15T06:30:08.064Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-16T06:30:02.588Z] Start generate
+[2025-12-16T06:30:03.665Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-16T06:30:03.735Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-16T06:30:03.740Z] Calling OpenAI with 6 items
+[2025-12-16T06:30:11.116Z] Generated index + archive (2025-12-16) + about (freshness <=24h; hosts: gov.uk, bbc.com, ukri.org, go.theregister.com, theguardian.com)
+[2025-12-16T06:30:11.116Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-17T06:30:02.600Z] Start generate
+[2025-12-17T06:30:03.762Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-17T06:30:03.833Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-17T06:30:03.838Z] Calling OpenAI with 6 items
+[2025-12-17T06:30:12.785Z] Generated index + archive (2025-12-17) + about (freshness <=24h; hosts: bbc.com, gov.uk, go.theregister.com, theguardian.com, ukri.org)
+[2025-12-17T06:30:12.785Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-17T12:02:02.282Z] Start generate
+[2025-12-17T12:02:03.379Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-17T12:02:03.452Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-17T12:02:03.453Z] [uk] Calling OpenAI with 6 items
+[2025-12-17T12:02:11.497Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-17T12:02:11.849Z] RSS error: https://www.computerworld.com/index.rss Status code 404
+[2025-12-17T12:02:11.875Z] [business] Calling OpenAI with 6 items
+[2025-12-17T12:02:19.251Z] RSS error: https://workspaceupdates.googleblog.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-17T12:02:20.737Z] [work] Calling OpenAI with 6 items
+[2025-12-17T12:02:30.350Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-17T12:02:30.901Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-17T12:02:32.629Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-17T12:02:32.630Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-17T12:02:32.701Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-17T12:02:32.840Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-17T12:02:32.897Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-17T12:02:32.899Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-17T12:02:32.954Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-17T12:02:33.502Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-17T12:02:33.559Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-17T12:02:33.561Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-17T12:02:33.598Z] [global] Calling OpenAI with 6 items
+[2025-12-17T12:02:41.891Z] Generated index + archive (2025-12-17) + about + changelog
+[2025-12-17T12:02:41.891Z] [uk] freshness<=24h; hosts: ukri.org, gov.uk, go.theregister.com, theguardian.com, bbc.com
+[2025-12-17T12:02:41.891Z] [business] freshness<=24h; hosts: zdnet.com, go.theregister.com, techcrunch.com, venturebeat.com
+[2025-12-17T12:02:41.891Z] [work] freshness<=24h; hosts: engadget.com, fastcompany.com, theverge.com, techcrunch.com, theguardian.com
+[2025-12-17T12:02:41.891Z] [global] freshness<=24h; hosts: technologyreview.com, venturebeat.com
+[2025-12-17T12:02:41.891Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-18T06:30:02.627Z] Start generate
+[2025-12-18T06:30:04.627Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-18T06:30:04.685Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-18T06:30:04.686Z] [uk] Calling OpenAI with 6 items
+[2025-12-18T06:30:11.897Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 5
+Column: 388
+Char: &
+[2025-12-18T06:30:12.210Z] RSS error: https://www.computerworld.com/index.rss Status code 404
+[2025-12-18T06:30:12.234Z] [business] Calling OpenAI with 6 items
+[2025-12-18T06:30:18.838Z] RSS error: https://workspaceupdates.googleblog.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-18T06:30:20.238Z] [work] Calling OpenAI with 6 items
+[2025-12-18T06:30:28.284Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-18T06:30:28.956Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-18T06:30:30.653Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-18T06:30:30.655Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-18T06:30:30.708Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-18T06:30:31.379Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-18T06:30:31.420Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-18T06:30:31.422Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-18T06:30:31.483Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-18T06:30:31.657Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-18T06:30:31.702Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-18T06:30:31.704Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-18T06:30:31.740Z] [global] Calling OpenAI with 2 items
+[2025-12-18T06:30:37.344Z] Generated index + archive (2025-12-18) + about + changelog
+[2025-12-18T06:30:37.344Z] [uk] freshness<=24h; hosts: theguardian.com, gov.uk, go.theregister.com, bbc.com
+[2025-12-18T06:30:37.344Z] [business] freshness<=24h; hosts: zdnet.com, go.theregister.com, techcrunch.com, venturebeat.com
+[2025-12-18T06:30:37.344Z] [work] freshness<=24h; hosts: engadget.com, fastcompany.com, theguardian.com, theverge.com, techcrunch.com
+[2025-12-18T06:30:37.344Z] [global] freshness<=24h; hosts: venturebeat.com
+[2025-12-18T06:30:37.344Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-19T06:30:02.814Z] Start generate
+[2025-12-19T06:30:03.483Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-19T06:30:03.540Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-19T06:30:03.541Z] [uk] Calling OpenAI with 6 items
+[2025-12-19T06:30:14.132Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-19T06:30:14.460Z] RSS error: https://www.computerworld.com/index.rss Status code 404
+[2025-12-19T06:30:14.495Z] [business] Calling OpenAI with 6 items
+[2025-12-19T06:30:24.893Z] RSS error: https://workspaceupdates.googleblog.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-19T06:30:26.329Z] [work] Calling OpenAI with 6 items
+[2025-12-19T06:30:34.177Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-19T06:30:34.886Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-19T06:30:37.209Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-19T06:30:37.210Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-19T06:30:37.284Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-19T06:30:37.419Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-19T06:30:37.451Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-19T06:30:37.452Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-19T06:30:37.506Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-19T06:30:37.800Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-19T06:30:37.832Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-19T06:30:37.833Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-19T06:30:37.867Z] [global] Calling OpenAI with 6 items
+[2025-12-19T06:30:44.475Z] Generated index + archive (2025-12-19) + about + changelog
+[2025-12-19T06:30:44.475Z] [uk] freshness<=24h; hosts: bbc.com, gov.uk, ukri.org, theguardian.com, go.theregister.com
+[2025-12-19T06:30:44.475Z] [business] freshness<=24h; hosts: zdnet.com, techcrunch.com, venturebeat.com, go.theregister.com
+[2025-12-19T06:30:44.475Z] [work] freshness<=24h; hosts: theverge.com, engadget.com, fastcompany.com, techcrunch.com, theguardian.com
+[2025-12-19T06:30:44.475Z] [global] freshness<=24h; hosts: technologyreview.com, venturebeat.com
+[2025-12-19T06:30:44.475Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-20T06:30:03.372Z] Start generate
+[2025-12-20T06:30:04.045Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-20T06:30:04.119Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-20T06:30:04.119Z] [uk] Calling OpenAI with 6 items
+[2025-12-20T06:30:10.744Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-20T06:30:11.195Z] RSS error: https://www.computerworld.com/index.rss Status code 404
+[2025-12-20T06:30:11.231Z] [business] Calling OpenAI with 6 items
+[2025-12-20T06:30:16.952Z] RSS error: https://workspaceupdates.googleblog.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-20T06:30:17.877Z] [work] Calling OpenAI with 6 items
+[2025-12-20T06:30:27.811Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-20T06:30:28.550Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-20T06:30:28.945Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-20T06:30:28.946Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-20T06:30:29.028Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-20T06:30:29.568Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-20T06:30:29.600Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-20T06:30:29.601Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-20T06:30:29.686Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-20T06:30:29.804Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-20T06:30:29.835Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-20T06:30:29.836Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-20T06:30:29.870Z] [global] Calling OpenAI with 1 items
+[2025-12-20T06:30:35.756Z] Generated index + archive (2025-12-20) + about + changelog
+[2025-12-20T06:30:35.756Z] [uk] freshness<=24h; hosts: go.theregister.com, ukri.org, theguardian.com, gov.uk, bbc.com
+[2025-12-20T06:30:35.756Z] [business] freshness<=24h; hosts: techcrunch.com, zdnet.com, go.theregister.com
+[2025-12-20T06:30:35.756Z] [work] freshness<=24h; hosts: theverge.com, engadget.com, techcrunch.com, fastcompany.com, theguardian.com
+[2025-12-20T06:30:35.756Z] [global] freshness<=24h; hosts: technologyreview.com
+[2025-12-20T06:30:35.756Z] Done; exiting cleanly.
+npm notice
+npm notice New major version of npm available! 10.8.2 -> 11.7.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.7.0
+npm notice To update run: npm install -g npm@11.7.0
+npm notice
+
+> generate
+> node scripts/generate.js
+
+[2025-12-21T06:30:02.798Z] Start generate
+[2025-12-21T06:30:04.364Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-21T06:30:04.438Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-21T06:30:04.704Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-21T06:30:04.721Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-21T06:30:05.096Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-21T06:30:05.120Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-21T06:30:05.120Z] [uk] Calling OpenAI with 6 items
+[2025-12-21T06:30:12.253Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-21T06:30:12.613Z] RSS error: https://www.computerworld.com/index.rss Status code 404
+[2025-12-21T06:30:12.637Z] [business] Calling OpenAI with 6 items
+[2025-12-21T06:30:21.288Z] RSS error: https://workspaceupdates.googleblog.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-21T06:30:22.675Z] [work] Calling OpenAI with 6 items
+[2025-12-21T06:30:28.241Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-21T06:30:28.794Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-21T06:30:29.020Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-21T06:30:29.021Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-21T06:30:29.084Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-21T06:30:29.258Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-21T06:30:29.289Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-21T06:30:29.290Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-21T06:30:29.341Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-21T06:30:29.511Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-21T06:30:29.541Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-21T06:30:29.543Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-21T06:30:29.572Z] [global] Calling OpenAI with 1 items
+[2025-12-21T06:30:35.765Z] Generated index + archive (2025-12-21) + about + changelog
+[2025-12-21T06:30:35.765Z] [uk] freshness<=48h; hosts: go.theregister.com, gov.uk, ukri.org, theguardian.com, bbc.com
+[2025-12-21T06:30:35.765Z] [business] freshness<=24h; hosts: venturebeat.com, zdnet.com, techcrunch.com
+[2025-12-21T06:30:35.765Z] [work] freshness<=24h; hosts: engadget.com, fastcompany.com, techcrunch.com, theverge.com, theguardian.com
+[2025-12-21T06:30:35.765Z] [global] freshness<=24h; hosts: venturebeat.com
+[2025-12-21T06:30:35.765Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-22T06:30:02.839Z] Start generate
+[2025-12-22T06:30:03.520Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-22T06:30:03.568Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-22T06:30:03.854Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-22T06:30:03.870Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-22T06:30:04.144Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-22T06:30:04.164Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-22T06:30:04.164Z] [uk] Calling OpenAI with 6 items
+[2025-12-22T06:30:14.521Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 5
+Column: 388
+Char: &
+[2025-12-22T06:30:14.951Z] RSS error: https://www.computerworld.com/index.rss Status code 404
+[2025-12-22T06:30:14.988Z] [business] Calling OpenAI with 6 items
+[2025-12-22T06:30:20.879Z] RSS error: https://workspaceupdates.googleblog.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-22T06:30:22.440Z] [work] Calling OpenAI with 6 items
+[2025-12-22T06:30:30.217Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-22T06:30:30.358Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-22T06:30:30.586Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-22T06:30:30.588Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-22T06:30:30.677Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-22T06:30:30.809Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-22T06:30:30.842Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-22T06:30:30.843Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-22T06:30:30.914Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-22T06:30:31.088Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-22T06:30:31.123Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-22T06:30:31.125Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-22T06:30:31.156Z] [global] Calling OpenAI with 1 items
+[2025-12-22T06:30:39.995Z] Generated index + archive (2025-12-22) + about + changelog
+[2025-12-22T06:30:39.995Z] [uk] freshness<=24h; hosts: theguardian.com, go.theregister.com
+[2025-12-22T06:30:39.995Z] [business] freshness<=24h; hosts: techcrunch.com, venturebeat.com, go.theregister.com, zdnet.com
+[2025-12-22T06:30:39.995Z] [work] freshness<=24h; hosts: theverge.com, engadget.com, theguardian.com, fastcompany.com, techcrunch.com
+[2025-12-22T06:30:39.995Z] [global] freshness<=24h; hosts: venturebeat.com
+[2025-12-22T06:30:39.995Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-23T06:30:02.634Z] Start generate
+[2025-12-23T06:30:03.222Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-23T06:30:03.269Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-23T06:30:03.270Z] [uk] Calling OpenAI with 6 items
+[2025-12-23T06:30:07.900Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T06:30:09.046Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-23T06:30:09.422Z] RSS error: https://www.computerworld.com/index.rss Status code 404
+[2025-12-23T06:30:09.443Z] [business] Calling OpenAI with 6 items
+[2025-12-23T06:30:15.754Z] RSS error: https://workspaceupdates.googleblog.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-23T06:30:17.257Z] [work] Calling OpenAI with 6 items
+[2025-12-23T06:30:23.790Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-23T06:30:24.333Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-23T06:30:24.728Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-23T06:30:24.730Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-23T06:30:24.752Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T06:30:24.775Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-23T06:30:25.311Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-23T06:30:25.348Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-23T06:30:25.349Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-23T06:30:25.390Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T06:30:25.413Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-23T06:30:25.940Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-23T06:30:25.977Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-23T06:30:25.979Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-23T06:30:26.000Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T06:30:26.000Z] [global] Calling OpenAI with 2 items
+[2025-12-23T06:30:32.509Z] Generated index + archive (2025-12-23) + about + changelog
+[2025-12-23T06:30:32.510Z] [uk] freshness<=24h; hosts: go.theregister.com, ukri.org, bbc.com, gov.uk, theguardian.com
+[2025-12-23T06:30:32.510Z] [business] freshness<=24h; hosts: zdnet.com, techcrunch.com, go.theregister.com
+[2025-12-23T06:30:32.510Z] [work] freshness<=24h; hosts: fastcompany.com, engadget.com, theguardian.com, theverge.com, techcrunch.com
+[2025-12-23T06:30:32.510Z] [global] freshness<=24h; hosts: technologyreview.com
+[2025-12-23T06:30:32.510Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-23T14:32:01.615Z] Start generate
+[2025-12-23T14:32:01.843Z] RSS error: https://www.theregister.com/software/security/headlines.atom Status code 404
+[2025-12-23T14:32:07.036Z] RSS error: https://www.theregister.com/software/security/headlines.atom Status code 404
+[2025-12-23T14:32:12.031Z] RSS error: https://www.theregister.com/software/security/headlines.atom Status code 404
+[2025-12-23T14:32:14.045Z] [security] Calling OpenAI with 3 items
+[2025-12-23T14:32:20.245Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-23T14:32:20.806Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-23T14:32:21.027Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-23T14:32:21.034Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-23T14:32:21.061Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T14:32:21.089Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-23T14:32:21.626Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-23T14:32:21.670Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-23T14:32:21.672Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-23T14:32:21.725Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T14:32:21.747Z] RSS error: https://openai.com/blog/rss/ Status code 403
+[2025-12-23T14:32:22.331Z] RSS error: https://googleaiblog.blogspot.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-23T14:32:22.406Z] RSS error: https://www.wired.com/feed/category/artificial-intelligence/latest/rss Status code 404
+[2025-12-23T14:32:22.408Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-23T14:32:22.440Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T14:32:22.440Z] [global] Calling OpenAI with 2 items
+[2025-12-23T14:32:29.660Z] RSS error: https://news.sky.com/feeds/rss/technology.xml Status code 404
+[2025-12-23T14:32:29.733Z] RSS error: https://feeds.reuters.com/reuters/technologyNews?format=xml getaddrinfo ENOTFOUND feeds.reuters.com
+[2025-12-23T14:32:29.733Z] [uk] Calling OpenAI with 6 items
+[2025-12-23T14:32:35.772Z] RSS error: https://ico.org.uk/rss/news.xml Status code 404
+[2025-12-23T14:32:35.822Z] RSS error: https://www.oecd.org/ai/rss.xml Status code 403
+[2025-12-23T14:32:35.947Z] RSS error: https://ico.org.uk/rss/news.xml Status code 404
+[2025-12-23T14:32:35.986Z] RSS error: https://www.oecd.org/ai/rss.xml Status code 403
+[2025-12-23T14:32:36.110Z] RSS error: https://ico.org.uk/rss/news.xml Status code 404
+[2025-12-23T14:32:36.144Z] RSS error: https://www.oecd.org/ai/rss.xml Status code 403
+[2025-12-23T14:32:36.242Z] Error: [ethics] No fresh AI-relevant sources found. Try expanding feeds or widening the window.
+    at generateOneTab (file:///opt/bitnami/apache/htdocs/scripts/generate.js:823:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async main (file:///opt/bitnami/apache/htdocs/scripts/generate.js:913:18)
+
+> generate
+> node scripts/generate.js
+
+[2025-12-23T14:58:01.745Z] Start generate
+[2025-12-23T14:58:02.819Z] [security] Calling OpenAI with 3 items
+[2025-12-23T14:58:08.013Z] [global] Calling OpenAI with 6 items
+[2025-12-23T14:58:13.985Z] [uk] Calling OpenAI with 5 items
+[2025-12-23T14:58:20.707Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T14:58:22.238Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-23T14:58:22.676Z] RSS error: https://www.computerworld.com/index.rss Status code 404
+[2025-12-23T14:58:22.793Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T14:58:23.604Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-23T14:58:23.960Z] RSS error: https://www.computerworld.com/index.rss Status code 404
+[2025-12-23T14:58:24.078Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T14:58:24.807Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-23T14:58:25.109Z] RSS error: https://www.computerworld.com/index.rss Status code 404
+[2025-12-23T14:58:25.154Z] [business] Calling OpenAI with 4 items
+[2025-12-23T14:58:31.648Z] RSS error: https://workspaceupdates.googleblog.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-23T14:58:32.680Z] RSS error: https://workspaceupdates.googleblog.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-23T14:58:33.626Z] RSS error: https://workspaceupdates.googleblog.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-23T14:58:34.378Z] [work] Calling OpenAI with 6 items
+[2025-12-23T14:58:38.922Z] [ethics] Calling OpenAI with 2 items
+[2025-12-23T14:58:44.647Z] Generated index + archive (2025-12-23) + about + changelog
+[2025-12-23T14:58:44.647Z] [uk] freshness<=24h; hosts: go.theregister.com, theguardian.com
+[2025-12-23T14:58:44.648Z] [business] freshness<=24h; hosts: zdnet.com
+[2025-12-23T14:58:44.648Z] [work] freshness<=24h; hosts: theverge.com, engadget.com
+[2025-12-23T14:58:44.648Z] [global] freshness<=24h; hosts: go.theregister.com, wired.com, technologyreview.com, bbc.com, arxiv.org
+[2025-12-23T14:58:44.648Z] [security] freshness<=24h; hosts: go.theregister.com
+[2025-12-23T14:58:44.648Z] [ethics] freshness<=24h; hosts: technologyreview.com, wired.com
+[2025-12-23T14:58:44.648Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-23T15:06:02.373Z] Start generate
+[2025-12-23T15:06:03.344Z] Error: [security] No fresh AI-relevant sources found. Try expanding feeds or widening the window.
+    at generateOneTab (file:///opt/bitnami/apache/htdocs/scripts/generate.js:712:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async main (file:///opt/bitnami/apache/htdocs/scripts/generate.js:767:20)
+
+> generate
+> node scripts/generate.js
+
+[2025-12-23T15:17:01.805Z] Start generate
+[2025-12-23T15:17:02.558Z] [security] Calling OpenAI with 5 items
+[2025-12-23T15:17:07.154Z] [global] Calling OpenAI with 6 items
+[2025-12-23T15:17:15.041Z] [uk] Calling OpenAI with 4 items
+[2025-12-23T15:17:19.368Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T15:17:19.943Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-23T15:17:20.525Z] RSS error: https://www.computerworld.com/index.rss Status code 404
+[2025-12-23T15:17:20.643Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T15:17:21.017Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-23T15:17:21.448Z] RSS error: https://www.computerworld.com/index.rss Status code 404
+[2025-12-23T15:17:21.533Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T15:17:21.772Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-23T15:17:22.259Z] RSS error: https://www.computerworld.com/index.rss Status code 404
+[2025-12-23T15:17:22.298Z] Error: [business] No fresh AI-relevant sources found. Try expanding feeds or widening the window.
+    at generateOneTab (file:///opt/bitnami/apache/htdocs/scripts/generate.js:700:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async main (file:///opt/bitnami/apache/htdocs/scripts/generate.js:779:20)
+
+> generate
+> node scripts/generate.js
+
+[2025-12-23T15:26:01.916Z] Start generate
+[2025-12-23T15:26:02.983Z] [security] Tab failed; using fallback panel: [security] No fresh AI-relevant sources found. Try expanding feeds or widening the window.
+[2025-12-23T15:26:03.473Z] [global] Calling OpenAI with 6 items
+[2025-12-23T15:26:09.560Z] [uk] Tab failed; using fallback panel: [uk] No fresh AI-relevant sources found. Try expanding feeds or widening the window.
+[2025-12-23T15:26:09.593Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T15:26:10.160Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-23T15:26:10.644Z] RSS error: https://www.computerworld.com/index.rss Status code 404
+[2025-12-23T15:26:10.758Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T15:26:10.998Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-23T15:26:11.008Z] RSS error: https://www.computerworld.com/index.rss Status code 404
+[2025-12-23T15:26:11.069Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T15:26:11.308Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-23T15:26:11.689Z] RSS error: https://www.computerworld.com/index.rss Status code 404
+[2025-12-23T15:26:11.736Z] [business] Calling OpenAI with 3 items
+[2025-12-23T15:26:19.402Z] RSS error: https://workspaceupdates.googleblog.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-23T15:26:20.766Z] RSS error: https://workspaceupdates.googleblog.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-23T15:26:22.177Z] RSS error: https://workspaceupdates.googleblog.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-23T15:26:22.959Z] [work] Calling OpenAI with 3 items
+[2025-12-23T15:26:27.987Z] [ethics] Calling OpenAI with 2 items
+[2025-12-23T15:26:33.458Z] Generated index + archive (2025-12-23) + about + changelog
+[2025-12-23T15:26:33.458Z] [uk] freshnessn/a; hosts: none (FAILED: [uk] No fresh AI-relevant sources found. Try expanding feeds or widening the window.)
+[2025-12-23T15:26:33.458Z] [business] freshness<=24h; hosts: go.theregister.com
+[2025-12-23T15:26:33.458Z] [work] freshness<=24h; hosts: theguardian.com
+[2025-12-23T15:26:33.458Z] [global] freshness<=36h; hosts: arxiv.org, wired.com, go.theregister.com
+[2025-12-23T15:26:33.458Z] [security] freshnessn/a; hosts: none (FAILED: [security] No fresh AI-relevant sources found. Try expanding feeds or widening the window.)
+[2025-12-23T15:26:33.458Z] [ethics] freshness<=24h; hosts: wired.com, technologyreview.com
+[2025-12-23T15:26:33.458Z] Feed errors summary:
+[2025-12-23T15:26:33.458Z]  - https://venturebeat.com/category/ai/feed/ (3x) last: Unable to parse XML.
+[2025-12-23T15:26:33.458Z]  - https://www.infoworld.com/category/artificial-intelligence/index.rss (3x) last: Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-23T15:26:33.458Z]  - https://www.computerworld.com/index.rss (3x) last: Status code 404
+[2025-12-23T15:26:33.458Z]  - https://workspaceupdates.googleblog.com/atom.xml (3x) last: Protocol "http:" not supported. Expected "https:"
+[2025-12-23T15:26:33.458Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-23T15:40:02.136Z] Start generate
+[2025-12-23T15:40:03.126Z] [security] Tab failed; using fallback panel: [security] No fresh AI-relevant sources found. Try expanding feeds or widening the window.
+[2025-12-23T15:40:04.015Z] [global] Calling OpenAI with 6 items
+[2025-12-23T15:40:10.539Z] [uk] Calling OpenAI with 1 items
+[2025-12-23T15:40:16.961Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T15:40:17.638Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-23T15:40:17.974Z] RSS error: https://www.computerworld.com/index.rss Status code 404
+[2025-12-23T15:40:18.103Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T15:40:18.549Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-23T15:40:18.911Z] RSS error: https://www.computerworld.com/index.rss Status code 404
+[2025-12-23T15:40:18.992Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T15:40:19.230Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-23T15:40:19.242Z] RSS error: https://www.computerworld.com/index.rss Status code 404
+[2025-12-23T15:40:19.307Z] [business] Tab failed; using fallback panel: [business] No fresh AI-relevant sources found. Try expanding feeds or widening the window.
+[2025-12-23T15:40:19.501Z] RSS error: https://workspaceupdates.googleblog.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-23T15:40:19.912Z] RSS error: https://workspaceupdates.googleblog.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-23T15:40:20.864Z] RSS error: https://workspaceupdates.googleblog.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-23T15:40:21.137Z] [work] Tab failed; using fallback panel: [work] No fresh AI-relevant sources found. Try expanding feeds or widening the window.
+[2025-12-23T15:40:22.215Z] [ethics] Calling OpenAI with 3 items
+[2025-12-23T15:40:28.968Z] Generated index + archive (2025-12-23) + about + changelog
+[2025-12-23T15:40:28.968Z] [uk] freshness<=24h; hosts: go.theregister.com
+[2025-12-23T15:40:28.968Z] [business] freshnessn/a; hosts: none (FAILED: [business] No fresh AI-relevant sources found. Try expanding feeds or widening the window.)
+[2025-12-23T15:40:28.968Z] [work] freshnessn/a; hosts: none (FAILED: [work] No fresh AI-relevant sources found. Try expanding feeds or widening the window.)
+[2025-12-23T15:40:28.969Z] [global] freshness<=24h; hosts: arxiv.org
+[2025-12-23T15:40:28.969Z] [security] freshnessn/a; hosts: none (FAILED: [security] No fresh AI-relevant sources found. Try expanding feeds or widening the window.)
+[2025-12-23T15:40:28.969Z] [ethics] freshness<=24h; hosts: theguardian.com
+[2025-12-23T15:40:28.969Z] Feed errors summary:
+[2025-12-23T15:40:28.969Z]  - https://venturebeat.com/category/ai/feed/ (3x) last: Unable to parse XML.
+[2025-12-23T15:40:28.969Z]  - https://www.infoworld.com/category/artificial-intelligence/index.rss (3x) last: Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-23T15:40:28.969Z]  - https://www.computerworld.com/index.rss (3x) last: Status code 404
+[2025-12-23T15:40:28.969Z]  - https://workspaceupdates.googleblog.com/atom.xml (3x) last: Protocol "http:" not supported. Expected "https:"
+[2025-12-23T15:40:28.969Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-23T15:51:02.414Z] Start generate
+[2025-12-23T15:51:03.059Z] [security] Calling OpenAI with 1 items
+[2025-12-23T15:51:09.975Z] [global] Calling OpenAI with 6 items
+[2025-12-23T15:51:17.272Z] [uk] Tab failed; using fallback panel: [uk] No fresh sources found. Try expanding feeds or widening the window.
+[2025-12-23T15:51:17.308Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T15:51:17.979Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-23T15:51:18.066Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T15:51:18.306Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-23T15:51:18.370Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-23T15:51:18.624Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-23T15:51:18.661Z] [business] Calling OpenAI with 5 items
+[2025-12-23T15:51:25.019Z] RSS error: https://workspaceupdates.googleblog.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-23T15:51:25.386Z] [work] Calling OpenAI with 6 items
+[2025-12-23T15:51:33.906Z] [ethics] Calling OpenAI with 1 items
+[2025-12-23T15:51:41.193Z] Generated index + archive (2025-12-23) + about + changelog
+[2025-12-23T15:51:41.193Z] [uk] freshnessn/a; hosts: none (FAILED: [uk] No fresh sources found. Try expanding feeds or widening the window.)
+[2025-12-23T15:51:41.193Z] [business] freshness<=24h; hosts: zdnet.com
+[2025-12-23T15:51:41.193Z] [work] freshness<=24h; hosts: engadget.com, theguardian.com, theverge.com
+[2025-12-23T15:51:41.193Z] [global] freshness<=120h; hosts: arxiv.org, go.theregister.com, wired.com, bbc.com
+[2025-12-23T15:51:41.193Z] [security] freshness<=72h; hosts: go.theregister.com
+[2025-12-23T15:51:41.194Z] [ethics] freshness<=24h; hosts: theguardian.com
+[2025-12-23T15:51:41.194Z] Feed errors summary:
+[2025-12-23T15:51:41.194Z]  - https://venturebeat.com/category/ai/feed/ (3x) last: Unable to parse XML.
+[2025-12-23T15:51:41.194Z]  - https://www.infoworld.com/category/artificial-intelligence/index.rss (3x) last: Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-23T15:51:41.194Z]  - https://workspaceupdates.googleblog.com/atom.xml (1x) last: Protocol "http:" not supported. Expected "https:"
+[2025-12-23T15:51:41.194Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-24T06:30:02.557Z] Start generate
+[2025-12-24T06:30:03.524Z] [security] Calling OpenAI with 6 items
+[2025-12-24T06:30:10.627Z] [global] Calling OpenAI with 6 items
+[2025-12-24T06:30:20.003Z] [uk] Calling OpenAI with 2 items
+[2025-12-24T06:30:26.102Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-24T06:30:27.608Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-24T06:30:27.694Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-24T06:30:27.929Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-24T06:30:27.989Z] RSS error: https://venturebeat.com/category/ai/feed/ Unable to parse XML.
+[2025-12-24T06:30:29.175Z] RSS error: https://www.infoworld.com/category/artificial-intelligence/index.rss Invalid character in entity name
+Line: 5
+Column: 388
+Char: &
+[2025-12-24T06:30:29.225Z] [business] Calling OpenAI with 4 items
+[2025-12-24T06:30:36.023Z] RSS error: https://workspaceupdates.googleblog.com/atom.xml Protocol "http:" not supported. Expected "https:"
+[2025-12-24T06:30:36.498Z] [work] Calling OpenAI with 6 items
+[2025-12-24T06:30:41.595Z] [ethics] Calling OpenAI with 6 items
+[2025-12-24T06:30:47.521Z] Generated index + archive (2025-12-24) + about + changelog
+[2025-12-24T06:30:47.521Z] [uk] freshness<=24h; hosts: go.theregister.com, theguardian.com
+[2025-12-24T06:30:47.521Z] [business] freshness<=24h; hosts: zdnet.com
+[2025-12-24T06:30:47.521Z] [work] freshness<=24h; hosts: engadget.com, theverge.com, theguardian.com
+[2025-12-24T06:30:47.521Z] [global] freshness<=120h; hosts: arxiv.org, wired.com, go.theregister.com
+[2025-12-24T06:30:47.521Z] [security] freshness<=120h; hosts: go.theregister.com, cisa.gov, schneier.com, krebsonsecurity.com
+[2025-12-24T06:30:47.521Z] [ethics] freshness<=72h; hosts: theguardian.com, gov.uk, wired.com
+[2025-12-24T06:30:47.521Z] Feed errors summary:
+[2025-12-24T06:30:47.521Z]  - https://venturebeat.com/category/ai/feed/ (3x) last: Unable to parse XML.
+[2025-12-24T06:30:47.521Z]  - https://www.infoworld.com/category/artificial-intelligence/index.rss (3x) last: Invalid character in entity name
+Line: 5
+Column: 388
+Char: &
+[2025-12-24T06:30:47.521Z]  - https://workspaceupdates.googleblog.com/atom.xml (1x) last: Protocol "http:" not supported. Expected "https:"
+[2025-12-24T06:30:47.521Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-24T09:21:01.602Z] Start generate
+{"ts":"2025-12-24T09:21:01.603Z","level":"info","event":"run_start","ymd":"2025-12-24","log_level":"info","model_output_logging":false}
+{"ts":"2025-12-24T09:21:02.220Z","level":"info","event":"tab_selection","tab":"security","freshnessUsed":24,"picked":[{"source":"go.theregister.com","title":"Microsoft wants to replace its entire C and C++ codebase, perhaps by 2030","age_hours":5.7,"score":0,"dupe":false}]}
+[2025-12-24T09:21:02.220Z] [security] Calling OpenAI with 1 items
+{"ts":"2025-12-24T09:21:07.847Z","level":"info","event":"tab_selection","tab":"global","freshnessUsed":24,"picked":[{"source":"arxiv.org","title":"Zero-Shot Segmentation through Prototype-Guidance for Multi-Label Plant Species Identification","age_hours":4.4,"score":0,"dupe":false},{"source":"arxiv.org","title":"S$^3$IT: A Benchmark for Spatially Situated Social Intelligence Test","age_hours":4.4,"score":0,"dupe":false},{"source":"arxiv.org","title":"Discovering Lie Groups with Flow Matching","age_hours":4.4,"score":0,"dupe":false},{"source":"arxiv.org","title":"Learning Skills from Action-Free Videos","age_hours":4.4,"score":0,"dupe":false},{"source":"arxiv.org","title":"Towards Generative Location Awareness for Disaster Response: A Probabilistic Cross-view Geolocalization Approach","age_hours":4.4,"score":0,"dupe":false},{"source":"arxiv.org","title":"Scaling Reinforcement Learning for Content Moderation with Large Language Models","age_hours":4.4,"score":0,"dupe":false}]}
+[2025-12-24T09:21:07.847Z] [global] Calling OpenAI with 6 items
+[2025-12-24T09:21:19.442Z] [uk] Tab failed; using fallback panel: [uk] No fresh sources found. Try expanding feeds or widening the window.
+{"ts":"2025-12-24T09:21:19.442Z","level":"warn","event":"tab_failed","tab":"uk","message":"[uk] No fresh sources found. Try expanding feeds or widening the window."}
+{"ts":"2025-12-24T09:21:19.479Z","level":"warn","event":"rss_error","tab":"business","url":"https://venturebeat.com/category/ai/feed/","message":"Unable to parse XML."}
+{"ts":"2025-12-24T09:21:20.718Z","level":"warn","event":"rss_error","tab":"business","url":"https://www.infoworld.com/category/artificial-intelligence/index.rss","message":"Invalid character in entity name\nLine: 38\nColumn: 76\nChar: &"}
+{"ts":"2025-12-24T09:21:20.778Z","level":"info","event":"tab_selection","tab":"business","freshnessUsed":24,"picked":[{"source":"zdnet.com","title":"The great software pricing shakeout of 2026: What every IT leader needs to know","age_hours":1.3,"score":2,"dupe":false}]}
+[2025-12-24T09:21:20.779Z] [business] Calling OpenAI with 1 items
+{"ts":"2025-12-24T09:21:27.120Z","level":"warn","event":"rss_error","tab":"work","url":"https://workspaceupdates.googleblog.com/atom.xml","message":"Protocol \"http:\" not supported. Expected \"https:\""}
+{"ts":"2025-12-24T09:21:27.498Z","level":"info","event":"tab_selection","tab":"work","freshnessUsed":24,"picked":[{"source":"theverge.com","title":"The Pluribus finale showed there&#8217;s a lot more to the story","age_hours":1.4,"score":2,"dupe":false},{"source":"theguardian.com","title":"‘A gamechanger’: 200,000 UK small businesses sign up to TikTok Shop","age_hours":2.4,"score":0,"dupe":false},{"source":"engadget.com","title":"Engadget Podcast: Why is the Nex Playground 'AI console' such a hit?","age_hours":15.2,"score":0,"dupe":false},{"source":"theverge.com","title":"007 First Light&#8217;s release date gets shaken up","age_hours":14.7,"score":2,"dupe":false},{"source":"engadget.com","title":"Xbox cloud gaming comes to newer Amazon Fire TV models","age_hours":16.8,"score":0,"dupe":false},{"source":"theverge.com","title":"These great digital gifts will arrive just in time for Christmas","age_hours":15.4,"score":2,"dupe":false}]}
+[2025-12-24T09:21:27.498Z] [work] Calling OpenAI with 6 items
+{"ts":"2025-12-24T09:21:34.383Z","level":"info","event":"tab_selection","tab":"ethics","freshnessUsed":24,"picked":[{"source":"theguardian.com","title":"Elon Musk, AI and the antichrist: the biggest tech stories of 2025","age_hours":16.3,"score":0,"dupe":false}]}
+[2025-12-24T09:21:34.384Z] [ethics] Calling OpenAI with 1 items
+[2025-12-24T09:21:42.611Z] Generated index + archive (2025-12-24) + about + changelog
+[2025-12-24T09:21:42.611Z] [uk] freshnessn/a; hosts: none (FAILED: [uk] No fresh sources found. Try expanding feeds or widening the window.)
+[2025-12-24T09:21:42.611Z] [business] freshness<=24h; hosts: zdnet.com
+[2025-12-24T09:21:42.611Z] [work] freshness<=24h; hosts: theverge.com, theguardian.com, engadget.com
+[2025-12-24T09:21:42.611Z] [global] freshness<=24h; hosts: arxiv.org
+[2025-12-24T09:21:42.611Z] [security] freshness<=24h; hosts: go.theregister.com
+[2025-12-24T09:21:42.611Z] [ethics] freshness<=24h; hosts: theguardian.com
+[2025-12-24T09:21:42.611Z] Feed errors summary:
+[2025-12-24T09:21:42.611Z]  - https://venturebeat.com/category/ai/feed/ (1x) last: Unable to parse XML.
+[2025-12-24T09:21:42.611Z]  - https://www.infoworld.com/category/artificial-intelligence/index.rss (1x) last: Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-24T09:21:42.611Z]  - https://workspaceupdates.googleblog.com/atom.xml (1x) last: Protocol "http:" not supported. Expected "https:"
+{"ts":"2025-12-24T09:21:42.611Z","level":"info","event":"run_end","ymd":"2025-12-24"}
+[2025-12-24T09:21:42.613Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-24T09:52:02.351Z] Start generate
+{"ts":"2025-12-24T09:52:02.352Z","level":"info","event":"run_start","ymd":"2025-12-24","log_level":"info","model_output_logging":false}
+{"ts":"2025-12-24T09:52:03.387Z","level":"info","event":"tab_selection","tab":"security","freshnessUsed":48,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"bbc.com","title":"Amazon blocks 1,800 job applications from suspected North Korean agents","age_hours":31,"score":2,"aiish":true},{"source":"theguardian.com","title":"MPs question UK Palantir contracts after investigation reveals security concerns","age_hours":46.4,"score":2,"aiish":true},{"source":"go.theregister.com","title":"Hacktivists scrape 86M Spotify tracks, claim their aim is to preserve culture","age_hours":40.5,"score":0,"aiish":true},{"source":"bbc.com","title":"TikTok removes AI weight loss ads from fake Boots account","age_hours":24.5,"score":0,"aiish":true},{"source":"theguardian.com","title":"‘A gamechanger’: 200,000 UK small businesses sign up to TikTok Shop","age_hours":2.9,"score":0,"aiish":true},{"source":"bbc.com","title":"Uber and Lyft announce plans to trial Chinese robotaxis in UK in 2026","age_hours":43.7,"score":0,"aiish":true}]}
+[2025-12-24T09:52:03.387Z] [security] Calling OpenAI with 6 items
+{"ts":"2025-12-24T09:52:10.982Z","level":"info","event":"tab_selection","tab":"ethics","freshnessUsed":48,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"gov.uk","title":"Fuel margins remain “persistently high” and this is not explained by operating costs, CMA finds","age_hours":47.8,"score":2,"aiish":true},{"source":"theguardian.com","title":"The best electric blankets and heated throws in the UK, tried and tested to keep you toasty for less","age_hours":19,"score":0,"aiish":true},{"source":"technologyreview.com","title":"Welcome to Kenya’s Great Carbon Valley: a bold new gamble to fight climate change","age_hours":47.9,"score":0,"aiish":true},{"source":"gov.uk","title":"Research: Cyber security vulnerabilities of operational technologies","age_hours":18.4,"score":0,"aiish":true},{"source":"theguardian.com","title":"Terminator 2D: No Fate review – the least bad Terminator game in a long while","age_hours":23.9,"score":0,"aiish":true},{"source":"gov.uk","title":"Signal all the way! Christmas comes early as over 100 mobile masts bring 4G joy to Britain’s rural communities","age_hours":33.9,"score":0,"aiish":true}]}
+[2025-12-24T09:52:10.983Z] [ethics] Calling OpenAI with 6 items
+{"ts":"2025-12-24T09:52:17.520Z","level":"info","event":"tab_selection","tab":"global","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"arxiv.org","title":"A Branch-and-Price Algorithm for Fast and Equitable Last-Mile Relief Aid Distribution","age_hours":4.9,"score":1,"aiish":true},{"source":"go.theregister.com","title":"AWS adds hybrid cloud storage support for Nutanix’s AHV hypervisor","age_hours":7.3,"score":1,"aiish":true},{"source":"engadget.com","title":"Nintendo has huge discounts on Switch 2 games in its holiday sale","age_hours":10,"score":1,"aiish":true},{"source":"theverge.com","title":"The Pixel 10, our favorite Android phone, is nearly 50 percent off right now","age_hours":12.9,"score":1,"aiish":true},{"source":"theguardian.com","title":"The best iPhones: which Apple smartphone is right for you, according to our expert","age_hours":23.9,"score":1,"aiish":true},{"source":"arxiv.org","title":"FGDCC: Fine-Grained Deep Cluster Categorization -- A Framework for Intra-Class Variability Problems in Plant Classification","age_hours":4.9,"score":1,"aiish":true}]}
+[2025-12-24T09:52:17.520Z] [global] Calling OpenAI with 6 items
+{"ts":"2025-12-24T09:52:24.430Z","level":"info","event":"tab_selection","tab":"uk","freshnessUsed":48,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"gov.uk","title":"Research: Road fuel annual monitoring report: December 2025","age_hours":47.9,"score":2,"aiish":true},{"source":"go.theregister.com","title":"21K Nissan customers' data stolen in Red Hat raid","age_hours":16.5,"score":0,"aiish":true},{"source":"theguardian.com","title":"Vince Zampella, co-creator of Call of Duty video game series, dies aged 55","age_hours":36.7,"score":0,"aiish":true},{"source":"go.theregister.com","title":"Starlink satellite fails, polluting orbit with debris and falling toward Earth","age_hours":16.9,"score":0,"aiish":true},{"source":"theguardian.com","title":"State of play: who holds the power in the video games industry in 2025?","age_hours":47.9,"score":0,"aiish":true},{"source":"go.theregister.com","title":"Microsoft rushes an out-of-band update for Message Queuing bug","age_hours":17.3,"score":0,"aiish":true}]}
+[2025-12-24T09:52:24.430Z] [uk] Calling OpenAI with 6 items
+{"ts":"2025-12-24T09:52:29.708Z","level":"warn","event":"rss_error","tab":"business","url":"https://www.infoworld.com/category/artificial-intelligence/index.rss","message":"Invalid character in entity name\nLine: 38\nColumn: 76\nChar: &"}
+{"ts":"2025-12-24T09:52:30.000Z","level":"warn","event":"rss_error","tab":"business","url":"https://www.infoworld.com/category/artificial-intelligence/index.rss","message":"Invalid character in entity name\nLine: 38\nColumn: 76\nChar: &"}
+{"ts":"2025-12-24T09:52:30.963Z","level":"info","event":"tab_selection","tab":"business","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"techcrunch.com","title":"Trump administration’s ban on foreign-made drones starts this week — you can say goodbye to new DJI models","age_hours":12.6,"score":2,"aiish":true},{"source":"engadget.com","title":"IO Interactive's 007 First Light has been delayed until May 27","age_hours":14.1,"score":2,"aiish":true},{"source":"theverge.com","title":"We found 30 great gifts that are on sale and will arrive in time for Christmas","age_hours":14.6,"score":2,"aiish":true},{"source":"zdnet.com","title":"Why the best budget Android tablet I tested this year isn't made by TCL or Samsung","age_hours":15.6,"score":2,"aiish":true},{"source":"techcrunch.com","title":"John Carreyrou and other authors bring new lawsuit against six major AI companies","age_hours":14.8,"score":2,"aiish":true},{"source":"engadget.com","title":"Engadget Podcast: Why is the Nex Playground 'AI console' such a hit?","age_hours":15.7,"score":2,"aiish":true}]}
+[2025-12-24T09:52:30.963Z] [business] Calling OpenAI with 6 items
+{"ts":"2025-12-24T09:52:37.953Z","level":"warn","event":"rss_error","tab":"work","url":"https://workspaceupdates.googleblog.com/atom.xml","message":"Protocol \"http:\" not supported. Expected \"https:\""}
+{"ts":"2025-12-24T09:52:38.542Z","level":"info","event":"tab_selection","tab":"work","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"fastcompany.com","title":"Should you track your family’s location?","age_hours":7.4,"score":2,"aiish":true},{"source":"theverge.com","title":"Trump administration bars former EU official and anti-disinformation and hate researchers from US","age_hours":9.7,"score":0,"aiish":true},{"source":"engadget.com","title":"The best gifts cards to give this holiday season: Amazon, Apple, Best Buy and others","age_hours":20.9,"score":0,"aiish":true},{"source":"fastcompany.com","title":"Consuming news from AI shifts our opinions and reality. Here’s how","age_hours":16.9,"score":2,"aiish":true},{"source":"theverge.com","title":"Judge blocks Texas app store age verification law","age_hours":15.6,"score":0,"aiish":true},{"source":"fastcompany.com","title":"How a former Forest Service employee changed the future of housing in California","age_hours":22.9,"score":2,"aiish":true}]}
+[2025-12-24T09:52:38.542Z] [work] Calling OpenAI with 6 items
+[2025-12-24T09:52:44.253Z] Generated index + archive (2025-12-24) + about + changelog
+[2025-12-24T09:52:44.253Z] [security] freshness<=48h; hosts: bbc.com, theguardian.com, go.theregister.com
+[2025-12-24T09:52:44.254Z] [ethics] freshness<=48h; hosts: gov.uk, theguardian.com, technologyreview.com
+[2025-12-24T09:52:44.254Z] [global] freshness<=24h; hosts: arxiv.org, go.theregister.com, engadget.com, theverge.com, theguardian.com
+[2025-12-24T09:52:44.254Z] [uk] freshness<=48h; hosts: gov.uk, go.theregister.com, theguardian.com
+[2025-12-24T09:52:44.254Z] [business] freshness<=24h; hosts: techcrunch.com, engadget.com, theverge.com, zdnet.com
+[2025-12-24T09:52:44.254Z] [work] freshness<=24h; hosts: fastcompany.com, theverge.com, engadget.com
+[2025-12-24T09:52:44.254Z] Feed errors summary:
+[2025-12-24T09:52:44.254Z]  - https://www.infoworld.com/category/artificial-intelligence/index.rss (2x) last: Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-24T09:52:44.254Z]  - https://workspaceupdates.googleblog.com/atom.xml (1x) last: Protocol "http:" not supported. Expected "https:"
+{"ts":"2025-12-24T09:52:44.254Z","level":"info","event":"run_end","ymd":"2025-12-24"}
+[2025-12-24T09:52:44.254Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-24T10:11:01.772Z] Start generate
+{"ts":"2025-12-24T10:11:01.774Z","level":"info","event":"run_start","ymd":"2025-12-24","log_level":"info","model_output_logging":false}
+{"ts":"2025-12-24T10:11:02.918Z","level":"info","event":"tab_selection","tab":"security","freshnessUsed":36,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"theguardian.com","title":"Former EU commissioner and activists barred from US in attack on European tech regulators","age_hours":9.3,"score":0,"aiish":true},{"source":"theguardian.com","title":"Elon Musk, AI and the antichrist: the biggest tech stories of 2025","age_hours":17.1,"score":0,"aiish":true},{"source":"theguardian.com","title":"The best electric blankets and heated throws in the UK, tried and tested to keep you toasty for less","age_hours":19.3,"score":0,"aiish":true},{"source":"theguardian.com","title":"Terminator 2D: No Fate review – the least bad Terminator game in a long while","age_hours":24.2,"score":0,"aiish":true},{"source":"theguardian.com","title":"The best iPhones: which Apple smartphone is right for you, according to our expert","age_hours":24.2,"score":0,"aiish":true},{"source":"theguardian.com","title":"Biography aims to fill gaps in story of ultra-libertarian Telegram founder Pavel Durov","age_hours":25.5,"score":0,"aiish":true}]}
+[2025-12-24T10:11:02.919Z] [security] Calling OpenAI with 6 items
+{"ts":"2025-12-24T10:11:09.740Z","level":"info","event":"tab_selection","tab":"ethics","freshnessUsed":36,"usedSecondary":true,"relaxedAI":true,"picked":[{"source":"theguardian.com","title":"The best of the long read in 2025","age_hours":29.2,"score":2,"aiish":true},{"source":"technologyreview.com","title":"Researchers are getting organoids pregnant with human embryos","age_hours":18.2,"score":0,"aiish":false},{"source":"theguardian.com","title":"‘I plugged in Zelda and everything changed’: developers share their fondest Christmas gaming memories","age_hours":0.2,"score":0,"aiish":false},{"source":"theguardian.com","title":"‘A gamechanger’: 200,000 UK small businesses sign up to TikTok Shop","age_hours":3.2,"score":0,"aiish":true}]}
+[2025-12-24T10:11:09.741Z] [ethics] Calling OpenAI with 4 items
+{"ts":"2025-12-24T10:11:17.428Z","level":"info","event":"tab_selection","tab":"global","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"engadget.com","title":"The best streaming services in 2026","age_hours":0.2,"score":1,"aiish":true},{"source":"arxiv.org","title":"Reason2Decide: Rationale-Driven Multi-Task Learning","age_hours":5.2,"score":1,"aiish":true},{"source":"theverge.com","title":"We found 30 great gifts that are on sale and will arrive in time for Christmas","age_hours":14.9,"score":1,"aiish":true},{"source":"go.theregister.com","title":"Starlink satellite fails, polluting orbit with debris and falling toward Earth","age_hours":17.2,"score":1,"aiish":true},{"source":"engadget.com","title":"IO Interactive's 007 First Light has been delayed until May 27","age_hours":14.4,"score":1,"aiish":true},{"source":"arxiv.org","title":"Adaptive Financial Sentiment Analysis for NIFTY 50 via Instruction-Tuned LLMs , RAG and Reinforcement Learning Approaches","age_hours":5.2,"score":1,"aiish":true}]}
+[2025-12-24T10:11:17.428Z] [global] Calling OpenAI with 6 items
+{"ts":"2025-12-24T10:11:25.895Z","level":"info","event":"tab_selection","tab":"uk","freshnessUsed":36,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"gov.uk","title":"Research: Cyber security vulnerabilities of operational technologies","age_hours":18.7,"score":2,"aiish":true},{"source":"go.theregister.com","title":"AWS adds hybrid cloud storage support for Nutanix’s AHV hypervisor","age_hours":7.6,"score":0,"aiish":true},{"source":"bbc.com","title":"Amazon blocks 1,800 job applications from suspected North Korean agents","age_hours":31.4,"score":0,"aiish":true},{"source":"gov.uk","title":"Signal all the way! Christmas comes early as over 100 mobile masts bring 4G joy to Britain’s rural communities","age_hours":34.2,"score":2,"aiish":true},{"source":"go.theregister.com","title":"Memory is running out, and so are excuses for software bloat","age_hours":20.1,"score":0,"aiish":true},{"source":"go.theregister.com","title":"UNIX V4 tape successfully recovered: First ever version of UNIX written in C is running again","age_hours":22.1,"score":0,"aiish":true}]}
+[2025-12-24T10:11:25.896Z] [uk] Calling OpenAI with 6 items
+{"ts":"2025-12-24T10:11:32.482Z","level":"warn","event":"rss_error","tab":"business","url":"https://www.infoworld.com/category/artificial-intelligence/index.rss","message":"Invalid character in entity name\nLine: 5\nColumn: 388\nChar: &"}
+{"ts":"2025-12-24T10:11:32.882Z","level":"warn","event":"rss_error","tab":"business","url":"https://www.infoworld.com/category/artificial-intelligence/index.rss","message":"Invalid character in entity name\nLine: 38\nColumn: 76\nChar: &"}
+{"ts":"2025-12-24T10:11:33.725Z","level":"info","event":"tab_selection","tab":"business","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"engadget.com","title":"Nintendo has huge discounts on Switch 2 games in its holiday sale","age_hours":10.4,"score":2,"aiish":true},{"source":"theverge.com","title":"The Pixel 10, our favorite Android phone, is nearly 50 percent off right now","age_hours":13.2,"score":2,"aiish":true},{"source":"zdnet.com","title":"Hisense's latest laser projector is so colorful and bright, it may just replace your OLED TV","age_hours":17.3,"score":2,"aiish":true},{"source":"techcrunch.com","title":"Lemon Slice nabs $10.5M from YC and Matrix to build out its digital avatar tech","age_hours":18.2,"score":2,"aiish":true},{"source":"engadget.com","title":"Xbox cloud gaming comes to newer Amazon Fire TV models","age_hours":17.6,"score":2,"aiish":true},{"source":"theverge.com","title":"These great digital gifts will arrive just in time for Christmas","age_hours":16.2,"score":2,"aiish":true}]}
+[2025-12-24T10:11:33.725Z] [business] Calling OpenAI with 6 items
+{"ts":"2025-12-24T10:11:41.097Z","level":"warn","event":"rss_error","tab":"work","url":"https://workspaceupdates.googleblog.com/atom.xml","message":"Protocol \"http:\" not supported. Expected \"https:\""}
+{"ts":"2025-12-24T10:11:42.455Z","level":"warn","event":"rss_error","tab":"work","url":"https://workspaceupdates.googleblog.com/atom.xml","message":"Protocol \"http:\" not supported. Expected \"https:\""}
+{"ts":"2025-12-24T10:11:42.518Z","level":"info","event":"tab_selection","tab":"work","freshnessUsed":36,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"fastcompany.com","title":"How will AI transform business in 2026?","age_hours":24.2,"score":2,"aiish":true},{"source":"theverge.com","title":"DOJ appears to bungle Epstein Files redactions","age_hours":17.6,"score":0,"aiish":true},{"source":"engadget.com","title":"The best Nintendo Switch 2 accessories for 2026","age_hours":26.2,"score":0,"aiish":true},{"source":"fastcompany.com","title":"Detecting AI-written text is challenging, even for AI. Here’s why","age_hours":24.7,"score":2,"aiish":true},{"source":"engadget.com","title":"US bans new foreign-made drones and components","age_hours":28.7,"score":0,"aiish":true},{"source":"fastcompany.com","title":"Here’s how to protect your privacy when using AI assistants","age_hours":25.2,"score":2,"aiish":true}]}
+[2025-12-24T10:11:42.518Z] [work] Calling OpenAI with 6 items
+[2025-12-24T10:11:49.718Z] Generated index + archive (2025-12-24) + about + changelog
+[2025-12-24T10:11:49.718Z] [security] freshness<=36h; hosts: theguardian.com
+[2025-12-24T10:11:49.718Z] [ethics] freshness<=36h; hosts: theguardian.com, technologyreview.com
+[2025-12-24T10:11:49.718Z] [global] freshness<=24h; hosts: engadget.com, arxiv.org, theverge.com, go.theregister.com
+[2025-12-24T10:11:49.718Z] [uk] freshness<=36h; hosts: gov.uk, go.theregister.com, bbc.com
+[2025-12-24T10:11:49.718Z] [business] freshness<=24h; hosts: engadget.com, theverge.com, zdnet.com, techcrunch.com
+[2025-12-24T10:11:49.718Z] [work] freshness<=36h; hosts: fastcompany.com, theverge.com, engadget.com
+[2025-12-24T10:11:49.718Z] Feed errors summary:
+[2025-12-24T10:11:49.718Z]  - https://www.infoworld.com/category/artificial-intelligence/index.rss (2x) last: Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-24T10:11:49.718Z]  - https://workspaceupdates.googleblog.com/atom.xml (2x) last: Protocol "http:" not supported. Expected "https:"
+{"ts":"2025-12-24T10:11:49.718Z","level":"info","event":"run_end","ymd":"2025-12-24"}
+[2025-12-24T10:11:49.718Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-25T06:30:02.690Z] Start generate
+{"ts":"2025-12-25T06:30:02.692Z","level":"info","event":"run_start","ymd":"2025-12-25","log_level":"info","model_output_logging":false}
+{"ts":"2025-12-25T06:30:03.273Z","level":"info","event":"tab_selection","tab":"security","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"go.theregister.com","title":"Pen testers accused of 'blackmail' after reporting Eurostar chatbot flaws","age_hours":12.1,"score":2,"aiish":true},{"source":"theguardian.com","title":"‘Undermines free speech’: Labour MP hits back at US government over visa ban on UK campaigners","age_hours":14.1,"score":0,"aiish":true},{"source":"bbc.com","title":"UK social media campaigners among five denied US visas","age_hours":15.3,"score":0,"aiish":true},{"source":"theguardian.com","title":"The video games readers couldn’t switch off in 2025","age_hours":15.5,"score":0,"aiish":true}]}
+[2025-12-25T06:30:03.273Z] [security] Calling OpenAI with 4 items
+{"ts":"2025-12-25T06:30:10.692Z","level":"info","event":"tab_selection","tab":"ethics","freshnessUsed":36,"usedSecondary":true,"relaxedAI":true,"picked":[{"source":"theguardian.com","title":"Former EU commissioner and activists barred from US in attack on European tech regulators","age_hours":29.6,"score":2,"aiish":true},{"source":"technologyreview.com","title":"Meet the man hunting the spies in your smartphone","age_hours":19.5,"score":0,"aiish":false},{"source":"technologyreview.com","title":"Four bright spots in climate news in 2025","age_hours":19.5,"score":0,"aiish":true}]}
+[2025-12-25T06:30:10.692Z] [ethics] Calling OpenAI with 3 items
+{"ts":"2025-12-25T06:30:19.265Z","level":"info","event":"tab_selection","tab":"global","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"arxiv.org","title":"MolAct: An Agentic RL Framework for Molecular Editing and Property Optimization","age_hours":1.5,"score":1,"aiish":true},{"source":"engadget.com","title":"Steam and Valve's online games are partially down","age_hours":7.5,"score":1,"aiish":true},{"source":"go.theregister.com","title":"Salesforce’s ChatGPT integration is really about stopping customers from leaking their own data","age_hours":8.6,"score":1,"aiish":true},{"source":"theverge.com","title":"Sony’s souped-up PlayStation 5 Pro is $100 off for the rest of today","age_hours":15.5,"score":1,"aiish":true},{"source":"theguardian.com","title":"‘A gamechanger’: 200,000 UK small businesses sign up to TikTok Shop","age_hours":23.5,"score":0,"aiish":true},{"source":"arxiv.org","title":"Enhancing Zero-Shot Time Series Forecasting in Off-the-Shelf LLMs via Noise Injection","age_hours":1.5,"score":1,"aiish":true}]}
+[2025-12-25T06:30:19.266Z] [global] Calling OpenAI with 6 items
+{"ts":"2025-12-25T06:30:28.977Z","level":"info","event":"tab_selection","tab":"uk","freshnessUsed":48,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"theguardian.com","title":"The best electric blankets and heated throws in the UK, tried and tested to keep you toasty for less","age_hours":39.6,"score":2,"aiish":true},{"source":"go.theregister.com","title":"AI faces closing time at the cash buffet","age_hours":11.1,"score":0,"aiish":true},{"source":"theguardian.com","title":"Terminator 2D: No Fate review – the least bad Terminator game in a long while","age_hours":44.5,"score":0,"aiish":true},{"source":"go.theregister.com","title":"Garmin autopilot lands small aircraft without human assistance","age_hours":15.1,"score":0,"aiish":true},{"source":"theguardian.com","title":"The best iPhones: which Apple smartphone is right for you, according to our expert","age_hours":44.5,"score":0,"aiish":true},{"source":"go.theregister.com","title":"One real reason AI isn't delivering: Meatbags in manglement","age_hours":16.8,"score":0,"aiish":true}]}
+[2025-12-25T06:30:28.977Z] [uk] Calling OpenAI with 6 items
+{"ts":"2025-12-25T06:30:35.869Z","level":"warn","event":"rss_error","tab":"business","url":"https://www.infoworld.com/category/artificial-intelligence/index.rss","message":"Invalid character in entity name\nLine: 38\nColumn: 76\nChar: &"}
+{"ts":"2025-12-25T06:30:36.145Z","level":"warn","event":"rss_error","tab":"business","url":"https://www.infoworld.com/category/artificial-intelligence/index.rss","message":"Invalid character in entity name\nLine: 38\nColumn: 76\nChar: &"}
+{"ts":"2025-12-25T06:30:36.452Z","level":"info","event":"tab_selection","tab":"business","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"engadget.com","title":"2025 Christmas Day NFL games: How to watch, full streaming schedule and more","age_hours":3.1,"score":2,"aiish":true},{"source":"zdnet.com","title":"35+ best products we tested in 2025: Expert picks for phones, TVs, AI, and more","age_hours":10.5,"score":2,"aiish":true},{"source":"theverge.com","title":"Anker’s beefy Laptop Power Bank has returned to its Black Friday low","age_hours":12.5,"score":2,"aiish":true},{"source":"techcrunch.com","title":"Waymo explains why its robotaxis got stuck during the SF blackout","age_hours":13.6,"score":2,"aiish":true},{"source":"engadget.com","title":"Today's the last day to get $100 off the PS5 and PS5 Pro","age_hours":12.3,"score":2,"aiish":true},{"source":"zdnet.com","title":"Hisense just unveiled a laser projector that could make OLED TVs feel unnecessary","age_hours":15.4,"score":2,"aiish":true}]}
+[2025-12-25T06:30:36.452Z] [business] Calling OpenAI with 6 items
+{"ts":"2025-12-25T06:30:43.612Z","level":"warn","event":"rss_error","tab":"work","url":"https://workspaceupdates.googleblog.com/atom.xml","message":"Protocol \"http:\" not supported. Expected \"https:\""}
+{"ts":"2025-12-25T06:30:44.233Z","level":"info","event":"tab_selection","tab":"work","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"fastcompany.com","title":"Why TikTok’s ‘For You’ page is so valuable and what’s to change for U.S. users","age_hours":13,"score":2,"aiish":true},{"source":"engadget.com","title":"The best live TV streaming services to cut cable in 2026","age_hours":13.5,"score":2,"aiish":true},{"source":"theverge.com","title":"In 2025, AI became a lightning rod for gamers and developers","age_hours":17.5,"score":0,"aiish":true},{"source":"fastcompany.com","title":"Tesla’s Model 3 emergency door release controls are being investigated","age_hours":10.5,"score":0,"aiish":true},{"source":"engadget.com","title":"How to set up an iPad for a child","age_hours":14.5,"score":2,"aiish":true},{"source":"fastcompany.com","title":"France’s postal service was hit by a major cyberattack right before Christmas. Here are the hackers who did it","age_hours":12.6,"score":0,"aiish":true}]}
+[2025-12-25T06:30:44.233Z] [work] Calling OpenAI with 6 items
+[2025-12-25T06:30:50.823Z] Generated index + archive (2025-12-25) + about + changelog
+[2025-12-25T06:30:50.823Z] [security] freshness<=24h; hosts: go.theregister.com, theguardian.com, bbc.com
+[2025-12-25T06:30:50.823Z] [ethics] freshness<=36h; hosts: theguardian.com, technologyreview.com
+[2025-12-25T06:30:50.823Z] [global] freshness<=24h; hosts: arxiv.org, engadget.com, go.theregister.com, theverge.com, theguardian.com
+[2025-12-25T06:30:50.823Z] [uk] freshness<=48h; hosts: theguardian.com, go.theregister.com
+[2025-12-25T06:30:50.823Z] [business] freshness<=24h; hosts: engadget.com, zdnet.com, theverge.com, techcrunch.com
+[2025-12-25T06:30:50.823Z] [work] freshness<=24h; hosts: fastcompany.com, engadget.com, theverge.com
+[2025-12-25T06:30:50.823Z] Feed errors summary:
+[2025-12-25T06:30:50.823Z]  - https://www.infoworld.com/category/artificial-intelligence/index.rss (2x) last: Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-25T06:30:50.823Z]  - https://workspaceupdates.googleblog.com/atom.xml (1x) last: Protocol "http:" not supported. Expected "https:"
+{"ts":"2025-12-25T06:30:50.823Z","level":"info","event":"run_end","ymd":"2025-12-25"}
+[2025-12-25T06:30:50.823Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-26T06:30:02.271Z] Start generate
+{"ts":"2025-12-26T06:30:02.273Z","level":"info","event":"run_start","ymd":"2025-12-26","log_level":"info","model_output_logging":false}
+{"ts":"2025-12-26T06:30:03.450Z","level":"info","event":"tab_selection","tab":"security","freshnessUsed":48,"usedSecondary":true,"relaxedAI":true,"picked":[{"source":"theguardian.com","title":"The video games you may have missed in 2025","age_hours":20.5,"score":0,"aiish":false},{"source":"go.theregister.com","title":"US shuts down phisherfolk’s $14.6M password-hoarding platform","age_hours":39.4,"score":0,"aiish":false},{"source":"theguardian.com","title":"‘I plugged in Zelda and everything changed’: developers share their fondest Christmas gaming memories","age_hours":44.5,"score":0,"aiish":false}]}
+[2025-12-26T06:30:03.451Z] [security] Calling OpenAI with 3 items
+{"ts":"2025-12-26T06:30:09.529Z","level":"info","event":"tab_selection","tab":"ethics","freshnessUsed":48,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"technologyreview.com","title":"AI Wrapped: The 14 AI terms you couldn’t avoid in 2025","age_hours":20.5,"score":0,"aiish":true},{"source":"theguardian.com","title":"‘Undermines free speech’: Labour MP hits back at US government over visa ban on UK campaigners","age_hours":38.1,"score":0,"aiish":true},{"source":"theguardian.com","title":"The video games readers couldn’t switch off in 2025","age_hours":39.5,"score":0,"aiish":true}]}
+[2025-12-26T06:30:09.529Z] [ethics] Calling OpenAI with 3 items
+{"ts":"2025-12-26T06:30:17.230Z","level":"info","event":"tab_selection","tab":"global","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"arxiv.org","title":"BitRL-Light: 1-bit LLM Agents with Deep Reinforcement Learning for Energy-Efficient Smart Home Lighting Optimization","age_hours":1.5,"score":1,"aiish":true},{"source":"engadget.com","title":"How to set up a PS5 for a child","age_hours":14.5,"score":1,"aiish":true},{"source":"theverge.com","title":"I re-created Google&#8217;s cute Gemini ad with my own kid&#8217;s stuffie, and I wish I hadn&#8217;t","age_hours":16.5,"score":1,"aiish":true},{"source":"go.theregister.com","title":"Humanoid robots are still novelty acts, but investment is surging to make them real tomorrow","age_hours":17.5,"score":1,"aiish":true},{"source":"arxiv.org","title":"Quantum-Inspired Multi Agent Reinforcement Learning for Exploration Exploitation Optimization in UAV-Assisted 6G Network Deployment","age_hours":1.5,"score":1,"aiish":true},{"source":"engadget.com","title":"The best microSD cards in 2026","age_hours":22.5,"score":1,"aiish":true}]}
+[2025-12-26T06:30:17.230Z] [global] Calling OpenAI with 6 items
+{"ts":"2025-12-26T06:30:24.719Z","level":"info","event":"tab_selection","tab":"uk","freshnessUsed":48,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"bbc.com","title":"UK social media campaigners among five denied US visas","age_hours":39.3,"score":2,"aiish":true},{"source":"theguardian.com","title":"‘A gamechanger’: 200,000 UK small businesses sign up to TikTok Shop","age_hours":47.5,"score":2,"aiish":true},{"source":"go.theregister.com","title":"AMD Strix Halo vs Nvidia DGX Spark: Which AI workstation comes out on top?","age_hours":18.7,"score":0,"aiish":true},{"source":"go.theregister.com","title":"Salesforce’s ChatGPT integration is really about stopping customers from leaking their own data","age_hours":32.6,"score":0,"aiish":true},{"source":"go.theregister.com","title":"Pen testers accused of 'blackmail' after reporting Eurostar chatbot flaws","age_hours":36.1,"score":0,"aiish":true},{"source":"go.theregister.com","title":"North American air defense troops ready for 70th year of Santa tracking","age_hours":42,"score":0,"aiish":true}]}
+[2025-12-26T06:30:24.719Z] [uk] Calling OpenAI with 6 items
+{"ts":"2025-12-26T06:30:32.413Z","level":"warn","event":"rss_error","tab":"business","url":"https://www.infoworld.com/category/artificial-intelligence/index.rss","message":"Invalid character in entity name\nLine: 38\nColumn: 76\nChar: &"}
+{"ts":"2025-12-26T06:30:32.692Z","level":"warn","event":"rss_error","tab":"business","url":"https://www.infoworld.com/category/artificial-intelligence/index.rss","message":"Invalid character in entity name\nLine: 38\nColumn: 76\nChar: &"}
+{"ts":"2025-12-26T06:30:33.749Z","level":"warn","event":"rss_error","tab":"business","url":"https://www.infoworld.com/category/artificial-intelligence/index.rss","message":"Invalid character in entity name\nLine: 38\nColumn: 76\nChar: &"}
+{"ts":"2025-12-26T06:30:34.011Z","level":"warn","event":"rss_error","tab":"business","url":"https://www.infoworld.com/category/artificial-intelligence/index.rss","message":"Invalid character in entity name\nLine: 38\nColumn: 76\nChar: &"}
+{"ts":"2025-12-26T06:30:34.876Z","level":"info","event":"tab_selection","tab":"business","freshnessUsed":36,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"theverge.com","title":"Hollywood cozied up to AI in 2025 and had nothing good to show for it","age_hours":17.5,"score":2,"aiish":true},{"source":"engadget.com","title":"2025 Christmas Day NFL games: How to watch today, full streaming schedule and more","age_hours":17.9,"score":2,"aiish":true},{"source":"techcrunch.com","title":"Nvidia to license AI chip challenger Groq’s tech and hire its CEO","age_hours":32.5,"score":0,"aiish":true},{"source":"zdnet.com","title":"Why I prefer this $200 Motorola phone over Samsung and Google's budget models","age_hours":33.4,"score":0,"aiish":true},{"source":"go.theregister.com","title":"AI faces closing time at the cash buffet","age_hours":35.1,"score":0,"aiish":true},{"source":"engadget.com","title":"The best PS5 accessories for 2026","age_hours":13.5,"score":0,"aiish":true}]}
+[2025-12-26T06:30:34.876Z] [business] Calling OpenAI with 6 items
+{"ts":"2025-12-26T06:30:45.794Z","level":"warn","event":"rss_error","tab":"work","url":"https://workspaceupdates.googleblog.com/atom.xml","message":"Protocol \"http:\" not supported. Expected \"https:\""}
+{"ts":"2025-12-26T06:30:47.552Z","level":"warn","event":"rss_error","tab":"work","url":"https://workspaceupdates.googleblog.com/atom.xml","message":"Protocol \"http:\" not supported. Expected \"https:\""}
+{"ts":"2025-12-26T06:30:49.716Z","level":"warn","event":"rss_error","tab":"work","url":"https://workspaceupdates.googleblog.com/atom.xml","message":"Protocol \"http:\" not supported. Expected \"https:\""}
+{"ts":"2025-12-26T06:30:49.772Z","level":"info","event":"tab_selection","tab":"work","freshnessUsed":48,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"fastcompany.com","title":"5 surprising ways to use AI","age_hours":21.5,"score":2,"aiish":true},{"source":"engadget.com","title":"How to redeem game codes on the Nintendo Switch 2","age_hours":41.5,"score":2,"aiish":true},{"source":"theverge.com","title":"Anker’s beefy Laptop Power Bank has returned to its Black Friday low","age_hours":36.5,"score":0,"aiish":true},{"source":"fastcompany.com","title":"Why Apple and Google want your ID","age_hours":20,"score":0,"aiish":true},{"source":"engadget.com","title":"US bans former EU Commissioner and others over social media rules","age_hours":42.2,"score":2,"aiish":true},{"source":"theverge.com","title":"Sony’s souped-up PlayStation 5 Pro is $100 off for the rest of today","age_hours":39.5,"score":0,"aiish":true}]}
+[2025-12-26T06:30:49.772Z] [work] Calling OpenAI with 6 items
+[2025-12-26T06:30:53.329Z] Generated index + archive (2025-12-26) + about + changelog
+[2025-12-26T06:30:53.329Z] [security] freshness<=48h; hosts: theguardian.com, go.theregister.com
+[2025-12-26T06:30:53.329Z] [ethics] freshness<=48h; hosts: technologyreview.com, theguardian.com
+[2025-12-26T06:30:53.329Z] [global] freshness<=24h; hosts: arxiv.org, engadget.com, theverge.com, go.theregister.com
+[2025-12-26T06:30:53.329Z] [uk] freshness<=48h; hosts: bbc.com, theguardian.com, go.theregister.com
+[2025-12-26T06:30:53.329Z] [business] freshness<=36h; hosts: theverge.com, engadget.com, techcrunch.com, zdnet.com, go.theregister.com
+[2025-12-26T06:30:53.329Z] [work] freshness<=48h; hosts: fastcompany.com, engadget.com, theverge.com
+[2025-12-26T06:30:53.329Z] Feed errors summary:
+[2025-12-26T06:30:53.329Z]  - https://www.infoworld.com/category/artificial-intelligence/index.rss (4x) last: Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-26T06:30:53.329Z]  - https://workspaceupdates.googleblog.com/atom.xml (3x) last: Protocol "http:" not supported. Expected "https:"
+{"ts":"2025-12-26T06:30:53.329Z","level":"info","event":"run_end","ymd":"2025-12-26"}
+[2025-12-26T06:30:53.329Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-27T06:30:02.813Z] Start generate
+{"ts":"2025-12-27T06:30:02.815Z","level":"info","event":"run_start","ymd":"2025-12-27","log_level":"info","model_output_logging":false}
+{"ts":"2025-12-27T06:30:03.902Z","level":"info","event":"tab_selection","tab":"security","freshnessUsed":36,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"go.theregister.com","title":"From AI to analog, cybersecurity tabletop exercises look a little different this year","age_hours":13.5,"score":2,"aiish":true},{"source":"theguardian.com","title":"UK campaigner targeted by Trump accuses tech giants of ‘sociopathic greed’","age_hours":15.5,"score":0,"aiish":true},{"source":"go.theregister.com","title":"From video games to cyber defense: If you don't think like a hacker, you won't win","age_hours":15.3,"score":2,"aiish":true},{"source":"theguardian.com","title":"The Dominik Diamond alternative game of the year awards 2025","age_hours":20.5,"score":0,"aiish":true},{"source":"theguardian.com","title":"Our king, priest and feudal lord – how AI is taking us back to the dark ages | Joseph de Weck","age_hours":25.5,"score":0,"aiish":true}]}
+[2025-12-27T06:30:03.903Z] [security] Calling OpenAI with 5 items
+{"ts":"2025-12-27T06:30:12.673Z","level":"info","event":"tab_selection","tab":"ethics","freshnessUsed":48,"usedSecondary":true,"relaxedAI":true,"picked":[{"source":"technologyreview.com","title":"MIT Technology Review’s most popular stories of 2025","age_hours":18.5,"score":0,"aiish":false},{"source":"theguardian.com","title":"The video games you may have missed in 2025","age_hours":44.5,"score":0,"aiish":false},{"source":"technologyreview.com","title":"The paints, coatings, and chemicals making the world a cooler place","age_hours":19.5,"score":0,"aiish":true}]}
+[2025-12-27T06:30:12.673Z] [ethics] Calling OpenAI with 3 items
+{"ts":"2025-12-27T06:30:20.884Z","level":"info","event":"tab_selection","tab":"global","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"engadget.com","title":"What we listened to in 2025","age_hours":10.3,"score":1,"aiish":true},{"source":"theverge.com","title":"The 10 best shows to stream on Amazon Prime Video from 2025","age_hours":15.5,"score":1,"aiish":true},{"source":"go.theregister.com","title":"'PromptQuest' is the worst game of 2025. You play it when trying to make chatbots work","age_hours":19.4,"score":1,"aiish":true},{"source":"engadget.com","title":"The best iPad accessories for 2026","age_hours":13.5,"score":1,"aiish":true},{"source":"theverge.com","title":"Trump’s war on offshore wind faces another lawsuit","age_hours":8.3,"score":0,"aiish":true},{"source":"go.theregister.com","title":"Stop the slop by disabling AI features in Chrome","age_hours":11.5,"score":0,"aiish":true}]}
+[2025-12-27T06:30:20.884Z] [global] Calling OpenAI with 6 items
+{"ts":"2025-12-27T06:30:29.118Z","level":"info","event":"tab_selection","tab":"uk","freshnessUsed":48,"usedSecondary":true,"relaxedAI":true,"picked":[{"source":"go.theregister.com","title":"Coming Wi-Fi 8 will bring reliability rather than greater speed","age_hours":17.3,"score":0,"aiish":false},{"source":"go.theregister.com","title":"IT team forced to camp in the office for days after Y2K bug found in boss's side project","age_hours":23,"score":0,"aiish":false},{"source":"go.theregister.com","title":"Humanoid robots are still novelty acts, but investment is surging to make them real tomorrow","age_hours":41.5,"score":0,"aiish":true},{"source":"go.theregister.com","title":"You don't need Linux to run free and open source software","age_hours":44.9,"score":0,"aiish":false}]}
+[2025-12-27T06:30:29.119Z] [uk] Calling OpenAI with 4 items
+{"ts":"2025-12-27T06:30:36.561Z","level":"warn","event":"rss_error","tab":"business","url":"https://www.infoworld.com/category/artificial-intelligence/index.rss","message":"Invalid character in entity name\nLine: 38\nColumn: 76\nChar: &"}
+{"ts":"2025-12-27T06:30:36.852Z","level":"warn","event":"rss_error","tab":"business","url":"https://www.infoworld.com/category/artificial-intelligence/index.rss","message":"Invalid character in entity name\nLine: 38\nColumn: 76\nChar: &"}
+{"ts":"2025-12-27T06:30:37.813Z","level":"info","event":"tab_selection","tab":"business","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"techcrunch.com","title":"How reality crushed Ÿnsect, the French startup that had raised over $600M for insect farming","age_hours":7.6,"score":2,"aiish":true},{"source":"engadget.com","title":"New York State will require warning labels on social media platforms","age_hours":9.5,"score":2,"aiish":true},{"source":"theverge.com","title":"Rodeo is an app for making plans with friends you already have","age_hours":11.6,"score":2,"aiish":true},{"source":"zdnet.com","title":"Oura Ring 3 vs Oura Ring 4: I've tested both smart rings, and the winner is not so obvious","age_hours":19.5,"score":2,"aiish":true},{"source":"techcrunch.com","title":"Treat yourself: The best smart glasses to buy with your holiday gift money","age_hours":14.5,"score":0,"aiish":true},{"source":"engadget.com","title":"LG announces line of premium gaming monitors that offer 5K visuals","age_hours":13.6,"score":2,"aiish":true}]}
+[2025-12-27T06:30:37.813Z] [business] Calling OpenAI with 6 items
+{"ts":"2025-12-27T06:30:46.368Z","level":"warn","event":"rss_error","tab":"work","url":"https://workspaceupdates.googleblog.com/atom.xml","message":"Protocol \"http:\" not supported. Expected \"https:\""}
+{"ts":"2025-12-27T06:30:47.003Z","level":"info","event":"tab_selection","tab":"work","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"fastcompany.com","title":"The banality of Jeffery Epstein’s expanding online world","age_hours":5.1,"score":2,"aiish":true},{"source":"engadget.com","title":"You may soon be able to change your Gmail address","age_hours":13.6,"score":2,"aiish":true},{"source":"theverge.com","title":"Google is letting some people change their @gmail address","age_hours":14.8,"score":2,"aiish":true},{"source":"fastcompany.com","title":"‘Meme depression,’ Ghibli-gate, 6-7: An internet-culture roundup for 2025","age_hours":20.5,"score":2,"aiish":true},{"source":"engadget.com","title":"LG will show off a humanoid robot for household chores at CES 2026","age_hours":15.6,"score":2,"aiish":true},{"source":"theverge.com","title":"Framework announces another memory price hike — and it likely won’t be its last","age_hours":12.3,"score":0,"aiish":true}]}
+[2025-12-27T06:30:47.004Z] [work] Calling OpenAI with 6 items
+[2025-12-27T06:30:52.386Z] Generated index + archive (2025-12-27) + about + changelog
+[2025-12-27T06:30:52.387Z] [security] freshness<=36h; hosts: go.theregister.com, theguardian.com
+[2025-12-27T06:30:52.387Z] [ethics] freshness<=48h; hosts: technologyreview.com, theguardian.com
+[2025-12-27T06:30:52.387Z] [global] freshness<=24h; hosts: engadget.com, theverge.com, go.theregister.com
+[2025-12-27T06:30:52.387Z] [uk] freshness<=48h; hosts: go.theregister.com
+[2025-12-27T06:30:52.387Z] [business] freshness<=24h; hosts: techcrunch.com, engadget.com, theverge.com, zdnet.com
+[2025-12-27T06:30:52.387Z] [work] freshness<=24h; hosts: fastcompany.com, engadget.com, theverge.com
+[2025-12-27T06:30:52.387Z] Feed errors summary:
+[2025-12-27T06:30:52.387Z]  - https://www.infoworld.com/category/artificial-intelligence/index.rss (2x) last: Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-27T06:30:52.387Z]  - https://workspaceupdates.googleblog.com/atom.xml (1x) last: Protocol "http:" not supported. Expected "https:"
+{"ts":"2025-12-27T06:30:52.387Z","level":"info","event":"run_end","ymd":"2025-12-27"}
+[2025-12-27T06:30:52.387Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-28T06:30:03.416Z] Start generate
+{"ts":"2025-12-28T06:30:03.418Z","level":"info","event":"run_start","ymd":"2025-12-28","log_level":"info","model_output_logging":false}
+{"ts":"2025-12-28T06:30:04.466Z","level":"info","event":"tab_selection","tab":"security","freshnessUsed":48,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"theguardian.com","title":"From shrimp Jesus to erotic tractors: how viral AI slop took over the internet","age_hours":13.5,"score":0,"aiish":true},{"source":"theguardian.com","title":"We combed the internet for the 25 best after-Christmas sales still available","age_hours":15.5,"score":0,"aiish":true},{"source":"theguardian.com","title":"‘It brings you closer to the natural world’: the rise of the Merlin birdsong identifying app","age_hours":18.5,"score":0,"aiish":true},{"source":"theguardian.com","title":"Apple seeks to appeal against £1.5bn ruling it overcharged UK customers","age_hours":37.5,"score":0,"aiish":true},{"source":"theguardian.com","title":"AI boom adds more than half a trillion dollars to wealth of US tech barons in 2025","age_hours":40.8,"score":0,"aiish":true}]}
+[2025-12-28T06:30:04.466Z] [security] Calling OpenAI with 5 items
+{"ts":"2025-12-28T06:30:12.987Z","level":"info","event":"tab_selection","tab":"ethics","freshnessUsed":48,"usedSecondary":false,"relaxedAI":true,"picked":[{"source":"theguardian.com","title":"UK campaigner targeted by Trump accuses tech giants of ‘sociopathic greed’","age_hours":39.5,"score":2,"aiish":true},{"source":"gov.uk","title":"Top tips to protect your Christmas gifts from cyber-scrooges","age_hours":21.5,"score":0,"aiish":false},{"source":"theguardian.com","title":"The Dominik Diamond alternative game of the year awards 2025","age_hours":44.5,"score":0,"aiish":true}]}
+[2025-12-28T06:30:12.987Z] [ethics] Calling OpenAI with 3 items
+{"ts":"2025-12-28T06:30:19.182Z","level":"info","event":"tab_selection","tab":"global","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"engadget.com","title":"OpenAI is hiring a new Head of Preparedness to try to predict and mitigate AI's harms","age_hours":8.4,"score":1,"aiish":true},{"source":"theverge.com","title":"Sam Altman is hiring someone to worry about the dangers of AI","age_hours":11.5,"score":1,"aiish":true},{"source":"go.theregister.com","title":"SSL Santa greets London Victoria visitors with a borked update","age_hours":18.5,"score":0,"aiish":true},{"source":"engadget.com","title":"Stardew Valley players on the Nintendo Switch 2 get a free upgrade","age_hours":12.7,"score":1,"aiish":true},{"source":"theverge.com","title":"Pixel 10 phones and Switch 2 games round out this week’s best deals","age_hours":14.4,"score":1,"aiish":true},{"source":"engadget.com","title":"Samsung's two new speakers will deliver crisp audio while blending into your decor","age_hours":7.5,"score":0,"aiish":true}]}
+[2025-12-28T06:30:19.183Z] [global] Calling OpenAI with 6 items
+{"ts":"2025-12-28T06:30:28.565Z","level":"info","event":"tab_selection","tab":"uk","freshnessUsed":48,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"go.theregister.com","title":"Stop the slop by disabling AI features in Chrome","age_hours":35.5,"score":0,"aiish":true},{"source":"go.theregister.com","title":"From AI to analog, cybersecurity tabletop exercises look a little different this year","age_hours":37.5,"score":0,"aiish":true},{"source":"go.theregister.com","title":"From video games to cyber defense: If you don't think like a hacker, you won't win","age_hours":39.3,"score":0,"aiish":true},{"source":"go.theregister.com","title":"'PromptQuest' is the worst game of 2025. You play it when trying to make chatbots work","age_hours":43.4,"score":0,"aiish":true}]}
+[2025-12-28T06:30:28.565Z] [uk] Calling OpenAI with 4 items
+{"ts":"2025-12-28T06:30:33.524Z","level":"warn","event":"rss_error","tab":"business","url":"https://www.infoworld.com/category/artificial-intelligence/index.rss","message":"Invalid character in entity name\nLine: 38\nColumn: 76\nChar: &"}
+{"ts":"2025-12-28T06:30:33.820Z","level":"warn","event":"rss_error","tab":"business","url":"https://www.infoworld.com/category/artificial-intelligence/index.rss","message":"Invalid character in entity name\nLine: 38\nColumn: 76\nChar: &"}
+{"ts":"2025-12-28T06:30:34.752Z","level":"info","event":"tab_selection","tab":"business","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"zdnet.com","title":"Is ChatGPT Plus worth your $20? Here's how it compares to Free and Pro plans","age_hours":4.5,"score":2,"aiish":true},{"source":"engadget.com","title":"Here’s the first real look at the Retroid Pocket 6 running PS2 games","age_hours":10.9,"score":2,"aiish":true},{"source":"techcrunch.com","title":"FaZe Clan’s future is uncertain after influencers depart","age_hours":9.9,"score":0,"aiish":true},{"source":"techcrunch.com","title":"Investors share what to remember while raising a Series A","age_hours":11.5,"score":0,"aiish":true},{"source":"techcrunch.com","title":"Meet the team that investigates when journalists and activists get hacked with government spyware","age_hours":12.5,"score":0,"aiish":true}]}
+[2025-12-28T06:30:34.752Z] [business] Calling OpenAI with 5 items
+{"ts":"2025-12-28T06:30:43.437Z","level":"warn","event":"rss_error","tab":"work","url":"https://workspaceupdates.googleblog.com/atom.xml","message":"Protocol \"http:\" not supported. Expected \"https:\""}
+{"ts":"2025-12-28T06:30:46.462Z","level":"warn","event":"rss_error","tab":"work","url":"https://workspaceupdates.googleblog.com/atom.xml","message":"Protocol \"http:\" not supported. Expected \"https:\""}
+{"ts":"2025-12-28T06:30:46.515Z","level":"info","event":"tab_selection","tab":"work","freshnessUsed":36,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"fastcompany.com","title":"New Mac for Christmas? Try these 6 apps and games with your new Apple computer","age_hours":20.5,"score":2,"aiish":true},{"source":"engadget.com","title":"What we listened to in 2025","age_hours":34.3,"score":2,"aiish":true},{"source":"theverge.com","title":"Trump’s war on offshore wind faces another lawsuit","age_hours":32.3,"score":0,"aiish":true},{"source":"fastcompany.com","title":"The ‘internet of beings’ is the next fronteir that could change humanity and healthcare","age_hours":21.5,"score":0,"aiish":true},{"source":"engadget.com","title":"New York State will require warning labels on social media platforms","age_hours":33.5,"score":0,"aiish":true},{"source":"theverge.com","title":"Rodeo is an app for making plans with friends you already have","age_hours":35.6,"score":0,"aiish":true}]}
+[2025-12-28T06:30:46.515Z] [work] Calling OpenAI with 6 items
+[2025-12-28T06:30:50.709Z] Generated index + archive (2025-12-28) + about + changelog
+[2025-12-28T06:30:50.709Z] [security] freshness<=48h; hosts: theguardian.com
+[2025-12-28T06:30:50.709Z] [ethics] freshness<=48h; hosts: theguardian.com, gov.uk
+[2025-12-28T06:30:50.709Z] [global] freshness<=24h; hosts: engadget.com, theverge.com, go.theregister.com
+[2025-12-28T06:30:50.709Z] [uk] freshness<=48h; hosts: go.theregister.com
+[2025-12-28T06:30:50.709Z] [business] freshness<=24h; hosts: zdnet.com, engadget.com, techcrunch.com
+[2025-12-28T06:30:50.709Z] [work] freshness<=36h; hosts: fastcompany.com, engadget.com, theverge.com
+[2025-12-28T06:30:50.709Z] Feed errors summary:
+[2025-12-28T06:30:50.709Z]  - https://www.infoworld.com/category/artificial-intelligence/index.rss (2x) last: Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-28T06:30:50.709Z]  - https://workspaceupdates.googleblog.com/atom.xml (2x) last: Protocol "http:" not supported. Expected "https:"
+{"ts":"2025-12-28T06:30:50.709Z","level":"info","event":"run_end","ymd":"2025-12-28"}
+[2025-12-28T06:30:50.709Z] Done; exiting cleanly.
+npm notice
+npm notice New major version of npm available! 10.8.2 -> 11.7.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.7.0
+npm notice To update run: npm install -g npm@11.7.0
+npm notice
+
+> generate
+> node scripts/generate.js
+
+[2025-12-29T06:30:02.907Z] Start generate
+{"ts":"2025-12-29T06:30:02.909Z","level":"info","event":"run_start","ymd":"2025-12-29","log_level":"info","model_output_logging":false}
+{"ts":"2025-12-29T06:30:04.301Z","level":"info","event":"tab_selection","tab":"security","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"theguardian.com","title":"Nvidia insists it isn’t Enron, but its AI deals are testing investor faith","age_hours":16.5,"score":2,"aiish":true},{"source":"go.theregister.com","title":"Accused data thief threw MacBook into a river to destroy evidence","age_hours":2.4,"score":0,"aiish":true},{"source":"theguardian.com","title":"From that bird guy to ‘bus aunty’: the real social media personalities rising above AI slop","age_hours":14.5,"score":0,"aiish":true},{"source":"theguardian.com","title":"Could AI relationships actually be good for us?","age_hours":18.5,"score":0,"aiish":true},{"source":"theguardian.com","title":"I ran 1,000km to test the best running watches in the UK – here are my favourites","age_hours":23.5,"score":0,"aiish":true}]}
+[2025-12-29T06:30:04.302Z] [security] Calling OpenAI with 5 items
+{"ts":"2025-12-29T06:30:10.322Z","level":"info","event":"tab_selection","tab":"ethics","freshnessUsed":48,"usedSecondary":false,"relaxedAI":false,"picked":[{"source":"theguardian.com","title":"‘It brings you closer to the natural world’: the rise of the Merlin birdsong identifying app","age_hours":42.5,"score":2,"aiish":true},{"source":"gov.uk","title":"Faster treatments and support for health workers as AI tackles A&E bottlenecks","age_hours":8,"score":0,"aiish":true},{"source":"theguardian.com","title":"From shrimp Jesus to erotic tractors: how viral AI slop took over the internet","age_hours":37.5,"score":0,"aiish":true},{"source":"theguardian.com","title":"We combed the internet for the 25 best after-Christmas sales still available","age_hours":39.5,"score":0,"aiish":true}]}
+[2025-12-29T06:30:10.322Z] [ethics] Calling OpenAI with 4 items
+{"ts":"2025-12-29T06:30:19.883Z","level":"info","event":"tab_selection","tab":"global","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"arxiv.org","title":"From Visual Perception to Deep Empathy: An Automated Assessment Framework for House-Tree-Person Drawings Using Multimodal LLMs and Multi-Agent Collaboration","age_hours":1.5,"score":1,"aiish":true},{"source":"theverge.com","title":"LG announces new UltraGear evo gaming monitors with AI upscaling","age_hours":8.8,"score":1,"aiish":true},{"source":"go.theregister.com","title":"Death, torture, and amputation: How cybercrime shook the world in 2025","age_hours":15.9,"score":1,"aiish":true},{"source":"engadget.com","title":"Apple escalates its appeal of a $2 billion fine from a UK antitrust lawsuit","age_hours":10.2,"score":0,"aiish":true},{"source":"arxiv.org","title":"A Study of Solving Life-and-Death Problems in Go Using Relevance-Zone Based Solvers","age_hours":1.5,"score":1,"aiish":true},{"source":"theverge.com","title":"The best PS5 games from 2025","age_hours":17.5,"score":1,"aiish":true}]}
+[2025-12-29T06:30:19.883Z] [global] Calling OpenAI with 6 items
+{"ts":"2025-12-29T06:30:28.687Z","level":"info","event":"tab_selection","tab":"uk","freshnessUsed":48,"usedSecondary":true,"relaxedAI":true,"picked":[{"source":"go.theregister.com","title":"SSL Santa greets London Victoria visitors with a borked update","age_hours":42.5,"score":2,"aiish":true},{"source":"gov.uk","title":"Top tips to protect your Christmas gifts from cyber-scrooges","age_hours":45.5,"score":2,"aiish":false},{"source":"go.theregister.com","title":"Former IBM CEO Lou Gerstner passes, aged 83","age_hours":0.9,"score":0,"aiish":false},{"source":"go.theregister.com","title":"China wants to ban making yourself into an AI to keep aged relatives company","age_hours":4.5,"score":0,"aiish":true},{"source":"go.theregister.com","title":"Sevile: Famed for blue skies and now Blue Screens of Death","age_hours":21.2,"score":0,"aiish":false}]}
+[2025-12-29T06:30:28.687Z] [uk] Calling OpenAI with 5 items
+{"ts":"2025-12-29T06:30:35.302Z","level":"warn","event":"rss_error","tab":"business","url":"https://www.infoworld.com/category/artificial-intelligence/index.rss","message":"Invalid character in entity name\nLine: 38\nColumn: 76\nChar: &"}
+{"ts":"2025-12-29T06:30:35.580Z","level":"warn","event":"rss_error","tab":"business","url":"https://www.infoworld.com/category/artificial-intelligence/index.rss","message":"Invalid character in entity name\nLine: 38\nColumn: 76\nChar: &"}
+{"ts":"2025-12-29T06:30:35.955Z","level":"info","event":"tab_selection","tab":"business","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"engadget.com","title":"Ubisoft is rolling back Rainbow Six Siege servers after being forced to shut them down","age_hours":11.3,"score":2,"aiish":true},{"source":"theverge.com","title":"The terrible Nintendo controller that helped make VR happen","age_hours":11.4,"score":2,"aiish":true},{"source":"techcrunch.com","title":"Police charge driver who allegedly killed a pedestrian while livestreaming on TikTok","age_hours":8.6,"score":0,"aiish":true},{"source":"zdnet.com","title":"I took apart this cheap 600W charger to test its claims. What I found inside was not right","age_hours":17.5,"score":0,"aiish":true},{"source":"engadget.com","title":"Ayaneo's latest Game Boy remake will have an early bird starting price of $269","age_hours":12.7,"score":2,"aiish":true},{"source":"theverge.com","title":"Ubisoft shuts down ‘Rainbow Six Siege’ servers following hack","age_hours":13.8,"score":2,"aiish":true}]}
+[2025-12-29T06:30:35.955Z] [business] Calling OpenAI with 6 items
+{"ts":"2025-12-29T06:30:44.021Z","level":"warn","event":"rss_error","tab":"work","url":"https://workspaceupdates.googleblog.com/atom.xml","message":"Protocol \"http:\" not supported. Expected \"https:\""}
+{"ts":"2025-12-29T06:30:46.323Z","level":"warn","event":"rss_error","tab":"work","url":"https://workspaceupdates.googleblog.com/atom.xml","message":"Protocol \"http:\" not supported. Expected \"https:\""}
+{"ts":"2025-12-29T06:30:46.376Z","level":"info","event":"tab_selection","tab":"work","freshnessUsed":36,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"engadget.com","title":"OpenAI is hiring a new Head of Preparedness to try to predict and mitigate AI's harms","age_hours":32.5,"score":2,"aiish":true},{"source":"fastcompany.com","title":"Here are the best free tools for discovering new music online","age_hours":11.5,"score":0,"aiish":true},{"source":"theverge.com","title":"Sam Altman is hiring someone to worry about the dangers of AI","age_hours":35.5,"score":0,"aiish":true},{"source":"engadget.com","title":"Stardew Valley players on the Nintendo Switch 2 get a free upgrade","age_hours":14.7,"score":0,"aiish":true},{"source":"fastcompany.com","title":"How this retirement community is using virtual reality to help residents build social connections","age_hours":18.5,"score":0,"aiish":true},{"source":"engadget.com","title":"Samsung's two new speakers will deliver crisp audio while blending into your decor","age_hours":31.5,"score":0,"aiish":true}]}
+[2025-12-29T06:30:46.376Z] [work] Calling OpenAI with 6 items
+[2025-12-29T06:30:52.475Z] Generated index + archive (2025-12-29) + about + changelog
+[2025-12-29T06:30:52.475Z] [security] freshness<=24h; hosts: theguardian.com, go.theregister.com
+[2025-12-29T06:30:52.475Z] [ethics] freshness<=48h; hosts: theguardian.com, gov.uk
+[2025-12-29T06:30:52.475Z] [global] freshness<=24h; hosts: arxiv.org, theverge.com, go.theregister.com, engadget.com
+[2025-12-29T06:30:52.475Z] [uk] freshness<=48h; hosts: go.theregister.com, gov.uk
+[2025-12-29T06:30:52.475Z] [business] freshness<=24h; hosts: engadget.com, theverge.com, techcrunch.com, zdnet.com
+[2025-12-29T06:30:52.475Z] [work] freshness<=36h; hosts: engadget.com, fastcompany.com, theverge.com
+[2025-12-29T06:30:52.475Z] Feed errors summary:
+[2025-12-29T06:30:52.475Z]  - https://www.infoworld.com/category/artificial-intelligence/index.rss (2x) last: Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-29T06:30:52.475Z]  - https://workspaceupdates.googleblog.com/atom.xml (2x) last: Protocol "http:" not supported. Expected "https:"
+{"ts":"2025-12-29T06:30:52.475Z","level":"info","event":"run_end","ymd":"2025-12-29"}
+[2025-12-29T06:30:52.475Z] Done; exiting cleanly.
+
+> generate
+> node scripts/generate.js
+
+[2025-12-30T06:30:03.101Z] Start generate
+{"ts":"2025-12-30T06:30:03.103Z","level":"info","event":"run_start","ymd":"2025-12-30","log_level":"info","model_output_logging":false}
+{"ts":"2025-12-30T06:30:03.678Z","level":"info","event":"tab_selection","tab":"security","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"go.theregister.com","title":"Korean telco failed at femtocell security, exposed customers to snooping and fraud","age_hours":2.9,"score":2,"aiish":true},{"source":"theguardian.com","title":"‘This will be a stressful job’: Sam Altman offers $555k salary to fill most daunting role in AI","age_hours":15.8,"score":2,"aiish":true},{"source":"bbc.com","title":"China to crack down on AI firms to protect kids","age_hours":4,"score":0,"aiish":true},{"source":"go.theregister.com","title":"Crims disconnect Wired subscribers from their privacy, publish deets online","age_hours":11.1,"score":0,"aiish":true},{"source":"theguardian.com","title":"SoftBank to acquire DigitalBridge for $4bn in move to deepen ties to AI","age_hours":15.4,"score":0,"aiish":true},{"source":"go.theregister.com","title":"Europe's cloud challenge: Building an Airbus for the digital age","age_hours":21.1,"score":0,"aiish":true}]}
+[2025-12-30T06:30:03.679Z] [security] Calling OpenAI with 6 items
+{"ts":"2025-12-30T06:30:11.651Z","level":"info","event":"tab_selection","tab":"ethics","freshnessUsed":48,"usedSecondary":false,"relaxedAI":false,"picked":[{"source":"theguardian.com","title":"Could AI relationships actually be good for us?","age_hours":42.5,"score":2,"aiish":true},{"source":"gov.uk","title":"New analysis shows Britain’s innovators are boosted by Horizon","age_hours":21.5,"score":0,"aiish":true},{"source":"theguardian.com","title":"Arc Raiders review – pure multiplayer pleasure","age_hours":20.5,"score":0,"aiish":true},{"source":"theguardian.com","title":"UK accounting body to halt remote exams amid AI cheating","age_hours":22.2,"score":0,"aiish":true},{"source":"theguardian.com","title":"Bernie Sanders criticizes AI as ‘the most consequential technology in humanity’","age_hours":35.5,"score":0,"aiish":true},{"source":"theguardian.com","title":"Louis Gerstner, man credited with turning around IBM, dies aged 83","age_hours":37.2,"score":0,"aiish":true}]}
+[2025-12-30T06:30:11.651Z] [ethics] Calling OpenAI with 6 items
+{"ts":"2025-12-30T06:30:21.170Z","level":"info","event":"tab_selection","tab":"global","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"arxiv.org","title":"Three-way conflict analysis based on alliance and conflict functions","age_hours":1.5,"score":1,"aiish":true},{"source":"engadget.com","title":"LG to unveil a canvas-style TV at CES 2026","age_hours":5.5,"score":1,"aiish":true},{"source":"go.theregister.com","title":"Sam Altman is willing to pay somebody $555,000 a year to keep ChatGPT in line","age_hours":12.3,"score":1,"aiish":true},{"source":"theverge.com","title":"Beats’ new Powerbeats Fit earbuds are down to $180","age_hours":14.6,"score":1,"aiish":true},{"source":"arxiv.org","title":"Feasible strategies in three-way conflict analysis with three-valued ratings","age_hours":1.5,"score":1,"aiish":true},{"source":"engadget.com","title":"Apple AirTag four-packs are on sale for $65 right now","age_hours":9.7,"score":1,"aiish":true}]}
+[2025-12-30T06:30:21.170Z] [global] Calling OpenAI with 6 items
+{"ts":"2025-12-30T06:30:32.469Z","level":"info","event":"tab_selection","tab":"uk","freshnessUsed":48,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"gov.uk","title":"Faster treatments and support for health workers as AI tackles A&E bottlenecks","age_hours":32,"score":2,"aiish":true},{"source":"theguardian.com","title":"I ran 1,000km to test the best running watches in the UK – here are my favourites","age_hours":47.5,"score":2,"aiish":true},{"source":"go.theregister.com","title":"Zuck buys Chinese AI company Manus that claims it deals in actions, not words","age_hours":5.8,"score":0,"aiish":true},{"source":"theguardian.com","title":"From that bird guy to ‘bus aunty’: the real social media personalities rising above AI slop","age_hours":38.5,"score":0,"aiish":true},{"source":"go.theregister.com","title":"Nvidia spends $5B on Intel bailout, instantly gets $2.5B richer","age_hours":8.2,"score":0,"aiish":true},{"source":"theguardian.com","title":"Nvidia insists it isn’t Enron, but its AI deals are testing investor faith","age_hours":40.5,"score":0,"aiish":true}]}
+[2025-12-30T06:30:32.469Z] [uk] Calling OpenAI with 6 items
+{"ts":"2025-12-30T06:30:40.257Z","level":"warn","event":"rss_error","tab":"business","url":"https://www.infoworld.com/category/artificial-intelligence/index.rss","message":"Invalid character in entity name\nLine: 38\nColumn: 76\nChar: &"}
+{"ts":"2025-12-30T06:30:40.542Z","level":"warn","event":"rss_error","tab":"business","url":"https://www.infoworld.com/category/artificial-intelligence/index.rss","message":"Invalid character in entity name\nLine: 38\nColumn: 76\nChar: &"}
+{"ts":"2025-12-30T06:30:40.943Z","level":"info","event":"tab_selection","tab":"business","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"zdnet.com","title":"Finally, Bluetooth trackers for Android users that function even better than AirTags (and they're on sale)","age_hours":4.5,"score":2,"aiish":true},{"source":"engadget.com","title":"How to watch the LG CES 2026 press conference","age_hours":11.5,"score":2,"aiish":true},{"source":"theverge.com","title":"Turn your PC into a Super Nintendo with Epilogue&#8217;s new USB dock","age_hours":13.1,"score":2,"aiish":true},{"source":"techcrunch.com","title":"VCs predict strong enterprise AI adoption next year — again","age_hours":16.5,"score":2,"aiish":true},{"source":"zdnet.com","title":"The biggest tech surprises of the year: 5 products that truly impressed our editors","age_hours":5,"score":2,"aiish":true},{"source":"engadget.com","title":"Co-founder of CD Projekt Michał Kiciński has acquired GOG, the company's game storefront","age_hours":12.7,"score":2,"aiish":true}]}
+[2025-12-30T06:30:40.943Z] [business] Calling OpenAI with 6 items
+{"ts":"2025-12-30T06:30:50.464Z","level":"warn","event":"rss_error","tab":"work","url":"https://workspaceupdates.googleblog.com/atom.xml","message":"Protocol \"http:\" not supported. Expected \"https:\""}
+{"ts":"2025-12-30T06:30:51.141Z","level":"info","event":"tab_selection","tab":"work","freshnessUsed":24,"usedSecondary":true,"relaxedAI":false,"picked":[{"source":"fastcompany.com","title":"Humanoid robots are having a moment, but still face an uphill battle","age_hours":10.9,"score":2,"aiish":true},{"source":"engadget.com","title":"CES 2026: What to expect from tech’s biggest conference in January","age_hours":14.5,"score":2,"aiish":true},{"source":"theverge.com","title":"How to tweak your online platform algorithms","age_hours":14,"score":0,"aiish":true},{"source":"fastcompany.com","title":"The 27 best new apps of 2025","age_hours":20.5,"score":2,"aiish":true},{"source":"engadget.com","title":"Samsung plans to integrate Google Photos into its TVs","age_hours":17.1,"score":2,"aiish":true},{"source":"theverge.com","title":"This experimental camera can focus on everything at once","age_hours":15.7,"score":0,"aiish":true}]}
+[2025-12-30T06:30:51.141Z] [work] Calling OpenAI with 6 items
+[2025-12-30T06:30:57.660Z] Generated index + archive (2025-12-30) + about + changelog
+[2025-12-30T06:30:57.660Z] [security] freshness<=24h; hosts: go.theregister.com, theguardian.com, bbc.com
+[2025-12-30T06:30:57.660Z] [ethics] freshness<=48h; hosts: theguardian.com, gov.uk
+[2025-12-30T06:30:57.660Z] [global] freshness<=24h; hosts: arxiv.org, engadget.com, go.theregister.com, theverge.com
+[2025-12-30T06:30:57.661Z] [uk] freshness<=48h; hosts: gov.uk, theguardian.com, go.theregister.com
+[2025-12-30T06:30:57.661Z] [business] freshness<=24h; hosts: zdnet.com, engadget.com, theverge.com, techcrunch.com
+[2025-12-30T06:30:57.661Z] [work] freshness<=24h; hosts: fastcompany.com, engadget.com, theverge.com
+[2025-12-30T06:30:57.661Z] Feed errors summary:
+[2025-12-30T06:30:57.661Z]  - https://www.infoworld.com/category/artificial-intelligence/index.rss (2x) last: Invalid character in entity name
+Line: 38
+Column: 76
+Char: &
+[2025-12-30T06:30:57.661Z]  - https://workspaceupdates.googleblog.com/atom.xml (1x) last: Protocol "http:" not supported. Expected "https:"
+{"ts":"2025-12-30T06:30:57.661Z","level":"info","event":"run_end","ymd":"2025-12-30"}
+[2025-12-30T06:30:57.661Z] Done; exiting cleanly.

@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>Today’s 2-Minute AI Brief</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A concise, UK-focused daily brief on AI — updated once a day with links to original sources." />
+  <meta property="og:title" content="Today’s 2-Minute AI Brief" />
+  <meta property="og:description" content="A clean, UK-centric AI news summary with sources, updated daily." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="dark light" />
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --fg:#e5e7eb;
+      --muted:#a0a6b0;
+      --card:#111218;
+      --link:#93c5fd;
+      --accent:#60a5fa;
+      --border:#1f2430;
+      --tag-bg:#111827;
+      --tag-fg:#cbd5e1;
+      --max:760px;
+      --gap:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    main{max-width:var(--max); margin:48px auto; padding:0 var(--gap)}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    nav.top{
+      display:flex; gap:12px; align-items:center; margin-bottom:12px; font-size:.95rem;
+    }
+    nav.top a{opacity:.9}
+    nav.top .dot{opacity:.5}
+
+    header h1{font-size:1.8rem; margin:6px 0 4px}
+    .date{margin:0 0 18px; color:var(--muted); font-size:.95rem}
+    .date[title]{cursor:help}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      margin:16px 0 22px;
+    }
+
+    .tldr{
+      font-size:1.05rem;
+      background:linear-gradient(0deg, rgba(96,165,250,.08), rgba(96,165,250,.08));
+      border-left:3px solid var(--accent);
+      padding:12px 12px 12px 14px;
+      border-radius:10px;
+      margin:8px 0 18px;
+    }
+
+    h2{
+      font-size:1.1rem;
+      letter-spacing:.2px;
+      margin:18px 0 10px;
+    }
+
+    ul{margin:0; padding-left:22px}
+    li{margin:6px 0}
+
+    .explainer p{margin:0 0 10px}
+    .explainer a{word-break:break-word}
+
+    .sources{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .sources a{color:var(--link); margin-right:10px}
+
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      display:inline-block;
+      background:var(--tag-bg);
+      color:var(--tag-fg);
+      border:1px solid var(--border);
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.85rem;
+      letter-spacing:.2px;
+    }
+
+    footer{
+      max-width:var(--max);
+      margin:24px auto 48px;
+      padding:0 var(--gap);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    .foot-line{border-top:1px solid var(--border); margin:16px 0; opacity:.7}
+
+    @media (max-width:520px){
+      header h1{font-size:1.5rem}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="top" aria-label="Site">
+      <a href="/archive/">Archive</a>
+      <span class="dot">·</span>
+      <a href="/about.html">About</a>
+      <span class="dot">·</span>
+      <a href="/changelog.html">Changelog</a>
+    </nav>
+
+    <header>
+      <h1>Today’s 2-Minute AI Brief</h1>
+      <p class="date" title="2025-12-29T06:30:52.401Z">29 December 2025</p>
+    </header>
+
+    <!-- Tabs (nav + one-line description) -->
+    <div class="tabs-wrap">
+  <div class="tabs" role="tablist" aria-label="Brief tabs">
+    <button class="tab is-active" role="tab" aria-selected="true" data-tab="uk">UK AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="business">AI &amp; Business</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="work">AI &amp; Work</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="global">Global AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="security">AI Security</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="ethics">Ethics &amp; Policy</button>
+  </div>
+  <p class="tab-desc" id="tabDesc">UK AI — A daily summary of AI news most relevant to the UK.</p>
+  <p class="tab-note" id="tabNote" hidden></p>
+</div>
+
+    <!-- Tab panels (each panel is a .card so it matches the current look) -->
+    <section class="brief-panel" data-tab="security" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — A former employee of Korean e-tailer Coupang is accused of accessing data on 33 million customers and attempting to destroy evidence by throwing a MacBook into a river.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The incident highlights vulnerabilities in data security within major companies.</li>
+<li>Access to such a large volume of customer records raises concerns about potential misuse of personal information.</li>
+<li>It underscores the importance of robust safeguards and audits to prevent insider threats.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The case involving Coupang, a prominent Korean e-commerce platform, serves as a stark reminder of the risks associated with insider threats in data security. A former employee allegedly accessed sensitive information pertaining to 33 million customers, which could lead to significant privacy breaches if misused. The accused reportedly took drastic measures to cover up the crime by disposing of the MacBook that contained the data. This incident not only raises questions about the effectiveness of Coupang's internal security protocols but also emphasizes the need for companies to implement stringent safeguards and regular audits to protect sensitive customer information. As data breaches become increasingly common, organizations must remain vigilant against both external and internal threats to maintain trust and compliance with data protection regulations.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.theguardian.com/technology/2025/dec/28/nvidia-insists-it-isnt-enron-but-its-ai-deals-are-testing-investor-faith" target="_blank" rel="noopener noreferrer" title="Nvidia insists it isn’t Enron, but its AI deals are testing investor faith">theguardian.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/29/coupang_perpetrator_theft_details/" target="_blank" rel="noopener noreferrer" title="Accused data thief threw MacBook into a river to destroy evidence">go.theregister.com</a> <a href="https://www.theguardian.com/media/2025/dec/28/from-that-bird-guy-to-bus-aunty-the-real-social-media-personalities-rising-above-ai-slop" target="_blank" rel="noopener noreferrer" title="From that bird guy to ‘bus aunty’: the real social media personalities rising above AI slop">theguardian.com</a> <a href="https://www.theguardian.com/books/2025/dec/28/could-ai-relationships-actually-be-good-for-us" target="_blank" rel="noopener noreferrer" title="Could AI relationships actually be good for us?">theguardian.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">coupang</span> <span class="tag">data security</span> <span class="tag">insider threats</span> <span class="tag">customer privacy</span> <span class="tag">data breach</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="ethics" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — The Merlin birdsong identifying app has gained popularity for its ability to help users recognize over 1,300 bird species by their songs.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The app enhances public engagement with nature and biodiversity.</li>
+<li>It utilizes AI technology to improve user experience and learning.</li>
+<li>Increased interest in birdwatching may promote conservation efforts.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The Merlin app, developed to identify birds by their songs, has become a valuable tool for both amateur and experienced birdwatchers. It allows users to record bird songs and receive instant identification, making it easier for individuals to learn about local wildlife. This technology is particularly significant as it encourages users to connect with nature, fostering a greater appreciation for biodiversity. By making birdwatching more accessible and enjoyable, the app may also play a role in conservation efforts, as more people become aware of the various species in their environments. As the app continues to gain traction, it highlights the intersection of technology and environmental education, showcasing how AI can be harnessed to enhance our understanding of the natural world.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.theguardian.com/environment/2025/dec/27/merlin-ai-assisted-birdsong-identifying-app-bird-species" target="_blank" rel="noopener noreferrer" title="‘It brings you closer to the natural world’: the rise of the Merlin birdsong identifying app">theguardian.com</a> <a href="https://www.gov.uk/government/news/faster-treatments-and-support-for-health-workers-as-ai-tackles-ae-bottlenecks" target="_blank" rel="noopener noreferrer" title="Faster treatments and support for health workers as AI tackles A&amp;E bottlenecks">gov.uk</a> <a href="https://www.theguardian.com/technology/2025/dec/27/from-shrimp-jesus-to-erotic-tractors-how-viral-ai-slop-took-over-the-internet" target="_blank" rel="noopener noreferrer" title="From shrimp Jesus to erotic tractors: how viral AI slop took over the internet">theguardian.com</a> <a href="https://www.theguardian.com/thefilter-us/2025/dec/27/best-after-christmas-holiday-sales" target="_blank" rel="noopener noreferrer" title="We combed the internet for the 25 best after-Christmas sales still available">theguardian.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">birds</span> <span class="tag">app</span> <span class="tag">technology</span> <span class="tag">biodiversity</span> <span class="tag">conservation</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="global" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — LG has announced its new UltraGear evo gaming monitors featuring 5K resolution and AI upscaling technology.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The new monitors aim to enhance gaming experiences with advanced visual technology.</li>
+<li>AI upscaling could improve image quality and performance in fast-paced games.</li>
+<li>This release reflects a growing trend in integrating AI capabilities into consumer electronics.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      LG's latest UltraGear evo gaming monitors, revealed ahead of CES, are designed for high-end gaming with features such as 5K resolution and AI upscaling. The lineup includes three flagship models, with the largest being a 39-inch ultrawide OLED screen capable of running at high refresh rates. AI upscaling technology is particularly noteworthy, as it enhances image quality by improving resolution and detail, which is crucial for competitive gaming. This development is part of a broader trend where manufacturers are increasingly incorporating AI to enhance user experiences across various devices, indicating a shift towards smarter technology in gaming and entertainment.
+    </div>
+
+    <p class="sources">Sources: <a href="https://arxiv.org/abs/2512.21360" target="_blank" rel="noopener noreferrer" title="From Visual Perception to Deep Empathy: An Automated Assessment Framework for House-Tree-Person Draw…">arxiv.org</a> <a href="https://www.theverge.com/tech/850572/lg-announces-new-ultragear-evo-gaming-monitors-with-ai-upscaling" target="_blank" rel="noopener noreferrer" title="LG announces new UltraGear evo gaming monitors with AI upscaling">theverge.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/28/death_torture_and_amputation_how/" target="_blank" rel="noopener noreferrer" title="Death, torture, and amputation: How cybercrime shook the world in 2025">go.theregister.com</a> <a href="https://www.engadget.com/big-tech/apple-escalates-its-appeal-of-a-2-billion-fine-from-a-uk-antitrust-lawsuit-201922558.html?src=rss" target="_blank" rel="noopener noreferrer" title="Apple escalates its appeal of a $2 billion fine from a UK antitrust lawsuit">engadget.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">lg</span> <span class="tag">gaming</span> <span class="tag">monitors</span> <span class="tag">ai</span> <span class="tag">upscaling</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="uk" data-note="Wider sources used today due to limited fresh coverage. Some items may be only loosely AI-related due to limited matching items.">
+  <section class="card">
+    <p class="tldr">In brief — The UK government has issued guidance on protecting new tech gifts from cyber threats during the holiday season.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The advice aims to enhance cybersecurity for families using connected devices.</li>
+<li>Increased use of smart technology during the holidays raises the risk of cybercrime.</li>
+<li>Educating the public on security measures can help prevent potential data breaches.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      As many people receive new technology such as tablets, smartwatches, and connected toys during the Christmas season, the UK government is urging recipients to take proactive steps to secure their devices. The guidance emphasizes the importance of setting up two-step verification, a security measure that adds an extra layer of protection against unauthorized access. With the rise of cyber threats, especially during festive periods when online shopping and device usage peak, it is crucial for individuals to safeguard their personal information. By following these recommendations, families can better protect themselves from cyber criminals who may seek to exploit vulnerabilities in connected devices.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/27/victoria_bork/" target="_blank" rel="noopener noreferrer" title="SSL Santa greets London Victoria visitors with a borked update">go.theregister.com</a> <a href="https://www.gov.uk/government/news/top-tips-to-protect-your-christmas-gifts-from-cyber-scrooges" target="_blank" rel="noopener noreferrer" title="Top tips to protect your Christmas gifts from cyber-scrooges">gov.uk</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/29/lou_gerstner/" target="_blank" rel="noopener noreferrer" title="Former IBM CEO Lou Gerstner passes, aged 83">go.theregister.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/29/asia_tech_news_roundup/" target="_blank" rel="noopener noreferrer" title="China wants to ban making yourself into an AI to keep aged relatives company">go.theregister.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">uk</span> <span class="tag">cybersecurity</span> <span class="tag">technology</span> <span class="tag">christmas</span> <span class="tag">government</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="business" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — Ubisoft has temporarily shut down the servers for Rainbow Six Siege following a significant hack that compromised player accounts and in-game currency.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The breach allowed hackers to manipulate in-game systems, including granting players billions in virtual currency.</li>
+<li>Ubisoft&#39;s response includes shutting down the game&#39;s marketplace and servers to address the security issue.</li>
+<li>The incident highlights the vulnerabilities in online gaming platforms and the potential financial implications for companies.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Ubisoft's popular game, Rainbow Six Siege, faced a severe security breach that led to the shutdown of its servers and marketplace. Hackers gained unauthorized access to the game's systems, allowing them to issue bans, unlock all in-game items, and distribute a staggering 2 billion R6 Credits to players. This virtual currency has a real-world value of approximately $13.33 million, based on Ubisoft's pricing structure. The company has taken immediate action to contain the situation by shutting down all servers across PC and consoles while they work to resolve the breach. Such incidents underscore the ongoing challenges that gaming companies face in securing their platforms against cyber threats. The outcome of this situation could impact player trust and Ubisoft's reputation in the long run.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.engadget.com/gaming/ubisoft-is-rolling-back-rainbow-six-siege-servers-after-being-forced-to-shut-them-down-191049440.html?src=rss" target="_blank" rel="noopener noreferrer" title="Ubisoft is rolling back Rainbow Six Siege servers after being forced to shut them down">engadget.com</a> <a href="https://www.theverge.com/podcast/850556/nintendo-power-glove-version-history" target="_blank" rel="noopener noreferrer" title="The terrible Nintendo controller that helped make VR happen">theverge.com</a> <a href="https://techcrunch.com/2025/12/28/police-charge-driver-who-allegedly-killed-a-pedestrian-while-livestreaming-on-tiktok/" target="_blank" rel="noopener noreferrer" title="Police charge driver who allegedly killed a pedestrian while livestreaming on TikTok">techcrunch.com</a> <a href="https://www.zdnet.com/article/ebay-600w-charger-goo-hands-on/" target="_blank" rel="noopener noreferrer" title="I took apart this cheap 600W charger to test its claims. What I found inside was not right">zdnet.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">ubisoft</span> <span class="tag">rainbow six siege</span> <span class="tag">cybersecurity</span> <span class="tag">gaming</span> <span class="tag">online gaming</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="work" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — OpenAI is hiring a Head of Preparedness to address potential risks associated with AI technologies, particularly concerning mental health and cybersecurity.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The role aims to anticipate and mitigate the negative impacts of AI, reflecting increasing concerns about its safety.</li>
+<li>OpenAI has faced criticism and lawsuits regarding the effects of its AI models on users&#39; mental health.</li>
+<li>This position highlights the growing recognition of the need for proactive measures in AI development and deployment.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      OpenAI's decision to hire a Head of Preparedness comes in response to the rapid advancements and potential dangers posed by artificial intelligence technologies. The company is looking for someone who can foresee and address the various ways AI might be misused or cause harm, particularly in relation to mental health and cybersecurity threats. This move follows a year marked by significant scrutiny over the impacts of AI, including several lawsuits alleging that tools like ChatGPT have negatively affected users' mental well-being. By establishing this role, OpenAI is signaling its commitment to safety and responsibility in AI development, aiming to create a framework that not only enhances productivity but also safeguards against possible adverse effects on individuals and society.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.engadget.com/ai/openai-is-hiring-a-new-head-of-preparedness-to-try-to-predict-and-mitigate-ais-harms-220330486.html?src=rss" target="_blank" rel="noopener noreferrer" title="OpenAI is hiring a new Head of Preparedness to try to predict and mitigate AI&#39;s harms">engadget.com</a> <a href="https://www.fastcompany.com/91467128/splice-moises-chordify-genius-music-tools?partner=rss&amp;amp;utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=rss+fastcompany&amp;amp;utm_content=rss" target="_blank" rel="noopener noreferrer" title="Here are the best free tools for discovering new music online">fastcompany.com</a> <a href="https://www.theverge.com/news/850537/sam-altman-openai-head-of-preparedness" target="_blank" rel="noopener noreferrer" title="Sam Altman is hiring someone to worry about the dangers of AI">theverge.com</a> <a href="https://www.engadget.com/gaming/nintendo/stardew-valley-players-on-the-nintendo-switch-2-get-a-free-upgrade-174849697.html?src=rss" target="_blank" rel="noopener noreferrer" title="Stardew Valley players on the Nintendo Switch 2 get a free upgrade">engadget.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">openai</span> <span class="tag">ai safety</span> <span class="tag">mental health</span> <span class="tag">cybersecurity</span> <span class="tag">job hiring</span>
+    </div>
+  </section>
+</section>
+  </main>
+
+  <footer>
+    <div class="foot-line"></div>
+    <p>UK-focused, neutral summaries from public RSS feeds. No tracking. Static HTML.</p>
+  </footer>
+
+  <!-- Tabs CSS/JS injected by generate.js -->
+  <style>
+  .tabs{display:flex;gap:14px;flex-wrap:wrap;margin:4px 0 6px}
+  .tab{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;padding:6px 2px;cursor:pointer}
+  .tab:hover{color:var(--fg)}
+  .tab.is-active{color:var(--fg);border-bottom:2px solid var(--fg)}
+  .tab-desc{margin:0 0 6px;color:var(--muted);font-size:.95rem;line-height:1.4}
+  .tab-note{margin:0 0 10px;color:var(--muted);font-size:.9rem;opacity:.85}
+</style>
+
+<script>
+(function(){
+  var TAB_DESC = {"uk":"UK AI — A daily summary of AI news most relevant to the UK.","business":"AI & Business — Adoption, governance, monetisation, and real-world deployments.","work":"AI & Work — Productivity tools, workflow changes, and practical workplace usage.","global":"Global AI — Models, research, major releases, and big platform shifts worldwide.","security":"AI Security — Misuse, attacks, safeguards, auditing, and defensive practices.","ethics":"Ethics & Policy — Regulation, governance, rights, safety debates, and oversight."};
+  function setTab(next){
+    var tabs = document.querySelectorAll('.tab');
+    var panels = document.querySelectorAll('.brief-panel');
+
+    tabs.forEach(function(t){
+      var active = t.getAttribute('data-tab') === next;
+      t.classList.toggle('is-active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    panels.forEach(function(p){
+      var match = p.getAttribute('data-tab') === next;
+      if(match){
+        p.removeAttribute('hidden');
+        p.setAttribute('aria-hidden','false');
+      }else{
+        p.setAttribute('hidden','');
+        p.setAttribute('aria-hidden','true');
+      }
+    });
+
+    var descEl = document.getElementById('tabDesc');
+    if(descEl) descEl.textContent = TAB_DESC[next] || "";
+
+    // optional note line per panel
+    var noteEl = document.getElementById('tabNote');
+    var panel = document.querySelector('.brief-panel[data-tab="'+next+'"]');
+    var note = panel ? panel.getAttribute('data-note') : "";
+    if(noteEl){
+      if(note){
+        noteEl.textContent = note;
+        noteEl.hidden = false;
+      }else{
+        noteEl.textContent = "";
+        noteEl.hidden = true;
+      }
+    }
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest ? e.target.closest('.tab') : null;
+    if(!btn) return;
+    setTab(btn.getAttribute('data-tab'));
+  });
+
+  // Always start on UK AI
+  setTab('uk');
+})();
+</script>
+</body>
+</html>
+

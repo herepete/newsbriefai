@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>Today’s 2-Minute UK AI Brief</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A concise, UK-focused daily brief on AI — updated once a day with links to original sources." />
+  <meta property="og:title" content="Today’s 2-Minute UK AI Brief" />
+  <meta property="og:description" content="A clean, UK-centric AI news summary with sources, updated daily." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="dark light" />
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --fg:#e5e7eb;
+      --muted:#a0a6b0;
+      --card:#111218;
+      --link:#93c5fd;
+      --accent:#60a5fa;
+      --border:#1f2430;
+      --tag-bg:#111827;
+      --tag-fg:#cbd5e1;
+      --max:760px;
+      --gap:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    main{max-width:var(--max); margin:48px auto; padding:0 var(--gap)}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    nav.top{
+      display:flex; gap:12px; align-items:center; margin-bottom:12px; font-size:.95rem;
+    }
+    nav.top a{opacity:.9}
+    nav.top .dot{opacity:.5}
+
+    header h1{font-size:1.8rem; margin:6px 0 4px}
+    .date{margin:0 0 18px; color:var(--muted); font-size:.95rem}
+    .date[title]{cursor:help}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      margin:16px 0 22px;
+    }
+
+    .tldr{
+      font-size:1.05rem;
+      background:linear-gradient(0deg, rgba(96,165,250,.08), rgba(96,165,250,.08));
+      border-left:3px solid var(--accent);
+      padding:12px 12px 12px 14px;
+      border-radius:10px;
+      margin:8px 0 18px;
+    }
+
+    h2{
+      font-size:1.1rem;
+      letter-spacing:.2px;
+      margin:18px 0 10px;
+    }
+
+    ul{margin:0; padding-left:22px}
+    li{margin:6px 0}
+
+    .explainer p{margin:0 0 10px}
+    .explainer a{word-break:break-word}
+
+    .sources{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .sources a{color:var(--link); margin-right:10px}
+
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      display:inline-block;
+      background:var(--tag-bg);
+      color:var(--tag-fg);
+      border:1px solid var(--border);
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.85rem;
+      letter-spacing:.2px;
+    }
+
+    footer{
+      max-width:var(--max);
+      margin:24px auto 48px;
+      padding:0 var(--gap);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    .foot-line{border-top:1px solid var(--border); margin:16px 0; opacity:.7}
+
+    @media (max-width:520px){
+      header h1{font-size:1.5rem}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="top" aria-label="Site">
+      <a href="/archive/">Archive</a>
+      <span class="dot">·</span>
+      <a href="/about.html">About</a>
+      <span class="dot">·</span>
+      <a href="/changelog.html">Changelog</a>
+    </nav>
+
+    <header>
+      <h1>Today’s 2-Minute UK AI Brief</h1>
+      <p class="date" title="2025-12-21T06:30:35.680Z">21 December 2025</p>
+    </header>
+
+    <!-- Tabs (nav + one-line description) -->
+    <div class="tabs-wrap">
+  <div class="tabs" role="tablist" aria-label="Brief tabs">
+    <button class="tab is-active" role="tab" aria-selected="true" data-tab="uk">UK AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="business">AI &amp; Business</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="work">AI &amp; Work</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="global">Global AI</button>
+  </div>
+  <p class="tab-desc" id="tabDesc">UK AI brief — A daily summary of AI news most relevant to the UK.</p>
+</div>
+
+    <!-- Tab panels (each panel is a .card so it matches the current look) -->
+    <section class="brief-panel" data-tab="uk">
+  <section class="card">
+    <p class="tldr">TL;DR — The UK&#39;s Foreign Office has confirmed it is investigating a cyberattack, with officials stating there has been a hack but lacking clarity on potential links to China or data theft.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The incident raises concerns about cybersecurity and data protection within UK government institutions.</li>
+<li>It highlights the ongoing threat of cyberattacks, particularly from state actors, to UK national security.</li>
+<li>The investigation&#39;s outcome may influence future UK policies on cybersecurity and international relations.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The UK Foreign Office is currently dealing with the aftermath of a confirmed cyberattack, which was first detected in October. Senior ministers have acknowledged that there has been a breach but have not provided specific details regarding the attackers or whether any data was stolen. This uncertainty is particularly concerning given the increasing frequency of cyberattacks attributed to state-sponsored actors, including those from China. The implications of such breaches extend beyond immediate security concerns; they can affect public trust in government institutions and prompt calls for stronger cybersecurity measures. As the investigation unfolds, it may lead to a reassessment of the UK's cybersecurity strategies and its approach to international relations, particularly with nations suspected of cyber aggression.
+
+_(Note: One or more sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/19/uk_foreign_office_hack/" target="_blank" rel="noopener noreferrer" title="Ministers confirm breach at UK Foreign Office but details remain murky">go.theregister.com</a> <a href="https://www.gov.uk/government/publications/mergers-guidance-on-the-cmas-jurisdiction-and-procedure" target="_blank" rel="noopener noreferrer" title="Guidance: Mergers: guidance on jurisdiction and procedure">gov.uk</a> <a href="https://www.ukri.org/news/could-sound-waves-help-slow-brain-ageing/" target="_blank" rel="noopener noreferrer" title="Could sound waves help slow brain ageing?">ukri.org</a> <a href="https://www.theguardian.com/technology/2025/dec/20/tiktok-90s-christmas-trend-tinsel-home-alone" target="_blank" rel="noopener noreferrer" title="Tinsel and Home Alone back in style as TikTok seeks comfort in #90sChristmas">theguardian.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">uk-cybersecurity</span> <span class="tag">foreign-office</span> <span class="tag">national-security</span> <span class="tag">data-protection</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="business" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">TL;DR — Companies are shifting hiring strategies from specialists to generalists in response to the rapid evolution of AI technologies.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The pace of AI development requires employees who can adapt quickly to new technologies.</li>
+<li>Hiring generalists may lead to a more versatile workforce capable of handling diverse tasks.</li>
+<li>This shift reflects a broader trend in the tech industry as companies navigate changing demands.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The tech industry is experiencing a significant shift in hiring practices due to the rapid advancement of artificial intelligence (AI). Traditionally, companies sought specialists—individuals with deep expertise in specific areas like backend engineering or data science. However, as AI technologies evolve at an unprecedented pace, with new tools and frameworks emerging in less than a year, the demand for specialists is decreasing. Many companies now find it more beneficial to hire generalists who possess a broader skill set and can quickly learn and adapt to new AI developments. This change not only helps organizations remain agile but also fosters a workforce that can tackle various challenges as they arise. Lenovo's global CIO has highlighted strategies for leveraging AI effectively, suggesting that companies can achieve real results by adopting flexible approaches to technology and talent. This trend underscores the need for businesses to rethink their hiring criteria to stay competitive in an increasingly dynamic environment.
+    </div>
+
+    <p class="sources">Sources: <a href="https://venturebeat.com/ai/hiring-specialists-made-sense-before-ai-now-generalists-win" target="_blank" rel="noopener noreferrer" title="Hiring specialists made sense before AI — now generalists win">venturebeat.com</a> <a href="https://www.zdnet.com/article/how-to-rotate-computer-monitor/" target="_blank" rel="noopener noreferrer" title="This simple monitor adjustment is the productivity upgrade I deeply regret not doing sooner">zdnet.com</a> <a href="https://techcrunch.com/2025/12/20/google-and-apple-reportedly-warn-employees-on-visas-to-avoid-international-travel/" target="_blank" rel="noopener noreferrer" title="Google and Apple reportedly warn employees on visas to avoid international travel">techcrunch.com</a> <a href="https://www.zdnet.com/article/bose-quietcomfort-ultra-vs-sony-wh-1000xm6/" target="_blank" rel="noopener noreferrer" title="Bose QuietComfort Ultra vs. Sony WH-1000XM6: I tried the two best ANC headphones, and this pair wins">zdnet.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">ai</span> <span class="tag">hiring</span> <span class="tag">workforce</span> <span class="tag">technology</span> <span class="tag">lenovo</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="work" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">TL;DR — Google has extended the timeline for transitioning from Google Assistant to its new AI assistant, Gemini, on Android devices.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The delay allows for a more seamless transition for users.</li>
+<li>Google plans to provide more updates in the coming months.</li>
+<li>This change reflects ongoing developments in AI assistant technology.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Google initially aimed to replace Google Assistant with its new AI assistant, Gemini, by the end of 2025. However, the company has announced that it will need additional time to ensure a smooth transition for Android users. This adjustment in the timeline suggests that Google is prioritizing user experience and aims to deliver a more refined product. As part of this transition, updates to convert Google Assistant to Gemini will continue into the next year. Google has indicated that it will share more details about the transition in the upcoming months, which may help users better understand what to expect. This move highlights the competitive landscape of AI assistants, where companies are continuously evolving their offerings to meet user needs and preferences.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.engadget.com/ai/google-assistant-will-stick-around-a-bit-longer-than-expected-for-some-android-users-130000178.html?src=rss" target="_blank" rel="noopener noreferrer" title="Google Assistant will stick around a bit longer than expected for some Android users">engadget.com</a> <a href="https://www.fastcompany.com/91460162/wikipedia-wikiboard?partner=rss&amp;amp;utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=rss+fastcompany&amp;amp;utm_content=rss" target="_blank" rel="noopener noreferrer" title="This brilliant free website makes Wikipedia infinitely better">fastcompany.com</a> <a href="https://techcrunch.com/2025/12/20/google-and-apple-reportedly-warn-employees-on-visas-to-avoid-international-travel/" target="_blank" rel="noopener noreferrer" title="Google and Apple reportedly warn employees on visas to avoid international travel">techcrunch.com</a> <a href="https://www.theverge.com/tech/809421/holiday-gift-guide-2025" target="_blank" rel="noopener noreferrer" title="The Verge’s 2025 holiday gift guide">theverge.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">google</span> <span class="tag">assistant</span> <span class="tag">ai</span> <span class="tag">productivity</span> <span class="tag">technology</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="global" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">TL;DR — The shift from hiring specialists to generalists in tech companies is driven by the rapid evolution of AI technologies.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The fast-paced development of AI means traditional specialist roles are becoming less relevant.</li>
+<li>Companies are now prioritizing adaptability and a broader skill set over deep expertise in a single area.</li>
+<li>This shift may influence hiring practices and workforce development in the tech industry.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      In the past, tech companies often sought specialists with deep knowledge in specific areas, such as backend engineering or data science. This approach worked well when technology evolved at a slower pace, allowing specialists to build solid careers based on predictable frameworks. However, with the rise of artificial intelligence, the landscape has changed dramatically. AI technologies are now evolving so quickly that it is difficult to find candidates with extensive experience in a field that has only been mainstream for a few years. As a result, companies are shifting their focus towards hiring generalists who can adapt to new technologies and learn quickly. This trend indicates a significant change in the tech job market, where flexibility and a broad skill set may become more valuable than specialized knowledge. As AI continues to advance, the implications for hiring practices and workforce composition could be profound, prompting a reevaluation of how companies approach talent acquisition.
+    </div>
+
+    <p class="sources">Sources: <a href="https://venturebeat.com/ai/hiring-specialists-made-sense-before-ai-now-generalists-win" target="_blank" rel="noopener noreferrer" title="Hiring specialists made sense before AI — now generalists win">venturebeat.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">ai</span> <span class="tag">hiring</span> <span class="tag">workforce</span> <span class="tag">technology</span> <span class="tag">employment</span>
+    </div>
+  </section>
+</section>
+  </main>
+
+  <footer>
+    <div class="foot-line"></div>
+    <p>UK-focused, neutral summaries from public RSS feeds. No tracking. Static HTML.</p>
+  </footer>
+
+  <!-- Tabs CSS/JS injected by generate.js -->
+  <style>
+  .tabs{display:flex;gap:14px;flex-wrap:wrap;margin:4px 0 6px}
+  .tab{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;padding:6px 2px;cursor:pointer}
+  .tab:hover{color:var(--fg)}
+  .tab.is-active{color:var(--fg);border-bottom:2px solid var(--fg)}
+  .tab-desc{margin:0 0 10px;color:var(--muted);font-size:.95rem;line-height:1.4}
+</style>
+
+<script>
+(function(){
+  var TAB_DESC = {
+    uk: "UK AI brief — A daily summary of AI news most relevant to the UK.",
+    business: "AI & Business — How companies are actually using AI this week (adoption, ROI, governance).",
+    work: "AI & Work — Productivity tools gaining traction (workflows, copilots, practical use-cases).",
+    global: "Global AI — New models, research, regulation, and big platform shifts worldwide."
+  };
+
+  function setTab(next){
+    var tabs = document.querySelectorAll('.tab');
+    var panels = document.querySelectorAll('.brief-panel');
+
+    tabs.forEach(function(t){
+      var active = t.getAttribute('data-tab') === next;
+      t.classList.toggle('is-active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    panels.forEach(function(p){
+      var match = p.getAttribute('data-tab') === next;
+      if(match){
+        p.removeAttribute('hidden');
+        p.setAttribute('aria-hidden','false');
+      }else{
+        p.setAttribute('hidden','');
+        p.setAttribute('aria-hidden','true');
+      }
+    });
+
+    var el = document.getElementById('tabDesc');
+    if(el) el.textContent = TAB_DESC[next] || "";
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest ? e.target.closest('.tab') : null;
+    if(!btn) return;
+    setTab(btn.getAttribute('data-tab'));
+  });
+
+  // Always start on UK AI
+  setTab('uk');
+})();
+</script>
+</body>
+</html>

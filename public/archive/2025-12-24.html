@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>Today’s 2-Minute AI Brief</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A concise, UK-focused daily brief on AI — updated once a day with links to original sources." />
+  <meta property="og:title" content="Today’s 2-Minute AI Brief" />
+  <meta property="og:description" content="A clean, UK-centric AI news summary with sources, updated daily." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="dark light" />
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --fg:#e5e7eb;
+      --muted:#a0a6b0;
+      --card:#111218;
+      --link:#93c5fd;
+      --accent:#60a5fa;
+      --border:#1f2430;
+      --tag-bg:#111827;
+      --tag-fg:#cbd5e1;
+      --max:760px;
+      --gap:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    main{max-width:var(--max); margin:48px auto; padding:0 var(--gap)}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    nav.top{
+      display:flex; gap:12px; align-items:center; margin-bottom:12px; font-size:.95rem;
+    }
+    nav.top a{opacity:.9}
+    nav.top .dot{opacity:.5}
+
+    header h1{font-size:1.8rem; margin:6px 0 4px}
+    .date{margin:0 0 18px; color:var(--muted); font-size:.95rem}
+    .date[title]{cursor:help}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      margin:16px 0 22px;
+    }
+
+    .tldr{
+      font-size:1.05rem;
+      background:linear-gradient(0deg, rgba(96,165,250,.08), rgba(96,165,250,.08));
+      border-left:3px solid var(--accent);
+      padding:12px 12px 12px 14px;
+      border-radius:10px;
+      margin:8px 0 18px;
+    }
+
+    h2{
+      font-size:1.1rem;
+      letter-spacing:.2px;
+      margin:18px 0 10px;
+    }
+
+    ul{margin:0; padding-left:22px}
+    li{margin:6px 0}
+
+    .explainer p{margin:0 0 10px}
+    .explainer a{word-break:break-word}
+
+    .sources{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .sources a{color:var(--link); margin-right:10px}
+
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      display:inline-block;
+      background:var(--tag-bg);
+      color:var(--tag-fg);
+      border:1px solid var(--border);
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.85rem;
+      letter-spacing:.2px;
+    }
+
+    footer{
+      max-width:var(--max);
+      margin:24px auto 48px;
+      padding:0 var(--gap);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    .foot-line{border-top:1px solid var(--border); margin:16px 0; opacity:.7}
+
+    @media (max-width:520px){
+      header h1{font-size:1.5rem}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="top" aria-label="Site">
+      <a href="/archive/">Archive</a>
+      <span class="dot">·</span>
+      <a href="/about.html">About</a>
+      <span class="dot">·</span>
+      <a href="/changelog.html">Changelog</a>
+    </nav>
+
+    <header>
+      <h1>Today’s 2-Minute AI Brief</h1>
+      <p class="date" title="2025-12-24T10:11:49.691Z">24 December 2025</p>
+    </header>
+
+    <!-- Tabs (nav + one-line description) -->
+    <div class="tabs-wrap">
+  <div class="tabs" role="tablist" aria-label="Brief tabs">
+    <button class="tab is-active" role="tab" aria-selected="true" data-tab="uk">UK AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="business">AI &amp; Business</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="work">AI &amp; Work</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="global">Global AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="security">AI Security</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="ethics">Ethics &amp; Policy</button>
+  </div>
+  <p class="tab-desc" id="tabDesc">UK AI — A daily summary of AI news most relevant to the UK.</p>
+  <p class="tab-note" id="tabNote" hidden></p>
+</div>
+
+    <!-- Tab panels (each panel is a .card so it matches the current look) -->
+    <section class="brief-panel" data-tab="security" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — The U.S. State Department has barred five European individuals, including former EU Commissioner Thierry Breton, from entering the U.S. for allegedly pressuring tech firms to censor American viewpoints.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>This action reflects ongoing tensions between U.S. and European approaches to tech regulation and free speech.</li>
+<li>The visa ban highlights concerns about foreign influence on American technology platforms.</li>
+<li>It raises questions about the balance between combating misinformation and protecting free expression.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The U.S. State Department recently implemented visa bans on five Europeans, including Thierry Breton, a former European Commissioner, citing their involvement in efforts to pressure American tech companies into censoring content deemed contrary to U.S. viewpoints. This decision underscores the growing friction between American and European regulatory philosophies, particularly regarding issues of hate speech and misinformation. While Europe has taken a more stringent stance on regulating online content, the U.S. often prioritizes free speech, leading to a clash of values. The State Department's actions suggest a concern that foreign entities might unduly influence how American platforms operate, potentially undermining the principles of free expression. This situation invites broader discussions about the role of international actors in shaping the policies of tech companies and the implications for users and content creators alike.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.theguardian.com/technology/2025/dec/24/us-state-department-visa-ban-former-eu-commissioner-europe" target="_blank" rel="noopener noreferrer" title="Former EU commissioner and activists barred from US in attack on European tech regulators">theguardian.com</a> <a href="https://www.theguardian.com/technology/2025/dec/22/biggest-tech-stories-2025" target="_blank" rel="noopener noreferrer" title="Elon Musk, AI and the antichrist: the biggest tech stories of 2025">theguardian.com</a> <a href="https://www.theguardian.com/thefilter/2024/dec/27/best-electric-blankets-heated-throws" target="_blank" rel="noopener noreferrer" title="The best electric blankets and heated throws in the UK, tried and tested to keep you toasty for less">theguardian.com</a> <a href="https://www.theguardian.com/games/2025/dec/23/terminator-2d-no-fate-review-the-least-bad-terminator-game-in-a-long-while" target="_blank" rel="noopener noreferrer" title="Terminator 2D: No Fate review – the least bad Terminator game in a long while">theguardian.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">us-eu relations</span> <span class="tag">tech regulation</span> <span class="tag">censorship</span> <span class="tag">misinformation</span> <span class="tag">free speech</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="ethics" data-note="Wider sources used today due to limited fresh coverage. Some items may be only loosely AI-related due to limited matching items." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — Over 200,000 small businesses in the UK have joined TikTok Shop, a platform that allows direct selling through the app.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>TikTok is expanding its role beyond social media into e-commerce, impacting retail dynamics.</li>
+<li>The platform&#39;s popularity could reshape how consumers discover and purchase products.</li>
+<li>Small businesses gain access to a larger audience, potentially boosting their sales.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      TikTok, primarily known for its short-form videos and viral content, is increasingly being recognized as a significant player in the e-commerce space. The recent announcement that over 200,000 small and medium-sized businesses in the UK have signed up for TikTok Shop highlights this shift. Businesses can now sell products directly through the app, integrating shopping with social media engagement. This move allows brands, both large and small, to reach consumers where they spend their time online. As major retailers like Marks &amp; Spencer and Sainsbury’s utilize TikTok for direct sales, the platform's influence on shopping behavior is likely to grow. This development is significant for small businesses seeking to expand their market presence, as TikTok offers a unique opportunity to connect with a younger audience that increasingly prefers online shopping experiences. The integration of e-commerce into social media platforms like TikTok could change traditional retail models, making it essential for businesses to adapt to these new consumer behaviors.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.theguardian.com/news/2025/dec/23/the-best-of-the-long-read-in-2025" target="_blank" rel="noopener noreferrer" title="The best of the long read in 2025">theguardian.com</a> <a href="https://www.technologyreview.com/2025/12/23/1130415/organoid-uterus-microfluidic-chip-embryo/" target="_blank" rel="noopener noreferrer" title="Researchers are getting organoids pregnant with human embryos">technologyreview.com</a> <a href="https://www.theguardian.com/games/2025/dec/24/i-plugged-in-zelda-and-everything-changed-developers-share-their-fondest-christmas-gaming-memories" target="_blank" rel="noopener noreferrer" title="‘I plugged in Zelda and everything changed’: developers share their fondest Christmas gaming memorie…">theguardian.com</a> <a href="https://www.theguardian.com/technology/2025/dec/24/uk-small-businesses-sign-up-to-tiktok-shop" target="_blank" rel="noopener noreferrer" title="‘A gamechanger’: 200,000 UK small businesses sign up to TikTok Shop">theguardian.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">tiktok</span> <span class="tag">ecommerce</span> <span class="tag">smallbusiness</span> <span class="tag">retail</span> <span class="tag">uk</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="global" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — Researchers have introduced two new frameworks aimed at enhancing decision-making capabilities in clinical and financial contexts using large language models.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The frameworks address critical challenges in clinical decision support and financial sentiment analysis.</li>
+<li>They leverage large language models to improve predictive accuracy and explanation generation.</li>
+<li>These advancements could lead to better-informed decisions in healthcare and investment sectors.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Two recent papers highlight advancements in the use of large language models (LLMs) for decision-making in different fields. The first, titled "Reason2Decide," proposes a two-stage training framework designed to improve clinical decision support systems. This approach aims to tackle issues such as exposure bias, which can lead to misaligned explanations when predictions are made. By training models to generate rationales before making predictions, the framework seeks to enhance both accuracy and the clarity of explanations provided to clinicians.
+
+The second paper focuses on financial sentiment analysis, specifically for the Indian stock market. It introduces an adaptive framework that combines LLMs with real-time market feedback to refine sentiment classification. By fine-tuning the LLaMA 3.2 model with stock price data and market reactions, the researchers aim to create a more responsive and accurate tool for investors. Together, these frameworks represent significant steps forward in utilizing AI for critical decision-making processes in healthcare and finance.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.engadget.com/entertainment/streaming/best-streaming-services-154527042.html?src=rss" target="_blank" rel="noopener noreferrer" title="The best streaming services in 2026">engadget.com</a> <a href="https://arxiv.org/abs/2512.20074" target="_blank" rel="noopener noreferrer" title="Reason2Decide: Rationale-Driven Multi-Task Learning">arxiv.org</a> <a href="https://www.theverge.com/gadgets/846378/best-last-minute-gifts-ideas-airpods-pro-deal-sale" target="_blank" rel="noopener noreferrer" title="We found 30 great gifts that are on sale and will arrive in time for Christmas">theverge.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/23/starlink_satellite_fails_debris/" target="_blank" rel="noopener noreferrer" title="Starlink satellite fails, polluting orbit with debris and falling toward Earth">go.theregister.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">clinical decision support</span> <span class="tag">financial sentiment analysis</span> <span class="tag">large language models</span> <span class="tag">ai research</span> <span class="tag">healthcare technology</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="uk" data-note="Wider sources used today due to limited fresh coverage.">
+  <section class="card">
+    <p class="tldr">In brief — The UK government has released research detailing the cyber security vulnerabilities associated with operational technologies.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Understanding these vulnerabilities is crucial for protecting critical infrastructure.</li>
+<li>The research highlights potential risks that could affect various sectors, including public services.</li>
+<li>Enhanced awareness can lead to improved security measures and policies.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The UK government's recent publication focuses on the cyber security vulnerabilities of operational technologies, which are systems that manage and control physical devices and processes. These technologies are integral to various sectors, including energy, transportation, and healthcare. The research emphasizes the risks posed by these vulnerabilities, which can lead to significant disruptions if exploited by cyber threats. By identifying these weaknesses, the government aims to bolster the security of critical infrastructure, ensuring that essential services remain operational and resilient against potential attacks. This initiative is part of a broader effort to enhance cyber security across the UK, particularly as reliance on digital systems continues to grow. Awareness and understanding of these vulnerabilities are vital for both public and private sectors to develop effective strategies to mitigate risks.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.gov.uk/government/publications/cyber-security-vulnerabilities-of-operational-technologies" target="_blank" rel="noopener noreferrer" title="Research: Cyber security vulnerabilities of operational technologies">gov.uk</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/24/aws_storage_gateway_nutanix_ahv/" target="_blank" rel="noopener noreferrer" title="AWS adds hybrid cloud storage support for Nutanix’s AHV hypervisor">go.theregister.com</a> <a href="https://www.bbc.com/news/articles/c3e0kw80wwzo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer" title="Amazon blocks 1,800 job applications from suspected North Korean agents">bbc.com</a> <a href="https://www.gov.uk/government/news/signal-all-the-way-christmas-comes-early-as-over-100-mobile-masts-bring-4g-joy-to-britains-rural-communities" target="_blank" rel="noopener noreferrer" title="Signal all the way! Christmas comes early as over 100 mobile masts bring 4G joy to Britain’s rural c…">gov.uk</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">cyber security</span> <span class="tag">operational technologies</span> <span class="tag">uk government</span> <span class="tag">critical infrastructure</span> <span class="tag">public sector</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="business" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — Digital avatar company Lemon Slice has secured $10.5 million in funding to enhance its AI chatbot technology with video capabilities.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The funding from Y Combinator and Matrix highlights investor interest in AI-driven digital avatar technology.</li>
+<li>Enhancing chatbots with video could significantly improve user engagement and experience.</li>
+<li>This development aligns with broader trends in AI where visual communication is becoming increasingly important.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Lemon Slice, a company focused on digital avatar generation, has recently raised $10.5 million in funding from prominent investors Y Combinator and Matrix. The company aims to innovate in the realm of AI chatbots by introducing a video component that can create digital avatars from a single image. This technology could transform how users interact with chatbots, making conversations more engaging and lifelike. As businesses increasingly adopt AI solutions for customer service and marketing, the ability to incorporate video elements into these interactions may enhance the overall effectiveness of digital communication. This funding round indicates a growing confidence in the potential of AI technologies that blend visual and conversational elements, which could lead to new applications across various industries.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.engadget.com/gaming/nintendo/nintendo-has-huge-discounts-on-switch-2-games-in-its-holiday-sale-220058951.html?src=rss" target="_blank" rel="noopener noreferrer" title="Nintendo has huge discounts on Switch 2 games in its holiday sale">engadget.com</a> <a href="https://www.theverge.com/gadgets/836995/google-pixel-10-pro-xl-amazon-deal-sale-2025" target="_blank" rel="noopener noreferrer" title="The Pixel 10, our favorite Android phone, is nearly 50 percent off right now">theverge.com</a> <a href="https://www.zdnet.com/article/hisense-xr10-px4-pro-projectors-ces-2026/" target="_blank" rel="noopener noreferrer" title="Hisense&#39;s latest laser projector is so colorful and bright, it may just replace your OLED TV">zdnet.com</a> <a href="https://techcrunch.com/2025/12/23/lemon-slice-nabs-10-5m-from-yc-and-matrix-to-build-out-its-digital-avatar-tech/" target="_blank" rel="noopener noreferrer" title="Lemon Slice nabs $10.5M from YC and Matrix to build out its digital avatar tech">techcrunch.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">ai</span> <span class="tag">digital avatars</span> <span class="tag">funding</span> <span class="tag">chatbots</span> <span class="tag">technology</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="work" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — AI&#39;s impact on business is expected to accelerate significantly by 2026, according to predictions from AI expert Rana el Kaliouby.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Leaders must prepare for the integration of AI into organizational structures.</li>
+<li>Understanding AI&#39;s evolving role can enhance productivity and workflow.</li>
+<li>Anticipating changes can help businesses stay competitive in a rapidly transforming landscape.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      As AI technology continues to develop, its influence on the workplace is projected to grow significantly by 2026. AI expert Rana el Kaliouby emphasizes the importance of leaders adapting to these changes, particularly in how AI will be integrated into business operations. This integration could involve rethinking organizational charts to accommodate AI roles, which may include both physical AI systems and software tools that enhance productivity. Companies that proactively understand and implement AI can improve their workflows and maintain a competitive edge. Furthermore, as AI becomes more prevalent, it will be essential for organizations to establish guidelines and practices that govern its use, ensuring that the technology is leveraged effectively while addressing potential ethical concerns.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.fastcompany.com/91464688/how-will-ai-transform-business-in-2026?partner=rss&amp;amp;utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=rss+fastcompany&amp;amp;utm_content=rss" target="_blank" rel="noopener noreferrer" title="How will AI transform business in 2026?">fastcompany.com</a> <a href="https://www.theverge.com/news/849639/epstein-files-doj-redactions-links" target="_blank" rel="noopener noreferrer" title="DOJ appears to bungle Epstein Files redactions">theverge.com</a> <a href="https://www.engadget.com/gaming/nintendo/best-nintendo-switch-2-accessories-070011952.html?src=rss" target="_blank" rel="noopener noreferrer" title="The best Nintendo Switch 2 accessories for 2026">engadget.com</a> <a href="https://www.fastcompany.com/91462947/ai-written-text-detection-verification?partner=rss&amp;amp;utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=rss+fastcompany&amp;amp;utm_content=rss" target="_blank" rel="noopener noreferrer" title="Detecting AI-written text is challenging, even for AI. Here’s why">fastcompany.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">ai</span> <span class="tag">business</span> <span class="tag">productivity</span> <span class="tag">workplace</span> <span class="tag">workflow</span>
+    </div>
+  </section>
+</section>
+  </main>
+
+  <footer>
+    <div class="foot-line"></div>
+    <p>UK-focused, neutral summaries from public RSS feeds. No tracking. Static HTML.</p>
+  </footer>
+
+  <!-- Tabs CSS/JS injected by generate.js -->
+  <style>
+  .tabs{display:flex;gap:14px;flex-wrap:wrap;margin:4px 0 6px}
+  .tab{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;padding:6px 2px;cursor:pointer}
+  .tab:hover{color:var(--fg)}
+  .tab.is-active{color:var(--fg);border-bottom:2px solid var(--fg)}
+  .tab-desc{margin:0 0 6px;color:var(--muted);font-size:.95rem;line-height:1.4}
+  .tab-note{margin:0 0 10px;color:var(--muted);font-size:.9rem;opacity:.85}
+</style>
+
+<script>
+(function(){
+  var TAB_DESC = {"uk":"UK AI — A daily summary of AI news most relevant to the UK.","business":"AI & Business — Adoption, governance, monetisation, and real-world deployments.","work":"AI & Work — Productivity tools, workflow changes, and practical workplace usage.","global":"Global AI — Models, research, major releases, and big platform shifts worldwide.","security":"AI Security — Misuse, attacks, safeguards, auditing, and defensive practices.","ethics":"Ethics & Policy — Regulation, governance, rights, safety debates, and oversight."};
+  function setTab(next){
+    var tabs = document.querySelectorAll('.tab');
+    var panels = document.querySelectorAll('.brief-panel');
+
+    tabs.forEach(function(t){
+      var active = t.getAttribute('data-tab') === next;
+      t.classList.toggle('is-active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    panels.forEach(function(p){
+      var match = p.getAttribute('data-tab') === next;
+      if(match){
+        p.removeAttribute('hidden');
+        p.setAttribute('aria-hidden','false');
+      }else{
+        p.setAttribute('hidden','');
+        p.setAttribute('aria-hidden','true');
+      }
+    });
+
+    var descEl = document.getElementById('tabDesc');
+    if(descEl) descEl.textContent = TAB_DESC[next] || "";
+
+    // optional note line per panel
+    var noteEl = document.getElementById('tabNote');
+    var panel = document.querySelector('.brief-panel[data-tab="'+next+'"]');
+    var note = panel ? panel.getAttribute('data-note') : "";
+    if(noteEl){
+      if(note){
+        noteEl.textContent = note;
+        noteEl.hidden = false;
+      }else{
+        noteEl.textContent = "";
+        noteEl.hidden = true;
+      }
+    }
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest ? e.target.closest('.tab') : null;
+    if(!btn) return;
+    setTab(btn.getAttribute('data-tab'));
+  });
+
+  // Always start on UK AI
+  setTab('uk');
+})();
+</script>
+</body>
+</html>
+

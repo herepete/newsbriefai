@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>Today’s 2-Minute UK AI Brief</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A concise, UK-focused daily brief on AI — updated once a day with links to original sources." />
+  <meta property="og:title" content="Today’s 2-Minute UK AI Brief" />
+  <meta property="og:description" content="A clean, UK-centric AI news summary with sources, updated daily." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="dark light" />
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --fg:#e5e7eb;
+      --muted:#a0a6b0;
+      --card:#111218;
+      --link:#93c5fd;
+      --accent:#60a5fa;
+      --border:#1f2430;
+      --tag-bg:#111827;
+      --tag-fg:#cbd5e1;
+      --max:760px;
+      --gap:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    main{max-width:var(--max); margin:48px auto; padding:0 var(--gap)}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    nav.top{
+      display:flex; gap:12px; align-items:center; margin-bottom:12px; font-size:.95rem;
+    }
+    nav.top a{opacity:.9}
+    nav.top .dot{opacity:.5}
+
+    header h1{font-size:1.8rem; margin:6px 0 4px}
+    .date{margin:0 0 18px; color:var(--muted); font-size:.95rem}
+    .date[title]{cursor:help}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      margin:16px 0 22px;
+    }
+
+    .tldr{
+      font-size:1.05rem;
+      background:linear-gradient(0deg, rgba(96,165,250,.08), rgba(96,165,250,.08));
+      border-left:3px solid var(--accent);
+      padding:12px 12px 12px 14px;
+      border-radius:10px;
+      margin:8px 0 18px;
+    }
+
+    h2{
+      font-size:1.1rem;
+      letter-spacing:.2px;
+      margin:18px 0 10px;
+    }
+
+    ul{margin:0; padding-left:22px}
+    li{margin:6px 0}
+
+    .explainer p{margin:0 0 10px}
+    .explainer a{word-break:break-word}
+
+    .sources{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .sources a{color:var(--link); margin-right:10px}
+
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      display:inline-block;
+      background:var(--tag-bg);
+      color:var(--tag-fg);
+      border:1px solid var(--border);
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.85rem;
+      letter-spacing:.2px;
+    }
+
+    footer{
+      max-width:var(--max);
+      margin:24px auto 48px;
+      padding:0 var(--gap);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    .foot-line{border-top:1px solid var(--border); margin:16px 0; opacity:.7}
+
+    @media (max-width:520px){
+      header h1{font-size:1.5rem}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="top" aria-label="Site">
+      <a href="/archive/">Archive</a>
+      <span class="dot">·</span>
+      <a href="/about.html">About</a>
+      <span class="dot">·</span>
+      <a href="/changelog.html">Changelog</a>
+    </nav>
+
+    <header>
+      <h1>Today’s 2-Minute UK AI Brief</h1>
+      <p class="date" title="2025-12-20T06:30:35.676Z">20 December 2025</p>
+    </header>
+
+    <!-- Tabs (nav + one-line description) -->
+    <div class="tabs-wrap">
+  <div class="tabs" role="tablist" aria-label="Brief tabs">
+    <button class="tab is-active" role="tab" aria-selected="true" data-tab="uk">UK AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="business">AI &amp; Business</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="work">AI &amp; Work</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="global">Global AI</button>
+  </div>
+  <p class="tab-desc" id="tabDesc">UK AI brief — A daily summary of AI news most relevant to the UK.</p>
+</div>
+
+    <!-- Tab panels (each panel is a .card so it matches the current look) -->
+    <section class="brief-panel" data-tab="uk">
+  <section class="card">
+    <p class="tldr">TL;DR — The UK&#39;s Foreign Office confirmed it was the target of a cyber-attack in October, although the risk to individuals remains low.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The attack highlights ongoing cybersecurity vulnerabilities within UK government departments.</li>
+<li>It raises concerns about the protection of sensitive information and national security.</li>
+<li>The incident may prompt further investments in cybersecurity measures across public sectors.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The UK’s Foreign, Commonwealth and Development Office was reportedly hacked in October, as disclosed by Minister Chris Bryant. While the specifics of the attack remain unclear, he assured that the risk to individuals from this breach is low. Cyber-attacks on government entities can have serious implications, including potential exposure of sensitive data and disruption of services. This incident underscores the importance of robust cybersecurity measures within the UK government, particularly as cyber threats continue to evolve. The government may need to reassess its cybersecurity strategies and invest in enhanced protections to safeguard against future attacks. With the increasing reliance on digital systems, ensuring the security of governmental operations is critical for maintaining public trust and national security.
+    </div>
+
+    <p class="sources">Sources: <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/19/nsi_treasury_spending_cap/" target="_blank" rel="noopener noreferrer" title="NS&amp;amp;I tech overhaul blows past Treasury spending limits">go.theregister.com</a> <a href="https://www.ukri.org/news/mrc-invests-in-experimental-medicine-dementia-studies/" target="_blank" rel="noopener noreferrer" title="MRC invests in experimental medicine dementia studies">ukri.org</a> <a href="https://www.theguardian.com/technology/2025/dec/19/uk-foreign-office-victim-cyber-attack-october-" target="_blank" rel="noopener noreferrer" title="UK Foreign Office victim of cyber-attack in October, says Chris Bryant">theguardian.com</a> <a href="https://www.gov.uk/government/consultations/revised-merger-remedies-guidance" target="_blank" rel="noopener noreferrer" title="Revised merger remedies guidance">gov.uk</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">uk-cybersecurity</span> <span class="tag">foreign-office</span> <span class="tag">government</span> <span class="tag">cyber-attack</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="business" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">TL;DR — The US Department of Energy has secured collaboration agreements with major tech companies to leverage AI for scientific advancements as part of the Genesis Mission.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The Genesis Mission aims to enhance scientific discovery through AI, indicating a significant government push for AI integration in research.</li>
+<li>Collaborations with cloud, chip, and AI giants suggest a broad industry interest and investment in AI applications.</li>
+<li>This initiative may lead to increased funding and resources for AI-driven projects, potentially accelerating innovation in various scientific fields.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The US Department of Energy (DOE) has recently announced agreements with several leading companies in the cloud, chip, and AI sectors as part of its Genesis Mission. This initiative is designed to harness artificial intelligence to drive scientific discoveries, reflecting a growing trend of government and industry collaboration in the AI space. By partnering with major tech firms, the DOE aims to leverage their expertise and resources to enhance research capabilities and outcomes. This move highlights the potential of AI to transform scientific research, making processes more efficient and enabling new discoveries that could benefit various sectors. The Genesis Mission represents a strategic effort to position the US at the forefront of AI innovation in science, which may lead to significant advancements in fields such as energy, health, and environmental studies.
+    </div>
+
+    <p class="sources">Sources: <a href="https://techcrunch.com/2025/12/19/building-venture-backable-companies-in-heavily-regulated-spaces/" target="_blank" rel="noopener noreferrer" title="Building venture-backable companies in heavily regulated spaces">techcrunch.com</a> <a href="https://www.zdnet.com/article/pebblebee-clip-5-review/" target="_blank" rel="noopener noreferrer" title="This Bluetooth tracker that replaced my AirTags has more features at a cheaper price">zdnet.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/19/5x_ai_reality_check/" target="_blank" rel="noopener noreferrer" title="The 5X AI reality check: why enterprises are leaving transformative value on the table">go.theregister.com</a> <a href="https://techcrunch.com/2025/12/19/hundreds-of-cisco-customers-are-vulnerable-to-new-chinese-hacking-campaign-researchers-say/" target="_blank" rel="noopener noreferrer" title="Hundreds of Cisco customers are vulnerable to new Chinese hacking campaign, researchers say">techcrunch.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">ai</span> <span class="tag">scientific research</span> <span class="tag">us department of energy</span> <span class="tag">collaboration</span> <span class="tag">innovation</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="work" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">TL;DR — Anthropic has expanded access to its Claude AI browser plugin, now available to all paid subscribers.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The Claude plugin allows users to automate tasks across the web, enhancing productivity.</li>
+<li>It can manage emails, fill out forms, and handle multi-step workflows, making daily tasks more efficient.</li>
+<li>This move reflects a growing trend of integrating AI tools into everyday workflows for better time management.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Anthropic's Claude AI has recently made its Chrome plugin available to all users who pay for a subscription, expanding its accessibility beyond just high-tier subscribers. This plugin serves as a powerful productivity tool, allowing users to interact with websites more effectively. With features that enable Claude to fill out forms, manage calendars, and even complete complex workflows based on user prompts, it streamlines various online tasks. As businesses and individuals increasingly seek ways to enhance their productivity, tools like Claude represent a significant shift towards automation in the workplace. By integrating AI into routine tasks, users can save time and reduce the cognitive load associated with managing multiple online activities. This trend indicates a broader movement towards adopting AI-driven solutions to improve efficiency and effectiveness in various professional settings.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.theverge.com/news/848548/google-youtube-movies-anywhere-back-return" target="_blank" rel="noopener noreferrer" title="Google is part of Movies Anywhere again">theverge.com</a> <a href="https://www.engadget.com/ai/claudes-chrome-plugin-is-now-available-to-all-paid-users-221024295.html?src=rss" target="_blank" rel="noopener noreferrer" title="Claude&#39;s Chrome plugin is now available to all paid users">engadget.com</a> <a href="https://techcrunch.com/2025/12/19/cursor-continues-acquisition-spree-with-graphite-deal/" target="_blank" rel="noopener noreferrer" title="Cursor continues acquisition spree with Graphite deal">techcrunch.com</a> <a href="https://www.fastcompany.com/91463942/sequoia-shaun-maguire-brown-university-shooter-palestine?partner=rss&amp;amp;utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=rss+fastcompany&amp;amp;utm_content=rss" target="_blank" rel="noopener noreferrer" title="Sequoia’s Shaun Maguire accused an innocent Palestinian of being the Brown shooter. Then he doubled …">fastcompany.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">anthropic</span> <span class="tag">ai</span> <span class="tag">productivity</span> <span class="tag">automation</span> <span class="tag">chrome plugin</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="global" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">TL;DR — China&#39;s electric vehicle (EV) market is expanding, but the country faces challenges in managing the disposal of used batteries.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The rapid growth of China&#39;s EV market raises environmental concerns regarding battery disposal.</li>
+<li>Effective battery recycling is crucial for sustainable development in the EV sector.</li>
+<li>The situation reflects broader issues in the global transition to electric vehicles.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      China's electric vehicle industry has experienced significant growth over the past decade, largely fueled by government incentives and support. As the country has become a leader in EV production and sales, it now faces a pressing challenge: the disposal of used batteries. The batteries from electric vehicles can be hazardous if not managed properly, leading to environmental and health risks. This issue highlights the need for effective recycling and disposal strategies to ensure that the benefits of electric vehicles do not come at the expense of environmental sustainability. As the global demand for electric vehicles increases, similar challenges may arise in other countries, emphasizing the importance of developing comprehensive battery management systems. The situation in China serves as a critical reminder of the complexities involved in the transition to greener technologies.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.technologyreview.com/2025/12/19/1130167/the-download-chinas-dying-ev-batteries-and-why-ai-doomers-are-doubling-down/" target="_blank" rel="noopener noreferrer" title="The Download: China’s dying EV batteries, and why AI doomers are doubling down">technologyreview.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">china</span> <span class="tag">electric vehicles</span> <span class="tag">battery disposal</span> <span class="tag">environmental impact</span> <span class="tag">sustainability</span>
+    </div>
+  </section>
+</section>
+  </main>
+
+  <footer>
+    <div class="foot-line"></div>
+    <p>UK-focused, neutral summaries from public RSS feeds. No tracking. Static HTML.</p>
+  </footer>
+
+  <!-- Tabs CSS/JS injected by generate.js -->
+  <style>
+  .tabs{display:flex;gap:14px;flex-wrap:wrap;margin:4px 0 6px}
+  .tab{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;padding:6px 2px;cursor:pointer}
+  .tab:hover{color:var(--fg)}
+  .tab.is-active{color:var(--fg);border-bottom:2px solid var(--fg)}
+  .tab-desc{margin:0 0 10px;color:var(--muted);font-size:.95rem;line-height:1.4}
+</style>
+
+<script>
+(function(){
+  var TAB_DESC = {
+    uk: "UK AI brief — A daily summary of AI news most relevant to the UK.",
+    business: "AI & Business — How companies are actually using AI this week (adoption, ROI, governance).",
+    work: "AI & Work — Productivity tools gaining traction (workflows, copilots, practical use-cases).",
+    global: "Global AI — New models, research, regulation, and big platform shifts worldwide."
+  };
+
+  function setTab(next){
+    var tabs = document.querySelectorAll('.tab');
+    var panels = document.querySelectorAll('.brief-panel');
+
+    tabs.forEach(function(t){
+      var active = t.getAttribute('data-tab') === next;
+      t.classList.toggle('is-active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    panels.forEach(function(p){
+      var match = p.getAttribute('data-tab') === next;
+      if(match){
+        p.removeAttribute('hidden');
+        p.setAttribute('aria-hidden','false');
+      }else{
+        p.setAttribute('hidden','');
+        p.setAttribute('aria-hidden','true');
+      }
+    });
+
+    var el = document.getElementById('tabDesc');
+    if(el) el.textContent = TAB_DESC[next] || "";
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest ? e.target.closest('.tab') : null;
+    if(!btn) return;
+    setTab(btn.getAttribute('data-tab'));
+  });
+
+  // Always start on UK AI
+  setTab('uk');
+})();
+</script>
+</body>
+</html>

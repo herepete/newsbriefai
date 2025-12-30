@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>Today’s 2-Minute UK AI Brief</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A concise, UK-focused daily brief on AI — updated once a day with links to original sources." />
+  <meta property="og:title" content="Today’s 2-Minute UK AI Brief" />
+  <meta property="og:description" content="A clean, UK-centric AI news summary with sources, updated daily." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="dark light" />
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --fg:#e5e7eb;
+      --muted:#a0a6b0;
+      --card:#111218;
+      --link:#93c5fd;
+      --accent:#60a5fa;
+      --border:#1f2430;
+      --tag-bg:#111827;
+      --tag-fg:#cbd5e1;
+      --max:760px;
+      --gap:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    main{max-width:var(--max); margin:48px auto; padding:0 var(--gap)}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    nav.top{
+      display:flex; gap:12px; align-items:center; margin-bottom:12px; font-size:.95rem;
+    }
+    nav.top a{opacity:.9}
+    nav.top .dot{opacity:.5}
+
+    header h1{font-size:1.8rem; margin:6px 0 4px}
+    .date{margin:0 0 18px; color:var(--muted); font-size:.95rem}
+    .date[title]{cursor:help}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      margin:16px 0 22px;
+    }
+
+    .tldr{
+      font-size:1.05rem;
+      background:linear-gradient(0deg, rgba(96,165,250,.08), rgba(96,165,250,.08));
+      border-left:3px solid var(--accent);
+      padding:12px 12px 12px 14px;
+      border-radius:10px;
+      margin:8px 0 18px;
+    }
+
+    h2{
+      font-size:1.1rem;
+      letter-spacing:.2px;
+      margin:18px 0 10px;
+    }
+
+    ul{margin:0; padding-left:22px}
+    li{margin:6px 0}
+
+    .explainer p{margin:0 0 10px}
+    .explainer a{word-break:break-word}
+
+    .sources{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .sources a{color:var(--link); margin-right:10px}
+
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      display:inline-block;
+      background:var(--tag-bg);
+      color:var(--tag-fg);
+      border:1px solid var(--border);
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.85rem;
+      letter-spacing:.2px;
+    }
+
+    footer{
+      max-width:var(--max);
+      margin:24px auto 48px;
+      padding:0 var(--gap);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    .foot-line{border-top:1px solid var(--border); margin:16px 0; opacity:.7}
+
+    @media (max-width:520px){
+      header h1{font-size:1.5rem}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="top" aria-label="Site">
+      <a href="/archive/">Archive</a>
+      <span class="dot">·</span>
+      <a href="/about.html">About</a>
+      <span class="dot">·</span>
+      <a href="/changelog.html">Changelog</a>
+    </nav>
+
+    <header>
+      <h1>Today’s 2-Minute UK AI Brief</h1>
+      <p class="date" title="2025-12-22T06:30:39.917Z">22 December 2025</p>
+    </header>
+
+    <!-- Tabs (nav + one-line description) -->
+    <div class="tabs-wrap">
+  <div class="tabs" role="tablist" aria-label="Brief tabs">
+    <button class="tab is-active" role="tab" aria-selected="true" data-tab="uk">UK AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="business">AI &amp; Business</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="work">AI &amp; Work</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="global">Global AI</button>
+  </div>
+  <p class="tab-desc" id="tabDesc">UK AI brief — A daily summary of AI news most relevant to the UK.</p>
+</div>
+
+    <!-- Tab panels (each panel is a .card so it matches the current look) -->
+    <section class="brief-panel" data-tab="uk">
+  <section class="card">
+    <p class="tldr">TL;DR — The UK faces challenges in its driving test system as a staff exodus and booking issues lead to significant delays.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Many young drivers in the UK are struggling to secure timely driving tests, causing frustration and potential safety concerns.</li>
+<li>Government plans to reduce waiting times have not been met, highlighting systemic issues within the testing framework.</li>
+<li>The situation may impact the mobility of young adults, affecting their employment opportunities and independence.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The UK's driving test system is currently experiencing significant delays due to a combination of staff shortages and a malfunctioning booking system. This has led to long waiting times for individuals seeking to take their driving tests, with reports indicating that many candidates are forced to wake up early to secure a slot before automated systems can book them. An audit report has revealed that the government's goal to reduce waiting times to seven weeks by the end of the year is unlikely to be achieved. This situation is particularly concerning for young drivers, who rely on passing their tests to gain independence and access job opportunities. The ongoing issues within the driving test system raise questions about the effectiveness of current regulatory and operational frameworks in addressing public needs.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.theguardian.com/technology/2025/dec/21/it-can-be-quite-a-thankless-job-why-driving-examiners-are-calling-it-quits" target="_blank" rel="noopener noreferrer" title="‘It can be quite a thankless job’: why driving examiners are quitting">theguardian.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/22/south_korea_facial_verification/" target="_blank" rel="noopener noreferrer" title="There’s so much stolen data in the world, South Korea will require face scans to buy a SIM">go.theregister.com</a> <a href="https://www.theguardian.com/lifeandstyle/2025/dec/21/should-we-turn-the-internet-off-online-analogue" target="_blank" rel="noopener noreferrer" title="Should we turn the internet off?">theguardian.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/22/asia_tech_news_roundup/" target="_blank" rel="noopener noreferrer" title="Through gritted teeth, Apple and Google allow alternative app stores in Japan">go.theregister.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">uk-driving-tests</span> <span class="tag">government-policy</span> <span class="tag">regulation</span> <span class="tag">young-drivers</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="business" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">TL;DR — Many organizations are adopting AI agents to enhance efficiency, but concerns about responsible implementation are rising.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Over half of organizations have deployed AI agents, indicating significant adoption.</li>
+<li>Experts warn that irresponsible AI adoption could negatively impact socio-economic conditions.</li>
+<li>Ensuring proper governance and security in AI deployment is becoming increasingly critical.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The landscape of AI adoption is evolving, with many organizations integrating AI agents into their operations to improve efficiency and return on investment (ROI). According to industry insights, more than half of organizations have already deployed some form of AI agents, with expectations for further growth in the next two years. However, as companies rush to adopt these technologies, there are growing concerns about the implications of doing so without adequate oversight. Experts highlight the importance of responsible implementation to mitigate risks associated with security and operational integrity. For instance, Bars Juhasz, CEO of WorkBeaver, cautions against irresponsible AI adoption, suggesting it could have detrimental effects on socio-economic conditions. This underscores a critical need for companies to establish governance frameworks that ensure AI technologies are used safely and effectively, balancing innovation with accountability.
+    </div>
+
+    <p class="sources">Sources: <a href="https://techcrunch.com/2025/12/21/a-rough-week-for-hardware-companies/" target="_blank" rel="noopener noreferrer" title="A rough week for hardware companies">techcrunch.com</a> <a href="https://venturebeat.com/ai/agent-autonomy-without-guardrails-is-an-sre-nightmare" target="_blank" rel="noopener noreferrer" title="Agent autonomy without guardrails is an SRE nightmare">venturebeat.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/21/workbeaver_ceo_interview_ai_agents/" target="_blank" rel="noopener noreferrer" title="Workers should control the means of agentic production, suggests WorkBeaver boss">go.theregister.com</a> <a href="https://www.zdnet.com/article/best-tech-gadgets-i-couldnt-live-without-2025/" target="_blank" rel="noopener noreferrer" title="The 9 tech gadgets I couldn&#39;t live without in 2025 (and most fit in my pocket)">zdnet.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">ai adoption</span> <span class="tag">governance</span> <span class="tag">roi</span> <span class="tag">responsible implementation</span> <span class="tag">socio-economic impact</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="work" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">TL;DR — Waymo&#39;s self-driving taxis were temporarily stranded during a significant power outage in San Francisco, leading to service suspension.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The outage affected traffic lights, causing autonomous vehicles to become immobilized at intersections.</li>
+<li>Waymo&#39;s response highlights the challenges of relying on technology in urban environments.</li>
+<li>The incident raises questions about the reliability of autonomous systems during infrastructure failures.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      On a recent Saturday, a major power outage in San Francisco left approximately 130,000 customers without electricity, which also impacted the city's traffic management systems. As traffic lights went dark, several of Waymo's autonomous vehicles became stranded at intersections, unable to navigate without functioning signals. This resulted in significant traffic congestion and prompted Waymo to suspend its ride-hailing services in the area. The incident underscores the vulnerabilities of self-driving technology, particularly its dependence on external infrastructure such as traffic lights. While autonomous vehicles are designed to operate independently, they can still be hindered by unexpected situations like power outages. This event serves as a reminder of the complexities involved in integrating advanced technology into everyday life and the potential consequences when systems fail.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.theverge.com/24343913/paypal-honey-megalag-coupon-scam-affiliate-fees" target="_blank" rel="noopener noreferrer" title="Honey: all the news about PayPal’s alleged scam coupon app">theverge.com</a> <a href="https://www.engadget.com/transportation/a-san-francisco-power-outage-left-waymos-self-driving-cars-stranded-at-intersections-172316970.html?src=rss" target="_blank" rel="noopener noreferrer" title="A San Francisco power outage left Waymo&#39;s self-driving cars stranded at intersections">engadget.com</a> <a href="https://www.theguardian.com/lifeandstyle/2025/dec/21/should-we-turn-the-internet-off-online-analogue" target="_blank" rel="noopener noreferrer" title="Should we turn the internet off?">theguardian.com</a> <a href="https://www.fastcompany.com/91463164/my-private-free-ai-setup?partner=rss&amp;amp;utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=rss+fastcompany&amp;amp;utm_content=rss" target="_blank" rel="noopener noreferrer" title="My private, free AI setup">fastcompany.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">waymo</span> <span class="tag">autonomous vehicles</span> <span class="tag">power outage</span> <span class="tag">san francisco</span> <span class="tag">technology challenges</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="global" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">TL;DR — Many organizations are adopting AI agents to improve operational efficiency, but there are concerns about the need for responsible implementation.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Over half of organizations have deployed AI agents, indicating a significant trend in AI adoption.</li>
+<li>Responsible implementation is crucial to balance speed and security in operations.</li>
+<li>The potential for major ROI drives interest, but risks associated with autonomy need to be managed.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The use of AI agents is becoming increasingly popular among organizations looking to enhance their efficiency and productivity. According to recent insights, more than half of these organizations have already integrated AI agents into their operations, with many more planning to do so in the next two years. This trend reflects a growing recognition of the potential return on investment (ROI) that AI technologies can provide. However, as companies rush to adopt these tools, there are significant concerns regarding the need for responsible implementation. AI agents, which can operate with a degree of autonomy, pose unique challenges, particularly in ensuring that they do not compromise security or operational integrity. Experts emphasize that organizations must establish guardrails and guidelines to manage the risks associated with deploying AI agents. Without these measures, the benefits of speed and efficiency could be overshadowed by potential operational nightmares, particularly for site reliability engineers (SREs) tasked with maintaining system stability.
+    </div>
+
+    <p class="sources">Sources: <a href="https://venturebeat.com/ai/agent-autonomy-without-guardrails-is-an-sre-nightmare" target="_blank" rel="noopener noreferrer" title="Agent autonomy without guardrails is an SRE nightmare">venturebeat.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">ai agents</span> <span class="tag">organizational efficiency</span> <span class="tag">responsible implementation</span> <span class="tag">site reliability</span> <span class="tag">operational security</span>
+    </div>
+  </section>
+</section>
+  </main>
+
+  <footer>
+    <div class="foot-line"></div>
+    <p>UK-focused, neutral summaries from public RSS feeds. No tracking. Static HTML.</p>
+  </footer>
+
+  <!-- Tabs CSS/JS injected by generate.js -->
+  <style>
+  .tabs{display:flex;gap:14px;flex-wrap:wrap;margin:4px 0 6px}
+  .tab{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;padding:6px 2px;cursor:pointer}
+  .tab:hover{color:var(--fg)}
+  .tab.is-active{color:var(--fg);border-bottom:2px solid var(--fg)}
+  .tab-desc{margin:0 0 10px;color:var(--muted);font-size:.95rem;line-height:1.4}
+</style>
+
+<script>
+(function(){
+  var TAB_DESC = {
+    uk: "UK AI brief — A daily summary of AI news most relevant to the UK.",
+    business: "AI & Business — How companies are actually using AI this week (adoption, ROI, governance).",
+    work: "AI & Work — Productivity tools gaining traction (workflows, copilots, practical use-cases).",
+    global: "Global AI — New models, research, regulation, and big platform shifts worldwide."
+  };
+
+  function setTab(next){
+    var tabs = document.querySelectorAll('.tab');
+    var panels = document.querySelectorAll('.brief-panel');
+
+    tabs.forEach(function(t){
+      var active = t.getAttribute('data-tab') === next;
+      t.classList.toggle('is-active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    panels.forEach(function(p){
+      var match = p.getAttribute('data-tab') === next;
+      if(match){
+        p.removeAttribute('hidden');
+        p.setAttribute('aria-hidden','false');
+      }else{
+        p.setAttribute('hidden','');
+        p.setAttribute('aria-hidden','true');
+      }
+    });
+
+    var el = document.getElementById('tabDesc');
+    if(el) el.textContent = TAB_DESC[next] || "";
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest ? e.target.closest('.tab') : null;
+    if(!btn) return;
+    setTab(btn.getAttribute('data-tab'));
+  });
+
+  // Always start on UK AI
+  setTab('uk');
+})();
+</script>
+</body>
+</html>

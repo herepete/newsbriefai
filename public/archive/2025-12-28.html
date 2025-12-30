@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>Today’s 2-Minute AI Brief</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A concise, UK-focused daily brief on AI — updated once a day with links to original sources." />
+  <meta property="og:title" content="Today’s 2-Minute AI Brief" />
+  <meta property="og:description" content="A clean, UK-centric AI news summary with sources, updated daily." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="dark light" />
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --fg:#e5e7eb;
+      --muted:#a0a6b0;
+      --card:#111218;
+      --link:#93c5fd;
+      --accent:#60a5fa;
+      --border:#1f2430;
+      --tag-bg:#111827;
+      --tag-fg:#cbd5e1;
+      --max:760px;
+      --gap:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    main{max-width:var(--max); margin:48px auto; padding:0 var(--gap)}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    nav.top{
+      display:flex; gap:12px; align-items:center; margin-bottom:12px; font-size:.95rem;
+    }
+    nav.top a{opacity:.9}
+    nav.top .dot{opacity:.5}
+
+    header h1{font-size:1.8rem; margin:6px 0 4px}
+    .date{margin:0 0 18px; color:var(--muted); font-size:.95rem}
+    .date[title]{cursor:help}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      margin:16px 0 22px;
+    }
+
+    .tldr{
+      font-size:1.05rem;
+      background:linear-gradient(0deg, rgba(96,165,250,.08), rgba(96,165,250,.08));
+      border-left:3px solid var(--accent);
+      padding:12px 12px 12px 14px;
+      border-radius:10px;
+      margin:8px 0 18px;
+    }
+
+    h2{
+      font-size:1.1rem;
+      letter-spacing:.2px;
+      margin:18px 0 10px;
+    }
+
+    ul{margin:0; padding-left:22px}
+    li{margin:6px 0}
+
+    .explainer p{margin:0 0 10px}
+    .explainer a{word-break:break-word}
+
+    .sources{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .sources a{color:var(--link); margin-right:10px}
+
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      display:inline-block;
+      background:var(--tag-bg);
+      color:var(--tag-fg);
+      border:1px solid var(--border);
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.85rem;
+      letter-spacing:.2px;
+    }
+
+    footer{
+      max-width:var(--max);
+      margin:24px auto 48px;
+      padding:0 var(--gap);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    .foot-line{border-top:1px solid var(--border); margin:16px 0; opacity:.7}
+
+    @media (max-width:520px){
+      header h1{font-size:1.5rem}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="top" aria-label="Site">
+      <a href="/archive/">Archive</a>
+      <span class="dot">·</span>
+      <a href="/about.html">About</a>
+      <span class="dot">·</span>
+      <a href="/changelog.html">Changelog</a>
+    </nav>
+
+    <header>
+      <h1>Today’s 2-Minute AI Brief</h1>
+      <p class="date" title="2025-12-28T06:30:50.675Z">28 December 2025</p>
+    </header>
+
+    <!-- Tabs (nav + one-line description) -->
+    <div class="tabs-wrap">
+  <div class="tabs" role="tablist" aria-label="Brief tabs">
+    <button class="tab is-active" role="tab" aria-selected="true" data-tab="uk">UK AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="business">AI &amp; Business</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="work">AI &amp; Work</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="global">Global AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="security">AI Security</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="ethics">Ethics &amp; Policy</button>
+  </div>
+  <p class="tab-desc" id="tabDesc">UK AI — A daily summary of AI news most relevant to the UK.</p>
+  <p class="tab-note" id="tabNote" hidden></p>
+</div>
+
+    <!-- Tab panels (each panel is a .card so it matches the current look) -->
+    <section class="brief-panel" data-tab="security" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — The rise of low-quality, surreal AI-generated content, termed &quot;AI slop,&quot; has become a defining characteristic of the internet in 2025.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The proliferation of AI slop reflects the growing influence of algorithms on content creation and consumption.</li>
+<li>This trend raises concerns about misinformation and the quality of information available online.</li>
+<li>Understanding the impact of AI-generated content is crucial for developing effective safeguards against potential misuse.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      In recent years, the internet has seen an influx of low-quality, bizarre content known as "AI slop." This term, which was named Merriam-Webster's word of the year in 2025, describes the surreal and often nonsensical material that floods social media platforms, primarily generated by algorithms designed to maximize views and engagement. The phenomenon highlights a broader trend in the digital landscape, where a handful of large tech companies dominate content creation, often prioritizing sensationalism over accuracy. As this type of content becomes more prevalent, it raises important questions about the integrity of information online and the potential for misinformation to spread. The implications of AI slop extend beyond entertainment; they touch on issues of trust, credibility, and the overall quality of discourse in the digital age. As we continue to navigate this evolving landscape, it is essential to develop robust safeguards and critical thinking skills to mitigate the risks associated with AI-generated content.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.theguardian.com/technology/2025/dec/27/from-shrimp-jesus-to-erotic-tractors-how-viral-ai-slop-took-over-the-internet" target="_blank" rel="noopener noreferrer" title="From shrimp Jesus to erotic tractors: how viral AI slop took over the internet">theguardian.com</a> <a href="https://www.theguardian.com/thefilter-us/2025/dec/27/best-after-christmas-holiday-sales" target="_blank" rel="noopener noreferrer" title="We combed the internet for the 25 best after-Christmas sales still available">theguardian.com</a> <a href="https://www.theguardian.com/environment/2025/dec/27/merlin-ai-assisted-birdsong-identifying-app-bird-species" target="_blank" rel="noopener noreferrer" title="‘It brings you closer to the natural world’: the rise of the Merlin birdsong identifying app">theguardian.com</a> <a href="https://www.theguardian.com/technology/2025/dec/26/apple-seeks-to-appeal-15bn-ruling-it-overcharged-uk-customers" target="_blank" rel="noopener noreferrer" title="Apple seeks to appeal against £1.5bn ruling it overcharged UK customers">theguardian.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">ai slop</span> <span class="tag">misinformation</span> <span class="tag">content quality</span> <span class="tag">algorithms</span> <span class="tag">internet trends</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="ethics" data-note="Some items may be only loosely AI-related due to limited matching items." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — Imran Ahmed, a UK campaigner against disinformation, claims he is being targeted by US tech companies for seeking accountability.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Ahmed&#39;s accusations highlight concerns about the influence of tech companies on political processes.</li>
+<li>The situation raises questions about freedom of speech and the accountability of digital platforms.</li>
+<li>It reflects ongoing tensions between regulatory efforts and corporate interests in the tech industry.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Imran Ahmed, the chief executive of the Center for Countering Digital Hate (CCDH), has publicly accused major US tech companies of "sociopathic greed" and claims they are undermining political accountability. His comments come after he and several other European nationals were barred from entering the US by the state department, which accused them of attempting to pressure tech firms to censor or suppress American viewpoints. This incident underscores the broader debate about the role of technology in shaping public discourse and the extent to which companies should be held accountable for their influence on politics. As digital platforms continue to grow in power, the balance between protecting free speech and ensuring responsible governance remains a critical issue. Ahmed's situation illustrates the challenges faced by advocates who seek to promote transparency and fairness in the tech industry, especially in an environment where corporate interests often clash with public accountability.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.theguardian.com/us-news/2025/dec/26/uk-campaigner-targeted-by-trump-accuses-tech-giants-of-sociopathic-greed" target="_blank" rel="noopener noreferrer" title="UK campaigner targeted by Trump accuses tech giants of ‘sociopathic greed’">theguardian.com</a> <a href="https://www.gov.uk/government/news/top-tips-to-protect-your-christmas-gifts-from-cyber-scrooges" target="_blank" rel="noopener noreferrer" title="Top tips to protect your Christmas gifts from cyber-scrooges">gov.uk</a> <a href="https://www.theguardian.com/games/2025/dec/26/the-dominik-diamond-alternative-game-of-the-year-awards-2025" target="_blank" rel="noopener noreferrer" title="The Dominik Diamond alternative game of the year awards 2025">theguardian.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">disinformation</span> <span class="tag">accountability</span> <span class="tag">tech companies</span> <span class="tag">free speech</span> <span class="tag">governance</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="global" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — OpenAI is seeking a new Head of Preparedness to address potential harms associated with its AI models, particularly regarding mental health and cybersecurity risks.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The role aims to enhance OpenAI&#39;s safety strategy amid growing concerns about AI&#39;s societal impacts.</li>
+<li>This hiring follows multiple accusations against OpenAI related to the effects of ChatGPT on users&#39; mental health.</li>
+<li>The move highlights the increasing need for proactive measures in AI development to mitigate potential risks.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      OpenAI has announced its intention to hire a Head of Preparedness, a position designed to focus on anticipating and mitigating the harms that could arise from its AI technologies. This decision comes in response to a year marked by controversies surrounding the mental health impacts of its flagship product, ChatGPT, which has faced scrutiny and even legal challenges. OpenAI's CEO, Sam Altman, emphasized the importance of addressing the "real challenges" posed by rapidly advancing AI capabilities, including their potential misuse in cybersecurity. The new role will involve tracking emerging risks associated with AI advancements and developing strategies to manage them effectively. As AI continues to evolve, companies like OpenAI are recognizing the necessity of implementing safety measures to protect users and society at large from unintended consequences.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.engadget.com/ai/openai-is-hiring-a-new-head-of-preparedness-to-try-to-predict-and-mitigate-ais-harms-220330486.html?src=rss" target="_blank" rel="noopener noreferrer" title="OpenAI is hiring a new Head of Preparedness to try to predict and mitigate AI&#39;s harms">engadget.com</a> <a href="https://www.theverge.com/news/850537/sam-altman-openai-head-of-preparedness" target="_blank" rel="noopener noreferrer" title="Sam Altman is hiring someone to worry about the dangers of AI">theverge.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/27/victoria_bork/" target="_blank" rel="noopener noreferrer" title="SSL Santa greets London Victoria visitors with a borked update">go.theregister.com</a> <a href="https://www.engadget.com/gaming/nintendo/stardew-valley-players-on-the-nintendo-switch-2-get-a-free-upgrade-174849697.html?src=rss" target="_blank" rel="noopener noreferrer" title="Stardew Valley players on the Nintendo Switch 2 get a free upgrade">engadget.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">openai</span> <span class="tag">ai safety</span> <span class="tag">mental health</span> <span class="tag">cybersecurity</span> <span class="tag">hiring</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="uk" data-note="Wider sources used today due to limited fresh coverage.">
+  <section class="card">
+    <p class="tldr">In brief — Google Chrome users can disable various built-in AI features to enhance their browsing experience.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Many users may find AI features in browsers intrusive or unnecessary.</li>
+<li>Disabling these features can lead to a more streamlined and personalized browsing experience.</li>
+<li>Understanding how to manage browser settings is crucial for user autonomy and privacy.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      As web browsers increasingly integrate artificial intelligence functionalities, users may feel overwhelmed by the number of AI tools available. Google Chrome, the most widely used desktop browser, offers various AI features that some users might find distracting or unhelpful. Fortunately, users have the option to disable or hide these features, allowing for a more customized browsing experience. This capability empowers users to take control of their online environment, ensuring that they can access the internet in a way that suits their preferences. By following a few straightforward steps, individuals can streamline their browser and reduce the clutter caused by unnecessary AI tools. This is particularly relevant in a landscape where digital privacy and user experience are paramount concerns.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/26/disable_ai_features_chrome/" target="_blank" rel="noopener noreferrer" title="Stop the slop by disabling AI features in Chrome">go.theregister.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/26/end_of_year_tabletop_exercises/" target="_blank" rel="noopener noreferrer" title="From AI to analog, cybersecurity tabletop exercises look a little different this year">go.theregister.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/26/video_game_hacker_turned_ceo/" target="_blank" rel="noopener noreferrer" title="From video games to cyber defense: If you don&#39;t think like a hacker, you won&#39;t win">go.theregister.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/26/ai_is_like_adventure_games/" target="_blank" rel="noopener noreferrer" title="&#39;PromptQuest&#39; is the worst game of 2025. You play it when trying to make chatbots work">go.theregister.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">google chrome</span> <span class="tag">ai features</span> <span class="tag">user experience</span> <span class="tag">privacy</span> <span class="tag">browser settings</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="business" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — ChatGPT offers multiple subscription plans, including a free option, prompting users to consider the value of the paid ChatGPT Plus plan.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Understanding the differences between subscription tiers can help businesses make informed decisions about AI tools.</li>
+<li>The free plan already provides significant functionality, which may influence budget considerations for organizations.</li>
+<li>Evaluating the ROI of AI tools like ChatGPT is essential for effective resource allocation in enterprises.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      ChatGPT, an AI language model developed by OpenAI, offers various subscription plans tailored to different user needs. The free version provides substantial capabilities, making it accessible for individual users and small businesses. However, the paid ChatGPT Plus plan, priced at $20 per month, promises enhanced features, such as faster response times and priority access during peak usage. For businesses considering the integration of AI into their operations, understanding the distinctions between these plans is crucial. Organizations must assess whether the additional benefits of the Plus plan justify the cost, especially when the free version already meets many users' needs. This evaluation is part of a broader trend where enterprises are increasingly adopting AI solutions to improve efficiency, enhance customer service, and drive innovation. By carefully analyzing the potential return on investment (ROI) from AI tools, businesses can make strategic decisions that align with their objectives and budget constraints.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.zdnet.com/article/is-chatgpt-plus-worth-it-free-and-pro-plans-compared/" target="_blank" rel="noopener noreferrer" title="Is ChatGPT Plus worth your $20? Here&#39;s how it compares to Free and Pro plans">zdnet.com</a> <a href="https://www.engadget.com/gaming/heres-the-first-real-look-at-the-retroid-pocket-6-running-ps2-games-193624145.html?src=rss" target="_blank" rel="noopener noreferrer" title="Here’s the first real look at the Retroid Pocket 6 running PS2 games">engadget.com</a> <a href="https://techcrunch.com/2025/12/27/faze-clans-future-is-uncertain-after-influencers-depart/" target="_blank" rel="noopener noreferrer" title="FaZe Clan’s future is uncertain after influencers depart">techcrunch.com</a> <a href="https://techcrunch.com/2025/12/27/investors-share-what-to-remember-while-raising-a-series-a/" target="_blank" rel="noopener noreferrer" title="Investors share what to remember while raising a Series A">techcrunch.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">chatgpt</span> <span class="tag">subscription</span> <span class="tag">ai tools</span> <span class="tag">business strategy</span> <span class="tag">roi</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="work" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — The new Rodeo app utilizes AI to help users schedule activities with existing friends, addressing challenges in maintaining social connections.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Rodeo aims to simplify social planning, which can often be complicated by busy schedules.</li>
+<li>The app is designed by former Hinge executives, indicating a focus on user experience in social interactions.</li>
+<li>It reflects a growing trend of using technology to enhance personal relationships and social engagement.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The Rodeo app is a new social networking tool that leverages artificial intelligence to facilitate planning activities with friends. Unlike many existing apps that focus on dating or meeting new people, Rodeo specifically targets the challenge of coordinating plans with friends you already have. The founders, who previously worked at Hinge, recognized that busy lifestyles—filled with work commitments and parenting responsibilities—often make it difficult for people to maintain their friendships. By using AI, Rodeo can help users find suitable times for gatherings, making it easier to stay connected. This innovation highlights a broader trend in technology where apps are increasingly designed to enhance personal relationships rather than just serve functional purposes. As social dynamics evolve, tools like Rodeo may become essential for fostering connections in a fast-paced world.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.fastcompany.com/91449469/new-mac-apple-christmas-try-6-apps-games-computer-pages-flighty-book-tracker-assasins-creed-resident-evil-altos-adventure?partner=rss&amp;amp;utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=rss+fastcompany&amp;amp;utm_content=rss" target="_blank" rel="noopener noreferrer" title="New Mac for Christmas? Try these 6 apps and games with your new Apple computer">fastcompany.com</a> <a href="https://www.engadget.com/entertainment/music/what-we-listened-to-in-2025-201308584.html?src=rss" target="_blank" rel="noopener noreferrer" title="What we listened to in 2025">engadget.com</a> <a href="https://www.theverge.com/news/850461/offshore-wind-trump-lawsuit-dominion-energy-ai-data-center" target="_blank" rel="noopener noreferrer" title="Trump’s war on offshore wind faces another lawsuit">theverge.com</a> <a href="https://www.fastcompany.com/91452453/internet-of-beings-humanity-healthcare-medicine?partner=rss&amp;amp;utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=rss+fastcompany&amp;amp;utm_content=rss" target="_blank" rel="noopener noreferrer" title="The ‘internet of beings’ is the next fronteir that could change humanity and healthcare">fastcompany.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">rodeo</span> <span class="tag">social apps</span> <span class="tag">ai</span> <span class="tag">productivity</span> <span class="tag">friendships</span>
+    </div>
+  </section>
+</section>
+  </main>
+
+  <footer>
+    <div class="foot-line"></div>
+    <p>UK-focused, neutral summaries from public RSS feeds. No tracking. Static HTML.</p>
+  </footer>
+
+  <!-- Tabs CSS/JS injected by generate.js -->
+  <style>
+  .tabs{display:flex;gap:14px;flex-wrap:wrap;margin:4px 0 6px}
+  .tab{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;padding:6px 2px;cursor:pointer}
+  .tab:hover{color:var(--fg)}
+  .tab.is-active{color:var(--fg);border-bottom:2px solid var(--fg)}
+  .tab-desc{margin:0 0 6px;color:var(--muted);font-size:.95rem;line-height:1.4}
+  .tab-note{margin:0 0 10px;color:var(--muted);font-size:.9rem;opacity:.85}
+</style>
+
+<script>
+(function(){
+  var TAB_DESC = {"uk":"UK AI — A daily summary of AI news most relevant to the UK.","business":"AI & Business — Adoption, governance, monetisation, and real-world deployments.","work":"AI & Work — Productivity tools, workflow changes, and practical workplace usage.","global":"Global AI — Models, research, major releases, and big platform shifts worldwide.","security":"AI Security — Misuse, attacks, safeguards, auditing, and defensive practices.","ethics":"Ethics & Policy — Regulation, governance, rights, safety debates, and oversight."};
+  function setTab(next){
+    var tabs = document.querySelectorAll('.tab');
+    var panels = document.querySelectorAll('.brief-panel');
+
+    tabs.forEach(function(t){
+      var active = t.getAttribute('data-tab') === next;
+      t.classList.toggle('is-active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    panels.forEach(function(p){
+      var match = p.getAttribute('data-tab') === next;
+      if(match){
+        p.removeAttribute('hidden');
+        p.setAttribute('aria-hidden','false');
+      }else{
+        p.setAttribute('hidden','');
+        p.setAttribute('aria-hidden','true');
+      }
+    });
+
+    var descEl = document.getElementById('tabDesc');
+    if(descEl) descEl.textContent = TAB_DESC[next] || "";
+
+    // optional note line per panel
+    var noteEl = document.getElementById('tabNote');
+    var panel = document.querySelector('.brief-panel[data-tab="'+next+'"]');
+    var note = panel ? panel.getAttribute('data-note') : "";
+    if(noteEl){
+      if(note){
+        noteEl.textContent = note;
+        noteEl.hidden = false;
+      }else{
+        noteEl.textContent = "";
+        noteEl.hidden = true;
+      }
+    }
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest ? e.target.closest('.tab') : null;
+    if(!btn) return;
+    setTab(btn.getAttribute('data-tab'));
+  });
+
+  // Always start on UK AI
+  setTab('uk');
+})();
+</script>
+</body>
+</html>
+

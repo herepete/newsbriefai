@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>Today’s 2-Minute UK AI Brief</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A concise, UK-focused daily brief on AI — updated once a day with links to original sources." />
+  <meta property="og:title" content="Today’s 2-Minute UK AI Brief" />
+  <meta property="og:description" content="A clean, UK-centric AI news summary with sources, updated daily." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="dark light" />
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --fg:#e5e7eb;
+      --muted:#a0a6b0;
+      --card:#111218;
+      --link:#93c5fd;
+      --accent:#60a5fa;
+      --border:#1f2430;
+      --tag-bg:#111827;
+      --tag-fg:#cbd5e1;
+      --max:760px;
+      --gap:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    main{max-width:var(--max); margin:48px auto; padding:0 var(--gap)}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    nav.top{
+      display:flex; gap:12px; align-items:center; margin-bottom:12px; font-size:.95rem;
+    }
+    nav.top a{opacity:.9}
+    nav.top .dot{opacity:.5}
+
+    header h1{font-size:1.8rem; margin:6px 0 4px}
+    .date{margin:0 0 18px; color:var(--muted); font-size:.95rem}
+    .date[title]{cursor:help}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      margin:16px 0 22px;
+    }
+
+    .tldr{
+      font-size:1.05rem;
+      background:linear-gradient(0deg, rgba(96,165,250,.08), rgba(96,165,250,.08));
+      border-left:3px solid var(--accent);
+      padding:12px 12px 12px 14px;
+      border-radius:10px;
+      margin:8px 0 18px;
+    }
+
+    h2{
+      font-size:1.1rem;
+      letter-spacing:.2px;
+      margin:18px 0 10px;
+    }
+
+    ul{margin:0; padding-left:22px}
+    li{margin:6px 0}
+
+    .explainer p{margin:0 0 10px}
+    .explainer a{word-break:break-word}
+
+    .sources{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .sources a{color:var(--link); margin-right:10px}
+
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      display:inline-block;
+      background:var(--tag-bg);
+      color:var(--tag-fg);
+      border:1px solid var(--border);
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.85rem;
+      letter-spacing:.2px;
+    }
+
+    footer{
+      max-width:var(--max);
+      margin:24px auto 48px;
+      padding:0 var(--gap);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    .foot-line{border-top:1px solid var(--border); margin:16px 0; opacity:.7}
+
+    @media (max-width:520px){
+      header h1{font-size:1.5rem}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="top" aria-label="Site">
+      <a href="/archive/">Archive</a>
+      <span class="dot">·</span>
+      <a href="/about.html">About</a>
+      <span class="dot">·</span>
+      <a href="/changelog.html">Changelog</a>
+    </nav>
+
+    <header>
+      <h1>Today’s 2-Minute UK AI Brief</h1>
+      <p class="date" title="2025-12-19T06:30:44.390Z">19 December 2025</p>
+    </header>
+
+    <!-- Tabs (nav + one-line description) -->
+    <div class="tabs-wrap">
+  <div class="tabs" role="tablist" aria-label="Brief tabs">
+    <button class="tab is-active" role="tab" aria-selected="true" data-tab="uk">UK AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="business">AI &amp; Business</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="work">AI &amp; Work</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="global">Global AI</button>
+  </div>
+  <p class="tab-desc" id="tabDesc">UK AI brief — A daily summary of AI news most relevant to the UK.</p>
+</div>
+
+    <!-- Tab panels (each panel is a .card so it matches the current look) -->
+    <section class="brief-panel" data-tab="uk">
+  <section class="card">
+    <p class="tldr">TL;DR — The UK government is set to ban deepfake AI &#39;nudification&#39; apps as part of a broader effort to combat sexually explicit deepfakes.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>This new offence builds on existing laws aimed at preventing intimate image abuse, enhancing protections for individuals.</li>
+<li>The move reflects growing concerns about the misuse of AI technologies in the UK.</li>
+<li>It signals the government&#39;s commitment to addressing the ethical implications of AI in society.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The UK government has announced plans to ban deepfake AI 'nudification' applications, which are designed to manipulate images and create sexually explicit content without consent. This initiative aims to strengthen existing legal frameworks that already prohibit the creation and distribution of sexually explicit deepfakes and intimate image abuse. By introducing this new offence, the government seeks to protect individuals from the potential harms associated with these technologies, which can lead to harassment and exploitation. The decision comes amid increasing scrutiny over the ethical implications of AI, particularly in how it can be used to infringe on personal rights and privacy. This ban is part of a broader regulatory effort to ensure that AI technologies are developed and used responsibly in the UK, reflecting public concerns about safety and consent in the digital age.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.bbc.com/news/articles/cq8dp2y0z7wo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer" title="UK to ban deepfake AI &#39;nudification&#39; apps">bbc.com</a> <a href="https://www.gov.uk/government/publications/dsit-cyber-security-newsletter-december-2025" target="_blank" rel="noopener noreferrer" title="Policy paper: DSIT cyber security newsletter - December 2025">gov.uk</a> <a href="https://www.ukri.org/news/nerc-funding-helps-uncover-whether-well-have-a-white-christmas/" target="_blank" rel="noopener noreferrer" title="NERC funding helps uncover whether we’ll have a white Christmas">ukri.org</a> <a href="https://www.theguardian.com/tv-and-radio/2025/dec/18/equity-actors-vote-to-refuse-to-be-digitally-scanned-in-pushback-against-ai" target="_blank" rel="noopener noreferrer" title="UK actors vote to refuse to be digitally scanned in pushback against AI">theguardian.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">uk-policy</span> <span class="tag">deepfake</span> <span class="tag">ai-regulation</span> <span class="tag">consent</span> <span class="tag">ethics</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="business" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">TL;DR — Palona AI has launched new features aimed at enhancing restaurant operations through its multimodal agent suite.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The launch of Palona Vision and Workflow represents a strategic move into the restaurant and hospitality sector.</li>
+<li>These features aim to streamline operations by integrating various communication and task execution methods.</li>
+<li>The development reflects a growing trend of AI applications in specific industry verticals.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Palona AI, a startup founded by former engineers from Google and Meta, has introduced two new features—Palona Vision and Palona Workflow—designed to optimize operations in the restaurant and hospitality industries. These tools are part of a broader strategy to create a comprehensive operating system that utilizes AI to manage various aspects of restaurant operations, including visual inputs from cameras, voice communications, and task coordination. By focusing on these specific verticals, Palona aims to address the unique challenges faced by businesses in this sector, such as managing customer interactions and improving workflow efficiency. This move highlights the increasing adoption of AI technologies tailored to meet the needs of particular industries, signaling a shift from general-purpose AI applications to more specialized solutions.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.zdnet.com/article/how-to-rotate-pc-monitor/" target="_blank" rel="noopener noreferrer" title="This simple monitor trick improved my productivity tenfold - and it&#39;s free to do">zdnet.com</a> <a href="https://techcrunch.com/2025/12/18/pickle-robot-adds-tesla-veteran-as-first-cfo/" target="_blank" rel="noopener noreferrer" title="Pickle Robot adds Tesla veteran as first CFO">techcrunch.com</a> <a href="https://venturebeat.com/orchestration/palona-goes-vertical-launching-vision-workflow-features-4-key-lessons-for-ai" target="_blank" rel="noopener noreferrer" title="Palona goes vertical, launching Vision, Workflow features: 4 key lessons for AI builders">venturebeat.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/18/bbc_ai_explain/" target="_blank" rel="noopener noreferrer" title="BBC tapped to stop Britain being baffled by AI">go.theregister.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">palona ai</span> <span class="tag">restaurant technology</span> <span class="tag">ai deployment</span> <span class="tag">multimodal agents</span> <span class="tag">industry verticals</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="work" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">TL;DR — A third of UK citizens have utilized artificial intelligence for emotional support, according to a recent report from the AI Security Institute.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The use of AI for emotional support highlights a growing acceptance of technology in personal well-being.</li>
+<li>This trend indicates potential market opportunities for developers of AI-driven mental health tools.</li>
+<li>Understanding user engagement with AI can inform future innovations in productivity and support applications.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The AI Security Institute's report reveals that approximately one-third of UK citizens have turned to artificial intelligence for emotional support, companionship, or social interaction. This includes the use of general-purpose assistants like ChatGPT and Amazon Alexa. Notably, nearly 10% of respondents reported using AI for emotional purposes weekly, with 4% doing so daily. This trend suggests a significant shift in how individuals seek companionship and support, moving from traditional human interactions to digital solutions. The implications are vast, as this growing reliance on AI could lead to new developments in mental health applications, enhancing productivity tools that cater to emotional well-being. As AI becomes more integrated into daily life, understanding its role in providing emotional support can help shape future innovations in this space.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.theverge.com/23651507/tiktok-ban-us-news" target="_blank" rel="noopener noreferrer" title="TikTok ban: all the news on the app’s shutdown and return in the US">theverge.com</a> <a href="https://www.engadget.com/social-media/trumps-tiktok-deal-is-another-step-closer-to-finally-actually-happening-001813404.html?src=rss" target="_blank" rel="noopener noreferrer" title="Trump&#39;s TikTok deal is another step closer to finally actually happening">engadget.com</a> <a href="https://www.fastcompany.com/91461659/tin-can-phone-kids-luddite?partner=rss&amp;amp;utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=rss+fastcompany&amp;amp;utm_content=rss" target="_blank" rel="noopener noreferrer" title="Tin Can has reinvented the house phone for today’s families">fastcompany.com</a> <a href="https://techcrunch.com/2025/12/18/no-keynotes-no-bs-why-this-years-best-tech-talks-happened-over-cocktails-at-strictlyvc/" target="_blank" rel="noopener noreferrer" title="No keynotes, no BS — why this year’s best tech talks happened over cocktails at StrictlyVC">techcrunch.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">ai</span> <span class="tag">emotional-support</span> <span class="tag">productivity-tools</span> <span class="tag">mental-health</span> <span class="tag">technology</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="global" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">TL;DR — Anthropic has launched its Agent Skills technology as an open standard, enhancing its position in the enterprise AI market.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The open standard approach could encourage broader adoption of Anthropic&#39;s technology.</li>
+<li>New management tools and a directory of partner-built skills enhance usability for enterprise customers.</li>
+<li>This move positions Anthropic as a competitor to established players like OpenAI in workplace AI.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Anthropic, a San Francisco-based AI company, has recently introduced its Agent Skills technology as an open standard, which allows other developers to build compatible applications. This strategy aims to solidify Anthropic's influence in the rapidly evolving enterprise software market. Alongside this announcement, the company has rolled out organization-wide management tools that help businesses better integrate AI into their operations. The newly launched directory of partner-built skills includes contributions from notable companies such as Atlassian and Figma, which could enhance the functionality of AI assistants in workplace settings. By making its technology open, Anthropic hopes to foster a collaborative ecosystem that can compete effectively against other major players like OpenAI.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.technologyreview.com/2025/12/18/1130148/china-ev-battery-recycle/" target="_blank" rel="noopener noreferrer" title="China figured out how to sell EVs. Now it has to bury their batteries.">technologyreview.com</a> <a href="https://venturebeat.com/orchestration/palona-goes-vertical-launching-vision-workflow-features-4-key-lessons-for-ai" target="_blank" rel="noopener noreferrer" title="Palona goes vertical, launching Vision, Workflow features: 4 key lessons for AI builders">venturebeat.com</a> <a href="https://www.technologyreview.com/2025/12/18/1130140/take-our-quiz-on-the-year-in-health-and-biotechnology/" target="_blank" rel="noopener noreferrer" title="Take our quiz on the year in health and biotechnology">technologyreview.com</a> <a href="https://venturebeat.com/technology/anthropic-launches-enterprise-agent-skills-and-opens-the-standard" target="_blank" rel="noopener noreferrer" title="Anthropic launches enterprise ‘Agent Skills’ and opens the standard, challenging OpenAI in workplace…">venturebeat.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">anthropic</span> <span class="tag">enterprise ai</span> <span class="tag">open standard</span> <span class="tag">workplace technology</span> <span class="tag">competition</span>
+    </div>
+  </section>
+</section>
+  </main>
+
+  <footer>
+    <div class="foot-line"></div>
+    <p>UK-focused, neutral summaries from public RSS feeds. No tracking. Static HTML.</p>
+  </footer>
+
+  <!-- Tabs CSS/JS injected by generate.js -->
+  <style>
+  .tabs{display:flex;gap:14px;flex-wrap:wrap;margin:4px 0 6px}
+  .tab{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;padding:6px 2px;cursor:pointer}
+  .tab:hover{color:var(--fg)}
+  .tab.is-active{color:var(--fg);border-bottom:2px solid var(--fg)}
+  .tab-desc{margin:0 0 10px;color:var(--muted);font-size:.95rem;line-height:1.4}
+</style>
+
+<script>
+(function(){
+  var TAB_DESC = {
+    uk: "UK AI brief — A daily summary of AI news most relevant to the UK.",
+    business: "AI & Business — How companies are actually using AI this week (adoption, ROI, governance).",
+    work: "AI & Work — Productivity tools gaining traction (workflows, copilots, practical use-cases).",
+    global: "Global AI — New models, research, regulation, and big platform shifts worldwide."
+  };
+
+  function setTab(next){
+    var tabs = document.querySelectorAll('.tab');
+    var panels = document.querySelectorAll('.brief-panel');
+
+    tabs.forEach(function(t){
+      var active = t.getAttribute('data-tab') === next;
+      t.classList.toggle('is-active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    panels.forEach(function(p){
+      var match = p.getAttribute('data-tab') === next;
+      if(match){
+        p.removeAttribute('hidden');
+        p.setAttribute('aria-hidden','false');
+      }else{
+        p.setAttribute('hidden','');
+        p.setAttribute('aria-hidden','true');
+      }
+    });
+
+    var el = document.getElementById('tabDesc');
+    if(el) el.textContent = TAB_DESC[next] || "";
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest ? e.target.closest('.tab') : null;
+    if(!btn) return;
+    setTab(btn.getAttribute('data-tab'));
+  });
+
+  // Always start on UK AI
+  setTab('uk');
+})();
+</script>
+</body>
+</html>

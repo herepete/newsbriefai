@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>Today’s 2-Minute UK AI Brief</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A concise, UK-focused daily brief on AI — updated once a day with links to original sources." />
+  <meta property="og:title" content="Today’s 2-Minute UK AI Brief" />
+  <meta property="og:description" content="A clean, UK-centric AI news summary with sources, updated daily." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="dark light" />
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --fg:#e5e7eb;
+      --muted:#a0a6b0;
+      --card:#111218;
+      --link:#93c5fd;
+      --accent:#60a5fa;
+      --border:#1f2430;
+      --tag-bg:#111827;
+      --tag-fg:#cbd5e1;
+      --max:760px;
+      --gap:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    main{max-width:var(--max); margin:48px auto; padding:0 var(--gap)}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    nav.top{
+      display:flex; gap:12px; align-items:center; margin-bottom:12px; font-size:.95rem;
+    }
+    nav.top a{opacity:.9}
+    nav.top .dot{opacity:.5}
+
+    header h1{font-size:1.8rem; margin:6px 0 4px}
+    .date{margin:0 0 18px; color:var(--muted); font-size:.95rem}
+    .date[title]{cursor:help}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      margin:16px 0 22px;
+    }
+
+    .tldr{
+      font-size:1.05rem;
+      background:linear-gradient(0deg, rgba(96,165,250,.08), rgba(96,165,250,.08));
+      border-left:3px solid var(--accent);
+      padding:12px 12px 12px 14px;
+      border-radius:10px;
+      margin:8px 0 18px;
+    }
+
+    h2{
+      font-size:1.1rem;
+      letter-spacing:.2px;
+      margin:18px 0 10px;
+    }
+
+    ul{margin:0; padding-left:22px}
+    li{margin:6px 0}
+
+    .explainer p{margin:0 0 10px}
+    .explainer a{word-break:break-word}
+
+    .sources{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .sources a{color:var(--link); margin-right:10px}
+
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      display:inline-block;
+      background:var(--tag-bg);
+      color:var(--tag-fg);
+      border:1px solid var(--border);
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.85rem;
+      letter-spacing:.2px;
+    }
+
+    footer{
+      max-width:var(--max);
+      margin:24px auto 48px;
+      padding:0 var(--gap);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    .foot-line{border-top:1px solid var(--border); margin:16px 0; opacity:.7}
+
+    @media (max-width:520px){
+      header h1{font-size:1.5rem}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="top" aria-label="Site">
+      <a href="/archive/">Archive</a>
+      <span class="dot">·</span>
+      <a href="/about.html">About</a>
+      <span class="dot">·</span>
+      <a href="/changelog.html">Changelog</a>
+    </nav>
+
+    <header>
+      <h1>Today’s 2-Minute UK AI Brief</h1>
+      <p class="date" title="2025-12-18T06:30:37.316Z">18 December 2025</p>
+    </header>
+
+    <!-- Tabs (nav + one-line description) -->
+    <div class="tabs-wrap">
+  <div class="tabs" role="tablist" aria-label="Brief tabs">
+    <button class="tab is-active" role="tab" aria-selected="true" data-tab="uk">UK AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="business">AI &amp; Business</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="work">AI &amp; Work</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="global">Global AI</button>
+  </div>
+  <p class="tab-desc" id="tabDesc">UK AI brief — A daily summary of AI news most relevant to the UK.</p>
+</div>
+
+    <!-- Tab panels (each panel is a .card so it matches the current look) -->
+    <section class="brief-panel" data-tab="uk">
+  <section class="card">
+    <p class="tldr">TL;DR — Former UK Chancellor George Osborne has joined OpenAI, highlighting the trend of British politicians taking roles in prominent US tech firms.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>This move reflects the increasing influence of US tech companies in UK politics and business.</li>
+<li>It raises questions about the revolving door between government and the tech industry.</li>
+<li>The involvement of former politicians in AI firms may impact UK regulatory approaches to technology.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The hiring of George Osborne by OpenAI is part of a broader trend where former UK politicians are taking positions in major US technology companies. This pattern includes other notable figures like Nick Clegg at Meta and Rishi Sunak at Anthropic. Such transitions can create a significant power dynamic between Silicon Valley and UK governance, potentially influencing how AI technologies are developed and regulated in the UK. The UK government is currently grappling with how to effectively regulate AI, balancing innovation with public safety and ethical considerations. The presence of influential former politicians in these firms may lead to closer ties between the tech industry and regulatory bodies, raising concerns about conflicts of interest and the integrity of policymaking. As the UK seeks to establish itself as a leader in AI, the implications of these relationships will be crucial to monitor.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.theguardian.com/technology/2025/dec/17/from-nvidia-to-openai-silicon-valley-woos-westminster-as-ex-politicians-take-tech-firm-roles" target="_blank" rel="noopener noreferrer" title="From Nvidia to OpenAI, Silicon Valley woos Westminster as ex-politicians take tech firm roles">theguardian.com</a> <a href="https://www.gov.uk/guidance/operating-an-orbital-space-object-rules-and-regulations" target="_blank" rel="noopener noreferrer" title="Operating an orbital space object: rules and regulations">gov.uk</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/17/openai_george_osborne/" target="_blank" rel="noopener noreferrer" title="Former UK chancellor George Osborne finds something to do at OpenAI">go.theregister.com</a> <a href="https://www.bbc.com/news/articles/c93w7dp42z2o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer" title="Fifa video game to return after four years in Netflix exclusive">bbc.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">uk-tech</span> <span class="tag">openai</span> <span class="tag">george-osborne</span> <span class="tag">regulation</span> <span class="tag">us-uk-relations</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="business" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">TL;DR — ServiceNow is confident in its ability to leverage AI for improved ROI despite competition from Salesforce&#39;s new offerings.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>ServiceNow faces increasing competition from Salesforce&#39;s Agentforce IT, which targets its IT service management products.</li>
+<li>Analysts consider Salesforce&#39;s new product a significant threat, highlighting the competitive landscape in AI-driven enterprise solutions.</li>
+<li>The emphasis on AI ROI reflects a broader trend where companies seek to maximize returns from their AI investments.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      This week, ServiceNow expressed confidence in its strategy to use artificial intelligence (AI) to enhance return on investment (ROI) in its IT service management (ITSM) offerings. The company is facing heightened competition from Salesforce, which recently launched Agentforce IT as a direct challenge to ServiceNow's products. Analysts have noted that this new Salesforce initiative represents one of the most credible threats ServiceNow has encountered, indicating the competitive nature of the AI landscape among enterprise software providers. As companies increasingly adopt AI technologies, the focus on achieving measurable ROI is becoming critical. This trend underscores the necessity for organizations to not only implement AI solutions but also to ensure they provide tangible business benefits. ServiceNow's commitment to translating its workflow capabilities into financial gains through AI could be pivotal in maintaining its market position amidst growing competition.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.zdnet.com/article/tcl-nxtpaper11-plus-review/" target="_blank" rel="noopener noreferrer" title="The tablet that replaced my iPad and Kindle just got a worthy upgrade - and it&#39;s discounted">zdnet.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/17/servicenow_salesforce_itsm_retort/" target="_blank" rel="noopener noreferrer" title="ServiceNow unworried by Salesforce firing shots across its bow">go.theregister.com</a> <a href="https://techcrunch.com/2025/12/17/meta-is-pausing-its-dream-of-sharing-quests-horizon-os-with-third-party-headset-makers/" target="_blank" rel="noopener noreferrer" title="Meta is pausing its dream of sharing Quest’s Horizon OS with third-party headset makers">techcrunch.com</a> <a href="https://venturebeat.com/technology/gemini-3-flash-arrives-with-reduced-costs-and-latency-a-powerful-combo-for" target="_blank" rel="noopener noreferrer" title="Gemini 3 Flash arrives with reduced costs and latency — a powerful combo for enterprises">venturebeat.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">servicenow</span> <span class="tag">salesforce</span> <span class="tag">ai</span> <span class="tag">itsm</span> <span class="tag">enterprise</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="work" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">TL;DR — OpenAI has launched an App Directory for ChatGPT, allowing users to browse tools and enabling developers to create new interactive experiences.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The App Directory enhances the usability of ChatGPT by centralizing available tools.</li>
+<li>Developers now have the opportunity to create custom applications within the ChatGPT interface.</li>
+<li>This move is part of OpenAI&#39;s strategy to build a more robust platform over time.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      OpenAI's recent launch of the App Directory marks a significant development for users and developers of ChatGPT. This new feature allows users to easily browse and access various tools that can enhance their interactions with the AI. By creating a centralized location for these tools, OpenAI aims to improve the overall user experience, making it simpler for individuals to find and utilize the functionalities they need. Additionally, the introduction of an SDK (Software Development Kit) invites developers to create new interactive experiences that can operate within ChatGPT's user interface. This initiative reflects OpenAI's commitment to evolving its platform and providing users with more comprehensive and engaging tools. As the landscape of AI-driven applications continues to expand, this development positions ChatGPT as a more versatile resource for both casual users and professionals looking to integrate AI into their workflows.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.engadget.com/social-media/a-facebook-test-makes-link-sharing-a-paid-feature-for-creators-224632957.html?src=rss" target="_blank" rel="noopener noreferrer" title="A Facebook test makes link-sharing a paid feature for creators">engadget.com</a> <a href="https://www.fastcompany.com/91462164/warner-brothers-discovery-netflix-paramount-ellison-sarandos-zaslav?partner=rss&amp;amp;utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=rss+fastcompany&amp;amp;utm_content=rss" target="_blank" rel="noopener noreferrer" title="The Warner Bros.-Netflix merger could doom Hollywood film workers">fastcompany.com</a> <a href="https://www.theguardian.com/technology/2025/dec/17/from-nvidia-to-openai-silicon-valley-woos-westminster-as-ex-politicians-take-tech-firm-roles" target="_blank" rel="noopener noreferrer" title="From Nvidia to OpenAI, Silicon Valley woos Westminster as ex-politicians take tech firm roles">theguardian.com</a> <a href="https://www.theverge.com/news/847067/openai-app-store-directory-sdk-chatgpt" target="_blank" rel="noopener noreferrer" title="The ChatGPT app store is here">theverge.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">openai</span> <span class="tag">chatgpt</span> <span class="tag">app directory</span> <span class="tag">productivity tools</span> <span class="tag">ai applications</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="global" hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">TL;DR — Google has launched Gemini 3 Flash, a cost-effective and faster version of its large language model for enterprises.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Gemini 3 Flash offers near real-time processing, enhancing the responsiveness of applications.</li>
+<li>The model is positioned as a more affordable alternative to Google’s Gemini 3 Pro.</li>
+<li>The adoption of AI is expanding beyond traditional enterprises to smaller businesses and various sectors.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Google has introduced Gemini 3 Flash, a new large language model designed for enterprise use, which promises reduced costs and improved processing speed compared to its predecessor, Gemini 3 Pro. This model is part of a broader suite of Gemini products, including Gemini 3 Deep Think and Gemini Agent, all aimed at enhancing AI capabilities in business applications. With Gemini 3 Flash, enterprises can develop applications that respond quickly to user inputs, making it particularly useful for creating interactive and agentic tools. Additionally, AI technology is increasingly being deployed in smaller businesses and various sectors, such as retail and healthcare, where it supports functions like customer interaction and inventory management. This shift indicates a growing trend of AI moving from centralized systems to edge computing, which allows for faster data processing and decision-making closer to where the data is generated. As AI becomes more integrated into everyday operations, the need for robust network security measures is also becoming critical to protect sensitive information.
+    </div>
+
+    <p class="sources">Sources: <a href="https://venturebeat.com/technology/gemini-3-flash-arrives-with-reduced-costs-and-latency-a-powerful-combo-for" target="_blank" rel="noopener noreferrer" title="Gemini 3 Flash arrives with reduced costs and latency — a powerful combo for enterprises">venturebeat.com</a> <a href="https://venturebeat.com/ai/ai-is-moving-to-the-edge-and-network-security-needs-to-catch-up" target="_blank" rel="noopener noreferrer" title="AI is moving to the edge – and network security needs to catch up">venturebeat.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">google</span> <span class="tag">gemini</span> <span class="tag">ai</span> <span class="tag">enterprise</span> <span class="tag">edge computing</span>
+    </div>
+  </section>
+</section>
+  </main>
+
+  <footer>
+    <div class="foot-line"></div>
+    <p>UK-focused, neutral summaries from public RSS feeds. No tracking. Static HTML.</p>
+  </footer>
+
+  <!-- Tabs CSS/JS injected by generate.js -->
+  <style>
+  .tabs{display:flex;gap:14px;flex-wrap:wrap;margin:4px 0 6px}
+  .tab{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;padding:6px 2px;cursor:pointer}
+  .tab:hover{color:var(--fg)}
+  .tab.is-active{color:var(--fg);border-bottom:2px solid var(--fg)}
+  .tab-desc{margin:0 0 10px;color:var(--muted);font-size:.95rem;line-height:1.4}
+</style>
+
+<script>
+(function(){
+  var TAB_DESC = {
+    uk: "UK AI brief — A daily summary of AI news most relevant to the UK.",
+    business: "AI & Business — How companies are actually using AI this week (adoption, ROI, governance).",
+    work: "AI & Work — Productivity tools gaining traction (workflows, copilots, practical use-cases).",
+    global: "Global AI — New models, research, regulation, and big platform shifts worldwide."
+  };
+
+  function setTab(next){
+    var tabs = document.querySelectorAll('.tab');
+    var panels = document.querySelectorAll('.brief-panel');
+
+    tabs.forEach(function(t){
+      var active = t.getAttribute('data-tab') === next;
+      t.classList.toggle('is-active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    panels.forEach(function(p){
+      var match = p.getAttribute('data-tab') === next;
+      if(match){
+        p.removeAttribute('hidden');
+        p.setAttribute('aria-hidden','false');
+      }else{
+        p.setAttribute('hidden','');
+        p.setAttribute('aria-hidden','true');
+      }
+    });
+
+    var el = document.getElementById('tabDesc');
+    if(el) el.textContent = TAB_DESC[next] || "";
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest ? e.target.closest('.tab') : null;
+    if(!btn) return;
+    setTab(btn.getAttribute('data-tab'));
+  });
+
+  // Always start on UK AI
+  setTab('uk');
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>Today’s 2-Minute AI Brief</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A concise, UK-focused daily brief on AI — updated once a day with links to original sources." />
+  <meta property="og:title" content="Today’s 2-Minute AI Brief" />
+  <meta property="og:description" content="A clean, UK-centric AI news summary with sources, updated daily." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="dark light" />
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --fg:#e5e7eb;
+      --muted:#a0a6b0;
+      --card:#111218;
+      --link:#93c5fd;
+      --accent:#60a5fa;
+      --border:#1f2430;
+      --tag-bg:#111827;
+      --tag-fg:#cbd5e1;
+      --max:760px;
+      --gap:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    main{max-width:var(--max); margin:48px auto; padding:0 var(--gap)}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    nav.top{
+      display:flex; gap:12px; align-items:center; margin-bottom:12px; font-size:.95rem;
+    }
+    nav.top a{opacity:.9}
+    nav.top .dot{opacity:.5}
+
+    header h1{font-size:1.8rem; margin:6px 0 4px}
+    .date{margin:0 0 18px; color:var(--muted); font-size:.95rem}
+    .date[title]{cursor:help}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      margin:16px 0 22px;
+    }
+
+    .tldr{
+      font-size:1.05rem;
+      background:linear-gradient(0deg, rgba(96,165,250,.08), rgba(96,165,250,.08));
+      border-left:3px solid var(--accent);
+      padding:12px 12px 12px 14px;
+      border-radius:10px;
+      margin:8px 0 18px;
+    }
+
+    h2{
+      font-size:1.1rem;
+      letter-spacing:.2px;
+      margin:18px 0 10px;
+    }
+
+    ul{margin:0; padding-left:22px}
+    li{margin:6px 0}
+
+    .explainer p{margin:0 0 10px}
+    .explainer a{word-break:break-word}
+
+    .sources{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .sources a{color:var(--link); margin-right:10px}
+
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      display:inline-block;
+      background:var(--tag-bg);
+      color:var(--tag-fg);
+      border:1px solid var(--border);
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.85rem;
+      letter-spacing:.2px;
+    }
+
+    footer{
+      max-width:var(--max);
+      margin:24px auto 48px;
+      padding:0 var(--gap);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    .foot-line{border-top:1px solid var(--border); margin:16px 0; opacity:.7}
+
+    @media (max-width:520px){
+      header h1{font-size:1.5rem}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="top" aria-label="Site">
+      <a href="/archive/">Archive</a>
+      <span class="dot">·</span>
+      <a href="/about.html">About</a>
+      <span class="dot">·</span>
+      <a href="/changelog.html">Changelog</a>
+    </nav>
+
+    <header>
+      <h1>Today’s 2-Minute AI Brief</h1>
+      <p class="date" title="2025-12-27T06:30:52.357Z">27 December 2025</p>
+    </header>
+
+    <!-- Tabs (nav + one-line description) -->
+    <div class="tabs-wrap">
+  <div class="tabs" role="tablist" aria-label="Brief tabs">
+    <button class="tab is-active" role="tab" aria-selected="true" data-tab="uk">UK AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="business">AI &amp; Business</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="work">AI &amp; Work</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="global">Global AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="security">AI Security</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="ethics">Ethics &amp; Policy</button>
+  </div>
+  <p class="tab-desc" id="tabDesc">UK AI — A daily summary of AI news most relevant to the UK.</p>
+  <p class="tab-note" id="tabNote" hidden></p>
+</div>
+
+    <!-- Tab panels (each panel is a .card so it matches the current look) -->
+    <section class="brief-panel" data-tab="security" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — Corporate security leaders are increasingly conducting tabletop exercises to prepare for potential cyberattacks as part of their year-end reviews.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Tabletop exercises help organizations simulate and practice responses to cyber incidents.</li>
+<li>These exercises are crucial for improving incident response processes and ensuring preparedness.</li>
+<li>As cyber threats evolve, proactive measures like these are essential for organizational security.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Tabletop exercises are strategic simulations where corporate security teams role-play responses to hypothetical cyber incidents. These exercises allow organizations to identify gaps in their incident response plans and improve their overall security posture. By simulating scenarios such as data breaches or ransomware attacks, teams can practice coordination and communication, ensuring that everyone knows their responsibilities during a real crisis. The end of the year is a common time for these exercises, as companies reflect on their security measures and prepare for potential threats in the upcoming year. With cyberattacks becoming more sophisticated, such proactive measures are vital for minimizing risks and safeguarding sensitive information.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/26/end_of_year_tabletop_exercises/" target="_blank" rel="noopener noreferrer" title="From AI to analog, cybersecurity tabletop exercises look a little different this year">go.theregister.com</a> <a href="https://www.theguardian.com/us-news/2025/dec/26/uk-campaigner-targeted-by-trump-accuses-tech-giants-of-sociopathic-greed" target="_blank" rel="noopener noreferrer" title="UK campaigner targeted by Trump accuses tech giants of ‘sociopathic greed’">theguardian.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/26/video_game_hacker_turned_ceo/" target="_blank" rel="noopener noreferrer" title="From video games to cyber defense: If you don&#39;t think like a hacker, you won&#39;t win">go.theregister.com</a> <a href="https://www.theguardian.com/games/2025/dec/26/the-dominik-diamond-alternative-game-of-the-year-awards-2025" target="_blank" rel="noopener noreferrer" title="The Dominik Diamond alternative game of the year awards 2025">theguardian.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">tabletop exercises</span> <span class="tag">cybersecurity</span> <span class="tag">incident response</span> <span class="tag">preparedness</span> <span class="tag">corporate security</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="ethics" data-note="Wider sources used today due to limited fresh coverage. Some items may be only loosely AI-related due to limited matching items." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — In 2025, heat waves significantly impacted power grids globally, prompting interest in innovative cooling technologies like radiative cooling paints and coatings.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Heat waves are becoming more frequent due to climate change, straining energy resources.</li>
+<li>Innovative cooling solutions could reduce reliance on traditional air conditioning systems.</li>
+<li>The development of new materials may offer sustainable alternatives to combat rising temperatures.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The summer of 2025 saw extreme heat waves that disrupted power grids across North America, Europe, and the Middle East. As global temperatures rise, the demand for air conditioning increases, which in turn places additional stress on already strained electrical systems. Traditional air conditioning relies heavily on electricity, leading to higher energy consumption and potential outages during peak demand times. In response to this challenge, researchers and innovators are exploring alternative cooling methods, such as radiative cooling technologies. These include specialized paints and coatings designed to reflect sunlight and dissipate heat, thereby reducing the need for conventional air conditioning. By utilizing these advanced materials, it may be possible to create cooler environments without the high energy costs associated with traditional cooling methods. This shift not only addresses immediate energy concerns but also aligns with broader sustainability goals as society seeks to mitigate the impacts of climate change.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.technologyreview.com/2025/12/26/1130318/mit-technology-review-most-popular-stories-2025/" target="_blank" rel="noopener noreferrer" title="MIT Technology Review’s most popular stories of 2025">technologyreview.com</a> <a href="https://www.theguardian.com/games/2025/dec/25/the-video-games-you-may-have-missed-in-2025" target="_blank" rel="noopener noreferrer" title="The video games you may have missed in 2025">theguardian.com</a> <a href="https://www.technologyreview.com/2025/12/26/1129301/paint-coating-chemicals-materials-cooling-air-conditioning/" target="_blank" rel="noopener noreferrer" title="The paints, coatings, and chemicals making the world a cooler place">technologyreview.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">cooling technology</span> <span class="tag">climate change</span> <span class="tag">energy policy</span> <span class="tag">sustainability</span> <span class="tag">innovation</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="global" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — Microsoft has open-sourced the classic text adventure game Zork, prompting reflections on the challenges of using AI chatbots in 2025.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The open-sourcing of Zork highlights a trend towards making classic games more accessible.</li>
+<li>The comparison between text adventure games and AI chatbots underscores user frustrations with current AI technology.</li>
+<li>This development may influence future AI design by drawing parallels with gaming experiences.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Microsoft’s decision to open-source Zork, a foundational text adventure game, has sparked discussions about the user experience of AI chatbots in 2025. Many users have found interacting with chatbots reminiscent of the frustrating elements of old text adventure games, where players often faced unclear instructions and dead ends. This comparison raises important questions about the usability and effectiveness of current AI technologies. As AI continues to evolve, understanding user frustrations can guide better design and functionality, potentially leading to more intuitive and satisfying interactions. The move to open-source Zork may encourage developers to reflect on the user experience in both gaming and AI, aiming to create tools that are not only powerful but also user-friendly.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.engadget.com/entertainment/music/what-we-listened-to-in-2025-201308584.html?src=rss" target="_blank" rel="noopener noreferrer" title="What we listened to in 2025">engadget.com</a> <a href="https://www.theverge.com/entertainment/846767/amazon-prime-video-best-shows-2025" target="_blank" rel="noopener noreferrer" title="The 10 best shows to stream on Amazon Prime Video from 2025">theverge.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/26/ai_is_like_adventure_games/" target="_blank" rel="noopener noreferrer" title="&#39;PromptQuest&#39; is the worst game of 2025. You play it when trying to make chatbots work">go.theregister.com</a> <a href="https://www.engadget.com/computing/accessories/best-ipad-accessories-130018595.html?src=rss" target="_blank" rel="noopener noreferrer" title="The best iPad accessories for 2026">engadget.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">microsoft</span> <span class="tag">zork</span> <span class="tag">ai</span> <span class="tag">chatbots</span> <span class="tag">user experience</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="uk" data-note="Wider sources used today due to limited fresh coverage. Some items may be only loosely AI-related due to limited matching items.">
+  <section class="card">
+    <p class="tldr">In brief — Investment in humanoid robots is increasing, despite their current status as novelty items.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Growing interest in humanoid robotics could lead to significant advancements in AI and automation.</li>
+<li>Increased funding may accelerate the development of practical applications for these technologies.</li>
+<li>The trend reflects a broader societal fascination with robotics and AI integration.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The recent surge in investment and interest in humanoid robots highlights a significant shift in how society views robotics technology. While humanoid robots are often seen as novelty acts, their potential applications in various sectors, including healthcare, customer service, and entertainment, are becoming more apparent. Events like the Humanoids Summit showcase the enthusiasm surrounding this technology, with many attendees eager to explore its future possibilities. This investment trend suggests that companies and researchers are betting on the long-term viability of humanoid robots, aiming to overcome current technological limitations. As funding increases, we might see rapid advancements that could transform how these robots are integrated into everyday life, potentially leading to more reliable and functional robotic systems in the near future.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/26/coming_wifi_8_reliability/" target="_blank" rel="noopener noreferrer" title="Coming Wi-Fi 8 will bring reliability rather than greater speed">go.theregister.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/26/on_call/" target="_blank" rel="noopener noreferrer" title="IT team forced to camp in the office for days after Y2K bug found in boss&#39;s side project">go.theregister.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/25/humanoid_robots_investment_surge/" target="_blank" rel="noopener noreferrer" title="Humanoid robots are still novelty acts, but investment is surging to make them real tomorrow">go.theregister.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/25/go_foss_keep_your_os/" target="_blank" rel="noopener noreferrer" title="You don&#39;t need Linux to run free and open source software">go.theregister.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">humanoid robots</span> <span class="tag">investment</span> <span class="tag">ai</span> <span class="tag">automation</span> <span class="tag">technology</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="business" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — French insect farming startup Ÿnsect has entered judicial liquidation after raising over $600 million, highlighting challenges in the sector.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Ÿnsect&#39;s failure underscores the financial risks associated with innovative agricultural startups.</li>
+<li>The company&#39;s insolvency raises questions about the sustainability of insect farming as a business model.</li>
+<li>This event may impact investor confidence in similar ventures within the agri-tech industry.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Ÿnsect, a French startup focused on insect farming, recently faced judicial liquidation due to insolvency, despite securing over $600 million in funding. The company aimed to revolutionize food production and sustainability by farming insects for animal feed and other uses. However, the challenges of scaling operations and market acceptance have proven significant hurdles. The insect farming sector has been touted as a sustainable alternative to traditional agriculture, but Ÿnsect's downfall raises concerns about its viability and the financial risks involved. Investors may now be more cautious about funding similar startups, which could slow innovation in this emerging field. The situation serves as a reminder that even well-funded companies can struggle to find a sustainable path in rapidly evolving markets.
+    </div>
+
+    <p class="sources">Sources: <a href="https://techcrunch.com/2025/12/26/how-reality-crushed-ynsect-the-french-startup-that-had-raised-over-600m-for-insect-farming/" target="_blank" rel="noopener noreferrer" title="How reality crushed Ÿnsect, the French startup that had raised over $600M for insect farming">techcrunch.com</a> <a href="https://www.engadget.com/social-media/new-york-state-will-require-warning-labels-on-social-media-platforms-210306716.html?src=rss" target="_blank" rel="noopener noreferrer" title="New York State will require warning labels on social media platforms">engadget.com</a> <a href="https://www.theverge.com/news/850398/rodeo-hinge-social-app-friends" target="_blank" rel="noopener noreferrer" title="Rodeo is an app for making plans with friends you already have">theverge.com</a> <a href="https://www.zdnet.com/article/oura-ring-3-vs-oura-ring-4/" target="_blank" rel="noopener noreferrer" title="Oura Ring 3 vs Oura Ring 4: I&#39;ve tested both smart rings, and the winner is not so obvious">zdnet.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">ynsect</span> <span class="tag">insect farming</span> <span class="tag">agri-tech</span> <span class="tag">startup failure</span> <span class="tag">sustainability</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="work" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — Google is rolling out a feature that allows users to change their Gmail address while keeping their old address active as an alias.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Users can replace undesirable email addresses without losing access to their accounts.</li>
+<li>This feature could improve user satisfaction and personalization of email accounts.</li>
+<li>The change reflects ongoing efforts by tech companies to enhance user experience and flexibility.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Google has announced that it will soon allow users to change their Gmail address, a feature that has been anticipated by many who have long regretted their initial choices. According to a support page, users will be able to replace their current Gmail address with a new one while retaining their old address as an alias. This means that any emails sent to the old address will still be received in the user's account, ensuring no loss of communication. The feature is gradually rolling out to all users, as confirmed by various reports. This change is significant as it allows users to have a more professional or preferred email address without the hassle of creating a new account and migrating data. It highlights a trend among tech companies to prioritize user customization and satisfaction in their services.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.fastcompany.com/91466404/jeffrey-epstein-emails-jmail?partner=rss&amp;amp;utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=rss+fastcompany&amp;amp;utm_content=rss" target="_blank" rel="noopener noreferrer" title="The banality of Jeffery Epstein’s expanding online world">fastcompany.com</a> <a href="https://www.engadget.com/computing/you-may-soon-be-able-to-change-your-gmail-address-165633905.html?src=rss" target="_blank" rel="noopener noreferrer" title="You may soon be able to change your Gmail address">engadget.com</a> <a href="https://www.theverge.com/news/850237/google-change-your-gmail-address" target="_blank" rel="noopener noreferrer" title="Google is letting some people change their @gmail address">theverge.com</a> <a href="https://www.fastcompany.com/91464167/meme-depression-ghibli-gate-6-7-internet-culture-2025?partner=rss&amp;amp;utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=rss+fastcompany&amp;amp;utm_content=rss" target="_blank" rel="noopener noreferrer" title="‘Meme depression,’ Ghibli-gate, 6-7: An internet-culture roundup for 2025">fastcompany.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">google</span> <span class="tag">gmail</span> <span class="tag">email</span> <span class="tag">user experience</span> <span class="tag">productivity</span>
+    </div>
+  </section>
+</section>
+  </main>
+
+  <footer>
+    <div class="foot-line"></div>
+    <p>UK-focused, neutral summaries from public RSS feeds. No tracking. Static HTML.</p>
+  </footer>
+
+  <!-- Tabs CSS/JS injected by generate.js -->
+  <style>
+  .tabs{display:flex;gap:14px;flex-wrap:wrap;margin:4px 0 6px}
+  .tab{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;padding:6px 2px;cursor:pointer}
+  .tab:hover{color:var(--fg)}
+  .tab.is-active{color:var(--fg);border-bottom:2px solid var(--fg)}
+  .tab-desc{margin:0 0 6px;color:var(--muted);font-size:.95rem;line-height:1.4}
+  .tab-note{margin:0 0 10px;color:var(--muted);font-size:.9rem;opacity:.85}
+</style>
+
+<script>
+(function(){
+  var TAB_DESC = {"uk":"UK AI — A daily summary of AI news most relevant to the UK.","business":"AI & Business — Adoption, governance, monetisation, and real-world deployments.","work":"AI & Work — Productivity tools, workflow changes, and practical workplace usage.","global":"Global AI — Models, research, major releases, and big platform shifts worldwide.","security":"AI Security — Misuse, attacks, safeguards, auditing, and defensive practices.","ethics":"Ethics & Policy — Regulation, governance, rights, safety debates, and oversight."};
+  function setTab(next){
+    var tabs = document.querySelectorAll('.tab');
+    var panels = document.querySelectorAll('.brief-panel');
+
+    tabs.forEach(function(t){
+      var active = t.getAttribute('data-tab') === next;
+      t.classList.toggle('is-active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    panels.forEach(function(p){
+      var match = p.getAttribute('data-tab') === next;
+      if(match){
+        p.removeAttribute('hidden');
+        p.setAttribute('aria-hidden','false');
+      }else{
+        p.setAttribute('hidden','');
+        p.setAttribute('aria-hidden','true');
+      }
+    });
+
+    var descEl = document.getElementById('tabDesc');
+    if(descEl) descEl.textContent = TAB_DESC[next] || "";
+
+    // optional note line per panel
+    var noteEl = document.getElementById('tabNote');
+    var panel = document.querySelector('.brief-panel[data-tab="'+next+'"]');
+    var note = panel ? panel.getAttribute('data-note') : "";
+    if(noteEl){
+      if(note){
+        noteEl.textContent = note;
+        noteEl.hidden = false;
+      }else{
+        noteEl.textContent = "";
+        noteEl.hidden = true;
+      }
+    }
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest ? e.target.closest('.tab') : null;
+    if(!btn) return;
+    setTab(btn.getAttribute('data-tab'));
+  });
+
+  // Always start on UK AI
+  setTab('uk');
+})();
+</script>
+</body>
+</html>
+

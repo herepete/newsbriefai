@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>Today’s 2-Minute AI Brief</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A concise, UK-focused daily brief on AI — updated once a day with links to original sources." />
+  <meta property="og:title" content="Today’s 2-Minute AI Brief" />
+  <meta property="og:description" content="A clean, UK-centric AI news summary with sources, updated daily." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="dark light" />
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --fg:#e5e7eb;
+      --muted:#a0a6b0;
+      --card:#111218;
+      --link:#93c5fd;
+      --accent:#60a5fa;
+      --border:#1f2430;
+      --tag-bg:#111827;
+      --tag-fg:#cbd5e1;
+      --max:760px;
+      --gap:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    main{max-width:var(--max); margin:48px auto; padding:0 var(--gap)}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    nav.top{
+      display:flex; gap:12px; align-items:center; margin-bottom:12px; font-size:.95rem;
+    }
+    nav.top a{opacity:.9}
+    nav.top .dot{opacity:.5}
+
+    header h1{font-size:1.8rem; margin:6px 0 4px}
+    .date{margin:0 0 18px; color:var(--muted); font-size:.95rem}
+    .date[title]{cursor:help}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      margin:16px 0 22px;
+    }
+
+    .tldr{
+      font-size:1.05rem;
+      background:linear-gradient(0deg, rgba(96,165,250,.08), rgba(96,165,250,.08));
+      border-left:3px solid var(--accent);
+      padding:12px 12px 12px 14px;
+      border-radius:10px;
+      margin:8px 0 18px;
+    }
+
+    h2{
+      font-size:1.1rem;
+      letter-spacing:.2px;
+      margin:18px 0 10px;
+    }
+
+    ul{margin:0; padding-left:22px}
+    li{margin:6px 0}
+
+    .explainer p{margin:0 0 10px}
+    .explainer a{word-break:break-word}
+
+    .sources{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .sources a{color:var(--link); margin-right:10px}
+
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      display:inline-block;
+      background:var(--tag-bg);
+      color:var(--tag-fg);
+      border:1px solid var(--border);
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:.85rem;
+      letter-spacing:.2px;
+    }
+
+    footer{
+      max-width:var(--max);
+      margin:24px auto 48px;
+      padding:0 var(--gap);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    .foot-line{border-top:1px solid var(--border); margin:16px 0; opacity:.7}
+
+    @media (max-width:520px){
+      header h1{font-size:1.5rem}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="top" aria-label="Site">
+      <a href="/archive/">Archive</a>
+      <span class="dot">·</span>
+      <a href="/about.html">About</a>
+      <span class="dot">·</span>
+      <a href="/changelog.html">Changelog</a>
+    </nav>
+
+    <header>
+      <h1>Today’s 2-Minute AI Brief</h1>
+      <p class="date" title="2025-12-25T06:30:50.749Z">25 December 2025</p>
+    </header>
+
+    <!-- Tabs (nav + one-line description) -->
+    <div class="tabs-wrap">
+  <div class="tabs" role="tablist" aria-label="Brief tabs">
+    <button class="tab is-active" role="tab" aria-selected="true" data-tab="uk">UK AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="business">AI &amp; Business</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="work">AI &amp; Work</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="global">Global AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="security">AI Security</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="ethics">Ethics &amp; Policy</button>
+  </div>
+  <p class="tab-desc" id="tabDesc">UK AI — A daily summary of AI news most relevant to the UK.</p>
+  <p class="tab-note" id="tabNote" hidden></p>
+</div>
+
+    <!-- Tab panels (each panel is a .card so it matches the current look) -->
+    <section class="brief-panel" data-tab="security" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — Researchers at Pen Test Partners identified multiple security flaws in Eurostar&#39;s AI chatbot, leading to accusations of &quot;blackmail&quot; from the company.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The identified flaws could allow attackers to exploit the chatbot for malicious purposes.</li>
+<li>The incident raises concerns about the security measures in place for AI systems.</li>
+<li>Accusations against the researchers highlight tensions between companies and security auditors.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Recently, Pen Test Partners, a cybersecurity firm, reported significant vulnerabilities in Eurostar's public AI chatbot. They discovered four specific flaws that could enable attackers to inject harmful HTML content or manipulate the chatbot into revealing sensitive system prompts. Instead of acknowledging these security risks, Eurostar responded by accusing the researchers of "blackmail," which has sparked debate about the responsibilities of companies in addressing security issues. This situation underscores the critical need for robust security measures in AI systems, as vulnerabilities can lead to exploitation and misuse. Moreover, the backlash against the researchers raises questions about how companies engage with cybersecurity professionals and the importance of transparency in addressing potential threats. As AI technology continues to evolve, ensuring its security remains a paramount concern for developers and users alike.
+    </div>
+
+    <p class="sources">Sources: <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/24/pentesters_reported_eurostar_chatbot_flaws/" target="_blank" rel="noopener noreferrer" title="Pen testers accused of &#39;blackmail&#39; after reporting Eurostar chatbot flaws">go.theregister.com</a> <a href="https://www.theguardian.com/technology/2025/dec/24/undermines-free-speech-labour-mp-hits-back-at-us-government-over-visa-related-sanctions" target="_blank" rel="noopener noreferrer" title="‘Undermines free speech’: Labour MP hits back at US government over visa ban on UK campaigners">theguardian.com</a> <a href="https://www.bbc.com/news/articles/cp39kngz008o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer" title="UK social media campaigners among five denied US visas">bbc.com</a> <a href="https://www.theguardian.com/games/2025/dec/22/pushing-buttons-readers-games-of-the-year" target="_blank" rel="noopener noreferrer" title="The video games readers couldn’t switch off in 2025">theguardian.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">ai security</span> <span class="tag">vulnerabilities</span> <span class="tag">chatbot</span> <span class="tag">eurostar</span> <span class="tag">pen testing</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="ethics" data-note="Wider sources used today due to limited fresh coverage. Some items may be only loosely AI-related due to limited matching items." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — The U.S. State Department has barred five European individuals, including former EU Commissioner Thierry Breton, from entering the country, accusing them of coercing tech companies to suppress American viewpoints.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The visa bans highlight tensions between U.S. and European approaches to regulating online content.</li>
+<li>This action reflects ongoing debates about the balance between free speech and the regulation of disinformation.</li>
+<li>It raises concerns about international cooperation in addressing digital threats and misinformation.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The recent decision by the U.S. State Department to impose visa bans on five Europeans, including Thierry Breton, underscores a significant clash between American and European regulatory philosophies regarding online content. The U.S. government alleges that these individuals have been involved in efforts to pressure tech companies to censor or restrict American viewpoints, particularly in the context of misinformation and hate speech. This move is part of a broader narrative where European regulations, aimed at curbing harmful online content, are perceived by some in the U.S. as infringing upon free speech rights. The situation raises critical questions about how different regions approach the governance of digital platforms and the potential implications for international relations and cooperation in combating misinformation. As global digital landscapes evolve, the balance between protecting users from harmful content and preserving free expression remains a contentious issue.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.theguardian.com/technology/2025/dec/24/us-state-department-visa-ban-former-eu-commissioner-europe" target="_blank" rel="noopener noreferrer" title="Former EU commissioner and activists barred from US in attack on European tech regulators">theguardian.com</a> <a href="https://www.technologyreview.com/2025/12/24/1129294/ronald-deibert-citizen-lab-digital-threats-spies-cybersecurity/" target="_blank" rel="noopener noreferrer" title="Meet the man hunting the spies in your smartphone">technologyreview.com</a> <a href="https://www.technologyreview.com/2025/12/24/1130191/good-climate-news-2025/" target="_blank" rel="noopener noreferrer" title="Four bright spots in climate news in 2025">technologyreview.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">us-eu-relations</span> <span class="tag">online-regulation</span> <span class="tag">misinformation</span> <span class="tag">free-speech</span> <span class="tag">digital-governance</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="global" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — A new reinforcement learning framework called MolAct has been introduced for molecular editing and property optimization.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>MolAct represents a novel approach to molecular design by framing it as an agentic reinforcement learning problem.</li>
+<li>The framework employs a two-stage training process, enhancing both editing capabilities and property optimization.</li>
+<li>This research could advance the field of molecular design, impacting pharmaceuticals and materials science.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The recently published research on MolAct presents a significant advancement in the field of molecular editing and optimization. Traditional methods often struggle with the complexity of maintaining chemical validity while enhancing desired properties in molecules. MolAct addresses this challenge by utilizing a reinforcement learning framework, which is a type of machine learning where an agent learns to make decisions through trial and error. The framework is structured in two stages: first, it develops the ability to edit molecules, and then it focuses on optimizing their properties, all while preserving the learned editing skills. This approach is particularly noteworthy as it formalizes molecular design in a way that has not been done before, potentially paving the way for more efficient and innovative solutions in various scientific domains, including drug discovery and materials engineering.
+    </div>
+
+    <p class="sources">Sources: <a href="https://arxiv.org/abs/2512.20135" target="_blank" rel="noopener noreferrer" title="MolAct: An Agentic RL Framework for Molecular Editing and Property Optimization">arxiv.org</a> <a href="https://www.engadget.com/gaming/pc/steam-and-valves-online-games-are-partially-down-191033988.html?src=rss" target="_blank" rel="noopener noreferrer" title="Steam and Valve&#39;s online games are partially down">engadget.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/24/salesforce_chatgpt/" target="_blank" rel="noopener noreferrer" title="Salesforce’s ChatGPT integration is really about stopping customers from leaking their own data">go.theregister.com</a> <a href="https://www.theverge.com/gadgets/684281/sony-playstation-5-ps5-pro-christmas-deal-sale-2025" target="_blank" rel="noopener noreferrer" title="Sony’s souped-up PlayStation 5 Pro is $100 off for the rest of today">theverge.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">molecular editing</span> <span class="tag">reinforcement learning</span> <span class="tag">ai research</span> <span class="tag">molact</span> <span class="tag">property optimization</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="uk" data-note="Wider sources used today due to limited fresh coverage.">
+  <section class="card">
+    <p class="tldr">In brief — AI spending in the tech industry has reached approximately $1.5 trillion, but many businesses are questioning the returns on their investments.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>Companies are increasingly investing in AI technologies, yet 95% report no measurable returns.</li>
+<li>The significant financial outlay raises concerns about the sustainability of AI investments.</li>
+<li>Understanding the challenges in AI implementation is crucial for future policy and business strategies.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      The tech industry has seen a massive surge in AI spending, with estimates around $1.5 trillion this year alone. This level of investment is typically associated with wartime expenditures, highlighting the urgency and enthusiasm surrounding AI technologies. However, a troubling trend has emerged: many businesses are struggling to see tangible benefits from their AI initiatives. Research indicates that a staggering 95% of organizations report no measurable returns from their AI investments. This disconnect raises important questions about the effectiveness of current AI strategies and the management practices surrounding them. As companies continue to showcase new AI projects, the lack of clear outcomes may lead to a reevaluation of spending priorities and strategies. For policymakers and stakeholders in the UK, understanding these dynamics is essential for fostering a more productive AI ecosystem that can deliver real value.
+
+_(Note: Some sources may be older than 24 hours due to limited fresh coverage.)_
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.theguardian.com/thefilter/2024/dec/27/best-electric-blankets-heated-throws" target="_blank" rel="noopener noreferrer" title="The best electric blankets and heated throws in the UK, tried and tested to keep you toasty for less">theguardian.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/24/ai_spending_cooling_off/" target="_blank" rel="noopener noreferrer" title="AI faces closing time at the cash buffet">go.theregister.com</a> <a href="https://www.theguardian.com/games/2025/dec/23/terminator-2d-no-fate-review-the-least-bad-terminator-game-in-a-long-while" target="_blank" rel="noopener noreferrer" title="Terminator 2D: No Fate review – the least bad Terminator game in a long while">theguardian.com</a> <a href="https://go.theregister.com/feed/www.theregister.com/2025/12/24/autocomms/" target="_blank" rel="noopener noreferrer" title="Garmin autopilot lands small aircraft without human assistance">go.theregister.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">ai</span> <span class="tag">investment</span> <span class="tag">business</span> <span class="tag">returns</span> <span class="tag">technology</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="business" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — Waymo has provided insights into the performance of its robotaxis during a recent blackout in San Francisco.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The incident highlights the challenges of autonomous vehicle navigation in adverse conditions.</li>
+<li>Understanding these challenges can inform future improvements in AI-driven transportation systems.</li>
+<li>Waymo&#39;s ability to navigate thousands of dark stoplights demonstrates progress in AI technology.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      Waymo, a leader in autonomous vehicle technology, recently addressed an incident where its robotaxis became immobilized during a blackout in San Francisco. The company reported that, despite the blackout, its vehicles successfully navigated over 7,000 dark stoplights. This performance indicates that the AI systems used in these vehicles are capable of adapting to unexpected situations, which is crucial for the reliability of self-driving technology. By sharing details about this incident, Waymo not only reassures current users but also provides valuable data for the ongoing development of autonomous driving systems. As cities increasingly adopt smart technologies, understanding how AI can manage real-world challenges like power outages will be essential for the future of urban transportation.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.engadget.com/entertainment/streaming/2025-christmas-day-nfl-games-how-to-watch-full-streaming-schedule-and-more-233022362.html?src=rss" target="_blank" rel="noopener noreferrer" title="2025 Christmas Day NFL games: How to watch, full streaming schedule and more">engadget.com</a> <a href="https://www.zdnet.com/article/best-products-zdnet-tested-in-2025/" target="_blank" rel="noopener noreferrer" title="35+ best products we tested in 2025: Expert picks for phones, TVs, AI, and more">zdnet.com</a> <a href="https://www.theverge.com/gadgets/849637/anker-laptop-power-bank-xbox-series-x-deal-sale" target="_blank" rel="noopener noreferrer" title="Anker’s beefy Laptop Power Bank has returned to its Black Friday low">theverge.com</a> <a href="https://techcrunch.com/2025/12/24/waymo-explains-why-its-robotaxis-got-stuck-during-the-sf-blackout/" target="_blank" rel="noopener noreferrer" title="Waymo explains why its robotaxis got stuck during the SF blackout">techcrunch.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">waymo</span> <span class="tag">robotaxis</span> <span class="tag">autonomous vehicles</span> <span class="tag">ai technology</span> <span class="tag">transportation</span>
+    </div>
+  </section>
+</section>
+
+<section class="brief-panel" data-tab="work" data-note="Wider sources used today due to limited fresh coverage." hidden aria-hidden="true">
+  <section class="card">
+    <p class="tldr">In brief — A pro-Russian hacking group claimed responsibility for a cyberattack that disrupted France&#39;s national postal service just before Christmas.</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      <li>The attack halted package deliveries during a peak holiday season.</li>
+<li>It highlights vulnerabilities in critical infrastructure to cyber threats.</li>
+<li>The incident raises concerns about the implications of state-sponsored cybercrime.</li>
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      France's national postal service faced a significant disruption due to a cyberattack attributed to the pro-Russian group Noname057. This incident occurred just days before Christmas, a crucial time for package deliveries, potentially impacting many consumers and businesses relying on timely shipments. The French intelligence agency, DGSI, has taken over the investigation, indicating the seriousness of the breach. Cyberattacks on essential services like postal systems can have wide-ranging effects, not only causing immediate operational issues but also eroding public trust in digital security measures. This attack is part of a broader trend where cybercriminals target critical infrastructure, raising alarms about the preparedness of such organizations to defend against sophisticated cyber threats.
+    </div>
+
+    <p class="sources">Sources: <a href="https://www.fastcompany.com/91463828/tiktok-for-you-page-value-sale-deal-whats-next?partner=rss&amp;amp;utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=rss+fastcompany&amp;amp;utm_content=rss" target="_blank" rel="noopener noreferrer" title="Why TikTok’s ‘For You’ page is so valuable and what’s to change for U.S. users">fastcompany.com</a> <a href="https://www.engadget.com/entertainment/streaming/best-live-tv-streaming-service-133000410.html?src=rss" target="_blank" rel="noopener noreferrer" title="The best live TV streaming services to cut cable in 2026">engadget.com</a> <a href="https://www.theverge.com/entertainment/848368/gen-ai-video-games-2025" target="_blank" rel="noopener noreferrer" title="In 2025, AI became a lightning rod for gamers and developers">theverge.com</a> <a href="https://www.fastcompany.com/91466772/teslas-model-3-emergency-door-release-controls-are-being-investigated?partner=rss&amp;amp;utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=rss+fastcompany&amp;amp;utm_content=rss" target="_blank" rel="noopener noreferrer" title="Tesla’s Model 3 emergency door release controls are being investigated">fastcompany.com</a></p>
+
+    <div class="tags" aria-label="Tags">
+      <span class="tag">cyberattack</span> <span class="tag">postal service</span> <span class="tag">france</span> <span class="tag">hacking</span> <span class="tag">critical infrastructure</span>
+    </div>
+  </section>
+</section>
+  </main>
+
+  <footer>
+    <div class="foot-line"></div>
+    <p>UK-focused, neutral summaries from public RSS feeds. No tracking. Static HTML.</p>
+  </footer>
+
+  <!-- Tabs CSS/JS injected by generate.js -->
+  <style>
+  .tabs{display:flex;gap:14px;flex-wrap:wrap;margin:4px 0 6px}
+  .tab{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;padding:6px 2px;cursor:pointer}
+  .tab:hover{color:var(--fg)}
+  .tab.is-active{color:var(--fg);border-bottom:2px solid var(--fg)}
+  .tab-desc{margin:0 0 6px;color:var(--muted);font-size:.95rem;line-height:1.4}
+  .tab-note{margin:0 0 10px;color:var(--muted);font-size:.9rem;opacity:.85}
+</style>
+
+<script>
+(function(){
+  var TAB_DESC = {"uk":"UK AI — A daily summary of AI news most relevant to the UK.","business":"AI & Business — Adoption, governance, monetisation, and real-world deployments.","work":"AI & Work — Productivity tools, workflow changes, and practical workplace usage.","global":"Global AI — Models, research, major releases, and big platform shifts worldwide.","security":"AI Security — Misuse, attacks, safeguards, auditing, and defensive practices.","ethics":"Ethics & Policy — Regulation, governance, rights, safety debates, and oversight."};
+  function setTab(next){
+    var tabs = document.querySelectorAll('.tab');
+    var panels = document.querySelectorAll('.brief-panel');
+
+    tabs.forEach(function(t){
+      var active = t.getAttribute('data-tab') === next;
+      t.classList.toggle('is-active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    panels.forEach(function(p){
+      var match = p.getAttribute('data-tab') === next;
+      if(match){
+        p.removeAttribute('hidden');
+        p.setAttribute('aria-hidden','false');
+      }else{
+        p.setAttribute('hidden','');
+        p.setAttribute('aria-hidden','true');
+      }
+    });
+
+    var descEl = document.getElementById('tabDesc');
+    if(descEl) descEl.textContent = TAB_DESC[next] || "";
+
+    // optional note line per panel
+    var noteEl = document.getElementById('tabNote');
+    var panel = document.querySelector('.brief-panel[data-tab="'+next+'"]');
+    var note = panel ? panel.getAttribute('data-note') : "";
+    if(noteEl){
+      if(note){
+        noteEl.textContent = note;
+        noteEl.hidden = false;
+      }else{
+        noteEl.textContent = "";
+        noteEl.hidden = true;
+      }
+    }
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest ? e.target.closest('.tab') : null;
+    if(!btn) return;
+    setTab(btn.getAttribute('data-tab'));
+  });
+
+  // Always start on UK AI
+  setTab('uk');
+})();
+</script>
+</body>
+</html>
+

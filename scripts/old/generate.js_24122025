@@ -1,0 +1,1036 @@
+// scripts/generate.js
+// Generates:
+// - public/index.html (today's brief with tabs; defaults to UK tab)
+// - public/archive/YYYY-MM-DD.html (dated snapshot)
+// - public/archive/index.html (archive listing)
+// - public/about.html (static explanation page)
+// - public/changelog.html (static change history page from data/changelog.json)
+// - public/data/tabs.json (structured outputs for future use)
+//
+// Looser checks version:
+// - Much wider freshness window (24h then 72h then 120h)
+// - Every tab can summarise from 1 item (so "no update" becomes rare)
+// - AI relevance filter is looser for Business/Work (AI-adjacent is allowed)
+// - Cross-tab de-dupe is now "soft": prefer different stories, but do NOT fail/skip solely due to duplicates
+// - Graceful per-tab failure handling: one tab failing won't kill the whole run
+// - "TL;DR" replaced with "In brief —"
+
+import fs from "fs/promises";
+import path from "path";
+import http from "http";
+import https from "https";
+import dns from "dns";
+import RSSParser from "rss-parser";
+import sanitizeHtml from "sanitize-html";
+import OpenAI from "openai";
+
+// --- Runtime hardening & logging --------------------------------------------
+
+// Prefer IPv4 for DNS (reduces ENOTFOUND on some hosts)
+dns.setDefaultResultOrder?.("ipv4first");
+
+// Disable global keep-alive so sockets don't hold the event loop open
+http.globalAgent.keepAlive = false;
+https.globalAgent.keepAlive = false;
+
+// Agent used by rss-parser (no keep-alive; IPv4)
+const httpsNoKeepAliveV4 = new https.Agent({ keepAlive: false, family: 4 });
+
+function ts() { return new Date().toISOString(); }
+const log = (...args) => console.log(`[${ts()}]`, ...args);
+const logWarn = (...args) => console.warn(`[${ts()}]`, ...args);
+const logError = (...args) => console.error(`[${ts()}]`, ...args);
+
+// Collect feed errors (for diagnostics / optional display)
+const FEED_ERRORS = new Map(); // url -> { count, lastError, lastAt }
+function recordFeedError(url, message) {
+  const cur = FEED_ERRORS.get(url) || { count: 0, lastError: "", lastAt: "" };
+  cur.count += 1;
+  cur.lastError = String(message || "");
+  cur.lastAt = new Date().toISOString();
+  FEED_ERRORS.set(url, cur);
+}
+
+// --- Config ------------------------------------------------------------------
+
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+if (!OPENAI_API_KEY) {
+  logError("Missing OPENAI_API_KEY (export it or set in CI secrets)");
+  process.exit(1);
+}
+const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
+
+const rss = new RSSParser({
+  timeout: 15000,
+  headers: { "user-agent": "uk-ai-brief/1.9" },
+  requestOptions: { agent: httpsNoKeepAliveV4 },
+});
+
+// Freshness & selection
+const FRESH_HOURS_PRIMARY = 24;
+// Looser: 3 days then 5 days
+const FRESH_HOURS_FALLBACKS = [72, 120];
+const MAX_ITEMS = 6;
+const MIN_DISTINCT_HOSTS = 3;
+
+// Per-tab minimum items required to call the model (looser: all 1)
+const MIN_ITEMS_TO_SUMMARISE_DEFAULT = 1;
+const MIN_ITEMS_BY_TAB = { uk: 1, business: 1, work: 1, global: 1, security: 1, ethics: 1 };
+function minItemsFor(tabKey) {
+  return MIN_ITEMS_BY_TAB[tabKey] ?? MIN_ITEMS_TO_SUMMARISE_DEFAULT;
+}
+
+// Require relevance checks (but looser per-tab)
+const REQUIRE_RELEVANCE = true;
+
+// State & output
+const ROOT = process.cwd();
+const STATE_DIR = path.join(ROOT, "data");
+const TPL_DIR = path.join(ROOT, "templates");
+const OUT_DIR = path.join(ROOT, "public");
+
+const INDEX_TEMPLATE = path.join(TPL_DIR, "index.template.html");
+const INDEX_OUT = path.join(OUT_DIR, "index.html");
+const ARCHIVE_DIR = path.join(OUT_DIR, "archive");
+const ABOUT_OUT = path.join(OUT_DIR, "about.html");
+const CHANGELOG_OUT = path.join(OUT_DIR, "changelog.html");
+const DATA_OUT_DIR = path.join(OUT_DIR, "data");
+const TABS_JSON_OUT = path.join(DATA_OUT_DIR, "tabs.json");
+
+// Seen caches
+const SEEN_UK_PATH = path.join(STATE_DIR, "seen.json");
+const SEEN_BUSINESS_PATH = path.join(STATE_DIR, "seen.business.json");
+const SEEN_WORK_PATH = path.join(STATE_DIR, "seen.work.json");
+const SEEN_GLOBAL_PATH = path.join(STATE_DIR, "seen.global.json");
+const SEEN_SECURITY_PATH = path.join(STATE_DIR, "seen.security.json");
+const SEEN_ETHICS_PATH = path.join(STATE_DIR, "seen.ethics.json");
+
+// Changelog source file
+const CHANGELOG_JSON = path.join(STATE_DIR, "changelog.json");
+
+// --- Feed groups -------------------------------------------------------------
+
+const FEEDS_UK = [
+  "https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology.atom",
+  "https://www.ncsc.gov.uk/api/1/services/v1/news-rss-feed.xml",
+  "https://www.gov.uk/government/organisations/competition-and-markets-authority.atom",
+  "https://www.ukri.org/news/feed/",
+  "https://feeds.bbci.co.uk/news/technology/rss.xml",
+  "https://www.theregister.com/headlines.atom",
+  "https://www.theguardian.com/uk/technology/rss",
+];
+
+const FEEDS_AI_BUSINESS = [
+  "https://venturebeat.com/category/ai/feed/",
+  "https://www.zdnet.com/topic/artificial-intelligence/rss.xml",
+  "https://www.infoworld.com/category/artificial-intelligence/index.rss",
+  "https://techcrunch.com/tag/artificial-intelligence/feed/",
+  "https://www.theregister.com/software/ai_ml/headlines.atom",
+];
+
+const FEEDS_AI_WORK = [
+  "https://workspaceupdates.googleblog.com/atom.xml",
+  "https://www.theverge.com/rss/index.xml",
+  "https://www.engadget.com/rss.xml",
+  "https://techcrunch.com/tag/artificial-intelligence/feed/",
+  "https://www.theguardian.com/technology/rss",
+];
+
+const FEEDS_GLOBAL_AI = [
+  "https://www.technologyreview.com/feed/",
+  "https://www.wired.com/feed/tag/ai/latest/rss",
+  "https://www.theregister.com/software/ai_ml/headlines.atom",
+  "https://feeds.bbci.co.uk/news/technology/rss.xml",
+  "https://export.arxiv.org/rss/cs.AI",
+  "https://export.arxiv.org/rss/cs.LG",
+];
+
+const FEEDS_AI_SECURITY = [
+  "https://www.ncsc.gov.uk/api/1/services/v1/news-rss-feed.xml",
+  "https://www.theregister.com/security/headlines.atom",
+  "https://krebsonsecurity.com/feed/",
+  "https://www.schneier.com/blog/atom.xml",
+  "https://www.cisa.gov/cybersecurity-advisories/all.xml",
+];
+
+const FEEDS_ETHICS_POLICY = [
+  "https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology.atom",
+  "https://www.gov.uk/government/organisations/competition-and-markets-authority.atom",
+  "https://www.ukri.org/news/feed/",
+  "https://www.theguardian.com/technology/rss",
+  "https://www.technologyreview.com/feed/",
+  "https://www.wired.com/feed/tag/ai/latest/rss",
+];
+
+// --- Helpers -----------------------------------------------------------------
+
+function truncate(text = "", n = 600) {
+  return text.length > n ? text.slice(0, n) + "…" : text;
+}
+
+function todayYMD() {
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${dd}`;
+}
+
+function isoAndHumanDate() {
+  const now = new Date();
+  return {
+    iso: now.toISOString(),
+    human: now.toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" }),
+  };
+}
+
+function htmlEscape(s = "") {
+  return s.replace(/[&<>"']/g, (m) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[m]));
+}
+
+function safeHostname(url) {
+  try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return ""; }
+}
+
+function normalizeTitle(s = "") {
+  return s.toLowerCase().replace(/\s+/g, " ").trim();
+}
+
+function isFresh(dateObj, maxHours) {
+  if (!dateObj || isNaN(dateObj.getTime())) return false;
+  const ageMs = Date.now() - dateObj.getTime();
+  return ageMs >= 0 && ageMs <= maxHours * 3600 * 1000;
+}
+
+// --- Relevance filters --------------------------------------------------------
+
+function isAIRelated(it) {
+  const hay = `${it.title} ${it.snippet} ${it.source}`.toLowerCase();
+  const aiCore = /\b(ai|a\.i\.|artificial intelligence|machine learning|deep learning|neural|llm|large language model|foundation model|genai|generative|text-to-image|diffusion|transformer|inference|fine-tun(e|ing)|prompt|agent|copilot)\b/i;
+  const brands = /\b(openai|chatgpt|gpt-?\d|gemini|deepmind|anthropic|claude|mistral|llama|meta ai|copilot|midjourney|stability ai|stable diffusion|hugging face)\b/i;
+  return aiCore.test(hay) || brands.test(hay);
+}
+
+function isCreatorCopyrightAngle(it) {
+  const hay = `${it.title} ${it.snippet} ${it.source}`.toLowerCase();
+
+  const creatorCore = /\b(creator|creators|artist|artists|musician|musicians|writer|writers|publisher|publishers|newsroom|journalism|photographer|illustrator|voice actor|actor|screenwriter|content creator|youtube|tiktok|spotify|substack|patreon|twitch)\b/i;
+
+  const copyrightCore = /\b(copyright|licen[cs]e|licensing|royalt(y|ies)|\bip\b|intellectual property|rightsholder|rights holder|infring(e|ement)|dmca|lawsuit|class action|fair use|fair dealing|attribution)\b/i;
+
+  const monetisationCore = /\b(monetis(e|ation)|revenue|creator program|partner program|ad(s|vertising)|subscriptions?|paywall|tips|tipping|payout|earnings|sponsorship|brand deal|affiliate|marketplace|commission|pricing|tier|premium|rollout|feature update|product update|launch)\b/i;
+
+  const weakAIHint = /\b(ai|artificial intelligence|generative|genai|model|training data|text[- ]to[- ]image|deepfake|synthetic|llm)\b/i;
+
+  return (creatorCore.test(hay) || copyrightCore.test(hay) || monetisationCore.test(hay)) && weakAIHint.test(hay);
+}
+
+// Business/Work: allow AI-adjacent stories even when RSS snippets omit "AI"
+function isBusinessWorkRelevant(it) {
+  const hay = `${it.title} ${it.snippet} ${it.source}`.toLowerCase();
+  return /(copilot|assistant|automation|workflow|productivity|microsoft|google|workspace|office|teams|slack|notion|jira|confluence|crm|erp|vendor|platform|feature|launch|rollout|pricing|enterprise|saas|update|release|roadmap)/i.test(hay);
+}
+
+// Security tab: allow broader security context (even if not explicit AI)
+function isSecurityRelevant(it) {
+  const hay = `${it.title} ${it.snippet} ${it.source}`.toLowerCase();
+  return /(security|secure|vulnerability|cve-\d{4}-\d+|exploit|malware|phishing|ransomware|breach|incident|fraud|scam|deepfake|prompt injection|jailbreak|red team|red-teaming|cisa|ncsc|nist|zero[- ]day|patch|advisory)/i.test(hay);
+}
+
+// Ethics/Policy: allow policy/rights/privacy even if AI is only implied
+function isEthicsPolicyRelevant(it) {
+  const hay = `${it.title} ${it.snippet} ${it.source}`.toLowerCase();
+  return /(ethics|policy|regulation|ai act|safety|alignment|bias|fairness|transparency|accountability|consent|copyright|licen[cs]ing|royalt|intellectual property|training data|data protection|privacy|audit|assurance|standards|cma|dsit|creators?|artists?|publishers?|journalism|deepfake|synthetic|election|misinformation|content moderation|monetis(e|ation)|revenue|subscriptions?|royalties)/i.test(hay);
+}
+
+// --- Scoring -----------------------------------------------------------------
+
+function scoreUK(it) {
+  const h = `${it.source} ${it.title} ${it.snippet}`.toLowerCase();
+  return /(^|\W)(uk|u\.k\.|united kingdom|britain|british|london|cma|ico|ncsc|dsit|ukri|ofcom|gov\.uk|govuk|turing institute)(\W|$)/i.test(h) ? 2 : 0;
+}
+
+function scoreBusiness(it) {
+  const h = `${it.source} ${it.title} ${it.snippet}`.toLowerCase();
+  return /(enterprise|company|companies|rollout|deployment|adoption|governance|roi|procurement|product|customers|regulation|compliance|contact centre|crm|erp|hcm|scm|supply chain|cost|pricing|vendor|platform|monetis(e|ation)|revenue|subscription|product update|feature update|launch)/i.test(h) ? 2 : 0;
+}
+
+function scoreWork(it) {
+  const h = `${it.source} ${it.title} ${it.snippet}`.toLowerCase();
+  return /(productivity|copilot|assistant|workflow|automation|meeting|notes|email|docs|spreadsheets|slides|calendar|teams|slack|notion|jira|confluence|chrome extension|integration|update|release)/i.test(h) ? 2 : 0;
+}
+
+function scoreGlobal(_it) { return 0; }
+
+function scoreSecurity(it) {
+  const h = `${it.source} ${it.title} ${it.snippet}`.toLowerCase();
+  return /(security|secure|vulnerability|exploit|malware|phishing|ransomware|breach|incident|prompt injection|jailbreak|model theft|data exfiltration|red team|red-teaming|abuse|misuse|deepfake|fraud|scam|voice clone|biometric|authentication|cisa|ncsc|nist)/i.test(h) ? 3 : 0;
+}
+
+function scoreEthics(it) {
+  const h = `${it.source} ${it.title} ${it.snippet}`.toLowerCase();
+  return /(ethics|policy|regulation|safety|bias|fairness|transparency|accountability|consent|copyright|licen[cs]ing|royalt|intellectual property|training data|data protection|privacy|audit|assurance|standards|creators?|artists?|publishers?|journalism|deepfake|synthetic|election|misinformation|monetis(e|ation)|revenue|subscriptions?)/i.test(h) ? 3 : 0;
+}
+
+// --- IO helpers ---------------------------------------------------------------
+
+async function loadSeenFrom(statePath) {
+  try {
+    const raw = await fs.readFile(statePath, "utf8");
+    const j = JSON.parse(raw);
+    return {
+      links: new Set(j.links || []),
+      titles: new Set((j.titles || []).map(normalizeTitle)),
+    };
+  } catch {
+    return { links: new Set(), titles: new Set() };
+  }
+}
+
+async function saveSeenTo(statePath, seen) {
+  await fs.mkdir(STATE_DIR, { recursive: true });
+  const payload = {
+    links: Array.from(seen.links),
+    titles: Array.from(seen.titles),
+    updated: new Date().toISOString(),
+  };
+  await fs.writeFile(statePath, JSON.stringify(payload, null, 2), "utf8");
+}
+
+async function writeFileAtomic(filePath, content) {
+  await fs.mkdir(path.dirname(filePath), { recursive: true });
+  const tmp = filePath + ".tmp";
+  await fs.writeFile(tmp, content, "utf8");
+  await fs.rename(tmp, filePath);
+}
+
+// --- Collection --------------------------------------------------------------
+
+function dedupeKey(it) {
+  const host = (it.source || "").toLowerCase();
+  const title = normalizeTitle(it.title || "");
+  return `${host}::${title}`;
+}
+
+async function collectItemsWithFreshness(feeds, seen, maxHours, scoreFn, usedPool) {
+  const items = [];
+
+  for (const url of feeds) {
+    try {
+      const feed = await rss.parseURL(url);
+      for (const it of feed.items) {
+        const link = it.link || it.guid;
+        if (!link) continue;
+
+        const dateStr = it.isoDate || it.pubDate || it.pubdate || null;
+        const publishedAt = dateStr ? new Date(dateStr) : null;
+        if (maxHours && !isFresh(publishedAt, maxHours)) continue;
+
+        const title = (it.title || "").trim();
+        const snippet = (it.contentSnippet || it.summary || it.content || "")
+          .replace(/\s+/g, " ")
+          .trim();
+
+        const titleNorm = normalizeTitle(title);
+        if (seen.links.has(link) || (titleNorm && seen.titles.has(titleNorm))) continue;
+
+        const source = safeHostname(link);
+        const item = { title, link, source, snippet, publishedAt };
+
+        // Relevance gate (looser and per-tab)
+        if (REQUIRE_RELEVANCE) {
+          const okAI = isAIRelated(item) || isCreatorCopyrightAngle(item);
+
+          const isSecurityTab = scoreFn === scoreSecurity;
+          const isBizTab = scoreFn === scoreBusiness;
+          const isWorkTab = scoreFn === scoreWork;
+          const isEthicsTab = scoreFn === scoreEthics;
+
+          if (!okAI) {
+            if (isSecurityTab && isSecurityRelevant(item)) {
+              // allow security context
+            } else if ((isBizTab || isWorkTab) && isBusinessWorkRelevant(item)) {
+              // allow AI-adjacent business/work items
+            } else if (isEthicsTab && isEthicsPolicyRelevant(item)) {
+              // allow policy/rights/privacy items
+            } else {
+              continue;
+            }
+          }
+        }
+
+        // Soft cross-tab de-dupe: mark but don't skip
+        item._dupe = usedPool ? usedPool.has(dedupeKey(item)) : false;
+
+        item._score = scoreFn ? scoreFn(item) : 0;
+        items.push(item);
+      }
+    } catch (e) {
+      logWarn("RSS error:", url, e.message);
+      recordFeedError(url, e.message);
+    }
+  }
+
+  // De-dupe by link
+  const seenLinks = new Set();
+  const unique = [];
+  for (const it of items) {
+    if (!seenLinks.has(it.link)) {
+      seenLinks.add(it.link);
+      unique.push(it);
+    }
+  }
+
+  // Prefer non-duplicates first, then score, then newest
+  unique.sort((a, b) => {
+    const dupeDelta = (a._dupe === b._dupe) ? 0 : (a._dupe ? 1 : -1);
+    if (dupeDelta !== 0) return dupeDelta;
+
+    const sDelta = (b._score || 0) - (a._score || 0);
+    if (sDelta !== 0) return sDelta;
+
+    const at = a.publishedAt ? a.publishedAt.getTime() : 0;
+    const bt = b.publishedAt ? b.publishedAt.getTime() : 0;
+    return bt - at;
+  });
+
+  // Spread across hosts to increase diversity
+  const byHost = new Map();
+  for (const it of unique) {
+    if (!byHost.has(it.source)) byHost.set(it.source, []);
+    byHost.get(it.source).push(it);
+  }
+  const picks = [];
+  while (picks.length < MAX_ITEMS) {
+    let added = false;
+    for (const arr of byHost.values()) {
+      if (arr.length && picks.length < MAX_ITEMS) {
+        picks.push(arr.shift());
+        added = true;
+      }
+    }
+    if (!added) break;
+  }
+
+  return picks;
+}
+
+// --- Prompting ----------------------------------------------------------------
+
+function buildPromptForTab(tabKey, items) {
+  const sourcesBlock = items.map((it, i) =>
+    `(${i + 1}) [${it.source}] ${it.title}\nURL: ${it.link}\nSnippet: ${truncate(it.snippet, 600)}`
+  ).join("\n\n");
+
+  const intentByTab = {
+    uk: "AI within the UK — regulators, government, UK research, UK firms, and UK implications of global AI news.",
+    business: "AI & Business — how organisations are deploying AI (rollouts, ROI signals, governance, vendor/platform moves). Include monetisation and product updates when present.",
+    work: "AI & Work — productivity tools, copilots, workflow automation, and practical workplace usage.",
+    global: "Global AI — major model releases, research, funding, and platform shifts worldwide.",
+    security: "AI Security — incidents, misuse, deepfakes, prompt injection/jailbreaks, defensive guidance and mitigations. Some items may be broader security context; clearly note when AI is not explicitly mentioned.",
+    ethics: "Ethics & Policy — regulation, privacy, audits/assurance, bias/fairness, accountability, and creator economy/copyright where AI is involved.",
+  };
+
+  const intent = intentByTab[tabKey] || "AI news.";
+
+  return `You are a cautious news summariser.
+
+CONTEXT:
+We publish a daily 2-minute brief about: ${intent}
+
+INPUT SOURCES (RSS titles + snippets only):
+${sourcesBlock}
+
+YOUR TASK:
+- Produce a concise, neutral daily brief aligned to the context above.
+- Output sections in this exact format:
+1) ONE_SENTENCE: <a single factual sentence>
+2) WHY_IT_MATTERS:
+   - <bullet 1>
+   - <bullet 2>
+   - <bullet 3>
+3) EXPLAINER (200–300 words, plain English)
+4) TAGS: comma-separated lowercase tags (3–8)
+
+RULES:
+- Use ONLY facts supported by the provided snippets/titles; do not speculate.
+- If sources are vague, acknowledge uncertainty.
+- No quotes longer than 20 words.
+- No images.
+- End with nothing else.`;
+}
+
+function parseModelOutput(text) {
+  const oneMatch = text.match(/ONE[_\s-]*SENTENCE:\s*(.+)/i);
+  let oneLiner = (oneMatch && oneMatch[1] ? oneMatch[1] : "").trim();
+  if (!oneLiner) {
+    oneLiner = (text.split("\n").map(s => s.trim()).find(s => s && !/^(\d\)|why|explainer|tags|tl;dr)/i.test(s)) || "").trim();
+  }
+  if (/^tl;?dr[:\s-]/i.test(oneLiner)) {
+    oneLiner = oneLiner.replace(/^tl;?dr[:\s-]\s*/i, "");
+  }
+
+  const bullets = Array.from(text.matchAll(/^\s*-\s+(.+)$/gmi))
+    .map((m) => m[1].trim())
+    .slice(0, 3);
+
+  const explainerPart = text.split(/^\s*3\)\s*EXPLAINER/i)[1] || text.split(/EXPLAINER/i)[1] || "";
+  const explainer = explainerPart.replace(/^:\s*/, "").split(/^\s*4\)\s*TAGS:/im)[0]?.trim() || "";
+
+  const tagsMatch = text.match(/TAGS:\s*(.+)/i);
+  const tags = (tagsMatch && tagsMatch[1] ? tagsMatch[1] : "")
+    .split(",")
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean);
+
+  return { oneLiner, bullets, explainer, tags };
+}
+
+function toHtmlList(bullets) {
+  return bullets.map((b) => `<li>${htmlEscape(b)}</li>`).join("\n");
+}
+
+function toSourcesLinks(items) {
+  const seen = new Set();
+  const unique = [];
+  for (const it of items) {
+    const key = `${it.source}|${it.title}`;
+    if (!seen.has(key)) {
+      seen.add(key);
+      unique.push(it);
+    }
+  }
+  return unique.slice(0, 4).map(it => {
+    const label = it.source || "source";
+    const title = htmlEscape(truncate(it.title, 100));
+    const href = htmlEscape(it.link);
+    return `<a href="${href}" target="_blank" rel="noopener noreferrer" title="${title}">${label}</a>`;
+  }).join(" ");
+}
+
+function sanitizeExplainer(explainerText) {
+  return sanitizeHtml(explainerText, {
+    allowedTags: ["p", "em", "strong", "ul", "ol", "li", "a", "br"],
+    allowedAttributes: { a: ["href", "title", "target", "rel"] },
+    allowedSchemes: ["http", "https", "mailto"],
+  });
+}
+
+// --- Tabs UI -----------------------------------------------------------------
+
+function tabsNavHtml() {
+  return `
+<div class="tabs-wrap">
+  <div class="tabs" role="tablist" aria-label="Brief tabs">
+    <button class="tab is-active" role="tab" aria-selected="true" data-tab="uk">UK AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="business">AI &amp; Business</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="work">AI &amp; Work</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="global">Global AI</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="security">AI Security</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="ethics">Ethics &amp; Policy</button>
+  </div>
+  <p class="tab-desc" id="tabDesc">UK AI brief — A daily summary of AI news most relevant to the UK.</p>
+</div>
+`.trim();
+}
+
+function tabsAssetsHtml() {
+  return `
+<style>
+  .tabs{display:flex;gap:14px;flex-wrap:wrap;margin:4px 0 6px}
+  .tab{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;padding:6px 2px;cursor:pointer}
+  .tab:hover{color:var(--fg)}
+  .tab.is-active{color:var(--fg);border-bottom:2px solid var(--fg)}
+  .tab-desc{margin:0 0 10px;color:var(--muted);font-size:.95rem;line-height:1.4}
+</style>
+
+<script>
+(function(){
+  var TAB_DESC = {
+    uk: "UK AI brief — A daily summary of AI news most relevant to the UK.",
+    business: "AI & Business — Deployments, governance, monetisation, and product updates.",
+    work: "AI & Work — Productivity tools, copilots, automation, and practical usage.",
+    global: "Global AI — New models, major research, funding, and platform shifts worldwide.",
+    security: "AI Security — Incidents, misuse, deepfakes, prompt injection, and mitigations.",
+    ethics: "Ethics & Policy — Regulation, privacy, audits, bias/fairness, and creator/copyright issues."
+  };
+
+  function setTab(next){
+    var tabs = document.querySelectorAll('.tab');
+    var panels = document.querySelectorAll('.brief-panel');
+
+    tabs.forEach(function(t){
+      var active = t.getAttribute('data-tab') === next;
+      t.classList.toggle('is-active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    panels.forEach(function(p){
+      var match = p.getAttribute('data-tab') === next;
+      if(match){
+        p.removeAttribute('hidden');
+        p.setAttribute('aria-hidden','false');
+      }else{
+        p.setAttribute('hidden','');
+        p.setAttribute('aria-hidden','true');
+      }
+    });
+
+    var el = document.getElementById('tabDesc');
+    if(el) el.textContent = TAB_DESC[next] || "";
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest ? e.target.closest('.tab') : null;
+    if(!btn) return;
+    setTab(btn.getAttribute('data-tab'));
+  });
+
+  // Always start on UK AI
+  setTab('uk');
+})();
+</script>
+`.trim();
+}
+
+function renderPanelHtml({ tabKey, oneLiner, bullets, explainerHtml, sourcesLinks, tagsHtml }) {
+  const hiddenAttrs = tabKey === "uk" ? "" : ' hidden aria-hidden="true"';
+  return `
+<section class="brief-panel" data-tab="${htmlEscape(tabKey)}"${hiddenAttrs}>
+  <section class="card">
+    <p class="tldr">In brief — ${htmlEscape(oneLiner)}</p>
+
+    <h2>Why it matters</h2>
+    <ul>
+      ${toHtmlList(bullets)}
+    </ul>
+
+    <h2>Explainer</h2>
+    <div class="explainer">
+      ${explainerHtml}
+    </div>
+
+    <p class="sources">Sources: ${sourcesLinks}</p>
+
+    <div class="tags" aria-label="Tags">
+      ${tagsHtml}
+    </div>
+  </section>
+</section>
+`.trim();
+}
+
+// --- Static pages ------------------------------------------------------------
+
+function renderAboutPage() {
+  const { human } = isoAndHumanDate();
+  return `<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>About · Today’s 2-Minute UK AI Brief</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body{font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;margin:0;background:#0b0c10;color:#e5e7eb}
+    main{max-width:760px;margin:48px auto;padding:0 16px}
+    a{color:#93c5fd}
+    h1{font-size:1.6rem;margin:0 0 12px}
+    p{margin:0 0 12px}
+    ul{padding-left:20px}
+    nav{margin-bottom:16px}
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="/">← Back to today</a> · <a href="/archive/">Archive</a> · <a href="/changelog.html">Changelog</a></nav>
+    <h1>About this page</h1>
+    <p>This site publishes concise daily briefs from public RSS/Atom feeds and asks an AI model to draft short summaries strictly from feed titles/snippets.</p>
+    <ul>
+      <li><strong>Update cadence:</strong> daily (typically morning UK time).</li>
+      <li><strong>Tabs:</strong> UK AI, AI &amp; Business, AI &amp; Work, Global AI, AI Security, Ethics &amp; Policy.</li>
+      <li><strong>Filtering:</strong> Items are selected to match each tab theme. Some tabs may include adjacent stories if they fit the audience (e.g., workplace tooling, security context, creator/copyright).</li>
+      <li><strong>Limitations:</strong> We avoid speculation and keep to information present in sources.</li>
+      <li><strong>Attribution:</strong> Source links appear on the page; click to read originals.</li>
+      <li><strong>Privacy:</strong> No tracking; static HTML.</li>
+    </ul>
+    <p>You can connect with me on
+      <a href="https://www.linkedin.com/in/peter-white-37112941/" target="_blank" rel="noopener">LinkedIn</a>.
+    </p>
+    <p style="opacity:.7">Last generated: ${human}</p>
+  </main>
+</body>
+</html>`;
+}
+
+async function renderChangelogPage() {
+  const { human } = isoAndHumanDate();
+  let entries = [];
+  try {
+    const raw = await fs.readFile(CHANGELOG_JSON, "utf8");
+    const j = JSON.parse(raw);
+    entries = Array.isArray(j.entries) ? j.entries : [];
+  } catch {
+    entries = [];
+  }
+
+  entries.sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
+
+  const items = entries.map(e => {
+    const date = htmlEscape(e.date || "");
+    const type = htmlEscape(e.type || "");
+    const title = htmlEscape(e.title || "");
+    const detail = htmlEscape(e.detail || "");
+    return `<li><strong>${date}</strong> — <em>${type}</em> — ${title}${detail ? ` <span style="opacity:.75">(${detail})</span>` : ""}</li>`;
+  }).join("\n");
+
+  return `<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>Changelog · Today’s 2-Minute UK AI Brief</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body{font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;margin:0;background:#0b0c10;color:#e5e7eb}
+    main{max-width:760px;margin:48px auto;padding:0 16px}
+    a{color:#93c5fd}
+    h1{font-size:1.6rem;margin:0 0 12px}
+    nav{margin-bottom:16px}
+    ul{padding-left:20px}
+    li{margin-bottom:10px}
+    code{background:rgba(255,255,255,.06);padding:2px 6px;border-radius:6px}
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="/">← Back to today</a> · <a href="/about.html">About</a> · <a href="/archive/">Archive</a></nav>
+    <h1>Changelog</h1>
+    ${entries.length ? `<ul>${items}</ul>` : `<p style="opacity:.8">No changelog entries yet. Create <code>data/changelog.json</code> to populate this page.</p>`}
+    <p style="opacity:.7">Last generated: ${human}</p>
+  </main>
+</body>
+</html>`;
+}
+
+// --- Graceful tab failure ----------------------------------------------------
+
+function tabLabel(tabKey) {
+  return ({
+    uk: "UK AI",
+    business: "AI & Business",
+    work: "AI & Work",
+    global: "Global AI",
+    security: "AI Security",
+    ethics: "Ethics & Policy",
+  }[tabKey] || tabKey);
+}
+
+function sanitizeTextToHtml(text) {
+  const withParas = String(text || "")
+    .split("\n\n")
+    .map(p => p.trim())
+    .filter(Boolean)
+    .map(p => `<p>${htmlEscape(p).replace(/\n/g, "<br>")}</p>`)
+    .join("\n");
+  return sanitizeExplainer(withParas);
+}
+
+function fallbackTabResult(tabKey, reason, feeds = []) {
+  const label = tabLabel(tabKey);
+
+  const failed = [];
+  for (const u of feeds) {
+    const e = FEED_ERRORS.get(u);
+    if (e) failed.push(`${u} — ${e.lastError}`);
+  }
+
+  const diag =
+    failed.length
+      ? `\n\nRecent feed errors:\n- ${failed.slice(0, 6).join("\n- ")}`
+      : "";
+
+  return {
+    tabKey,
+    items: [],
+    freshnessUsed: null,
+    oneLiner: `${label} has no update today.`,
+    bullets: [
+      "One or more RSS sources failed or didn’t publish enough relevant items in the last 24–120 hours.",
+      "Other tabs may still have updated normally.",
+      "We can swap or expand the feed list for this tab to improve coverage.",
+    ],
+    explainerHtml: sanitizeTextToHtml(
+      `This tab couldn’t generate a brief today.\n\nReason: ${reason}${diag}`
+    ),
+    tags: ["no-update", tabKey],
+    _failed: true,
+    _reason: reason,
+  };
+}
+
+async function safeGenerateOneTab(args) {
+  try {
+    return await generateOneTab(args);
+  } catch (err) {
+    const msg = err?.message || String(err);
+    logWarn(`[${args.tabKey}] Tab failed; using fallback panel:`, msg);
+    return fallbackTabResult(args.tabKey, msg, args.feeds || []);
+  }
+}
+
+// --- Tab generation ----------------------------------------------------------
+
+async function generateOneTab({ tabKey, feeds, seenPath, scoreFn, usedPool }) {
+  const seen = await loadSeenFrom(seenPath);
+
+  const minItems = minItemsFor(tabKey);
+
+  let items = await collectItemsWithFreshness(feeds, seen, FRESH_HOURS_PRIMARY, scoreFn, usedPool);
+  let freshnessUsed = FRESH_HOURS_PRIMARY;
+
+  const distinct = new Set(items.map(i => i.source));
+  if (items.length < minItems || distinct.size < Math.min(MIN_DISTINCT_HOSTS, items.length)) {
+    for (const h of FRESH_HOURS_FALLBACKS) {
+      const attempt = await collectItemsWithFreshness(feeds, seen, h, scoreFn, usedPool);
+      const d2 = new Set(attempt.map(i => i.source));
+      if (attempt.length >= minItems && d2.size >= Math.min(MIN_DISTINCT_HOSTS, attempt.length)) {
+        items = attempt;
+        freshnessUsed = h;
+        break;
+      }
+    }
+  }
+
+  if (items.length < minItems) {
+    throw new Error(`[${tabKey}] No fresh sources found. Try expanding feeds or widening the window.`);
+  }
+
+  items = items.slice(0, MAX_ITEMS);
+
+  // Mark used so later tabs prefer different items (soft dedupe only)
+  if (usedPool) {
+    for (const it of items) usedPool.add(dedupeKey(it));
+  }
+
+  const prompt = buildPromptForTab(tabKey, items);
+  log(`[${tabKey}] Calling OpenAI with`, items.length, "items");
+  const resp = await openai.chat.completions.create({
+    model: "gpt-4o-mini",
+    temperature: 0.4,
+    messages: [
+      { role: "system", content: "You write precise, sourced news briefs." },
+      { role: "user", content: prompt },
+    ],
+  });
+
+  const raw = resp.choices?.[0]?.message?.content?.trim() ?? "";
+  if (!raw) throw new Error(`[${tabKey}] Empty response from model`);
+
+  const { oneLiner, bullets, explainer, tags } = parseModelOutput(raw);
+
+  let explainerText = explainer;
+  if (freshnessUsed > FRESH_HOURS_PRIMARY) {
+    explainerText += `\n\n_(Note: One or more sources may be older than ${FRESH_HOURS_PRIMARY} hours due to limited fresh coverage.)_`;
+  }
+  const explainerHtml = sanitizeExplainer(explainerText);
+
+  // Update seen cache
+  for (const it of items) {
+    seen.links.add(it.link);
+    const t = normalizeTitle(it.title || "");
+    if (t) seen.titles.add(t);
+  }
+  await saveSeenTo(seenPath, seen);
+
+  return { tabKey, items, freshnessUsed, oneLiner, bullets, explainerHtml, tags };
+}
+
+// --- Main --------------------------------------------------------------------
+
+async function main() {
+  log("Start generate");
+
+  await fs.mkdir(ARCHIVE_DIR, { recursive: true });
+
+  // Soft cross-tab de-dup pool (order only affects "preference", not success)
+  const usedPool = new Set();
+
+  // Generate in your preferred priority: security → global → uk → business → work → ethics
+  const security = await safeGenerateOneTab({
+    tabKey: "security",
+    feeds: FEEDS_AI_SECURITY,
+    seenPath: SEEN_SECURITY_PATH,
+    scoreFn: scoreSecurity,
+    usedPool,
+  });
+
+  const global = await safeGenerateOneTab({
+    tabKey: "global",
+    feeds: FEEDS_GLOBAL_AI,
+    seenPath: SEEN_GLOBAL_PATH,
+    scoreFn: scoreGlobal,
+    usedPool,
+  });
+
+  const uk = await safeGenerateOneTab({
+    tabKey: "uk",
+    feeds: FEEDS_UK,
+    seenPath: SEEN_UK_PATH,
+    scoreFn: scoreUK,
+    usedPool: null, // UK wins; allow repeats if needed
+  });
+
+  const business = await safeGenerateOneTab({
+    tabKey: "business",
+    feeds: FEEDS_AI_BUSINESS,
+    seenPath: SEEN_BUSINESS_PATH,
+    scoreFn: scoreBusiness,
+    usedPool,
+  });
+
+  const work = await safeGenerateOneTab({
+    tabKey: "work",
+    feeds: FEEDS_AI_WORK,
+    seenPath: SEEN_WORK_PATH,
+    scoreFn: scoreWork,
+    usedPool,
+  });
+
+  const ethics = await safeGenerateOneTab({
+    tabKey: "ethics",
+    feeds: FEEDS_ETHICS_POLICY,
+    seenPath: SEEN_ETHICS_PATH,
+    scoreFn: scoreEthics,
+    usedPool,
+  });
+
+  // UI order (UK first + default)
+  const tabs = [uk, business, work, global, security, ethics];
+
+  const tpl = await fs.readFile(INDEX_TEMPLATE, "utf8");
+  const supportsTabs =
+    tpl.includes("{{TABS_NAV}}") &&
+    tpl.includes("{{TAB_PANELS}}") &&
+    tpl.includes("{{TABS_ASSETS}}");
+
+  if (!supportsTabs) {
+    throw new Error("index.template.html must include {{TABS_NAV}}, {{TAB_PANELS}}, {{TABS_ASSETS}} placeholders.");
+  }
+
+  const { iso, human } = isoAndHumanDate();
+
+  const panelsHtml = tabs.map(t => {
+    const sourcesLinks = t.items.length ? toSourcesLinks(t.items) : `<span style="opacity:.8">No sources today</span>`;
+    const tagsHtml = (t.tags || []).map(tag => `<span class="tag">${htmlEscape(tag)}</span>`).join(" ");
+    return renderPanelHtml({
+      tabKey: t.tabKey,
+      oneLiner: t.oneLiner,
+      bullets: t.bullets,
+      explainerHtml: t.explainerHtml,
+      sourcesLinks,
+      tagsHtml,
+    });
+  }).join("\n\n");
+
+  const html = tpl
+    .replace("{{ISO_DATE}}", iso)
+    .replace("{{HUMAN_DATE}}", human)
+    .replace("{{TABS_NAV}}", tabsNavHtml())
+    .replace("{{TAB_PANELS}}", panelsHtml)
+    .replace("{{TABS_ASSETS}}", tabsAssetsHtml());
+
+  await writeFileAtomic(INDEX_OUT, html);
+
+  // Structured JSON
+  await fs.mkdir(DATA_OUT_DIR, { recursive: true });
+  const tabsJson = {
+    generated_at_iso: iso,
+    generated_at_human: human,
+    tabs: tabs.map(t => ({
+      key: t.tabKey,
+      failed: Boolean(t._failed),
+      failure_reason: t._failed ? t._reason : null,
+      freshnessUsed: t.freshnessUsed,
+      oneLiner: t.oneLiner,
+      bullets: t.bullets,
+      tags: t.tags,
+      sources: (t.items || []).map(it => ({
+        title: it.title,
+        link: it.link,
+        source: it.source,
+        publishedAt: it.publishedAt ? it.publishedAt.toISOString?.() : null,
+      })),
+    })),
+  };
+  await writeFileAtomic(TABS_JSON_OUT, JSON.stringify(tabsJson, null, 2));
+
+  // Archive snapshot
+  const ymd = todayYMD();
+  await writeFileAtomic(path.join(ARCHIVE_DIR, `${ymd}.html`), html);
+
+  // Archive index
+  const files = await fs.readdir(ARCHIVE_DIR).catch(() => []);
+  const dated = files.filter(f => /^\d{4}-\d{2}-\d{2}\.html$/.test(f)).sort().reverse();
+
+  const archiveIndex = `<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>Archive · Today’s 2-Minute UK AI Brief</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body{font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;margin:0;background:#0b0c10;color:#e5e7eb}
+    main{max-width:760px;margin:48px auto;padding:0 16px}
+    a{color:#93c5fd}
+    h1{font-size:1.6rem;margin:0 0 12px}
+    ul{padding-left:20px}
+    nav{margin-bottom:16px}
+  </style>
+</head>
+<body>
+  <main>
+    <nav><a href="/">← Back to today</a> · <a href="/about.html">About</a> · <a href="/changelog.html">Changelog</a></nav>
+    <h1>Archive</h1>
+    <ul>
+      ${dated.map(f => {
+        const label = f.replace(".html","");
+        return `<li><a href="/archive/${f}">${label}</a></li>`;
+      }).join("\n")}
+    </ul>
+  </main>
+</body>
+</html>`;
+  await writeFileAtomic(path.join(ARCHIVE_DIR, "index.html"), archiveIndex);
+
+  // About + Changelog
+  await writeFileAtomic(ABOUT_OUT, renderAboutPage());
+  await writeFileAtomic(CHANGELOG_OUT, await renderChangelogPage());
+
+  log(`Generated index + archive (${ymd}) + about + changelog`);
+  for (const t of tabs) {
+    const hostStr = t.items?.length ? Array.from(new Set(t.items.map(i => i.source))).join(", ") : "none";
+    const freshStr = t.freshnessUsed ? `<=${t.freshnessUsed}h` : "n/a";
+    const failStr = t._failed ? ` (FAILED: ${t._reason})` : "";
+    log(`[${t.tabKey}] freshness${freshStr}; hosts: ${hostStr}${failStr}`);
+  }
+
+  if (FEED_ERRORS.size) {
+    log("Feed errors summary:");
+    for (const [u, info] of FEED_ERRORS.entries()) {
+      log(` - ${u} (${info.count}x) last: ${info.lastError}`);
+    }
+  }
+}
+
+// Clean exit
+main()
+  .then(() => {
+    log("Done; exiting cleanly.");
+    process.exit(0);
+  })
+  .catch((err) => {
+    logError(err);
+    process.exit(1);
+  });
+
