@@ -2,3 +2,48 @@
 .env
 .DS_Store
 Thumbs.db
+
+# --------------------
+# Dependencies
+# --------------------
+node_modules/
+
+# --------------------
+# Logs (site-specific)
+# --------------------
+logs/
+*.log
+
+# --------------------
+# Runtime state (do not track)
+# --------------------
+data/seen*.json
+
+# --------------------
+# Generated site output
+# --------------------
+public/index.html
+public/about.html
+public/changelog.html
+
+# Ignore all archive pages…
+public/archive/*
+# …but keep one example
+!public/archive/example.html
+
+# Generated data
+public/data/tabs.json
+public/data/metrics/
+public/data/metrics-latest.json
+public/data/metrics_report.txt
+public/data/metrics_trends.csv
+public/data/metrics_trends.json
+
+# --------------------
+# Old / backup / scratch
+# --------------------
+public/old/
+scripts/old/
+scripts/*.bak
+scripts/*.tmp
+
