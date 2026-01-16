@@ -12,9 +12,12 @@
 // Notes:
 // - Uses primary + secondary feed pools
 // - Widen freshness window only when needed (24h -> 36h -> 48h)
-// - Cross-tab de-dupe (priority: Security → Ethics → Global → UK → Business → Work)
+// - Cross-tab de-dupe (priority: Security → Ethics → Global → UK → Business → Work → Today in Tech)
 // - JSON structured logs
 // - MetricsCollector API wiring FIXED: recordTabSummary now receives picked[] items
+// - NEW: "Today in Tech" tab (model-assisted exact-date history, up to 3 items) with sources
+// - NEW: Sources rendered on page are filtered to "display-worthy":
+//        show if aiStrict===true OR offTopic===false (prevents rogue shopping/review links)
 
 import fs from "fs/promises";
 import path from "path";
@@ -106,6 +109,7 @@ const SEEN_PATHS = {
   global: path.join(STATE_DIR, "seen.global.json"),
   security: path.join(STATE_DIR, "seen.security.json"),
   ethics: path.join(STATE_DIR, "seen.ethics.json"),
+  // No seen cache for today_in_tech (history tab)
 };
 
 // Changelog source file
@@ -186,6 +190,7 @@ const FEEDS_ETHICS_SECONDARY = [
   "https://www.technologyreview.com/feed/",
 ];
 
+// Tab metadata (priority order for cross-tab de-dupe)
 const TABS = [
   { key: "security", label: "AI Security", primary: FEEDS_SECURITY_PRIMARY, secondary: FEEDS_SECURITY_SECONDARY },
   { key: "ethics", label: "Ethics & Policy", primary: FEEDS_ETHICS_PRIMARY, secondary: FEEDS_ETHICS_SECONDARY },
@@ -193,6 +198,8 @@ const TABS = [
   { key: "uk", label: "UK AI", primary: FEEDS_UK_PRIMARY, secondary: FEEDS_UK_SECONDARY },
   { key: "business", label: "AI & Business", primary: FEEDS_BUSINESS_PRIMARY, secondary: FEEDS_BUSINESS_SECONDARY },
   { key: "work", label: "AI & Work", primary: FEEDS_WORK_PRIMARY, secondary: FEEDS_WORK_SECONDARY },
+  // NEW: Today in Tech (history) – no feeds used (model-only)
+  { key: "today_in_tech", label: "Today in Tech", primary: [], secondary: [] },
 ];
 
 const TAB_DESC = {
@@ -202,6 +209,7 @@ const TAB_DESC = {
   global: "Global AI — Models, research, major releases, and big platform shifts worldwide.",
   security: "AI Security — Misuse, attacks, safeguards, auditing, and defensive practices.",
   ethics: "Ethics & Policy — Regulation, governance, rights, safety debates, and oversight.",
+  today_in_tech: "Today in Tech — Key moments from this day that shaped modern computing and technology.",
 };
 
 // --- Helpers -----------------------------------------------------------------
@@ -224,6 +232,12 @@ function isoAndHumanDate() {
     iso: now.toISOString(),
     human: now.toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" }),
   };
+}
+
+function monthDayHuman() {
+  const now = new Date();
+  // e.g. "January 15"
+  return now.toLocaleDateString("en-GB", { month: "long", day: "numeric" });
 }
 
 function htmlEscape(s = "") {
@@ -255,7 +269,7 @@ function ageHours(dateObj) {
   return Math.round(((Date.now() - dateObj.getTime()) / 3600000) * 10) / 10;
 }
 
-// AI Loose / Strict + Off-topic (already present in your logs)
+// AI Loose / Strict + Off-topic
 const AI_LOOSE_RE =
   /(ai|artificial intelligence|machine learning|ml|llm|large language|chatgpt|openai|anthropic|gemini|copilot|deepmind|model|inference|fine[-\s]?tune|prompt|agentic|agents|safety|alignment|hallucinat|dataset|training|neural|generative|diffusion)/i;
 
@@ -263,7 +277,7 @@ const AI_STRICT_RE =
   /(artificial intelligence|\bai\b|machine learning|\bml\b|\bllm\b|large language model|openai|chatgpt|gpt-?4|gpt-?5|anthropic|claude|gemini|copilot|deepmind|llama|mistral|transformer|diffusion|inference|fine[-\s]?tuning|prompt injection|agentic|ai safety|alignment|arxiv)/i;
 
 const OFFTOPIC_RE =
-  /(gift guide|gift|deal|discount|sale|percent off|best (of|for)|review|tested|hands-on|buy now|price drop|shopping|to keep you toasty|which .* should you buy|top \d+|smartphone|laptop|headphones|video game|gaming)/i;
+  /(gift guide|gift|deal|discount|sale|percent off|best (of|for)|review|tested|hands-on|buy now|price drop|shopping|to keep you toasty|which .* should you buy|top \d+|smartphone|laptop|headphones|video game|gaming|air fryer|earbuds)/i;
 
 function aiLoose(it) {
   const h = `${it.source} ${it.title} ${it.snippet}`.toLowerCase();
@@ -312,6 +326,7 @@ function scoreForTab(tabKey) {
     case "security": return scoreSecurity;
     case "ethics": return scoreEthics;
     case "global": return scoreGlobal;
+    // today_in_tech has no RSS items to score
     default: return () => 0;
   }
 }
@@ -463,22 +478,24 @@ function meetsMinimum(items) {
   return (items || []).length >= 3 && distinct.size >= Math.min(MIN_DISTINCT_HOSTS, (items || []).length);
 }
 
-function buildFallbackPanel(tabKey, reason) {
+function buildFallbackPanel(tabKey, reason, opts = {}) {
+  const baseTitle = TAB_DESC[tabKey]?.split("—")[0]?.trim() || "This tab";
+  const customOneLiner = opts?.oneLiner || `${baseTitle} has no update today.`;
+  const customExplainer = opts?.explainer || `No suitable items were found for this tab in the current run.\n\n_(Reason: ${reason})_`;
+
   return {
     tabKey,
     items: [],
     freshnessUsed: null,
     usedSecondary: false,
     relaxedAI: false,
-    oneLiner: `${TAB_DESC[tabKey]?.split("—")[0]?.trim() || "This tab"} has no update today.`,
+    oneLiner: customOneLiner,
     bullets: [
       "Coverage may be thin within the current freshness window.",
       "We’ll retry with broader sources on the next run.",
       "Use the source links on other tabs for nearby context.",
     ],
-    explainerHtml: sanitizeExplainer(
-      `No suitable items were found for this tab in the current run.\n\n_(Reason: ${reason})_`
-    ),
+    explainerHtml: sanitizeExplainer(customExplainer),
     tags: ["no-update"],
     noteText: "",
     failed: true,
@@ -544,11 +561,55 @@ RULES:
 - End with nothing else.`;
 }
 
+// NEW: Today in Tech prompt (model-assisted exact-date history)
+function buildPromptTodayInTech(dateHuman) {
+  return `You are writing a short "On this day" technology history brief.
+
+DATE:
+${dateHuman}
+
+SCOPE:
+Computing, internet, software, and AI/ML. Exclude non-tech and general world events.
+
+CRITICAL RULES (strict):
+- Only include events that happened on this EXACT calendar date (same month and day).
+- Do NOT include "around this time", "this week", or approximate anniversaries.
+- If you are not confident an event happened on this exact date, DO NOT include it.
+- Provide UP TO 3 events. Fewer is fine. If none are confident, say so explicitly.
+
+OUTPUT FORMAT (exact):
+1) ONE_SENTENCE: <one factual sentence summarising today's tech history highlights>
+2) WHY_IT_MATTERS:
+   - <bullet 1>
+   - <bullet 2>
+   - <bullet 3>
+3) EXPLAINER (200–300 words, plain English)
+   - Mention the year for each event you include.
+4) TAGS: comma-separated lowercase tags (3–6)
+5) SOURCES:
+   - <url 1>
+   - <url 2>
+   - <url 3>
+   - <url 4>
+
+SOURCES RULES:
+- Provide 2–4 URLs that directly support the events you mentioned.
+- Prefer authoritative references (e.g., Computer History Museum, IEEE, Britannica, reputable orgs/universities, well-known encyclopedic sources).
+- If you cannot provide reliable URLs, write:
+SOURCES:
+   - NONE
+
+If there are no confident events, still output in the same format with:
+ONE_SENTENCE: No widely documented technology milestones occurred on this date.
+WHY_IT_MATTERS: bullets should explain it's an incomplete historical record and invite checking other tabs.`;
+}
+
+// Robust parser even if model deviates (now also optionally captures SOURCES)
 function parseModelOutput(text) {
   const oneMatch = text.match(/ONE[_\s-]*SENTENCE:\s*(.+)/i);
   let oneLiner = (oneMatch && oneMatch[1] ? oneMatch[1] : "").trim();
   if (!oneLiner) {
-    oneLiner = (text.split("\n").map(s => s.trim()).find(s => s && !/^(\d\)|why|explainer|tags|tl;dr|in brief)/i.test(s)) || "").trim();
+    oneLiner = (text.split("\n").map(s => s.trim()).find(s => s && !/^(\d\)|why|explainer|tags|tl;dr|in brief|sources)/i.test(s)) || "").trim();
   }
   if (/^tl;?dr[:\s-]/i.test(oneLiner)) oneLiner = oneLiner.replace(/^tl;?dr[:\s-]\s*/i, "");
   if (/^in brief[:\s-]/i.test(oneLiner)) oneLiner = oneLiner.replace(/^in brief[:\s-]\s*/i, "");
@@ -557,8 +618,17 @@ function parseModelOutput(text) {
     .map((m) => m[1].trim())
     .slice(0, 3);
 
-  const explainerPart = text.split(/^\s*3\)\s*EXPLAINER/i)[1] || text.split(/EXPLAINER/i)[1] || "";
-  const explainer = explainerPart.replace(/^:\s*/, "").split(/^\s*4\)\s*TAGS:/im)[0]?.trim() || "";
+  const explainerPart =
+    text.split(/^\s*3\)\s*EXPLAINER/i)[1] ||
+    text.split(/EXPLAINER/i)[1] ||
+    "";
+  const explainer = explainerPart
+    .replace(/^:\s*/, "")
+    .split(/^\s*4\)\s*TAGS:/im)[0]
+    ?.split(/^\s*TAGS:/im)[0]
+    ?.split(/^\s*5\)\s*SOURCES:/im)[0]
+    ?.split(/^\s*SOURCES:/im)[0]
+    ?.trim() || "";
 
   const tagsMatch = text.match(/TAGS:\s*(.+)/i);
   const tags = (tagsMatch && tagsMatch[1] ? tagsMatch[1] : "")
@@ -566,23 +636,45 @@ function parseModelOutput(text) {
     .map((s) => s.trim().toLowerCase())
     .filter(Boolean);
 
-  return { oneLiner, bullets, explainer, tags };
+  // Optional sources parsing (for Today in Tech)
+  const sources = [];
+  const sourcesBlock = text.split(/^\s*(5\)\s*)?SOURCES\s*:/im)[1] || "";
+  if (sourcesBlock) {
+    const lines = sourcesBlock.split("\n").map(s => s.trim());
+    for (const line of lines) {
+      const m = line.match(/^(?:-\s*)?(https?:\/\/\S+)/i);
+      if (m && m[1]) sources.push(m[1].replace(/[)\],.]+$/, ""));
+      if (sources.length >= 6) break;
+      if (/^\s*(?:-\s*)?none\s*$/i.test(line)) break;
+      // stop if it looks like a new numbered section
+      if (/^\d+\)/.test(line)) break;
+    }
+  }
+
+  return { oneLiner, bullets, explainer, tags, sources };
 }
 
 function toHtmlList(bullets) {
   return (bullets || []).map((b) => `<li>${htmlEscape(b)}</li>`).join("\n");
 }
 
+// NEW: filter sources shown to the reader
+// Display-worthy if (aiStrict===true) OR (offTopic===false)
 function toSourcesLinks(items) {
   const seen = new Set();
   const unique = [];
+
   for (const it of items || []) {
+    const isDisplayWorthy = (it._aiStrict === true) || (it._offTopic === false);
+    if (!isDisplayWorthy) continue;
+
     const key = `${it.source}|${it.title}`;
-    if (!seen.has(key)) {
-      seen.add(key);
-      unique.push(it);
-    }
+    if (seen.has(key)) continue;
+
+    seen.add(key);
+    unique.push(it);
   }
+
   return unique.slice(0, 4).map(it => {
     const label = it.source || "source";
     const title = htmlEscape(truncate(it.title, 100));
@@ -603,6 +695,7 @@ function tabsNavHtml() {
     <button class="tab" role="tab" aria-selected="false" data-tab="global">Global AI</button>
     <button class="tab" role="tab" aria-selected="false" data-tab="security">AI Security</button>
     <button class="tab" role="tab" aria-selected="false" data-tab="ethics">Ethics &amp; Policy</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="today_in_tech">Today in Tech</button>
   </div>
   <p class="tab-desc" id="tabDesc">${htmlEscape(TAB_DESC.uk)}</p>
   <p class="tab-note" id="tabNote" hidden></p>
@@ -619,11 +712,26 @@ function tabsAssetsHtml() {
   .tab.is-active{color:var(--fg);border-bottom:2px solid var(--fg)}
   .tab-desc{margin:0 0 6px;color:var(--muted);font-size:.95rem;line-height:1.4}
   .tab-note{margin:0 0 10px;color:var(--muted);font-size:.9rem;opacity:.85}
+
+  .feedback{margin-top:14px;font-size:.9rem;opacity:.85}
+  .fb-btn{cursor:pointer;margin-right:10px}
+  .fb-btn[disabled]{opacity:.5;cursor:default}
+  .fb-status{
+    display:block;
+    margin-top:6px;
+    font-size:.9rem;
+    color:var(--fg);
+  }
+
+
+
+
 </style>
 
 <script>
 (function(){
   var TAB_DESC = ${JSON.stringify(TAB_DESC)};
+
   function setTab(next){
     var tabs = document.querySelectorAll('.tab');
     var panels = document.querySelectorAll('.brief-panel');
@@ -662,21 +770,72 @@ function tabsAssetsHtml() {
     }
   }
 
+  // -------------------------------
+  // TAB CLICK HANDLER (FIX)
+  // -------------------------------
   document.addEventListener('click', function(e){
     var btn = e.target && e.target.closest ? e.target.closest('.tab') : null;
     if(!btn) return;
     setTab(btn.getAttribute('data-tab'));
   });
 
+  // -------------------------------
+  // FEEDBACK HANDLER (👍 / 👎)
+  // -------------------------------
+  document.addEventListener('click', async function(e){
+    var btn = e.target && e.target.closest ? e.target.closest('.fb-btn') : null;
+    if(!btn) return;
+
+    var panel = btn.closest('.feedback');
+    var tab = panel && panel.getAttribute('data-tab');
+
+
+    var vote = btn.getAttribute('data-vote');
+    if(!tab || !vote) return;
+
+    // Disable both buttons for this tab
+    document.querySelectorAll('.fb-btn[data-tab="'+tab+'"]').forEach(function(b){
+      b.setAttribute('disabled','disabled');
+    });
+
+    var panel = btn.closest('.feedback');
+    var statusEl = panel && panel.querySelector('.fb-status');
+    if(statusEl){
+       statusEl.textContent = vote === 'up'
+          ? 'Thanks — glad this was useful 👍'
+          : 'Thanks — feedback noted 👎';
+    }
+
+
+    try{
+      await fetch('/api/feedback', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+          tab: tab,
+          vote: vote,
+          path: location.pathname
+        })
+      });
+    }catch(err){
+      console.warn('Feedback failed', err);
+    }
+  });
+
+  // Default tab on load
   setTab('uk');
 })();
 </script>
 `.trim();
 }
 
+
+
+
 function renderPanelHtml({ tabKey, oneLiner, bullets, explainerHtml, sourcesLinks, tagsHtml, noteText }) {
   const hiddenAttrs = tabKey === "uk" ? "" : ' hidden aria-hidden="true"';
   const noteAttr = noteText ? ` data-note="${htmlEscape(noteText)}"` : "";
+
   return `
 <section class="brief-panel" data-tab="${htmlEscape(tabKey)}"${noteAttr}${hiddenAttrs}>
   <section class="card">
@@ -697,10 +856,19 @@ function renderPanelHtml({ tabKey, oneLiner, bullets, explainerHtml, sourcesLink
     <div class="tags" aria-label="Tags">
       ${tagsHtml}
     </div>
+
+    <!-- Feedback -->
+    <div class="feedback" data-tab="${htmlEscape(tabKey)}">
+      <span>Was this useful?</span>
+      <button class="fb-btn" data-vote="up" aria-label="Thumbs up">👍</button>
+      <button class="fb-btn" data-vote="down" aria-label="Thumbs down">👎</button>
+      <span class="fb-status" aria-live="polite"></span>
+    </div>
   </section>
 </section>
 `.trim();
 }
+
 
 // --- Pages -------------------------------------------------------------------
 
@@ -729,7 +897,7 @@ function renderAboutPage() {
     <p>This site publishes concise daily AI briefs from public RSS/Atom feeds and asks an AI model to draft short summaries strictly from feed titles/snippets.</p>
     <ul>
       <li><strong>Update cadence:</strong> daily (typically morning UK time).</li>
-      <li><strong>Tabs:</strong> UK AI, AI &amp; Business, AI &amp; Work, Global AI, AI Security, Ethics &amp; Policy.</li>
+      <li><strong>Tabs:</strong> UK AI, AI &amp; Business, AI &amp; Work, Global AI, AI Security, Ethics &amp; Policy, Today in Tech.</li>
       <li><strong>Attribution:</strong> Source links appear on each tab; click to read originals.</li>
       <li><strong>Limitations:</strong> Summaries only reflect what appears in the feed titles/snippets. If coverage is thin, we may broaden sources and note it.</li>
       <li><strong>Privacy:</strong> No tracking; static HTML.</li>
@@ -791,6 +959,7 @@ async function renderChangelogPage() {
 
 // --- Tab generation ----------------------------------------------------------
 
+// Standard RSS tabs
 async function generateOneTab({ tabKey, tabLabel, primaryFeeds, secondaryFeeds, avoidKeys, metrics }) {
   const seenPath = SEEN_PATHS[tabKey];
   const seen = await loadSeenFrom(seenPath);
@@ -915,6 +1084,115 @@ async function generateOneTab({ tabKey, tabLabel, primaryFeeds, secondaryFeeds, 
   };
 }
 
+// NEW: Today in Tech tab generator (model-only, exact-date history)
+async function generateTodayInTechTab({ tabKey, tabLabel, metrics }) {
+  const dateHuman = monthDayHuman();
+
+  const prompt = buildPromptTodayInTech(dateHuman);
+  log(`[${tabKey}] Calling OpenAI (history) for date`, dateHuman);
+
+  const resp = await openai.chat.completions.create({
+    model: "gpt-4o-mini",
+    temperature: 0.2, // requested: A (low creativity / safer)
+    messages: [
+      { role: "system", content: "You are careful and avoid hallucinations. If unsure, you say you are unsure and you do not invent facts." },
+      { role: "user", content: prompt },
+    ],
+  });
+
+  const raw = resp.choices?.[0]?.message?.content?.trim() ?? "";
+  if (!raw) throw new Error(`[${tabKey}] Empty response from model`);
+
+  if (MODEL_OUTPUT_LOGGING) {
+    jlog("debug", "model_output", { tab: tabKey, text: raw.slice(0, 4000) });
+  }
+
+  const { oneLiner, bullets, explainer, tags, sources } = parseModelOutput(raw);
+
+  // Build pseudo-items from SOURCES so the UI can render citations.
+  // Mark as display-worthy: aiStrict=true and offTopic=false.
+  const items = (sources || [])
+    .filter(u => /^https?:\/\//i.test(u))
+    .slice(0, 6)
+    .map(u => ({
+      title: "Reference",
+      link: u,
+      source: safeHostname(u),
+      snippet: "",
+      publishedAt: null,
+      _score: 0,
+      _aiLoose: true,
+      _aiStrict: true,
+      _offTopic: false,
+    }))
+    .filter(it => it.source); // ensure hostname exists
+
+  // If model explicitly says "no milestones", treat as a non-crash "no update" style panel.
+  const noMilestones =
+    /^no widely documented technology milestones occurred on this date/i.test(oneLiner || "") ||
+    /\bno widely documented technology milestones\b/i.test(raw);
+
+  jlog("info", "tab_selection", {
+    tab: tabKey,
+    freshnessUsed: 0,
+    usedSecondary: false,
+    relaxedAI: false,
+    picked: items.map(it => ({
+      source: it.source,
+      title: it.title,
+      age_hours: null,
+      score: 0,
+      aiLoose: true,
+      aiStrict: true,
+      offTopic: false,
+    })),
+  });
+
+  if (noMilestones) {
+    return {
+      tabKey,
+      label: tabLabel,
+      items, // may be empty if sources NONE
+      freshnessUsed: 0,
+      usedSecondary: false,
+      relaxedAI: false,
+      oneLiner: "No widely documented technology milestones occurred on this date.",
+      bullets: bullets?.length ? bullets : [
+        "Historical records can be incomplete or inconsistently documented.",
+        "Some events may not have a clear, widely cited date.",
+        "Check other tabs for today’s current tech context.",
+      ],
+      explainerHtml: sanitizeExplainer(explainer || "No widely documented technology milestones were confidently verified for this exact calendar date."),
+      tags: (tags && tags.length) ? tags : ["tech-history", "on-this-day"],
+      noteText: "",
+      failed: false,
+    };
+  }
+
+  // If it produced content but no sources, still allow it (sources section will just show nothing meaningful).
+  const explainerHtml = sanitizeExplainer(explainer || "");
+  const finalTags = (tags && tags.length) ? tags : ["tech-history", "on-this-day"];
+
+  return {
+    tabKey,
+    label: tabLabel,
+    items,
+    freshnessUsed: 0,
+    usedSecondary: false,
+    relaxedAI: false,
+    oneLiner: oneLiner || `On ${dateHuman}, several notable tech milestones helped shape modern computing.`,
+    bullets: bullets?.length ? bullets : [
+      "Technology milestones often have long tail impacts on today’s platforms and products.",
+      "Seeing origins helps separate hype from real underlying shifts.",
+      "History gives context for today’s AI and software debates.",
+    ],
+    explainerHtml,
+    tags: finalTags,
+    noteText: "",
+    failed: false,
+  };
+}
+
 // --- Main --------------------------------------------------------------------
 
 async function main() {
@@ -948,18 +1226,29 @@ async function main() {
 
     for (const tab of TABS) {
       try {
-        const res = await generateOneTab({
-          tabKey: tab.key,
-          tabLabel: tab.label,
-          primaryFeeds: tab.primary,
-          secondaryFeeds: tab.secondary,
-          avoidKeys,
-          metrics,
-        });
+        let res;
 
-        for (const it of res.items) {
-          avoidKeys.add(makeCrossTabKey(it));
-          avoidKeys.add(`title:${normalizeKey(it.title)}`);
+        if (tab.key === "today_in_tech") {
+          res = await generateTodayInTechTab({
+            tabKey: tab.key,
+            tabLabel: tab.label,
+            metrics,
+          });
+        } else {
+          res = await generateOneTab({
+            tabKey: tab.key,
+            tabLabel: tab.label,
+            primaryFeeds: tab.primary,
+            secondaryFeeds: tab.secondary,
+            avoidKeys,
+            metrics,
+          });
+
+          // For RSS tabs, add picked items into avoidKeys so later tabs don’t repeat the same stories
+          for (const it of res.items) {
+            avoidKeys.add(makeCrossTabKey(it));
+            avoidKeys.add(`title:${normalizeKey(it.title)}`);
+          }
         }
 
         results.push(res);
@@ -967,7 +1256,16 @@ async function main() {
         const msg = err?.message || String(err);
         log(`[${tab.key}] Tab failed; using fallback panel:`, msg);
         jlog("warn", "tab_failed", { tab: tab.key, message: msg });
-        results.push(buildFallbackPanel(tab.key, msg));
+
+        // Today in Tech fallback should be clearer
+        if (tab.key === "today_in_tech") {
+          results.push(buildFallbackPanel(tab.key, msg, {
+            oneLiner: "Today in Tech has no update today.",
+            explainer: `No verified "On this day" tech history items were produced for the exact date.\n\n_(Reason: ${msg})_`,
+          }));
+        } else {
+          results.push(buildFallbackPanel(tab.key, msg));
+        }
       } finally {
         // ---------------- PATCHED METRICS WIRING ----------------
         // Pass picked[] items (not just counts), so collector can compute itemCount/hosts/aiStrict/offTopic/dup
@@ -992,6 +1290,7 @@ async function main() {
           freshnessUsed: Number.isFinite(last?.freshnessUsed) ? last.freshnessUsed : 0,
           hosts,
           picked, // <-- key fix
+          historical: tab.key === "today_in_tech" ? true : false,
         });
         // ---------------------------------------------------------
       }

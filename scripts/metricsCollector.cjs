@@ -14,9 +14,9 @@
 //   - recordRssError() / incrementRssError()
 //   - recordTabSummary(tabKey, summary)
 //   - buildMetricsObject()
-//   - finalizeAndWrite(meta)   <-- your generate.js calls this
-//   - endRun(meta)            (alias)
-//   - writeLatestAndDaily(meta) (alias)
+//   - finalizeAndWrite(meta)
+//   - endRun(meta)
+//   - writeLatestAndDaily(meta)
 
 const fs = require("fs");
 const path = require("path");
@@ -72,8 +72,7 @@ function canonicalKeyFromUrl(link) {
   }
 }
 
-// If generate.js already provides aiStrict/offTopic on picked items, we use them.
-// Otherwise we compute them.
+// AI heuristics (fallback if generate.js does not provide flags)
 const AI_STRICT_RE =
   /(artificial intelligence|\bai\b|machine learning|\bml\b|\bllm\b|large language model|openai|chatgpt|gpt-?4|gpt-?5|anthropic|claude|gemini|copilot|deepmind|llama|mistral|transformer|diffusion|inference|fine[-\s]?tuning|prompt injection|agentic|ai safety|alignment|arxiv)/i;
 
@@ -119,7 +118,7 @@ class MetricsCollector {
       finishedAt: null,
       runSuccess: 0,
 
-      // tab health
+      // tab health (non-historical only)
       tabsTotal: 0,
       tabsSucceeded: 0,
       thinTabs: 0,
@@ -147,7 +146,6 @@ class MetricsCollector {
     return this;
   }
 
-  // Some code uses begin(); keep it
   begin(meta = {}) {
     return this.startRun(meta);
   }
@@ -165,16 +163,9 @@ class MetricsCollector {
   addRssError() { return this.recordRssError(); }
 
   // ----------------------------
-  // Tab recording (compat)
+  // Tab recording
   // ----------------------------
 
-  /**
-   * generate.js calls recordTabSummary(tabKey, summary)
-   *
-   * summary is expected to include:
-   * - freshnessUsed, usedSecondary, relaxedAI, failed
-   * - picked: [{source,title,link?,snippet?,aiStrict?,offTopic? ...}]
-   */
   recordTabSummary(tabKey, summary = {}) {
     if (!this._run) return;
 
@@ -183,6 +174,7 @@ class MetricsCollector {
       : (Array.isArray(summary.items) ? summary.items : []);
 
     const itemCount = picked.length;
+    const isHistorical = !!summary.historical;
 
     const THIN_THRESHOLD = 3;
     const isThin = itemCount > 0 && itemCount < THIN_THRESHOLD;
@@ -201,8 +193,15 @@ class MetricsCollector {
 
       if (source) tabHosts.add(source);
 
-      const aiStrict = (typeof it.aiStrict === "boolean") ? it.aiStrict : computeAiStrict({ source, title, snippet });
-      const offTopic = (typeof it.offTopic === "boolean") ? it.offTopic : computeOffTopic({ source, title, snippet });
+      const aiStrict =
+        (typeof it.aiStrict === "boolean")
+          ? it.aiStrict
+          : computeAiStrict({ source, title, snippet });
+
+      const offTopic =
+        (typeof it.offTopic === "boolean")
+          ? it.offTopic
+          : computeOffTopic({ source, title, snippet });
 
       const urlKey = canonicalKeyFromUrl(link);
       const titleKey = normalizeKey(title);
@@ -229,8 +228,11 @@ class MetricsCollector {
     this._run.tabsTotal += 1;
     this._run.tabsSucceeded += summary.failed ? 0 : 1;
 
-    if (isThin) this._run.thinTabs += 1;
-    if (isNoUpdate) this._run.noUpdateTabs += 1;
+    // ✅ ONLY penalise non-historical tabs
+    if (!isHistorical) {
+      if (isThin) this._run.thinTabs += 1;
+      if (isNoUpdate) this._run.noUpdateTabs += 1;
+    }
 
     this._run.pickedItemsTotal += itemCount;
     this._run.aiStrictCount += tabAiStrict;
@@ -240,6 +242,7 @@ class MetricsCollector {
     this._run.tabs.push({
       key: tabKey,
       label: summary.label || tabKey,
+      historical: isHistorical,
       failed: !!summary.failed,
       freshnessUsed: summary.freshnessUsed ?? null,
       usedSecondary: !!summary.usedSecondary,
@@ -253,17 +256,15 @@ class MetricsCollector {
     });
   }
 
-  // You may also call recordTab(tabKey, meta, items) directly if you want
   recordTab(tabKey, meta = {}, items = []) {
     return this.recordTabSummary(tabKey, { ...meta, picked: items });
   }
 
   // ----------------------------
-  // Build + finalize + write (compat)
+  // Build + finalize + write
   // ----------------------------
 
   buildMetricsObject() {
-    // generate.js expects this to exist
     return this._run || {};
   }
 
@@ -273,7 +274,6 @@ class MetricsCollector {
     this._run.finishedAt = meta.finishedAt || ts();
     this._run.runSuccess = meta.runSuccess ? 1 : 0;
 
-    // Compute overall hostCount across tabs
     const allHosts = new Set();
     for (const t of this._run.tabs) {
       for (const h of t.hosts || []) allHosts.add(h);
@@ -297,12 +297,10 @@ class MetricsCollector {
     return { dayPath, latestPath: this.latestPath };
   }
 
-  // generate.js is calling this (per your log)
   finalizeAndWrite(meta = {}) {
     return this.writeLatestAndDaily(meta);
   }
 
-  // Keep older alias
   endRun(meta = {}) {
     return this.writeLatestAndDaily(meta);
   }

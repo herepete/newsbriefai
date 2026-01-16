@@ -13,38 +13,15 @@ import sys
 LOG_DIR = Path("/opt/bitnami/apache/logs")
 WINDOW_MINUTES = int(sys.argv[1]) if len(sys.argv) > 1 else 1440  # default 24h
 
-# Apache log date: [15/Jan/2026:06:30:44 +0000]
+# Apache date format: [15/Jan/2026:06:30:44 +0000]
 DATE_RE = re.compile(r"\[(\d{2}/\w{3}/\d{4}:\d{2}:\d{2}:\d{2})")
 UA_RE = re.compile(r'"[^"]*" "[^"]*" "([^"]*)"')
 
-# Known bot / crawler identifiers (UA-based)
-BOT_UA_KEYWORDS = [
+BOT_KEYWORDS = [
     "bot", "spider", "crawl", "slurp",
     "google", "bing", "duckduckgo",
-    "yandex", "baidu",
-    "ahrefs", "semrush", "mj12",
-    "uptimerobot", "pingdom",
-    "curl", "python", "go-http-client"
-]
-
-# High-confidence malicious / automated scan paths
-SUSPICIOUS_PATH_KEYWORDS = [
-    "/.env",
-    "/.git",
-    "/wp-",
-    "/xmlrpc.php",
-    "/backup",
-    "/database",
-    ".sql",
-    ".bak",
-    "/storage/",
-    "/laravel",
-    "/vendor/phpunit",
-    "/Core/",
-    "/SDK/",
-    "/login.aspx",
-    "/config",
-    "/debug"
+    "yandex", "baidu", "ahrefs",
+    "semrush", "mj12", "uptimerobot"
 ]
 
 # ------------------------------------------------------------
@@ -68,19 +45,11 @@ def iter_log_lines(path):
         with path.open("r", errors="ignore") as f:
             yield from f
 
-def is_bot(user_agent, path):
-    ua = (user_agent or "").lower()
-    p = (path or "").lower()
-
-    # UA-based detection
-    if any(k in ua for k in BOT_UA_KEYWORDS):
-        return True
-
-    # Path-based detection (very strong signal)
-    if any(k in p for k in SUSPICIOUS_PATH_KEYWORDS):
-        return True
-
-    return False
+def is_bot(user_agent):
+    if not user_agent:
+        return False
+    ua = user_agent.lower()
+    return any(k in ua for k in BOT_KEYWORDS)
 
 # ------------------------------------------------------------
 
@@ -89,7 +58,7 @@ def collect_stats(minutes):
 
     logs = [LOG_DIR / "access_log"]
 
-    # Include rotated logs only if window > 48h
+    # Include rotated logs if window > 48h
     if minutes > 2880:
         for f in LOG_DIR.glob("access_log-*.gz"):
             if datetime.fromtimestamp(f.stat().st_mtime) >= cutoff:
@@ -129,12 +98,12 @@ def collect_stats(minutes):
             ua_match = UA_RE.search(line)
             user_agent = ua_match.group(1) if ua_match else ""
 
+            bot = is_bot(user_agent)
+
             try:
                 path = line.split('"')[1].split()[1]
             except Exception:
-                path = ""
-
-            bot = is_bot(user_agent, path)
+                path = None
 
             if bot:
                 stats["bot_hits"] += 1
@@ -144,7 +113,9 @@ def collect_stats(minutes):
                 stats["human_hits"] += 1
                 stats["human_ips"].add(ip)
                 stats["last_human_hit"] = max(stats["last_human_hit"], ts) if stats["last_human_hit"] else ts
-                stats["paths"][path] = stats["paths"].get(path, 0) + 1
+
+                if path:
+                    stats["paths"][path] = stats["paths"].get(path, 0) + 1
 
     return stats
 

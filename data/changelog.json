@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "date": "2026-01-15",
+      "type": "feature",
+      "title": "Automation, quality controls, and user feedback",
+      "detail": "Added cron jobs for daily metrics, Apache interest analysis, daily site backups, and automatic cleanup after 28 days. Centralised cron logging. Introduced source filtering to suppress off-topic links, added a generate.js validation script, launched the \"Today in Tech\" history tab (with metrics support), and added secure per-tab thumbs up/down feedback."
+    },
+    {
+      "date": "2025-12-30",
+      "type": "internal",
+      "title": "Added daily scoring + metrics tracking",
+      "detail": "Introduced daily metrics outputs to track reliability and content quality over time (thin tabs, no-update tabs, RSS error rates, strict AI relevance, off-topic detection, and duplication indicators). Metrics are written per-day and as a rolling latest snapshot."
+    },
+    {
       "date": "2025-12-23",
       "type": "feature",
       "title": "Added AI Security and Ethics & Policy tabs",
