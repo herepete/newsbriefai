@@ -126,35 +126,35 @@ How the site is served:
 Top-level layout (simplified):
 
 /home/bitnami/htdocs
-├── public/                 # All user-facing static output
-│   ├── index.html
-│   ├── archive/
-│   ├── about.html
-│   ├── changelog.html
-│   └── data/
-│       ├── tabs.json
-│       ├── metrics/
-│       └── feedback/
+├── public/ # All user-facing static output
+│ ├── index.html
+│ ├── archive/
+│ ├── about.html
+│ ├── changelog.html
+│ └── data/
+│ ├── tabs.json
+│ ├── metrics/
+│ └── feedback/
 │
-├── scripts/                # All automation and generation logic
-│   ├── generate.js
-│   ├── metricsCollector.cjs
-│   ├── metrics_trends.py
-│   ├── apache_intrest.py
-│   ├── feedbackServer.cjs
-│   └── check_generate.sh
+├── scripts/ # All automation and generation logic
+│ ├── generate.js
+│ ├── metricsCollector.cjs
+│ ├── metrics_trends.py
+│ ├── apache_intrest.py
+│ ├── feedbackServer.cjs
+│ └── check_generate.sh
 │
-├── templates/              # HTML templates
-│   └── index.template.html
+├── templates/ # HTML templates
+│ └── index.template.html
 │
-├── data/                   # Generator state (seen caches, changelog source)
-│   ├── seen.json
-│   ├── seen.*.json
-│   └── changelog.json
+├── data/ # Generator state
+│ ├── seen.json
+│ ├── seen.*.json
+│ └── changelog.json
 │
-├── logs/                   # Cron and script logs
+├── logs/ # Cron and script logs
 │
-└── node_modules/           # Node dependencies (dev + runtime)
+└── node_modules/ # Node dependencies (dev + runtime)
 
 ---
 
