@@ -1,0 +1,32 @@
+{
+  "votes": [
+    {
+      "ymd": "2026-01-26",
+      "tab": "uk",
+      "vote": "up",
+      "anonId": "test-123",
+      "createdAt": "2026-01-26T22:28:32.945Z"
+    },
+    {
+      "ymd": "2026-01-26",
+      "tab": "health-check",
+      "vote": "up",
+      "anonId": "health-check-1769466831",
+      "createdAt": "2026-01-26T22:33:52.045Z"
+    },
+    {
+      "ymd": "2026-01-26",
+      "tab": "health-check",
+      "vote": "up",
+      "anonId": "health-check-1769466844",
+      "createdAt": "2026-01-26T22:34:04.998Z"
+    },
+    {
+      "ymd": "2026-01-26",
+      "tab": "health-check",
+      "vote": "up",
+      "anonId": "health-check-1769467496",
+      "createdAt": "2026-01-26T22:44:56.381Z"
+    }
+  ]
+}

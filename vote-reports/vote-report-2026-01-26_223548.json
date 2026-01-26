@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-01-26T22:35:48+00:00",
+  "totals": {
+    "up": 3,
+    "down": 0
+0,
+    "total": ,
+    "positive_rate_percent": 0
+  },
+  "by_tab": {
+    "health-check": {"up": 2, "down": 0, "total": 2, "positive_percent": 100},
+    "uk": {"up": 1, "down": 0, "total": 1, "positive_percent": 100}
+  },
+  "by_date": {
+    "2026-01-26": {"up": 3, "down": 0, "total": 3, "positive_percent": 100}
+  }
+}

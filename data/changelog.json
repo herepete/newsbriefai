@@ -1,6 +1,12 @@
 {
   "entries": [
     {
+      "date": "2026-01-26",
+      "type": "feature",
+      "title": "Feedback infrastructure production setup",
+      "detail": "Implemented systemd service to auto-start and maintain feedback server (port 3001) with automatic restart on crash. Added health-check.sh script to monitor service status and API responsiveness. Added count-votes.sh script to analyze feedback data and generate daily vote reports (text and JSON formats) with breakdown by tab and date. Feedback votes are now tracked 24/7 with full uptime."
+    },
+    {
       "date": "2026-01-15",
       "type": "feature",
       "title": "Automation, quality controls, and user feedback",
