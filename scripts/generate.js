@@ -902,6 +902,14 @@ function renderAboutPage() {
       <li><strong>Limitations:</strong> Summaries only reflect what appears in the feed titles/snippets. If coverage is thin, we may broaden sources and note it.</li>
       <li><strong>Privacy:</strong> No tracking; static HTML.</li>
     </ul>
+<h2>Support</h2>
+<p>
+  This site is run independently and maintained as a personal project.
+  If you find it useful and would like to support ongoing hosting and development,
+  you can <a href="https://buymeacoffee.com/techstuff" target="_blank" rel="noopener noreferrer">
+  buy me a coffee ☕
+  </a>.
+</p>
     <p style="opacity:.7">Last generated: ${human}</p>
   </main>
 </body>
